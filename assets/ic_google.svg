@@ -1,0 +1,19 @@
+<svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <g id="Group_236" transform="translate(-84 -612)">
+        <rect fill="none" height="24" id="Rectangle_197" transform="translate(84 612)" width="24" />
+        <g id="search" transform="translate(84 612)">
+            <path d="M5.319,146.29l-.835,3.119-3.053.065a12.021,12.021,0,0,1-.088-11.205h0l2.718.5,1.191,2.7a7.162,7.162,0,0,0,.067,4.822Z"
+                fill="#fbbb00"
+                id="Path_1739" transform="translate(0 -131.787)" />
+            <path d="M273.154,208.176a12,12,0,0,1-4.278,11.6h0l-3.424-.175-.485-3.025a7.152,7.152,0,0,0,3.077-3.652h-6.417v-4.747h11.527Z"
+                fill="#518ef8"
+                id="Path_1740" transform="translate(-249.364 -198.418)" />
+            <path d="M48.591,316.263h0a12,12,0,0,1-18.082-3.671l3.889-3.183a7.137,7.137,0,0,0,10.284,3.654Z"
+                fill="#28b446"
+                id="Path_1741" transform="translate(-29.079 -294.905)" />
+            <path d="M46.942,2.763,43.054,5.945a7.136,7.136,0,0,0-10.52,3.736l-3.909-3.2h0A12,12,0,0,1,46.942,2.763Z"
+                fill="#f14336"
+                id="Path_1742" transform="translate(-27.282)" />
+        </g>
+    </g>
+</svg>
