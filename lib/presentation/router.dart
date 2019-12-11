@@ -1,3 +1,4 @@
+import 'package:find_seat/presentation/screen/login/sc_login.dart';
 import 'package:flutter/material.dart';
 
 import 'screen/home/sc_home.dart';
@@ -14,6 +15,8 @@ class Router {
         return MaterialPageRoute(builder: (_) => HomeScreen());
       case SPLASH:
         return MaterialPageRoute(builder: (_) => SplashScreen());
+      case LOGIN:
+        return MaterialPageRoute(builder: (_) => LoginScreen());
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(
