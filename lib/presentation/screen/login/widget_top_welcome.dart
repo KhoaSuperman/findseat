@@ -16,7 +16,8 @@ class WidgetTopWelcome extends StatelessWidget {
         WidgetSpacer(height: 40),
         Text('Welcome Buddies', style: FONT_CONST.MEDIUM_WHITE_22),
         Text(' Login to book your seat, I said its your seat',
-            style: FONT_CONST.MEDIUM_WHITE_14)
+            style: FONT_CONST.MEDIUM_WHITE_14),
+        WidgetSpacer(height: 30),
       ],
     );
   }
