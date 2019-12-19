@@ -1,6 +1,9 @@
 import 'package:find_seat/presentation/common_widgets/widget_spacer.dart';
+import 'package:find_seat/presentation/screen/login/widget_btn_facebook.dart';
+import 'package:find_seat/presentation/screen/login/widget_btn_google.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class WidgetLoginForm extends StatelessWidget {
   @override
@@ -36,6 +39,21 @@ class WidgetLoginForm extends StatelessWidget {
           _buildButtonLogin(),
           WidgetSpacer(height: 30),
           _buildTextOr(),
+          WidgetSpacer(height: 20),
+          _buildSocialLogin(),
+        ],
+      ),
+    );
+  }
+
+  _buildSocialLogin() {
+    return Container(
+      height: 40,
+      child: Row(
+        children: <Widget>[
+          WidgetBtnGoogle(),
+          SizedBox(width: 20),
+          WidgetBtnFacebook(),
         ],
       ),
     );
