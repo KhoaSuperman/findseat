@@ -1,8 +1,7 @@
-
 import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
+import 'package:flutter/material.dart';
 
 class COLOR_CONST {
-
   //https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
 
   static final HexColor DEFAULT = new HexColor("#E81667");
@@ -20,10 +19,12 @@ class COLOR_CONST {
   static final HexColor GRAY4 = new HexColor("#666666");
   static final HexColor GRAY5 = new HexColor("#C1C1C1");
   static final HexColor ITEM_BG = new HexColor("#F3F6F8");
+  static final HexColor BLUE = new HexColor("#222539");
 
   static final HexColor GOOGLE_BTN = new HexColor("#FFF1F0");
   static final HexColor GOOGLE_BORDER_BTN = new HexColor("#F14336");
   static final HexColor FACEBOOK_BTN = new HexColor("#F5F9FF");
   static final HexColor FACEBOOK_BORDER_BTN = new HexColor("#3164CE");
 
+  static final MaterialColor STATUS_BAR = MaterialColor(0xFF2E3147, {});
 }
