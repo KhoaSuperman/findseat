@@ -1,1 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="27.951" height="25.441" viewBox="0 0 27.951 25.441"><defs><style>.a{fill:#2ec492;}</style></defs><g transform="translate(0 -23.445)"><g transform="translate(1.638 25.958)"><path class="a" d="M34.968,68.5H30.819a.819.819,0,0,0,0,1.638h4.149a.819.819,0,0,0,0-1.638Z" transform="translate(-30 -68.5)"/></g><g transform="translate(1.638 32.509)"><path class="a" d="M34.968,188.5H30.819a.819.819,0,0,0,0,1.638h4.149a.819.819,0,1,0,0-1.638Z" transform="translate(-30 -188.5)"/></g><g transform="translate(0 29.233)"><path class="a" d="M4.968,128.5H.819a.819.819,0,0,0,0,1.638H4.968a.819.819,0,0,0,0-1.638Z" transform="translate(0 -128.5)"/></g><g transform="translate(10.7 28.413)"><path class="a" d="M211.613,118.391h-4.968v-3.276a1.641,1.641,0,0,0-2.8-1.157l-6.551,6.551a1.637,1.637,0,0,0,0,2.316l3.755,3.755-4.574,4.574a1.638,1.638,0,0,0,2.316,2.316l5.732-5.732a1.637,1.637,0,0,0,0-2.316l-3.755-3.755,2.6-2.6v.96a1.638,1.638,0,0,0,1.638,1.638h6.606a1.638,1.638,0,1,0,0-3.276Z" transform="translate(-196 -113.477)"/></g><g transform="translate(8.243 24.73)"><path class="a" d="M158.049,46.281a1.638,1.638,0,0,0-2.066.2l-4.5,4.5a1.638,1.638,0,1,0,2.316,2.316l3.555-3.555,1.2.863,1.6-1.6a3.257,3.257,0,0,1,.928-.638Z" transform="translate(-150.999 -46.006)"/></g><g transform="translate(0.873 37.441)"><path class="a" d="M25.967,280.328a3.246,3.246,0,0,1-.838-1.478l-8.65,8.65a1.638,1.638,0,0,0,2.316,2.316l8.33-8.33Z" transform="translate(-16 -278.85)"/></g><g transform="translate(20.095 23.445)"><g transform="translate(0 0)"><ellipse class="a" cx="2.04" cy="2.55" rx="2.04" ry="2.55"/></g></g></g></svg>
+<svg height="25.441" viewBox="0 0 27.951 25.441" width="27.951" xmlns="http://www.w3.org/2000/svg">
+    <g id="running" transform="translate(0 -23.445)">
+        <g id="Group_294" transform="translate(1.638 25.958)">
+            <g id="Group_293">
+                <path d="M34.968,68.5H30.819a.819.819,0,0,0,0,1.638h4.149a.819.819,0,0,0,0-1.638Z"
+                    fill="#2ec492"
+                    id="Path_1808" transform="translate(-30 -68.5)" />
+            </g>
+        </g>
+        <g id="Group_296" transform="translate(1.638 32.509)">
+            <g id="Group_295">
+                <path d="M34.968,188.5H30.819a.819.819,0,0,0,0,1.638h4.149a.819.819,0,1,0,0-1.638Z"
+                    fill="#2ec492"
+                    id="Path_1809" transform="translate(-30 -188.5)" />
+            </g>
+        </g>
+        <g id="Group_298" transform="translate(0 29.233)">
+            <g id="Group_297">
+                <path d="M4.968,128.5H.819a.819.819,0,0,0,0,1.638H4.968a.819.819,0,0,0,0-1.638Z"
+                    fill="#2ec492"
+                    id="Path_1810" transform="translate(0 -128.5)" />
+            </g>
+        </g>
+        <g id="Group_300" transform="translate(10.7 28.413)">
+            <g id="Group_299">
+                <path d="M211.613,118.391h-4.968v-3.276a1.641,1.641,0,0,0-2.8-1.157l-6.551,6.551a1.637,1.637,0,0,0,0,2.316l3.755,3.755-4.574,4.574a1.638,1.638,0,0,0,2.316,2.316l5.732-5.732a1.637,1.637,0,0,0,0-2.316l-3.755-3.755,2.6-2.6v.96a1.638,1.638,0,0,0,1.638,1.638h6.606a1.638,1.638,0,1,0,0-3.276Z"
+                    fill="#2ec492"
+                    id="Path_1811" transform="translate(-196 -113.477)" />
+            </g>
+        </g>
+        <g id="Group_302" transform="translate(8.243 24.73)">
+            <g id="Group_301">
+                <path d="M158.049,46.281a1.638,1.638,0,0,0-2.066.2l-4.5,4.5a1.638,1.638,0,1,0,2.316,2.316l3.555-3.555,1.2.863,1.6-1.6a3.257,3.257,0,0,1,.928-.638Z"
+                    fill="#2ec492"
+                    id="Path_1812" transform="translate(-150.999 -46.006)" />
+            </g>
+        </g>
+        <g id="Group_304" transform="translate(0.873 37.441)">
+            <g id="Group_303">
+                <path d="M25.967,280.328a3.246,3.246,0,0,1-.838-1.478l-8.65,8.65a1.638,1.638,0,0,0,2.316,2.316l8.33-8.33Z"
+                    fill="#2ec492"
+                    id="Path_1813" transform="translate(-16 -278.85)" />
+            </g>
+        </g>
+        <g id="Group_306" transform="translate(20.095 23.445)">
+            <g id="Group_305" transform="translate(0 0)">
+                <ellipse cx="2.04" cy="2.55" fill="#2ec492" id="Ellipse_4" rx="2.04" ry="2.55" />
+            </g>
+        </g>
+    </g>
+</svg>

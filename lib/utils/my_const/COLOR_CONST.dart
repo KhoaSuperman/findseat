@@ -18,6 +18,7 @@ class COLOR_CONST {
   static final HexColor GRAY3 = new HexColor("#F4F4F4");
   static final HexColor GRAY4 = new HexColor("#666666");
   static final HexColor GRAY5 = new HexColor("#C1C1C1");
+  static final HexColor GRAY6 = new HexColor("#707070");
   static final HexColor ITEM_BG = new HexColor("#F3F6F8");
   static final HexColor BLUE = new HexColor("#222539");
 

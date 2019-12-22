@@ -1,3 +1,4 @@
+import 'package:find_seat/presentation/common_widgets/widget_spacer.dart';
 import 'package:flutter/material.dart';
 
 import 'barrel_home.dart';
@@ -11,6 +12,7 @@ class HomeScreen extends StatelessWidget {
           children: <Widget>[
             WidgetHomeToolbar(),
             WidgetHomeBanner(),
+            WidgetSpacer(height: 30),
             WidgetHomeCategories(),
             WidgetRecommendedSeats(),
             WidgetNearbyTheatres(),
