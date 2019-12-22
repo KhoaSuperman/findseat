@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
             WidgetHomeBanner(),
             WidgetSpacer(height: 30),
             WidgetHomeCategories(),
+            WidgetSpacer(height: 30),
             WidgetRecommendedSeats(),
             WidgetNearbyTheatres(),
             WidgetHomeEvents(),

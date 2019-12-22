@@ -28,6 +28,9 @@ class FONT_CONST {
   static final REGULAR_GRAY1 = REGULAR.copyWith(color: COLOR_CONST.GRAY1);
   static final REGULAR_GRAY1_12 = REGULAR_GRAY1.copyWith(fontSize: 12);
 
+  static final REGULAR_BLACK2 = REGULAR.copyWith(color: COLOR_CONST.BLACK2);
+  static final REGULAR_BLACK2_12 = REGULAR_BLACK2.copyWith(fontSize: 12);
+
   static final REGULAR_GRAY4 = REGULAR.copyWith(color: COLOR_CONST.GRAY4);
   static final REGULAR_GRAY4_12 = REGULAR_GRAY4.copyWith(fontSize: 12);
 
@@ -35,6 +38,7 @@ class FONT_CONST {
   static final REGULAR_GRAY5_10 = REGULAR_GRAY5.copyWith(fontSize: 10);
 
   static final REGULAR_GRAY6 = REGULAR.copyWith(color: COLOR_CONST.GRAY6);
+  static final REGULAR_GRAY6_10 = REGULAR_GRAY6.copyWith(fontSize: 10);
   static final REGULAR_GRAY6_12 = REGULAR_GRAY6.copyWith(fontSize: 12);
 
   //MEDIUM
