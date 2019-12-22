@@ -23,6 +23,7 @@ class FONT_CONST {
   //REGULAR
   static final REGULAR_WHITE = REGULAR.copyWith(color: COLOR_CONST.WHITE);
   static final REGULAR_WHITE_10 = REGULAR_WHITE.copyWith(fontSize: 10);
+  static final REGULAR_WHITE_12 = REGULAR_WHITE.copyWith(fontSize: 12);
 
   static final REGULAR_GRAY1 = REGULAR.copyWith(color: COLOR_CONST.GRAY1);
   static final REGULAR_GRAY1_12 = REGULAR_GRAY1.copyWith(fontSize: 12);
@@ -48,5 +49,6 @@ class FONT_CONST {
   //SEMI_BOLD
   static final SEMIBOLD_WHITE = SEMIBOLD.copyWith(color: COLOR_CONST.WHITE);
   static final SEMIBOLD_WHITE_10 = SEMIBOLD_WHITE.copyWith(fontSize: 10);
+  static final SEMIBOLD_WHITE_16 = SEMIBOLD_WHITE.copyWith(fontSize: 16);
   static final SEMIBOLD_WHITE_18 = SEMIBOLD_WHITE.copyWith(fontSize: 18);
 }
