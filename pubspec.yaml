@@ -33,6 +33,7 @@ dev_dependencies:
   sprintf: "^4.0.0"
   uuid: "2.0.1"
   flutter_svg: ^0.14.2
+  google_maps_flutter: ^0.5.21+14
 
 
 # For information on the generic Dart part of this file, see the
