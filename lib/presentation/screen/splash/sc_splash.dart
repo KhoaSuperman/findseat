@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void openLogin() {
     Future.delayed(Duration(seconds: 2), () {
-      Navigator.pushNamed(context, Router.LOGIN);
+      Navigator.pushNamed(context, Router.HOME);
     });
   }
 }
