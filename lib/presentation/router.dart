@@ -1,3 +1,4 @@
+import 'package:find_seat/presentation/screen/all_shows/barrel_all_shows.dart';
 import 'package:find_seat/presentation/screen/login/sc_login.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ class Router {
   static const String HOME = '/';
   static const String SPLASH = '/splash';
   static const String LOGIN = '/login';
+  static const String ALL_SHOWS = '/all_shows';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -17,6 +19,8 @@ class Router {
         return MaterialPageRoute(builder: (_) => SplashScreen());
       case LOGIN:
         return MaterialPageRoute(builder: (_) => LoginScreen());
+      case ALL_SHOWS:
+        return MaterialPageRoute(builder: (_) => AllShowsScreen());
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(
