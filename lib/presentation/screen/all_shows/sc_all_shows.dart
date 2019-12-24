@@ -4,13 +4,17 @@ import 'package:flutter/material.dart';
 class AllShowsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: ListView(
-          children: <Widget>[
-            WidgetAllShowsToolbar(),
-            WidgetShowGallery(),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          child: Column(
+            children: <Widget>[
+              WidgetAllShowsToolbar(),
+              Expanded(
+                child: WidgetShowGallery(),
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -14,6 +14,7 @@ class COLOR_CONST {
   static final HexColor BLACK2 = new HexColor("#333333");
   static final HexColor BLACK_30 = new HexColor("#4D000000");
   static final HexColor GRAY1 = new HexColor("#999999");
+  static final HexColor GRAY1_70 = new HexColor("#B3999999");
   static final HexColor GRAY2 = new HexColor("#F8F8F8");
   static final HexColor GRAY3 = new HexColor("#F4F4F4");
   static final HexColor GRAY4 = new HexColor("#666666");
