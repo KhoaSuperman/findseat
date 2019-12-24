@@ -11,12 +11,17 @@ class WidgetAllShowsToolbar extends StatelessWidget {
       height: 50,
       child: Row(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(left: 12, right: 10),
-            child: MySvgImage(
-              width: 19,
-              height: 16,
-              path: 'assets/ic_back.svg',
+          GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(left: 12, right: 10),
+              child: MySvgImage(
+                width: 19,
+                height: 16,
+                path: 'assets/ic_back.svg',
+              ),
             ),
           ),
           Expanded(

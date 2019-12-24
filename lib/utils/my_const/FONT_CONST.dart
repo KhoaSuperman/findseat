@@ -30,6 +30,7 @@ class FONT_CONST {
 
   static final REGULAR_BLACK2 = REGULAR.copyWith(color: COLOR_CONST.BLACK2);
   static final REGULAR_BLACK2_12 = REGULAR_BLACK2.copyWith(fontSize: 12);
+  static final REGULAR_BLACK2_14 = REGULAR_BLACK2.copyWith(fontSize: 14);
 
   static final REGULAR_GRAY4 = REGULAR.copyWith(color: COLOR_CONST.GRAY4);
   static final REGULAR_GRAY4_12 = REGULAR_GRAY4.copyWith(fontSize: 12);

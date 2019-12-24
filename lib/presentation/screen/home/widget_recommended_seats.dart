@@ -1,4 +1,5 @@
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
+import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
@@ -58,36 +59,49 @@ class _WidgetItemRecommendedSeat extends StatelessWidget {
 
   _WidgetItemRecommendedSeat(this.item);
 
+  BuildContext _context;
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Image.asset(
-            item.photo,
-            width: 93,
-            height: 124,
-            fit: BoxFit.contain,
-          ),
-        ),
-        WidgetSpacer(height: 6),
-        Text(item.title, style: FONT_CONST.REGULAR_BLACK2_12),
-        WidgetSpacer(height: 2),
-        Row(
-          children: <Widget>[
-            Icon(
-              Icons.favorite,
-              color: COLOR_CONST.DEFAULT,
-              size: 14,
+    _context = context;
+
+    return GestureDetector(
+      onTap: () {
+        openShowDetails();
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Image.asset(
+              item.photo,
+              width: 93,
+              height: 124,
+              fit: BoxFit.contain,
             ),
-            WidgetSpacer(width: 6),
-            Text('${item.likePercent}%', style: FONT_CONST.REGULAR_GRAY6_10)
-          ],
-        ),
-      ],
+          ),
+          WidgetSpacer(height: 6),
+          Text(item.title, style: FONT_CONST.REGULAR_BLACK2_12),
+          WidgetSpacer(height: 2),
+          Row(
+            children: <Widget>[
+              Icon(
+                Icons.favorite,
+                color: COLOR_CONST.DEFAULT,
+                size: 14,
+              ),
+              WidgetSpacer(width: 6),
+              Text('${item.likePercent}%', style: FONT_CONST.REGULAR_GRAY6_10)
+            ],
+          ),
+        ],
+      ),
     );
+  }
+
+  void openShowDetails() {
+    Navigator.pushNamed(_context, Router.ALL_SHOWS);
   }
 }
 
