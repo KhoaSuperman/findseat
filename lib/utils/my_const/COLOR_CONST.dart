@@ -27,6 +27,7 @@ class COLOR_CONST {
   static final HexColor GOOGLE_BORDER_BTN = new HexColor("#F14336");
   static final HexColor FACEBOOK_BTN = new HexColor("#F5F9FF");
   static final HexColor FACEBOOK_BORDER_BTN = new HexColor("#3164CE");
+  static final HexColor TAG_BG = new HexColor("#FFE5EF");
 
   static final MaterialColor STATUS_BAR = MaterialColor(0xFF2E3147, {});
 }
