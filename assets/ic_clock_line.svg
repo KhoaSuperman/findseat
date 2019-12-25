@@ -1,0 +1,13 @@
+<svg height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg">
+    <g id="Group_347" transform="translate(-20 -332)">
+        <rect fill="none" height="10" id="Rectangle_229" transform="translate(20 332)" width="10" />
+        <g id="time-and-date" transform="translate(20.495 332.495)">
+            <path d="M4.5,0a4.5,4.5,0,1,0,4.5,4.5A4.51,4.51,0,0,0,4.5,0Zm0,8.447A3.942,3.942,0,1,1,8.447,4.5,3.946,3.946,0,0,1,4.5,8.447Z"
+                fill="#999"
+                id="Path_1818" stroke="#999" stroke-width="0.1" />
+            <path d="M258.905,137.783h-.563v2.369l1.49,1.49.4-.4-1.325-1.325Z" fill="#999"
+                id="Path_1819" stroke="#999" stroke-width="0.1"
+                transform="translate(-254.119 -135.531)" />
+        </g>
+    </g>
+</svg>

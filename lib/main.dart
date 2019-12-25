@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Poppins',
       ),
       onGenerateRoute: Router.generateRoute,
-      initialRoute: Router.ALL_SHOWS,
+      initialRoute: Router.SHOW_INFO,
     );
   }
 }
