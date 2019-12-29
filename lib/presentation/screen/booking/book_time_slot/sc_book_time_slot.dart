@@ -48,8 +48,13 @@ class BookTimeSlotScreen extends StatelessWidget {
     )
   ];
 
+  BuildContext _context;
+
   @override
   Widget build(BuildContext context) {
+
+    _context = context;
+
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -94,9 +99,40 @@ class BookTimeSlotScreen extends StatelessWidget {
   _buildBtnToday() {
     return Positioned(
       bottom: 0,
-      child: Placeholder(
-        color: COLOR_CONST.DEFAULT,
-        fallbackHeight: 55,
+      right: 0,
+      left: 0,
+      child: Container(
+        height: 56,
+        padding: EdgeInsets.only(left: 20),
+//        width: MediaQuery.of(_context).size.width,
+        color: COLOR_CONST.BLUE,
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  Icon(Icons.calendar_today,
+                      color: COLOR_CONST.WHITE, size: 14),
+                  WidgetSpacer(width: 6),
+                  Text('Today, 14 NOV', style: FONT_CONST.REGULAR_WHITE_14),
+                  WidgetSpacer(width: 4),
+                  Icon(Icons.keyboard_arrow_down,
+                      color: COLOR_CONST.WHITE, size: 12)
+                ],
+              ),
+            ),
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  Text('Tamil, 3D', style: FONT_CONST.REGULAR_WHITE_14),
+                  WidgetSpacer(width: 4),
+                  Icon(Icons.keyboard_arrow_down,
+                      color: COLOR_CONST.WHITE, size: 10)
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

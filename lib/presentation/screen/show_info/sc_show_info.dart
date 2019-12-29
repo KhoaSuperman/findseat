@@ -1,12 +1,17 @@
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
+import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/presentation/screen/show_info/barrel_show_info.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
 class ShowInfoScreen extends StatelessWidget {
+  BuildContext _context;
+
   @override
   Widget build(BuildContext context) {
+    _context = context;
+
     return SafeArea(
       child: Scaffold(
         body: Stack(
@@ -52,9 +57,15 @@ class ShowInfoScreen extends StatelessWidget {
               Text('Book seats', style: FONT_CONST.MEDIUM_WHITE_16),
             ],
           ),
-          onPressed: () {},
+          onPressed: () {
+            openBookCineTimeSlot();
+          },
         ),
       ),
     );
+  }
+
+  void openBookCineTimeSlot() {
+    Navigator.pushNamed(_context, Router.BOOK_TIME_SLOT);
   }
 }
