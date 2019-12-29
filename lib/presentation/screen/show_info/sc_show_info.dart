@@ -20,6 +20,7 @@ class ShowInfoScreen extends StatelessWidget {
                 WidgetShowReview(),
                 WidgetSpacer(height: 14),
                 WidgetShowCasts(),
+                WidgetSpacer(height: 70),
               ],
             ),
             _buildBtnBookSeat(),
