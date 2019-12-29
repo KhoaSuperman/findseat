@@ -1,5 +1,6 @@
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/custom_ui/svg_image.dart';
+import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
@@ -82,32 +83,44 @@ class _WidgetItemPoster extends StatelessWidget {
 
   _WidgetItemPoster(this.item);
 
+  BuildContext _context;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 93,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image.asset(
-              item.photo,
-              width: 93,
-              height: 124,
-              fit: BoxFit.contain,
+    _context = context;
+    return GestureDetector(
+      onTap: () {
+        openShowDetails();
+      },
+      child: Container(
+        width: 93,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                item.photo,
+                width: 93,
+                height: 124,
+                fit: BoxFit.contain,
+              ),
             ),
-          ),
-          WidgetSpacer(height: 6),
-          Text(item.title,
-              style: FONT_CONST.REGULAR_BLACK2_12,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis),
-          WidgetSpacer(height: 2),
-          Text(item.subTitle, style: FONT_CONST.REGULAR_GRAY6_10),
-        ],
+            WidgetSpacer(height: 6),
+            Text(item.title,
+                style: FONT_CONST.REGULAR_BLACK2_12,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis),
+            WidgetSpacer(height: 2),
+            Text(item.subTitle, style: FONT_CONST.REGULAR_GRAY6_10),
+          ],
+        ),
       ),
     );
+  }
+
+  void openShowDetails() {
+    Navigator.pushNamed(_context, Router.SHOW_INFO);
   }
 }
 

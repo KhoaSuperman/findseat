@@ -1,10 +1,16 @@
 import 'package:find_seat/presentation/common_widgets/widget_spacer.dart';
+import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/presentation/screen/login/widget_btn_facebook.dart';
 import 'package:find_seat/presentation/screen/login/widget_btn_google.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
-class WidgetLoginForm extends StatelessWidget {
+class WidgetLoginForm extends StatefulWidget {
+  @override
+  _WidgetLoginFormState createState() => _WidgetLoginFormState();
+}
+
+class _WidgetLoginFormState extends State<WidgetLoginForm> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -89,7 +95,9 @@ class WidgetLoginForm extends StatelessWidget {
       width: double.infinity,
       height: 50,
       child: FlatButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, Router.HOME);
+        },
         color: COLOR_CONST.DEFAULT,
         shape: RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(7.0),

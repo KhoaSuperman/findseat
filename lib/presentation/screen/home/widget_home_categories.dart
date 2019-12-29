@@ -1,5 +1,6 @@
 import 'package:find_seat/presentation/common_widgets/widget_spacer.dart';
 import 'package:find_seat/presentation/custom_ui/svg_image.dart';
+import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
@@ -57,26 +58,39 @@ class _WidgetItemCategory extends StatelessWidget {
 
   _WidgetItemCategory(this.item);
 
+  BuildContext _context;
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Container(
-          width: 34,
-          height: 34,
-          child: Center(
-            child: MySvgImage(
-              path: item.image,
-              width: 28,
-              height: 28,
-              applyColorFilter: false,
+    _context = context;
+
+    return GestureDetector(
+      onTap: () {
+        openAllShows();
+      },
+      child: Column(
+        children: <Widget>[
+          Container(
+            width: 34,
+            height: 34,
+            child: Center(
+              child: MySvgImage(
+                path: item.image,
+                width: 28,
+                height: 28,
+                applyColorFilter: false,
+              ),
             ),
           ),
-        ),
-        WidgetSpacer(height: 6),
-        Text(item.title, style: FONT_CONST.REGULAR_GRAY6_12),
-      ],
+          WidgetSpacer(height: 6),
+          Text(item.title, style: FONT_CONST.REGULAR_GRAY6_12),
+        ],
+      ),
     );
+  }
+
+  void openAllShows() {
+    Navigator.pushNamed(_context, Router.ALL_SHOWS);
   }
 }
 
