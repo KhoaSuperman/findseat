@@ -1,3 +1,4 @@
+import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/screen/show_info/barrel_show_info.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,9 @@ class ShowInfoScreen extends StatelessWidget {
               children: <Widget>[
                 WidgetShowTrailer(),
                 WidgetShowDesc(),
+                WidgetSpacer(height: 14),
                 WidgetOffers(),
+                WidgetSpacer(height: 14),
                 WidgetShowReview(),
                 WidgetShowCasts(),
               ],

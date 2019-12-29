@@ -34,6 +34,7 @@ dev_dependencies:
   uuid: "2.0.1"
   flutter_svg: ^0.14.2
   google_maps_flutter: ^0.5.21+14
+  dotted_border: ^1.0.4
 
 
 # For information on the generic Dart part of this file, see the
@@ -67,6 +68,10 @@ flutter:
           weight: 500
         - asset: fonts/Poppins-SemiBold.otf
           weight: 600
+    - family: Oswald
+      fonts:
+        - asset: fonts/Oswald-Regular.ttf
+          weight: 400
 
   assets:
     - assets/

@@ -6,7 +6,9 @@ class COLOR_CONST {
 
   static final HexColor DEFAULT = new HexColor("#E81667");
   static final HexColor RED = new HexColor("#F93F3E");
+  static final HexColor RED2 = new HexColor("#D05045");
   static final HexColor GREEN = new HexColor("#2EC492");
+  static final HexColor GREEN2 = new HexColor("#8CC153");
   static final HexColor ORANGE = new HexColor("#EB8D2F");
   static final HexColor WHITE = new HexColor("#FFFFFF");
   static final HexColor WHITE_70 = new HexColor("#B3FFFFFF");
@@ -20,6 +22,7 @@ class COLOR_CONST {
   static final HexColor GRAY4 = new HexColor("#666666");
   static final HexColor GRAY5 = new HexColor("#C1C1C1");
   static final HexColor GRAY6 = new HexColor("#707070");
+  static final HexColor GRAY7 = new HexColor("#DDDDDD");
   static final HexColor ITEM_BG = new HexColor("#F3F6F8");
   static final HexColor BLUE = new HexColor("#222539");
 
@@ -28,6 +31,8 @@ class COLOR_CONST {
   static final HexColor FACEBOOK_BTN = new HexColor("#F5F9FF");
   static final HexColor FACEBOOK_BORDER_BTN = new HexColor("#3164CE");
   static final HexColor TAG_BG = new HexColor("#FFE5EF");
+  static final HexColor GIFT_BG1 = new HexColor("#FCCAC6");
+  static final HexColor GIFT_BG2 = new HexColor("#2687D57E");
 
   static final MaterialColor STATUS_BAR = MaterialColor(0xFF2E3147, {});
 }

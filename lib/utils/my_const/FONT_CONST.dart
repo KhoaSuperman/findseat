@@ -38,6 +38,7 @@ class FONT_CONST {
   static final REGULAR_BLACK2_14 = REGULAR_BLACK2.copyWith(fontSize: 14);
 
   static final REGULAR_GRAY4 = REGULAR.copyWith(color: COLOR_CONST.GRAY4);
+  static final REGULAR_GRAY4_10 = REGULAR_GRAY4.copyWith(fontSize: 10);
   static final REGULAR_GRAY4_12 = REGULAR_GRAY4.copyWith(fontSize: 12);
 
   static final REGULAR_GRAY5 = REGULAR.copyWith(color: COLOR_CONST.GRAY5);
@@ -71,4 +72,13 @@ class FONT_CONST {
   static final SEMIBOLD_WHITE_10 = SEMIBOLD_WHITE.copyWith(fontSize: 10);
   static final SEMIBOLD_WHITE_16 = SEMIBOLD_WHITE.copyWith(fontSize: 16);
   static final SEMIBOLD_WHITE_18 = SEMIBOLD_WHITE.copyWith(fontSize: 18);
+
+  //OSWALD
+  static final OSWALD_REGULAR = TextStyle(
+    fontFamily: 'Oswald',
+    fontWeight: FontWeight.w400,
+  );
+
+  static final OSWALD_REGULAR_RED2 = OSWALD_REGULAR.copyWith(color: COLOR_CONST.RED2);
+  static final OSWALD_REGULAR_RED2_12 = OSWALD_REGULAR_RED2.copyWith(fontSize: 12);
 }
