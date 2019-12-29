@@ -10,7 +10,7 @@ class WidgetOffers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
       color: COLOR_CONST.WHITE,
       height: 156,
       child: ListView(
@@ -64,7 +64,7 @@ class _WidgetGrabReward extends StatelessWidget {
       child: Container(
         width: 234,
         height: 81,
-        padding: EdgeInsets.all(14),
+        padding: EdgeInsets.symmetric(horizontal: 14, vertical: 12),
         child: Row(
           children: <Widget>[
             Flexible(

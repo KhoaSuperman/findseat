@@ -82,7 +82,7 @@ class _WidgetItemCategory extends StatelessWidget {
               ),
             ),
           ),
-          WidgetSpacer(height: 6),
+          WidgetSpacer(height: 4),
           Text(item.title, style: FONT_CONST.REGULAR_GRAY6_12),
         ],
       ),

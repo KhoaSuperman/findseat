@@ -16,9 +16,9 @@ class WidgetShowCasts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 224,
+      height: 204,
       color: COLOR_CONST.WHITE,
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
       child: Column(
         children: <Widget>[
           Row(
@@ -34,12 +34,12 @@ class WidgetShowCasts extends StatelessWidget {
           ),
           WidgetSpacer(height: 14),
           Container(
-            height: 149,
+            height: 130,
             child: ListView.separated(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               physics: BouncingScrollPhysics(),
-              separatorBuilder: (contex, index) {
+              separatorBuilder: (context, index) {
                 return WidgetSpacer(width: 14);
               },
               itemBuilder: (context, index) {
@@ -64,7 +64,7 @@ class _WidgetItemCast extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 85,
-      height: 107,
+      height: 130,
       child: Column(
         children: <Widget>[
           ClipRRect(
@@ -77,7 +77,7 @@ class _WidgetItemCast extends StatelessWidget {
               height: 107,
             ),
           ),
-          WidgetSpacer(height: 6),
+          WidgetSpacer(height: 5),
           Text(
             item.name,
             style: FONT_CONST.REGULAR_GRAY4_12,

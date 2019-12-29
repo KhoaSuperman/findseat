@@ -81,7 +81,7 @@ class _WidgetItemRecommendedSeat extends StatelessWidget {
               fit: BoxFit.contain,
             ),
           ),
-          WidgetSpacer(height: 6),
+          WidgetSpacer(height: 4),
           Text(item.title, style: FONT_CONST.REGULAR_BLACK2_12),
           WidgetSpacer(height: 2),
           Row(

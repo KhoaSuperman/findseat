@@ -7,7 +7,7 @@ class WidgetShowReview extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 124,
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
       decoration: BoxDecoration(color: COLOR_CONST.WHITE),
       child: Column(
         children: <Widget>[
