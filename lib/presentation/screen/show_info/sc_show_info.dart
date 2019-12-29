@@ -18,6 +18,7 @@ class ShowInfoScreen extends StatelessWidget {
                 WidgetOffers(),
                 WidgetSpacer(height: 14),
                 WidgetShowReview(),
+                WidgetSpacer(height: 14),
                 WidgetShowCasts(),
               ],
             ),
