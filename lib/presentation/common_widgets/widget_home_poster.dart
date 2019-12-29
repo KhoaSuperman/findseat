@@ -58,21 +58,18 @@ class WidgetHomePosters extends StatelessWidget {
   _buildListPoster() {
     return Container(
       height: 186,
-      child: Padding(
-        padding: const EdgeInsets.only(right: 20),
-        child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            var item = items[index];
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          var item = items[index];
 
-            return _WidgetItemPoster(item);
-          },
-          separatorBuilder: (context, index) {
-            return WidgetSpacer(width: 14);
-          },
-          physics: BouncingScrollPhysics(),
-          itemCount: items.length,
-        ),
+          return _WidgetItemPoster(item);
+        },
+        separatorBuilder: (context, index) {
+          return WidgetSpacer(width: 14);
+        },
+        physics: BouncingScrollPhysics(),
+        itemCount: items.length,
       ),
     );
   }

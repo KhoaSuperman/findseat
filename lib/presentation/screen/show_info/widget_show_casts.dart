@@ -6,15 +6,17 @@ import 'package:flutter/material.dart';
 class WidgetShowCasts extends StatelessWidget {
   List<ItemCast> items = [
     ItemCast('Chadwick', 'images/casts/81202d0dea55189fa442a1ab932a81a7.png'),
-    ItemCast('Letitia Wright', 'images/casts/646262125800725e14d8c4ff4b2a2181.png'),
+    ItemCast(
+        'Letitia Wright', 'images/casts/646262125800725e14d8c4ff4b2a2181.png'),
     ItemCast('B. Jordan', 'images/casts/a053e9fb0c813cd15b34a2edff71ae9d.png'),
-    ItemCast('Lupita Nyong', 'images/casts/289bf4c714c627dc42b17199024a152d.png'),
+    ItemCast(
+        'Lupita Nyong', 'images/casts/289bf4c714c627dc42b17199024a152d.png'),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 210,
+      height: 224,
       color: COLOR_CONST.WHITE,
       padding: EdgeInsets.all(20),
       child: Column(
@@ -32,7 +34,7 @@ class WidgetShowCasts extends StatelessWidget {
           ),
           WidgetSpacer(height: 14),
           Container(
-            height: 135,
+            height: 149,
             child: ListView.separated(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -62,7 +64,7 @@ class _WidgetItemCast extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 85,
-      height: 135,
+      height: 107,
       child: Column(
         children: <Widget>[
           ClipRRect(
@@ -76,7 +78,12 @@ class _WidgetItemCast extends StatelessWidget {
             ),
           ),
           WidgetSpacer(height: 6),
-          Text(item.name, style: FONT_CONST.REGULAR_GRAY4_12),
+          Text(
+            item.name,
+            style: FONT_CONST.REGULAR_GRAY4_12,
+            textAlign: TextAlign.center,
+            maxLines: 2,
+          ),
         ],
       ),
     );
