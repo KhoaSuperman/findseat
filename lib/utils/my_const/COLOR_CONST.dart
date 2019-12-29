@@ -34,6 +34,8 @@ class COLOR_CONST {
   static final HexColor TAG_BG = new HexColor("#FFE5EF");
   static final HexColor GIFT_BG1 = new HexColor("#FCCAC6");
   static final HexColor GIFT_BG2 = new HexColor("#2687D57E");
+  static final HexColor TIME_SLOT_BG = new HexColor("#FCFCFC");
+  static final HexColor TIME_SLOT_BORDER = new HexColor("#E5E5E5");
 
   static final MaterialColor STATUS_BAR = MaterialColor(0xFF2E3147, {});
 }

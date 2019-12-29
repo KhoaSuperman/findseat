@@ -1,4 +1,5 @@
 import 'package:find_seat/presentation/screen/all_shows/barrel_all_shows.dart';
+import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
 import 'package:find_seat/presentation/screen/login/sc_login.dart';
 import 'package:find_seat/presentation/screen/show_info/barrel_show_info.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,9 @@ class Router {
   static const String LOGIN = '/login';
   static const String ALL_SHOWS = '/all_shows';
   static const String SHOW_INFO = '/show_info';
+  static const String BOOK_TIME_SLOT = '/book_time_slot';
+  static const String BOOK_SEAT_TYPE = '/book_seat_type';
+  static const String BOOK_SEAT_SLOT = '/book_seat_slot';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -25,6 +29,8 @@ class Router {
         return MaterialPageRoute(builder: (_) => AllShowsScreen());
       case SHOW_INFO:
         return MaterialPageRoute(builder: (_) => ShowInfoScreen());
+      case BOOK_TIME_SLOT:
+        return MaterialPageRoute(builder: (_) => BookTimeSlotScreen());
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(
