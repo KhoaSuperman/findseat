@@ -5,6 +5,7 @@ class COLOR_CONST {
   //https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
 
   static final HexColor DEFAULT = new HexColor("#E81667");
+  static final HexColor DEFAULT_5 = new HexColor("#0DE81667");
   static final HexColor RED = new HexColor("#F93F3E");
   static final HexColor RED2 = new HexColor("#D05045");
   static final HexColor GREEN = new HexColor("#2EC492");

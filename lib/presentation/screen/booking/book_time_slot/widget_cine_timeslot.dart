@@ -1,6 +1,7 @@
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
+import 'package:find_seat/presentation/screen/cine_location/barrel_cine_location.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
@@ -9,8 +10,12 @@ class WidgetCineTimeSlot extends StatelessWidget {
 
   WidgetCineTimeSlot(this.item);
 
+  BuildContext _context;
+
   @override
   Widget build(BuildContext context) {
+    _context = context;
+
     return Container(
       padding: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 7),
       color: COLOR_CONST.WHITE,
@@ -23,7 +28,12 @@ class WidgetCineTimeSlot extends StatelessWidget {
               Expanded(
                 child: Text(item.cineName, style: FONT_CONST.MEDIUM_BLUE_14),
               ),
-              Icon(Icons.info_outline, color: COLOR_CONST.GRAY1_50),
+              GestureDetector(
+                onTap: () {
+                  _openCineLocation();
+                },
+                child: Icon(Icons.info_outline, color: COLOR_CONST.GRAY1_50),
+              ),
             ],
           ),
           WidgetSpacer(height: 4),
@@ -49,6 +59,17 @@ class WidgetCineTimeSlot extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  _openCineLocation() {
+    showModalBottomSheet(
+      context: _context,
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      builder: (context) {
+        return CineLocationScreen();
+      },
     );
   }
 }

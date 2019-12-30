@@ -1,0 +1,17 @@
+<svg height="22" id="tickets" viewBox="0 0 22 22" width="22" xmlns="http://www.w3.org/2000/svg">
+    <g id="Group_418" transform="translate(0)">
+        <g id="Group_417" transform="translate(0)">
+            <ellipse cx="0.859" cy="0.858" fill="#e81667" id="Ellipse_7" rx="0.859"
+                ry="0.858" transform="translate(14.695 16.85)" />
+            <ellipse cx="0.859" cy="0.858" fill="#e81667" id="Ellipse_8" rx="0.859"
+                ry="0.858" transform="translate(12.719 5.778)" />
+            <path d="M21.455,13.417h.859V8.267H20.123a1.716,1.716,0,0,1-.792-3.24l.732-.381L17.874,0,.334,8.263l0,0H.314v5.15h.859a1.717,1.717,0,1,1,0,3.433H.314V22h22V16.85h-.859a1.717,1.717,0,1,1,0-3.433ZM12.008,4.661a.858.858,0,0,0,1.552-.731l3.491-1.644.8,1.69a3.426,3.426,0,0,0-.7,4.291H4.355Zm8.587,13.8v1.825H16.728a.859.859,0,0,0-1.719,0H2.033V18.458a3.433,3.433,0,0,0,0-6.649V9.983H15.009a.859.859,0,0,0,1.719,0H20.6v1.825a3.433,3.433,0,0,0,0,6.649Z"
+                fill="#e81667"
+                id="Path_1864" transform="translate(-0.314)" />
+            <ellipse cx="0.859" cy="0.858" fill="#e81667" id="Ellipse_9" rx="0.859"
+                ry="0.858" transform="translate(14.695 11.7)" />
+            <ellipse cx="0.859" cy="0.858" fill="#e81667" id="Ellipse_10" rx="0.859"
+                ry="0.858" transform="translate(14.695 14.275)" />
+        </g>
+    </g>
+</svg>
