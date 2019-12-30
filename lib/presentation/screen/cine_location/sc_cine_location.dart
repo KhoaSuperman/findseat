@@ -1,5 +1,6 @@
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
+import 'package:find_seat/presentation/screen/cine_location/barrel_cine_location.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +22,7 @@ class CineLocationScreen extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Placeholder(
-                  fallbackHeight: 148,
-                ),
+                WidgetCineOnMap(),
                 WidgetSpacer(height: 20),
                 Text('INOX - Prozone mall', style: FONT_CONST.MEDIUM_BLUE_16),
                 WidgetSpacer(height: 6),
