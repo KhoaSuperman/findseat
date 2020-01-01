@@ -1,5 +1,6 @@
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
+import 'package:find_seat/presentation/screen/cine_date_picker/barrel_cine_date_picker.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +53,6 @@ class BookTimeSlotScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     _context = context;
 
     return SafeArea(
@@ -109,16 +109,21 @@ class BookTimeSlotScreen extends StatelessWidget {
         child: Row(
           children: <Widget>[
             Expanded(
-              child: Row(
-                children: <Widget>[
-                  Icon(Icons.calendar_today,
-                      color: COLOR_CONST.WHITE, size: 14),
-                  WidgetSpacer(width: 6),
-                  Text('Today, 14 NOV', style: FONT_CONST.REGULAR_WHITE_14),
-                  WidgetSpacer(width: 4),
-                  Icon(Icons.keyboard_arrow_down,
-                      color: COLOR_CONST.WHITE, size: 12)
-                ],
+              child: GestureDetector(
+                onTap: () {
+                  openCineDatePicker();
+                },
+                child: Row(
+                  children: <Widget>[
+                    Icon(Icons.calendar_today,
+                        color: COLOR_CONST.WHITE, size: 14),
+                    WidgetSpacer(width: 6),
+                    Text('Today, 14 NOV', style: FONT_CONST.REGULAR_WHITE_14),
+                    WidgetSpacer(width: 4),
+                    Icon(Icons.keyboard_arrow_down,
+                        color: COLOR_CONST.WHITE, size: 12)
+                  ],
+                ),
               ),
             ),
             Expanded(
@@ -134,6 +139,16 @@ class BookTimeSlotScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  void openCineDatePicker() {
+    showModalBottomSheet(
+      backgroundColor: Colors.transparent,
+      context: _context,
+      builder: (context) {
+        return CineDatePickerScreen();
+      },
     );
   }
 }
