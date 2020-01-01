@@ -13,10 +13,6 @@ class WidgetItemWeek extends StatefulWidget {
 }
 
 class _WidgetItemWeekState extends State<WidgetItemWeek> {
-//  List<String> dates = List<int>.generate(7, (i) => i + 10)
-//      .map((number) => number.toString())
-//      .toList();
-
   @override
   void initState() {
     super.initState();
@@ -55,39 +51,45 @@ class _WidgetItemWeekState extends State<WidgetItemWeek> {
   }
 
   _buildItemDate(int index) {
+    var selectedDate = CineDatePickerScreenProvider.of(context).selectedDate;
     DateTime date = widget.itemWeek.dates[index];
 
     bool isToday = date.day == 14;
-    bool isSelected = date.day == 14;
+    bool isSelected = selectedDate != null && selectedDate.day == date.day;
 
     var bgColor = isSelected ? COLOR_CONST.DEFAULT : COLOR_CONST.GRAY2;
     var textColor = isSelected ? COLOR_CONST.WHITE : COLOR_CONST.GRAY4;
     var textDate = date.day.toString();
 
-    return Container(
-      width: 32,
-      height: 32,
-      decoration: BoxDecoration(
-        shape: BoxShape.rectangle,
-        borderRadius: BorderRadius.circular(4),
-        color: bgColor,
-      ),
-      child: isToday
-          ? Column(
-              children: <Widget>[
-                Text('Today',
-                    style: FONT_CONST.REGULAR_GRAY4_8
-                        .copyWith(fontSize: 7, color: textColor)),
-                Text(textDate,
+    return GestureDetector(
+      onTap: () {
+        CineDatePickerScreenProvider.of(context).onDateSelected(date);
+      },
+      child: Container(
+        width: 32,
+        height: 32,
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.circular(4),
+          color: bgColor,
+        ),
+        child: isToday
+            ? Column(
+                children: <Widget>[
+                  Text('Today',
+                      style: FONT_CONST.REGULAR_GRAY4_8
+                          .copyWith(fontSize: 7, color: textColor)),
+                  Text(textDate,
+                      style: FONT_CONST.REGULAR_GRAY4_14
+                          .copyWith(color: textColor)),
+                ],
+              )
+            : Center(
+                child: Text(textDate,
                     style:
                         FONT_CONST.REGULAR_GRAY4_14.copyWith(color: textColor)),
-              ],
-            )
-          : Center(
-              child: Text(textDate,
-                  style:
-                      FONT_CONST.REGULAR_GRAY4_14.copyWith(color: textColor)),
-            ),
+              ),
+      ),
     );
   }
 }

@@ -8,23 +8,60 @@ class CineDatePickerScreen extends StatefulWidget {
   _CineDatePickerScreenState createState() => _CineDatePickerScreenState();
 }
 
-class _CineDatePickerScreenState extends State<CineDatePickerScreen> {
+class CineDatePickerScreenProvider extends InheritedWidget {
+  ValueChanged<DateTime> onDateSelected;
+  DateTime selectedDate;
+  Widget child;
+
+  CineDatePickerScreenProvider(
+      {@required this.onDateSelected,
+      @required this.selectedDate,
+      @required this.child});
+
+  @override
+  bool updateShouldNotify(InheritedWidget oldWidget) {
+    return true;
+  }
+
+  static CineDatePickerScreenProvider of(BuildContext context) =>
+      context.inheritFromWidgetOfExactType(CineDatePickerScreenProvider);
+}
+
+class _CineDatePickerScreenState extends State<CineDatePickerScreen>
+    with SingleTickerProviderStateMixin {
+  DateTime selectedDate;
+
+  @override
+  void initState() {
+    selectedDate = _getStartDate().add(Duration(days: 5));
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: COLOR_CONST.WHITE,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Text('Friday, Nov 14, 2019',
-                style: FONT_CONST.REGULAR_BLACK2_14),
-          ),
-          Divider(color: COLOR_CONST.DIVIDER, height: 1),
-          _buildListDateByWeek(),
-        ],
+    return CineDatePickerScreenProvider(
+      onDateSelected: (date) {
+        setState(() {
+          selectedDate = date;
+        });
+      },
+      selectedDate: selectedDate,
+      child: Container(
+        color: COLOR_CONST.WHITE,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Text('Friday, Nov 14, 2019',
+                  style: FONT_CONST.REGULAR_BLACK2_14),
+            ),
+            Divider(color: COLOR_CONST.DIVIDER, height: 1),
+            _buildListDateByWeek(),
+          ],
+        ),
       ),
     );
   }
@@ -41,11 +78,6 @@ class _CineDatePickerScreenState extends State<CineDatePickerScreen> {
         ],
       ),
     );
-  }
-
-  static DateTime _getStartDate() {
-    var dNow = DateTime.now();
-    return DateTime.utc(dNow.year, dNow.month, 9);
   }
 
   List<ItemWeek> weeks = [
@@ -74,6 +106,11 @@ class _CineDatePickerScreenState extends State<CineDatePickerScreen> {
       shrinkWrap: true,
       itemCount: weeks.length,
     );
+  }
+
+  static DateTime _getStartDate() {
+    var dNow = DateTime.now();
+    return DateTime.utc(dNow.year, dNow.month, 9);
   }
 }
 
