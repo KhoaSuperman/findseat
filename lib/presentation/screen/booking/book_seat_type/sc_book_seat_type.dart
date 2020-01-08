@@ -38,7 +38,10 @@ class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     WidgetToolbar(title: 'Black Panther', actions: Container()),
-                    WidgetCineTimeSlot(_itemCineTimeSlot),
+                    WidgetCineTimeSlot.selected(
+                      item: _itemCineTimeSlot,
+                      selectedIndex: 0,
+                    ),
                     WidgetSpacer(height: 14),
                     WidgetHowManySeats(),
                   ],

@@ -7,8 +7,12 @@ import 'package:flutter/material.dart';
 
 class WidgetCineTimeSlot extends StatelessWidget {
   ItemCineTimeSlot item;
+  int selectedIndex = -1;
 
   WidgetCineTimeSlot(this.item);
+
+  WidgetCineTimeSlot.selected(
+      {@required this.item, @required this.selectedIndex});
 
   BuildContext _context;
 
@@ -54,7 +58,11 @@ class WidgetCineTimeSlot extends StatelessWidget {
           WidgetSpacer(height: 16),
           Wrap(
             children: <Widget>[
-              for (final item in item.timeSlots) _WidgetTimeSlot(item)
+              for (final timeSlot in item.timeSlots)
+                _WidgetTimeSlot(
+                    timeSlot,
+                    item.timeSlots.indexOf(timeSlot) == selectedIndex,
+                    selectedIndex != -1)
             ],
           )
         ],
@@ -76,31 +84,57 @@ class WidgetCineTimeSlot extends StatelessWidget {
 
 class _WidgetTimeSlot extends StatelessWidget {
   ItemTimeSlot item;
+  bool isSelected;
+  bool isSmallMode;
 
-  _WidgetTimeSlot(this.item);
+  _WidgetTimeSlot(this.item, this.isSelected, this.isSmallMode);
 
   @override
   Widget build(BuildContext context) {
+    var itemWidth = 99.0;
+    var itemHeight = 40.0;
+    var fontSize = 14.0;
+    var textPaddingVer = 19.0;
+    var textPaddingHoz = 10.0;
+
+    var textStyle = FONT_CONST.REGULAR_BLACK2_14;
     var timeColor = item.hour % 2 == 0 ? COLOR_CONST.GREEN : COLOR_CONST.ORANGE;
     if (!item.active) {
       timeColor = COLOR_CONST.TIME_SLOT_BORDER;
     }
 
+    var itemBg = isSelected ? COLOR_CONST.GREEN : COLOR_CONST.TIME_SLOT_BG;
+    var itemBorder =
+        isSelected ? Colors.transparent : COLOR_CONST.TIME_SLOT_BORDER;
+
+    if (isSelected) {
+      timeColor = COLOR_CONST.WHITE;
+      textStyle = FONT_CONST.MEDIUM_WHITE_14;
+    }
+
+    if (isSmallMode) {
+      itemWidth = 84.0;
+      itemHeight = 35.0;
+      fontSize = 12.0;
+      textPaddingVer = 8.0;
+    }
+
     return Container(
-      width: 99,
-      padding: EdgeInsets.symmetric(horizontal: 19, vertical: 10),
+      width: itemWidth,
+      height: itemHeight,
+      padding: EdgeInsets.symmetric(vertical: textPaddingHoz),
       margin: EdgeInsets.only(right: 13, bottom: 13),
       decoration: BoxDecoration(
           border: Border.all(
-            color: COLOR_CONST.TIME_SLOT_BORDER,
+            color: itemBorder,
             width: 0.5,
           ),
           borderRadius: BorderRadius.all(Radius.circular(4)),
-          color: COLOR_CONST.TIME_SLOT_BG),
+          color: itemBg),
       child: Center(
         child: Text(
           item.time,
-          style: FONT_CONST.REGULAR_BLACK2_14.copyWith(color: timeColor),
+          style: textStyle.copyWith(color: timeColor, fontSize: fontSize),
         ),
       ),
     );
@@ -111,6 +145,7 @@ class ItemTimeSlot {
   String time;
   int hour;
   bool active;
+  bool selected;
 
   ItemTimeSlot(this.time, this.hour, this.active);
 }
