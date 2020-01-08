@@ -1,5 +1,6 @@
 import 'package:find_seat/presentation/screen/all_shows/barrel_all_shows.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
+import 'package:find_seat/presentation/screen/booking/book_seat_type/barrel_book_seat_type.dart';
 import 'package:find_seat/presentation/screen/login/sc_login.dart';
 import 'package:find_seat/presentation/screen/show_info/barrel_show_info.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,8 @@ class Router {
         return MaterialPageRoute(builder: (_) => ShowInfoScreen());
       case BOOK_TIME_SLOT:
         return MaterialPageRoute(builder: (_) => BookTimeSlotScreen());
+      case BOOK_SEAT_TYPE:
+        return MaterialPageRoute(builder: (_) => BookSeatTypeScreen());
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(

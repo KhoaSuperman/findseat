@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Poppins',
       ),
       onGenerateRoute: Router.generateRoute,
-      initialRoute: Router.LOGIN,
+      initialRoute: Router.BOOK_SEAT_TYPE,
     );
   }
 }
