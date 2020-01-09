@@ -8,11 +8,17 @@ import 'package:flutter/material.dart';
 class WidgetCineTimeSlot extends StatelessWidget {
   ItemCineTimeSlot item;
   int selectedIndex = -1;
+  bool showCineName = true;
+  bool showCineDot = true;
 
   WidgetCineTimeSlot(this.item);
 
-  WidgetCineTimeSlot.selected(
-      {@required this.item, @required this.selectedIndex});
+  WidgetCineTimeSlot.selected({
+    @required this.item,
+    @required this.selectedIndex,
+    @required this.showCineName,
+    @required this.showCineDot,
+  });
 
   BuildContext _context;
 
@@ -27,29 +33,35 @@ class WidgetCineTimeSlot extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: Text(item.cineName, style: FONT_CONST.MEDIUM_BLUE_14),
-              ),
-              GestureDetector(
-                onTap: () {
-                  _openCineLocation();
-                },
-                child: Icon(Icons.info_outline, color: COLOR_CONST.GRAY1_50),
-              ),
-            ],
-          ),
+          showCineName
+              ? Row(
+                  children: <Widget>[
+                    Expanded(
+                      child:
+                          Text(item.cineName, style: FONT_CONST.MEDIUM_BLUE_14),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        _openCineLocation();
+                      },
+                      child:
+                          Icon(Icons.info_outline, color: COLOR_CONST.GRAY1_50),
+                    ),
+                  ],
+                )
+              : Container(),
           WidgetSpacer(height: 4),
           Row(
             children: <Widget>[
-              MySvgImage(
-                path: 'assets/ic_cine_dot.svg',
-                width: 9.94,
-                height: 12,
-                color: COLOR_CONST.GRAY1,
-              ),
-              WidgetSpacer(width: 7),
+              showCineDot
+                  ? MySvgImage(
+                      path: 'assets/ic_cine_dot.svg',
+                      width: 9.94,
+                      height: 12,
+                      color: COLOR_CONST.GRAY1,
+                    )
+                  : Container(),
+              WidgetSpacer(width: showCineDot ? 7 : 0),
               Text(item.textLocation, style: FONT_CONST.REGULAR_GRAY1_12),
               WidgetSpacer(width: 11),
               Text(item.textDistance, style: FONT_CONST.REGULAR_BLACK2_10),
@@ -94,7 +106,6 @@ class _WidgetTimeSlot extends StatelessWidget {
     var itemWidth = 99.0;
     var itemHeight = 40.0;
     var fontSize = 14.0;
-    var textPaddingVer = 19.0;
     var textPaddingHoz = 10.0;
 
     var textStyle = FONT_CONST.REGULAR_BLACK2_14;
@@ -116,7 +127,6 @@ class _WidgetTimeSlot extends StatelessWidget {
       itemWidth = 84.0;
       itemHeight = 35.0;
       fontSize = 12.0;
-      textPaddingVer = 8.0;
     }
 
     return Container(

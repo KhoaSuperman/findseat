@@ -1,5 +1,4 @@
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
-import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
 import 'package:find_seat/presentation/screen/booking/book_seat_type/barrel_book_seat_type.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
@@ -41,6 +40,8 @@ class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
                     WidgetCineTimeSlot.selected(
                       item: _itemCineTimeSlot,
                       selectedIndex: 0,
+                      showCineName: true,
+                      showCineDot: false,
                     ),
                     WidgetSpacer(height: 14),
                     WidgetHowManySeats(),
