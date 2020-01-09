@@ -1,5 +1,6 @@
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
+import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
 import 'package:find_seat/presentation/screen/cine_location/barrel_cine_location.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
@@ -129,22 +130,29 @@ class _WidgetTimeSlot extends StatelessWidget {
       fontSize = 12.0;
     }
 
-    return Container(
-      width: itemWidth,
-      height: itemHeight,
-      padding: EdgeInsets.symmetric(vertical: textPaddingHoz),
-      margin: EdgeInsets.only(right: 13, bottom: 13),
-      decoration: BoxDecoration(
-          border: Border.all(
-            color: itemBorder,
-            width: 0.5,
+    return GestureDetector(
+      onTap: () {
+        if (!isSmallMode) {
+          Navigator.pushNamed(context, Router.BOOK_SEAT_TYPE);
+        }
+      },
+      child: Container(
+        width: itemWidth,
+        height: itemHeight,
+        padding: EdgeInsets.symmetric(vertical: textPaddingHoz),
+        margin: EdgeInsets.only(right: 13, bottom: 13),
+        decoration: BoxDecoration(
+            border: Border.all(
+              color: itemBorder,
+              width: 0.5,
+            ),
+            borderRadius: BorderRadius.all(Radius.circular(4)),
+            color: itemBg),
+        child: Center(
+          child: Text(
+            item.time,
+            style: textStyle.copyWith(color: timeColor, fontSize: fontSize),
           ),
-          borderRadius: BorderRadius.all(Radius.circular(4)),
-          color: itemBg),
-      child: Center(
-        child: Text(
-          item.time,
-          style: textStyle.copyWith(color: timeColor, fontSize: fontSize),
         ),
       ),
     );
