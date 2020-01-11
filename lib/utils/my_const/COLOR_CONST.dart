@@ -29,6 +29,7 @@ class COLOR_CONST {
   static final HexColor ITEM_BG = new HexColor("#F3F6F8");
   static final HexColor BLUE = new HexColor("#222539");
   static final HexColor DIVIDER = new HexColor("#33000000");
+  static final HexColor TRANS = new HexColor("00000000");
 
   static final HexColor GOOGLE_BTN = new HexColor("#FFF1F0");
   static final HexColor GOOGLE_BORDER_BTN = new HexColor("#F14336");
