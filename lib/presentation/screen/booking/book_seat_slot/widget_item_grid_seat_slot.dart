@@ -6,40 +6,12 @@ import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
 class WidgetItemGridSeatSlot extends StatefulWidget {
-  List<SeatRow> seatRows = [
-    SeatRow(
-      rowId: 'A',
-      count: 11,
-      offs: [5, 6],
-      booked: [0, 1, 2, 3],
-    ),
-    SeatRow(
-      rowId: 'B',
-      count: 11,
-      offs: [5, 6],
-      booked: [1, 2],
-    ),
-    SeatRow(
-      rowId: 'C',
-      count: 11,
-      offs: [5, 6],
-      booked: [9, 10],
-    ),
-    SeatRow(
-      rowId: 'D',
-      count: 11,
-      offs: [5, 6],
-      booked: [9, 10],
-    ),
-    SeatRow(
-      rowId: 'E',
-      count: 11,
-      offs: [],
-      booked: [2, 3, 4, 5, 6, 7, 8],
-    )
-  ];
+  String seatTypeName;
 
-  WidgetItemGridSeatSlot();
+  List<SeatRow> seatRows = [];
+
+  WidgetItemGridSeatSlot(
+      {@required this.seatTypeName, @required this.seatRows});
 
   @override
   _WidgetItemGridSeatSlotState createState() => _WidgetItemGridSeatSlotState();
@@ -65,7 +37,7 @@ class _WidgetItemGridSeatSlotState extends State<WidgetItemGridSeatSlot> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('\$ 80.0 JACK', style: FONT_CONST.REGULAR_GRAY4_12),
+          Text(widget.seatTypeName, style: FONT_CONST.REGULAR_GRAY4_12),
           WidgetSpacer(height: 14),
           _buildSlotGrid(),
         ],
@@ -76,11 +48,12 @@ class _WidgetItemGridSeatSlotState extends State<WidgetItemGridSeatSlot> {
   _buildSlotGrid() {
     return ConstrainedBox(
       constraints: BoxConstraints(
-        minHeight: 129,
+        minHeight: 40,
         maxHeight: 200,
       ),
       child: GridView.count(
         shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
         crossAxisCount: maxColumn,
         scrollDirection: Axis.vertical,
         childAspectRatio: 1,
