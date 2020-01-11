@@ -63,6 +63,7 @@ class FONT_CONST {
 
   //MEDIUM
   static final MEDIUM_WHITE = MEDIUM.copyWith(color: COLOR_CONST.WHITE);
+  static final MEDIUM_WHITE_12 = MEDIUM_WHITE.copyWith(fontSize: 12);
   static final MEDIUM_WHITE_14 = MEDIUM_WHITE.copyWith(fontSize: 14);
   static final MEDIUM_WHITE_16 = MEDIUM_WHITE.copyWith(fontSize: 16);
   static final MEDIUM_WHITE_22 = MEDIUM_WHITE.copyWith(fontSize: 22);
