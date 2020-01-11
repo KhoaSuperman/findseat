@@ -1,3 +1,4 @@
+import 'package:find_seat/model/barrel_model.dart';
 import 'package:find_seat/presentation/common_widgets/widget_toolbar.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
 import 'package:find_seat/presentation/screen/booking/book_seat_slot/barrel_book_seat_slot.dart';
@@ -47,10 +48,7 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
                 showCineDot: false,
               ),
               WidgetCineScreen(),
-              Container(
-                color: Colors.white,
-                height: 200,
-              )
+              WidgetItemGridSeatSlot(),
             ],
           ),
         ),

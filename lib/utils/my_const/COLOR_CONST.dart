@@ -22,6 +22,7 @@ class COLOR_CONST {
   static final HexColor GRAY2 = new HexColor("#F8F8F8");
   static final HexColor GRAY3 = new HexColor("#F4F4F4");
   static final HexColor GRAY4 = new HexColor("#666666");
+  static final HexColor GRAY4_40 = new HexColor("#66666666");
   static final HexColor GRAY5 = new HexColor("#C1C1C1");
   static final HexColor GRAY6 = new HexColor("#707070");
   static final HexColor GRAY7 = new HexColor("#DDDDDD");
@@ -38,6 +39,9 @@ class COLOR_CONST {
   static final HexColor GIFT_BG2 = new HexColor("#2687D57E");
   static final HexColor TIME_SLOT_BG = new HexColor("#FCFCFC");
   static final HexColor TIME_SLOT_BORDER = new HexColor("#E5E5E5");
+  static final HexColor SEAT_SLOT_BG_BOOKED = new HexColor("#EBEBEB");
+  static final HexColor SEAT_SLOT_BG = new HexColor("#FFFFFF");
+  static final HexColor SEAT_SLOT_BORDER = new HexColor("#707070");
 
   static final MaterialColor STATUS_BAR = MaterialColor(0xFF2E3147, {});
 }
