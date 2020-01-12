@@ -35,6 +35,7 @@ dev_dependencies:
   flutter_svg: ^0.14.2
   google_maps_flutter: ^0.5.21+15
   dotted_border: ^1.0.4
+  stripe_payment: ^1.0.6
 
 
 # For information on the generic Dart part of this file, see the
