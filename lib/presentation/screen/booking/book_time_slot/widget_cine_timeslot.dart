@@ -138,7 +138,6 @@ class _WidgetTimeSlot extends StatelessWidget {
       },
       child: Container(
         width: itemWidth,
-        height: itemHeight,
         padding: EdgeInsets.symmetric(vertical: textPaddingHoz),
         margin: EdgeInsets.only(right: 13, bottom: 13),
         decoration: BoxDecoration(
