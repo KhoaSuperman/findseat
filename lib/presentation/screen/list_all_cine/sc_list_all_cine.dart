@@ -15,6 +15,7 @@ class _ListAllCineScreenState extends State<ListAllCineScreen> {
     return SafeArea(
       child: Scaffold(
         body: Container(
+          color: COLOR_CONST.WHITE,
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -41,6 +42,7 @@ class _ListAllCineScreenState extends State<ListAllCineScreen> {
                   padding: EdgeInsets.only(left: 20),
                   child: WidgetDistanceFilter(),
                 ),
+                WidgetSpacer(height: 4),
                 WidgetListCineResult(),
               ],
             ),
