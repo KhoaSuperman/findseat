@@ -1,16 +1,12 @@
 import 'package:find_seat/model/entity/distance_filter.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
+import 'package:find_seat/presentation/screen/list_all_cine/barrel_list_all_cine.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
 class WidgetDistanceFilter extends StatefulWidget {
-  List<DistanceFilter> filters = [
-    DistanceFilter(from: 2, to: 5),
-    DistanceFilter(from: 5, to: 8),
-    DistanceFilter(from: 8, to: 16),
-    DistanceFilter(from: 16, to: 24),
-  ];
+  List<DistanceFilter> filters = DistanceFilter.SAMPLE_DATA;
 
   @override
   _WidgetDistanceFilterState createState() => _WidgetDistanceFilterState();
@@ -36,6 +32,8 @@ class _WidgetDistanceFilterState extends State<WidgetDistanceFilter> {
           onTap: () {
             setState(() {
               selectedIndex = index;
+
+              ListAllCineScreenProvider.of(context).onFilterChanged(filter);
             });
           },
           child: Container(

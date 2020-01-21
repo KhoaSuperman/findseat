@@ -5,31 +5,9 @@ import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
 class WidgetListCineResult extends StatefulWidget {
-  List<Cine> items = [
-    Cine(
-      'Arasan Cinemas A/C 2K Dolby',
-      'Coimbatore',
-      5.0,
-      2.4,
-      'images/cines/cine1.png',
-    ),
-    Cine(
-      'Karpagam theatres - 4K',
-      'Coimbatore',
-      5.0,
-      4.4,
-      'images/cines/cine1.png',
-    ),
-    Cine(
-      'KG theatres - 4K',
-      'Coimbatore',
-      4.2,
-      1.4,
-      'images/cines/cine1.png',
-    ),
-  ];
+  List<Cine> items = [];
 
-  WidgetListCineResult();
+  WidgetListCineResult(this.items);
 
   @override
   _WidgetListCineResultState createState() => _WidgetListCineResultState();
