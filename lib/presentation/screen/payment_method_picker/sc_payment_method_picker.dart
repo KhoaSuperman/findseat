@@ -108,8 +108,8 @@ class _PaymentMethodPickerScreenState extends State<PaymentMethodPickerScreen> {
 
     StripePayment.paymentRequestWithCardForm(CardFormPaymentRequest())
         .then((paymentMethod) {
-      print(
-          'Received type=${paymentMethod.type}, id=${paymentMethod.billingDetails.toJson()}');
+      _showDlgPaymentSuccess(
+          'Payment successfully: Received type=${paymentMethod.type}, id=${paymentMethod.billingDetails.toJson()}');
     }).catchError(onError);
   }
 
@@ -138,5 +138,25 @@ class _PaymentMethodPickerScreenState extends State<PaymentMethodPickerScreen> {
         print('Token: ${token.toJson()}');
       });
     }).catchError(onError);
+  }
+
+  Future<void> _showDlgPaymentSuccess(String msg) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Stripe SDK'),
+          content: Text(msg),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }
