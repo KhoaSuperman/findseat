@@ -1,16 +1,34 @@
-# find_seat
+#Flutter FindSeat App (Completed User Flows)
 
-A new Flutter application.
+This project aim to Flutter practice and self study. This is good example of completed user flows, so you can see how Flutter good at converting from design to production.
 
-## Getting Started
+## Video Demo
+[![Video Demo](https://img.youtube.com/vi/z4Ck2tl6uVA/maxresdefault.jpg
+)](https://youtu.be/z4Ck2tl6uVA)
 
-This project is a starting point for a Flutter application.
+## Design credit
+##### Author: [Dinu Dinesh](https://www.uplabs.com/getdineshonline)
+##### Design link: [Movie & events ticket booking app](https://www.uplabs.com/posts/movie-events-ticket-booking-app)
+[![Screenshot](https://assets.materialup.com/uploads/cc51e192-c64a-42c4-a42d-67b2e6266bd3/attachment.png)](https://www.uplabs.com/posts/movie-events-ticket-booking-app)
 
-A few resources to get you started if this is your first Flutter project:
+## Plugins
+| Name | Usage |
+|------|-------|
+|[**Equatable**](https://pub.dev/packages/equatable)| Simplify Equality Comparisons|
+|[**Flutter SVG**](https://pub.dev/packages/flutter_svg)| Display SVG icon|
+|[**GoogleMap Flutter**](https://pub.dev/packages/google_maps_flutter)| Display Google Map in App|
+|[**Stripe Payment**](https://pub.dev/packages/stripe_payment)| Integrate Stripe SDK for payment|
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Known Issues
+GoogleMap is not ready for production. Due to [this](https://github.com/flutter/flutter/issues/27190) and [this](https://github.com/flutter/flutter/issues/28493)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## TODO
+- Replace Fake Data with Remote Data Source (API + Local Database)
+- Login & Sign up by Facebook, Google
+- Use Bloc Pattern
+#### Please star ⭐ the repo for get updates of next version 👍
+
+## About me
+| Name | Khoa Hoang |
+| ------------ | ------------ |
+| Title  | Senior Android Developer  |
