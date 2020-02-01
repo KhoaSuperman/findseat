@@ -1,15 +1,16 @@
-#Flutter FindSeat App (Completed User Flows)
+# Flutter FindSeat App (Completed User Flows)
 
 This project aim to Flutter practice and self study. This is good example of completed user flows, so you can see how Flutter good at converting from design to production.
 
 ## Video Demo
-[![Video Demo](https://img.youtube.com/vi/z4Ck2tl6uVA/maxresdefault.jpg
+[![Video Demo](https://img.youtube.com/vi/z4Ck2tl6uVA/hqdefault.jpg
 )](https://youtu.be/z4Ck2tl6uVA)
 
 ## Design credit
 ##### Author: [Dinu Dinesh](https://www.uplabs.com/getdineshonline)
 ##### Design link: [Movie & events ticket booking app](https://www.uplabs.com/posts/movie-events-ticket-booking-app)
-[![Screenshot](https://assets.materialup.com/uploads/cc51e192-c64a-42c4-a42d-67b2e6266bd3/attachment.png)](https://www.uplabs.com/posts/movie-events-ticket-booking-app)
+
+![Screenshot](http://dev.superman-academy.com/images/preview_findseat.png)
 
 ## Plugins
 | Name | Usage |
