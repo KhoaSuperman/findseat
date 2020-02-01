@@ -11,7 +11,7 @@ void main() {
     AppConfig(
       appName: "FindSeat Dev",
       flavorName: "dev",
-      initialRoute: Router.LIST_ALL_CINE,
+      initialRoute: Router.BOOK_SEAT_SLOT,
       child: MyApp(),
     ),
   );
