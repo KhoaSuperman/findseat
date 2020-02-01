@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
+import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -24,9 +25,14 @@ class _WidgetNearbyTheatresState extends State<WidgetNearbyTheatres> {
                     style: FONT_CONST.MEDIUM_BLACK2_14),
               ),
               Expanded(
-                child: Text('View all',
-                    style: FONT_CONST.MEDIUM_DEFAULT_10,
-                    textAlign: TextAlign.right),
+                child: GestureDetector(
+                  onTap: () {
+                    _openAllCine();
+                  },
+                  child: Text('View all',
+                      style: FONT_CONST.MEDIUM_DEFAULT_10,
+                      textAlign: TextAlign.right),
+                ),
               )
             ],
           ),
@@ -35,6 +41,10 @@ class _WidgetNearbyTheatresState extends State<WidgetNearbyTheatres> {
         ],
       ),
     );
+  }
+
+  _openAllCine() {
+    Navigator.pushNamed(context, Router.LIST_ALL_CINE);
   }
 
   Completer<GoogleMapController> _controller = Completer();
@@ -82,7 +92,7 @@ class _WidgetNearbyTheatresState extends State<WidgetNearbyTheatres> {
 
   _addMarker(BitmapDescriptor bmp) {
     Map<String, LatLng> cines = new Map<String, LatLng>();
-    cines["BHD Phạm Ngọc Thạch"] = LatLng(21.0127928,105.8337666);
+    cines["BHD Phạm Ngọc Thạch"] = LatLng(21.0127928, 105.8337666);
     cines["BHD Cầu Giấy"] = LatLng(21.035257, 105.794364);
     cines["BHD Trung Hòa"] = LatLng(21.013758, 105.800307);
 
