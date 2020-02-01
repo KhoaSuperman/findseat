@@ -11,7 +11,7 @@ void main() {
     AppConfig(
       appName: "FindSeat",
       flavorName: "prod",
-      initialRoute: Router.LOGIN,
+      initialRoute: Router.SPLASH,
       child: MyApp(),
     ),
   );
