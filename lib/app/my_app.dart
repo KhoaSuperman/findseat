@@ -10,6 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../presentation/router.dart';
 import 'auth_bloc/bloc.dart';
+import 'simple_bloc_delegate.dart';
 
 class MyApp extends StatelessWidget {
   UserRepository _userRepository;
@@ -58,12 +59,17 @@ class MyApp extends StatelessWidget {
 
   static Widget runWidget() {
     WidgetsFlutterBinding.ensureInitialized();
+    BlocSupervisor.delegate = SimpleBlocDelegate();
+
     final UserRepository userRepository = UserRepository();
 
-    return BlocProvider(
-      create: (context) =>
-          AuthenticationBloc(userRepository: userRepository)..add(AppStarted()),
-      child: MyApp(userRepository: userRepository),
+    return RepositoryProvider(
+      create: (context) => userRepository,
+      child: BlocProvider(
+        create: (context) => AuthenticationBloc(userRepository: userRepository)
+          ..add(AppStarted()),
+        child: MyApp(userRepository: userRepository),
+      ),
     );
   }
 }

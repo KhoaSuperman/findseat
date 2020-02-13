@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "236109465704",
+    "firebase_url": "https://findseatflutter.firebaseio.com",
+    "project_id": "findseatflutter",
+    "storage_bucket": "findseatflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236109465704:android:ce7b81ae13960674f593dd",
+        "android_client_info": {
+          "package_name": "com.khoaha.katana.find_seat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "236109465704-9ekqhpkca9pps745ue8sgn5o54sc8i95.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.khoaha.katana.find_seat",
+            "certificate_hash": "fb9b4df1231f50d3a14da9023b1a663fe054e8fe"
+          }
+        },
+        {
+          "client_id": "236109465704-10rad1o5i95b85c6s2ajdv1h3fr0p823.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFRUHHh6kqgMzzFTYIfyuu4O6lQImgO-0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "236109465704-10rad1o5i95b85c6s2ajdv1h3fr0p823.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
