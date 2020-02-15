@@ -1,9 +1,17 @@
+import 'package:find_seat/app/auth_bloc/bloc.dart';
 import 'package:find_seat/presentation/common_widgets/widget_spacer.dart';
 import 'package:find_seat/presentation/custom_ui/svg_image.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
-class WidgetHomeToolbar extends StatelessWidget {
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class WidgetHomeToolbar extends StatefulWidget {
+  @override
+  _WidgetHomeToolbarState createState() => _WidgetHomeToolbarState();
+}
+
+class _WidgetHomeToolbarState extends State<WidgetHomeToolbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,14 +55,19 @@ class WidgetHomeToolbar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text('Book seats', style: FONT_CONST.SEMIBOLD_WHITE_16),
-          Opacity(
-            child: Row(
-              children: <Widget>[
-                Text('Coimbatore', style: FONT_CONST.REGULAR_WHITE_12),
-                Icon(Icons.keyboard_arrow_down, color: COLOR_CONST.WHITE)
-              ],
+          GestureDetector(
+            onTap: () {
+              _clickSignOut();
+            },
+            child: Opacity(
+              child: Row(
+                children: <Widget>[
+                  Text('Coimbatore', style: FONT_CONST.REGULAR_WHITE_12),
+                  Icon(Icons.keyboard_arrow_down, color: COLOR_CONST.WHITE)
+                ],
+              ),
+              opacity: 0.5,
             ),
-            opacity: 0.5,
           )
         ],
       ),
@@ -78,5 +91,9 @@ class WidgetHomeToolbar extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _clickSignOut() {
+    BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
   }
 }
