@@ -1,7 +1,7 @@
 import 'package:find_seat/app/auth_bloc/bloc.dart';
 import 'package:bloc/bloc.dart';
 import 'package:find_seat/model/repo/user_repository.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
