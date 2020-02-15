@@ -21,6 +21,9 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  bool get isPopulated =>
+      _emailController.text.isNotEmpty && _passwordController.text.isNotEmpty;
+
   @override
   void initState() {
     _authenticationBloc = BlocProvider.of<AuthenticationBloc>(context);
@@ -33,9 +36,11 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
   Widget build(BuildContext context) {
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
-        if (state is LoginSuccess) {
+        if (state.isSuccess) {
           _authenticationBloc.add(LoggedIn());
-        } else if (state is LoginFailed) {
+        }
+
+        if (state.isFailure) {
           Scaffold.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
@@ -50,24 +55,22 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
                 backgroundColor: Colors.red,
               ),
             );
-        } else if (state is LoginLoading) {
-          if (state.isWorking) {
-            Scaffold.of(context)
-              ..hideCurrentSnackBar()
-              ..showSnackBar(
-                SnackBar(
-                  content: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text('Processing ...'),
-                      CircularProgressIndicator(),
-                    ],
-                  ),
+        }
+
+        if (state.isSubmitting) {
+          Scaffold.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(
+              SnackBar(
+                content: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text('Processing ...'),
+                    CircularProgressIndicator(),
+                  ],
                 ),
-              );
-          } else {
-            Scaffold.of(context)..hideCurrentSnackBar();
-          }
+              ),
+            );
         }
       },
       child: BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
@@ -79,32 +82,34 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
             borderRadius: BorderRadius.circular(10),
             color: COLOR_CONST.WHITE,
           ),
-          child: Column(
-            children: <Widget>[
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text('Login to your account',
-                    style: FONT_CONST.MEDIUM_DEFAULT_16),
-              ),
-              WidgetSpacer(height: 20),
-              _buildTextFieldUsername(),
-              WidgetSpacer(height: 14),
-              _buildTextFieldPassword(),
-              WidgetSpacer(height: 10),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  'Forgot password ?',
-                  style: FONT_CONST.REGULAR_GRAY4_12,
+          child: Form(
+            child: Column(
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text('Login to your account',
+                      style: FONT_CONST.MEDIUM_DEFAULT_16),
                 ),
-              ),
-              WidgetSpacer(height: 20),
-              _buildButtonLogin(state),
-              WidgetSpacer(height: 30),
-              _buildTextOr(),
-              WidgetSpacer(height: 20),
-              _buildSocialLogin(),
-            ],
+                WidgetSpacer(height: 20),
+                _buildTextFieldUsername(),
+                WidgetSpacer(height: 14),
+                _buildTextFieldPassword(),
+                WidgetSpacer(height: 10),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    'Forgot password ?',
+                    style: FONT_CONST.REGULAR_GRAY4_12,
+                  ),
+                ),
+                WidgetSpacer(height: 20),
+                _buildButtonLogin(state),
+                WidgetSpacer(height: 30),
+                _buildTextOr(),
+                WidgetSpacer(height: 20),
+                _buildSocialLogin(),
+              ],
+            ),
           ),
         );
       }),
@@ -156,12 +161,16 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
       height: 50,
       child: FlatButton(
         onPressed: () {
-          _loginBloc.add(LoginSubmitEmailPasswordEvent(
-            email: _emailController.text,
-            password: _passwordController.text,
-          ));
+          if (isRegisterButtonEnabled()) {
+            _loginBloc.add(LoginSubmitEmailPasswordEvent(
+              email: _emailController.text,
+              password: _passwordController.text,
+            ));
+          }
         },
-        color: COLOR_CONST.DEFAULT,
+        color: isRegisterButtonEnabled()
+            ? COLOR_CONST.DEFAULT
+            : COLOR_CONST.GRAY1_50,
         shape: RoundedRectangleBorder(
           borderRadius: new BorderRadius.circular(7.0),
         ),
@@ -171,6 +180,12 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
         ),
       ),
     );
+  }
+
+  bool isRegisterButtonEnabled() {
+    return _loginBloc.state.isFormValid &&
+        isPopulated &&
+        !_loginBloc.state.isSubmitting;
   }
 
   _buildTextFieldPassword() {
@@ -183,8 +198,17 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
         color: COLOR_CONST.GRAY3,
       ),
       child: Center(
-        child: TextField(
+        child: TextFormField(
           controller: _passwordController,
+          onChanged: (value) {
+            _loginBloc.add(LoginPasswordChanged(password: value));
+          },
+          autovalidate: true,
+          validator: (_) {
+            return !_loginBloc.state.isPasswordValid
+                ? 'Invalid Password'
+                : null;
+          },
           style: FONT_CONST.REGULAR_GRAY1_12,
           maxLines: 1,
           keyboardType: TextInputType.text,
@@ -208,14 +232,21 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
         color: COLOR_CONST.GRAY3,
       ),
       child: Center(
-        child: TextField(
+        child: TextFormField(
           controller: _emailController,
+          onChanged: (value) {
+            _loginBloc.add(LoginEmailChanged(email: value));
+          },
+          autovalidate: true,
+          validator: (_) {
+            return !_loginBloc.state.isEmailValid ? 'Invalid Email' : null;
+          },
           style: FONT_CONST.REGULAR_GRAY1_12,
           maxLines: 1,
           keyboardType: TextInputType.text,
           textAlign: TextAlign.left,
           decoration: InputDecoration.collapsed(
-            hintText: 'Username',
+            hintText: 'Email',
           ),
         ),
       ),
