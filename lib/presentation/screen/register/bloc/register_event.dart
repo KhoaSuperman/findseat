@@ -70,18 +70,20 @@ class NameChanged extends RegisterEvent {
 class Submitted extends RegisterEvent {
   final String email;
   final String password;
+  final String confirmPassword;
   final String displayName;
 
   const Submitted(
       {@required this.email,
       @required this.password,
+      @required this.confirmPassword,
       @required this.displayName});
 
   @override
-  List<Object> get props => [email, password, displayName];
+  List<Object> get props => [email, password, confirmPassword, displayName];
 
   @override
   String toString() {
-    return 'Submitted{email: $email, password: $password, displayName: $displayName}';
+    return 'Submitted{email: $email, password: $password, confirmPassword: $confirmPassword, displayName: $displayName}';
   }
 }

@@ -163,11 +163,9 @@ class _RegisterFormState extends State<RegisterForm> {
                     },
                   ),
                   FlatButton.icon(
-                      onPressed: isRegisterButtonEnabled(state)
-                          ? () {
-                              _onFormSubmitted();
-                            }
-                          : null,
+                      onPressed: () {
+                        _onFormSubmitted();
+                      },
                       icon: Icon(Icons.send),
                       label: Text('Submit')),
                 ],
@@ -206,6 +204,7 @@ class _RegisterFormState extends State<RegisterForm> {
       Submitted(
         email: _emailController.text,
         password: _passwordController.text,
+        confirmPassword: _confirmPasswordController.text,
         displayName: _nameController.text,
       ),
     );

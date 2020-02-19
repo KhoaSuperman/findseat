@@ -49,8 +49,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     } else if (event is NameChanged) {
       yield* _mapNameChangedToState(event.name);
     } else if (event is Submitted) {
-      yield* _mapFormSubmittedToState(
-          event.email, event.password, event.displayName);
+      yield* _mapFormSubmittedToState(event.email, event.password,
+          event.confirmPassword, event.displayName);
     }
   }
 
@@ -93,16 +93,38 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     );
   }
 
-  Stream<RegisterState> _mapFormSubmittedToState(
-      String email, String password, String displayName) async* {
-    yield RegisterState.loading();
+  Stream<RegisterState> _mapFormSubmittedToState(String email, String password,
+      String confirmPassword, String displayName) async* {
 
-    try {
-      await _userRepository.signUp(
-          email: email, password: password, displayName: displayName);
-      yield RegisterState.success();
-    } catch (_) {
-      yield RegisterState.failure();
+    //need refactor
+    var isValidEmail = Validators.isValidEmail(email);
+    var isValidName = displayName.isNotEmpty;
+
+    var isValidPassword = Validators.isValidPassword(password);
+    var isValidConfirmPassword = Validators.isValidPassword(confirmPassword);
+    var isMatched = true;
+    if (isValidPassword && isValidConfirmPassword) {
+      isMatched = password == confirmPassword;
+    }
+
+    var newState = state.update(
+        isEmailValid: isValidEmail,
+        isNameValid: isValidName,
+        isPasswordValid: isValidPassword,
+        isConfirmPasswordValid: isValidConfirmPassword && isMatched);
+
+    yield newState;
+
+    if (newState.isFormValid) {
+      yield RegisterState.loading();
+
+      try {
+        await _userRepository.signUp(
+            email: email, password: password, displayName: displayName);
+        yield RegisterState.success();
+      } catch (_) {
+        yield RegisterState.failure();
+      }
     }
   }
 }
