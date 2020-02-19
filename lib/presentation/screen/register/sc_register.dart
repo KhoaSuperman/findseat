@@ -32,6 +32,8 @@ class RegisterForm extends StatefulWidget {
 class _RegisterFormState extends State<RegisterForm> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   final TextEditingController _nameController = TextEditingController();
 
   RegisterBloc _registerBloc;
@@ -39,6 +41,7 @@ class _RegisterFormState extends State<RegisterForm> {
   bool get isPopulated =>
       _emailController.text.isNotEmpty &&
       _passwordController.text.isNotEmpty &&
+      _confirmPasswordController.text.isNotEmpty &&
       _nameController.text.isNotEmpty;
 
   bool isRegisterButtonEnabled(RegisterState state) {
@@ -52,6 +55,7 @@ class _RegisterFormState extends State<RegisterForm> {
     _registerBloc = BlocProvider.of<RegisterBloc>(context);
     _emailController.addListener(_onEmailChanged);
     _passwordController.addListener(_onPasswordChanged);
+    _confirmPasswordController.addListener(_onConfirmPasswordChanged);
     _nameController.addListener(_onNameChanged);
   }
 
@@ -143,6 +147,21 @@ class _RegisterFormState extends State<RegisterForm> {
                       return !state.isPasswordValid ? 'Invalid Password' : null;
                     },
                   ),
+                  TextFormField(
+                    controller: _confirmPasswordController,
+                    decoration: InputDecoration(
+                      icon: Icon(Icons.lock_outline),
+                      labelText: 'Confirm Password',
+                    ),
+                    obscureText: true,
+                    autocorrect: false,
+                    autovalidate: true,
+                    validator: (_) {
+                      return !state.isConfirmPasswordValid
+                          ? 'Password does not matched'
+                          : null;
+                    },
+                  ),
                   FlatButton.icon(
                       onPressed: isRegisterButtonEnabled(state)
                           ? () {
@@ -165,7 +184,17 @@ class _RegisterFormState extends State<RegisterForm> {
   }
 
   void _onPasswordChanged() {
-    _registerBloc.add(PasswordChanged(password: _passwordController.text));
+    _registerBloc.add(PasswordChanged(
+      password: _passwordController.text,
+      confirmPassword: _confirmPasswordController.text,
+    ));
+  }
+
+  void _onConfirmPasswordChanged() {
+    _registerBloc.add(ConfirmPasswordChanged(
+      password: _passwordController.text,
+      confirmPassword: _confirmPasswordController.text,
+    ));
   }
 
   void _onNameChanged() {
@@ -186,6 +215,7 @@ class _RegisterFormState extends State<RegisterForm> {
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmPasswordController.dispose();
     _nameController.dispose();
     super.dispose();
   }

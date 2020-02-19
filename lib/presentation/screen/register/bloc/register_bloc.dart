@@ -22,12 +22,14 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     final nonDebounceStream = events.where((event) {
       return (event is! EmailChanged &&
           event is! PasswordChanged &&
+          event is! ConfirmPasswordChanged &&
           event is! NameChanged);
     });
 
     final debounceStream = events.where((event) {
       return (event is EmailChanged ||
           event is PasswordChanged ||
+          event is ConfirmPasswordChanged ||
           event is NameChanged);
     }).debounceTime(Duration(milliseconds: 300));
 
@@ -40,7 +42,10 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     if (event is EmailChanged) {
       yield* _mapEmailChangedToState(event.email);
     } else if (event is PasswordChanged) {
-      yield* _mapPasswordChangedToState(event.password);
+      yield* _mapPasswordChangedToState(event.password, event.confirmPassword);
+    } else if (event is ConfirmPasswordChanged) {
+      yield* _mapConfirmPasswordChangedToState(
+          event.password, event.confirmPassword);
     } else if (event is NameChanged) {
       yield* _mapNameChangedToState(event.name);
     } else if (event is Submitted) {
@@ -55,9 +60,30 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     );
   }
 
-  Stream<RegisterState> _mapPasswordChangedToState(String password) async* {
+  Stream<RegisterState> _mapPasswordChangedToState(
+      String password, String confirmPassword) async* {
+    var isPasswordValid = Validators.isValidPassword(password);
+    var isMatched = true;
+
+    if (confirmPassword.isNotEmpty) {
+      isMatched = password == confirmPassword;
+    }
+
     yield state.update(
-      isPasswordValid: Validators.isValidPassword(password),
+        isPasswordValid: isPasswordValid, isConfirmPasswordValid: isMatched);
+  }
+
+  Stream<RegisterState> _mapConfirmPasswordChangedToState(
+      String password, String confirmPassword) async* {
+    var isConfirmPasswordValid = Validators.isValidPassword(confirmPassword);
+    var isMatched = true;
+
+    if (password.isNotEmpty) {
+      isMatched = password == confirmPassword;
+    }
+
+    yield state.update(
+      isConfirmPasswordValid: isConfirmPasswordValid && isMatched,
     );
   }
 
