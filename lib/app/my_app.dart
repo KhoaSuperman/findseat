@@ -1,5 +1,7 @@
 import 'package:find_seat/app_config.dart';
+import 'package:find_seat/model/repo/home_repository.dart';
 import 'package:find_seat/model/repo/user_repository.dart';
+import 'package:find_seat/presentation/screen/home/bloc/bloc.dart';
 import 'package:find_seat/presentation/screen/home/sc_home.dart';
 import 'package:find_seat/presentation/screen/login/barrel_login.dart';
 import 'package:find_seat/presentation/screen/splash/sc_splash.dart';
@@ -13,11 +15,6 @@ import 'auth_bloc/bloc.dart';
 import 'simple_bloc_delegate.dart';
 
 class MyApp extends StatelessWidget {
-  UserRepository _userRepository;
-
-  MyApp({@required UserRepository userRepository})
-      : _userRepository = userRepository;
-
   @override
   Widget build(BuildContext context) {
     var initialRoute = AppConfig.of(context).initialRoute;
@@ -62,13 +59,25 @@ class MyApp extends StatelessWidget {
     BlocSupervisor.delegate = SimpleBlocDelegate();
 
     final UserRepository userRepository = UserRepository();
+    final HomeRepository homeRepository = HomeRepository();
 
-    return RepositoryProvider(
-      create: (context) => userRepository,
-      child: BlocProvider(
-        create: (context) => AuthenticationBloc(userRepository: userRepository)
-          ..add(AppStarted()),
-        child: MyApp(userRepository: userRepository),
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider<UserRepository>(create: (context) => userRepository),
+        RepositoryProvider<HomeRepository>(create: (context) => homeRepository),
+      ],
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) =>
+                AuthenticationBloc(userRepository: userRepository)
+                  ..add(AppStarted()),
+          ),
+          BlocProvider(
+            create: (context) => HomeBloc(homeRepository: homeRepository),
+          ),
+        ],
+        child: MyApp(),
       ),
     );
   }
