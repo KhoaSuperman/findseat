@@ -25,21 +25,27 @@ dependencies:
   cupertino_icons: ^0.1.2
   retrofit: any
   json_annotation: any
+  carousel_slider: ^1.4.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  # Data
   equatable: ^0.6.0
   meta: ^1.1.6
   sprintf: "^4.0.0"
   uuid: "2.0.1"
+  # UI
   flutter_svg: ^0.14.2
   google_maps_flutter: ^0.5.21+15
   dotted_border: ^1.0.4
+  # Payment
   stripe_payment: ^1.0.6
+  # Auth
   firebase_core: ^0.4.0+8
   google_sign_in: ^4.0.0
   firebase_auth: ^0.15.0+1
+  # Bloc
   flutter_bloc: ^3.1.0
   dio: 3.0.9
   retrofit_generator: any

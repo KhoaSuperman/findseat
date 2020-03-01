@@ -6,6 +6,7 @@ part 'banner.g.dart';
 @JsonSerializable()
 class Banner extends Equatable {
   int id;
+  @JsonKey(name: 'image')
   String url;
 
   Banner({this.id, this.url});
@@ -21,6 +22,4 @@ class Banner extends Equatable {
   String toString() {
     return 'Banner{id: $id, url: $url}';
   }
-
-
 }
