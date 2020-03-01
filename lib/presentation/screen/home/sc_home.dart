@@ -1,5 +1,6 @@
 import 'package:find_seat/presentation/common_widgets/widget_spacer.dart';
 import 'package:find_seat/presentation/screen/home/bloc/bloc.dart';
+import 'package:find_seat/presentation/screen/home/home_banner/bloc/bloc.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,23 +21,27 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
-      builder: (context, state) {
-        return SafeArea(
-          child: Scaffold(
-            body: Container(
-              color: COLOR_CONST.WHITE,
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: <Widget>[
-                  WidgetHomeToolbar(),
-                  _buildContent(state),
-                ],
+    return BlocProvider(
+      create: (context) =>
+          HomeBannerBloc(homeBloc: BlocProvider.of<HomeBloc>(context)),
+      child: BlocBuilder<HomeBloc, HomeState>(
+        builder: (context, state) {
+          return SafeArea(
+            child: Scaffold(
+              body: Container(
+                color: COLOR_CONST.WHITE,
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    WidgetHomeToolbar(),
+                    _buildContent(state),
+                  ],
+                ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 
