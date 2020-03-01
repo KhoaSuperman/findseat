@@ -1,5 +1,5 @@
 export 'home_banner/widget_home_banner.dart';
-export 'widget_home_categories.dart';
+export 'home_categories/widget_home_categories.dart';
 export 'widget_home_events.dart';
 export 'widget_home_plays.dart';
 export 'widget_home_toolbar.dart';
