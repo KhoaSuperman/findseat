@@ -44,9 +44,7 @@ class _WidgetHomeCategoriesState extends State<WidgetHomeCategories> {
             ),
           );
         } else {
-          return Center(
-            child: Text('No categories'),
-          );
+          return Container();
         }
       },
     );

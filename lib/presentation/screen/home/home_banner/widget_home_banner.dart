@@ -11,6 +11,7 @@ class WidgetHomeBanner extends StatefulWidget {
 }
 
 class _WidgetHomeBannerState extends State<WidgetHomeBanner> {
+  final aspectRatioBanner = 16 / 9;
   var currentIndex = 0;
 
   @override
@@ -21,12 +22,8 @@ class _WidgetHomeBannerState extends State<WidgetHomeBanner> {
           return Container(
             child: _buildCarouselSlider(state),
           );
-        } else if (state is HomeBannerNotLoaded) {
-          return Center(
-            child: Text('No banner here'),
-          );
         } else {
-          return Text('Unknown state');
+          return Container();
         }
       },
     );
@@ -36,7 +33,7 @@ class _WidgetHomeBannerState extends State<WidgetHomeBanner> {
     return Stack(
       children: <Widget>[
         CarouselSlider(
-          aspectRatio: 16 / 9,
+          aspectRatio: aspectRatioBanner,
           viewportFraction: 1.0,
           enableInfiniteScroll: true,
           autoPlay: true,
@@ -51,8 +48,9 @@ class _WidgetHomeBannerState extends State<WidgetHomeBanner> {
             });
           },
           items: state.banners.map((banner) {
-            return Image.network(
-              banner.url,
+            return FadeInImage.assetNetwork(
+              image: banner.url,
+              placeholder: 'assets/loading.gif',
               fit: BoxFit.contain,
             );
           }).toList(),
