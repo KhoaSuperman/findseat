@@ -10,6 +10,9 @@ class HomeResponse {
 
   List<Categoryy> categories;
 
+  @JsonKey(name: "recommended_seats")
+  List<Show> recommendedSeats;
+
   HomeResponse({this.banners, this.categories});
 
   factory HomeResponse.fromJson(Map<String, dynamic> json) =>
