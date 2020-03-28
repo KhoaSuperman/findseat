@@ -1,0 +1,28 @@
+
+{
+  "show_name": "Black Panther",
+  "cine_time_slots": [
+    {
+      "id": "cine_timeslot_1",
+      "cine":
+      {
+        "id": "cine_1",
+        "name": "Arasan Cinemas A/C 2K Dolby",
+        "address_name": "Honda Building",
+        "address": "Cine 1 Address",
+        "lat": 23.35456,
+        "lng": 105.1235435,
+      },
+      "time_slots": [
+        {
+          "id": "1",
+          "10:00 AM"
+        },
+        {
+          "id": "2",
+          "1:30 PM"
+        }
+      ]
+    }
+  ]
+}

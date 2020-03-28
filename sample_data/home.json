@@ -1,0 +1,112 @@
+{
+  "notification_count": 3,
+  "banners": [
+    {
+      "id": 1,
+      "image": "http://superman-academy.com/api/findseat/images/banner_1.jpg"
+    },
+    {
+      "id": 2,
+      "image": "http://superman-academy.com/api/findseat/images/banner_2.jpg"
+    },
+    {
+      "id": 3,
+      "image": "http://superman-academy.com/api/findseat/images/banner_3.png"
+    },
+    {
+      "id": 4,
+      "image": "http://superman-academy.com/api/findseat/images/banner_4.jpg"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Movies",
+      "icon": "ic_film.svg"
+    },
+    {
+      "id": 2,
+      "name": "Events",
+      "icon": "ic_events.svg"
+    },
+	{
+      "id": 3,
+      "name": "Plays",
+      "icon": "ic_plays.svg"
+    },
+	{
+      "id": 4,
+      "name": "Sports",
+      "icon": "ic_sports.svg"
+    },
+	{
+      "id": 5,
+      "name": "Activity",
+      "icon": "ic_activity.svg"
+    },
+	{
+      "id": 6,
+      "name": "Monum",
+      "icon": "ic_monum.svg"
+    }
+  ],
+  "recommended_seats": [
+    {
+      "id": "Hitman Agent Jun",
+      "name": "Hitman Agent Jun",
+      "thumb": "http://superman-academy.com/api/findseat/images/HO00001582.jfif",
+      "banner": "http://",
+      "rate": 100
+    },
+    {
+      "id": "Call Of The Wind",
+      "name": "Call Of The Wind",
+      "thumb": "http://superman-academy.com/api/findseat/images/HO00002012.jfif",
+      "banner": "http://",
+      "rate": 92
+    },
+	{
+      "id": "Bird of Prey",
+      "name": "Bird of Prey",
+      "thumb": "http://superman-academy.com/api/findseat/images/HO00001804.jfif",
+      "banner": "http://",
+      "rate": 61
+    },
+	{
+      "id": "Little Women",
+      "name": "Little Women",
+      "thumb": "http://superman-academy.com/api/findseat/images/HO00001988.jfif",
+      "banner": "http://",
+      "rate": 74
+    }
+  ],
+  "nearby_theatres": [
+    {
+      "id": "BHD Phạm Ngọc Thạch",
+      "name": "BHD Phạm Ngọc Thạch",
+      "address" : "Tầng 8 Vincom Phạm Ngọc Thạch, Đống Đa, Hà Nội",
+      "distance" : 23.4,
+      "photo" : "https://",
+      "lat": "21.0127928",
+      "lng": "105.8337666"
+    },
+    {
+      "id": "BHD Cầu Giấy",
+      "name": "BHD Cầu Giấy",
+      "address" : "Tầng 4 tòa nhà CinePlex quận Cầu Giấy, Hà Nội",
+      "distance" : 13.4,
+      "photo" : "https://",
+      "lat": "21.035257",
+      "lng": "105.794364"
+    },
+    {
+      "id": "BHD Trung Hòa",
+      "name": "BHD Trung Hòa",
+      "address" : "Tầng 9 Hanoi Center, Hoàng Đạo Thúy, Hà Nội",
+      "distance" : 5.2,
+      "photo" : "https://",
+      "lat": "21.013758",
+      "lng": "105.800307"
+    }
+  ]
+}

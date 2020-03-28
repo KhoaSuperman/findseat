@@ -1,4 +1,5 @@
 class Cine {
+  String id;
   String name;
   String address;
   int rating;
@@ -7,11 +8,12 @@ class Cine {
   double lat;
   double lng;
 
-  Cine(this.name, this.address, this.rating, this.distance, this.photo,
+  Cine(this.id, this.name, this.address, this.rating, this.distance, this.photo,
       this.lat, this.lng);
 
   static List<Cine> SAMPLE_DATA = [
     Cine(
+      'Arasan Cinemas A/C 2K Dolby',
       'Arasan Cinemas A/C 2K Dolby',
       'Coimbatore',
       5,
@@ -22,6 +24,7 @@ class Cine {
     ),
     Cine(
       'Karpagam theatres - 4K',
+      'Karpagam theatres - 4K',
       'Coimbatore',
       5,
       4.4,
@@ -30,6 +33,7 @@ class Cine {
       105.827874,
     ),
     Cine(
+      'KG theatres - 4K',
       'KG theatres - 4K',
       'Coimbatore',
       4,
@@ -40,6 +44,7 @@ class Cine {
     ),
     Cine(
       'BHD Pham Ngoc Thach',
+      'BHD Pham Ngoc Thach',
       'Ha Noi',
       5,
       6.4,
@@ -48,6 +53,7 @@ class Cine {
       105.8298065,
     ),
     Cine(
+      'BHD Cau Giay',
       'BHD Cau Giay',
       'Ha Noi',
       4,
@@ -58,6 +64,7 @@ class Cine {
     ),
     Cine(
       'CGV Ba Trieu',
+      'CGV Ba Trieu',
       'Ha Noi',
       5,
       9.7,
@@ -66,6 +73,7 @@ class Cine {
       105.8474953,
     ),
     Cine(
+      'CGV Royal City',
       'CGV Royal City',
       'Ha Noi',
       5,
