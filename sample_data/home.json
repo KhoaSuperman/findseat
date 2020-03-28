@@ -87,8 +87,9 @@
       "address" : "Tầng 8 Vincom Phạm Ngọc Thạch, Đống Đa, Hà Nội",
       "distance" : 23.4,
       "photo" : "https://",
-      "lat": "21.0127928",
-      "lng": "105.8337666"
+      "lat": 21.0127928,
+      "lng": 105.8337666,
+      "rating" : 84
     },
     {
       "id": "BHD Cầu Giấy",
@@ -96,8 +97,9 @@
       "address" : "Tầng 4 tòa nhà CinePlex quận Cầu Giấy, Hà Nội",
       "distance" : 13.4,
       "photo" : "https://",
-      "lat": "21.035257",
-      "lng": "105.794364"
+      "lat": 21.035257,
+      "lng": 105.794364,
+      "rating" : 72
     },
     {
       "id": "BHD Trung Hòa",
@@ -105,8 +107,9 @@
       "address" : "Tầng 9 Hanoi Center, Hoàng Đạo Thúy, Hà Nội",
       "distance" : 5.2,
       "photo" : "https://",
-      "lat": "21.013758",
-      "lng": "105.800307"
+      "lat": 21.013758,
+      "lng": 105.800307,
+      "rating" : 69
     }
   ]
 }

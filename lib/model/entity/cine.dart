@@ -1,3 +1,9 @@
+
+import 'package:json_annotation/json_annotation.dart';
+
+part 'cine.g.dart';
+
+@JsonSerializable()
 class Cine {
   String id;
   String name;
@@ -10,6 +16,17 @@ class Cine {
 
   Cine(this.id, this.name, this.address, this.rating, this.distance, this.photo,
       this.lat, this.lng);
+
+  factory Cine.fromJson(Map<String, dynamic> json) =>
+      _$CineFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CineToJson(this);
+
+
+  @override
+  String toString() {
+    return 'Cine{id: $id, name: $name, address: $address, rating: $rating, distance: $distance, photo: $photo, lat: $lat, lng: $lng}';
+  }
 
   static List<Cine> SAMPLE_DATA = [
     Cine(

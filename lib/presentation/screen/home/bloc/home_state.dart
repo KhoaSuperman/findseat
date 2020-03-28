@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:find_seat/model/repo/response/api_response.dart';
-import 'package:find_seat/presentation/screen/home/bloc/bloc.dart';
+import 'package:find_seat/model/api/response/api_response.dart';
 
 abstract class HomeState extends Equatable {
   const HomeState();

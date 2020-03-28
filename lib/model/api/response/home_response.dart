@@ -13,6 +13,9 @@ class HomeResponse {
   @JsonKey(name: "recommended_seats")
   List<Show> recommendedSeats;
 
+  @JsonKey(name: "nearby_theatres")
+  List<Cine> nearbyTheatres;
+
   HomeResponse({this.banners, this.categories});
 
   factory HomeResponse.fromJson(Map<String, dynamic> json) =>

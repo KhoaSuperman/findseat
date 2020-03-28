@@ -3,5 +3,5 @@ export 'home_categories/widget_home_categories.dart';
 export 'widget_home_events.dart';
 export 'widget_home_plays.dart';
 export 'widget_home_toolbar.dart';
-export 'widget_nearby_theatres.dart';
+export 'nearby_cine/widget_nearby_cine.dart';
 export 'recommended_seats/widget_recommended_seats.dart';
