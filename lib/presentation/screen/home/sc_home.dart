@@ -32,8 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
             create: (context) =>
                 HomeCategoryBloc(homeBloc: BlocProvider.of<HomeBloc>(context))),
         BlocProvider(
-            create: (context) =>
-                RecommendedSeatsBloc(homeBloc: BlocProvider.of<HomeBloc>(context))),
+            create: (context) => RecommendedSeatsBloc(
+                homeBloc: BlocProvider.of<HomeBloc>(context))),
       ],
       child: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
@@ -70,10 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
             WidgetSpacer(height: 30),
             WidgetNearbyCine(),
             WidgetSpacer(height: 30),
-            WidgetHomeEvents(),
-            WidgetSpacer(height: 30),
-            WidgetHomePlays(),
-            WidgetSpacer(height: 30),
+            WidgetHomeShowsCategory(),
           ],
         ),
       );

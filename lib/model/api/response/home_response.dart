@@ -1,3 +1,4 @@
+import 'package:find_seat/model/api/response/api_response.dart';
 import 'package:find_seat/model/entity/categoryy.dart';
 import 'package:find_seat/model/entity/entity.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -15,6 +16,9 @@ class HomeResponse {
 
   @JsonKey(name: "nearby_theatres")
   List<Cine> nearbyTheatres;
+
+  @JsonKey(name: "show_by_categories")
+  List<ShowByCategoryResponse> showByCategories;
 
   HomeResponse({this.banners, this.categories});
 
