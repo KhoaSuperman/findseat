@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 class ShowRepository {
   final dio = Dio();
 
-  Future<AllShowsByTypeResponse> getHomeData() async {
+  Future<AllShowsByTypeResponse> getAllShowsByType() async {
     final client = RestClient(dio);
     return client.getAllShowsByType();
   }

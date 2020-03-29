@@ -1,4 +1,6 @@
+import 'package:find_seat/model/entity/entity.dart';
 import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
+import 'package:find_seat/presentation/screen/all_shows/bloc/all_shows_bloc.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -6,6 +8,10 @@ import 'package:flutter/widgets.dart';
 import 'barrel_all_shows.dart';
 
 class WidgetShowGallery extends StatefulWidget {
+  Meta meta;
+
+  WidgetShowGallery({this.meta});
+
   @override
   _WidgetShowGalleryState createState() => _WidgetShowGalleryState();
 }
@@ -31,21 +37,6 @@ class _WidgetShowGalleryState extends State<WidgetShowGallery>
     super.initState();
   }
 
-  List<ItemShowVM> items = [
-    ItemShowVM(
-        "images/movie/fdf8fabbc12db9cddc60574f691d26c6@2x.png", "Bigil", 84),
-    ItemShowVM(
-        "images/movie/d4baeb81488e83cb54f041917ff62f59@2x.png", "Kaithi", 98),
-    ItemShowVM(
-        "images/movie/202693a21503970eac9090537062d5d3.png", "Gabbar", 84),
-    ItemShowVM(
-        "images/movie/81c106f1df72317e034fafa6c4975e9f.png", "Pizza - part 2", 98),
-    ItemShowVM(
-        "images/movie/61d30e82f43b1cab9f49e576ae457086@2x.png", "Asuran", 94),
-    ItemShowVM(
-        "images/movie/3890dc6228535cbf5eebd947738d4e52.png", "Sarkar", 87)
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -55,14 +46,30 @@ class _WidgetShowGalleryState extends State<WidgetShowGallery>
           child: TabBarView(
             controller: _controller,
             children: <Widget>[
-              WidgetListShow(items),
-              WidgetListShow(items.sublist(1, 3).toList()),
-              WidgetListShow(items.sublist(3, 5).toList()),
+              _listShowsToContent(widget.meta.nowShowing),
+              _listShowsToContent(widget.meta.comingSoon),
+              _listShowsToContent(widget.meta.exclusive),
             ],
           ),
         )
       ],
     );
+  }
+
+  Widget _listShowsToContent(List<Show> shows) {
+    if (shows.isNotEmpty) {
+      return WidgetListShow(
+          shows.map((show) => ItemShowVM.fromShow(show)).toList());
+    } else {
+      return Container(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: Text('No data', style: FONT_CONST.REGULAR_GRAY4_14),
+          ),
+        ),
+      );
+    }
   }
 
   _buildTabs() {
