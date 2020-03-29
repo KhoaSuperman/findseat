@@ -21,6 +21,20 @@ class DisplayListShows extends AllShowsState {
   }
 }
 
+class UpdateToolbarState extends AllShowsState {
+  final bool showSearchField;
+
+  UpdateToolbarState({this.showSearchField});
+
+  @override
+  List<Object> get props => [showSearchField];
+
+  @override
+  String toString() {
+    return 'UpdateSearchIconState{showSearchIcon: $showSearchField}';
+  }
+}
+
 class LoadingData extends AllShowsState {}
 
 class NoData extends AllShowsState {

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <desc>Created with Lunacy</desc>
+  <defs>
+    <path d="M16.7256 18L18 16.7256L10.2744 9L18 1.27441L16.7256 0L9 7.72559L1.27441 0L0 1.27441L7.72559 9L0 16.7256L1.27441 18L9 10.2744L16.7256 18L16.7256 18Z" id="path_1" />
+    <clipPath id="mask_1">
+      <use xlink:href="#path_1" />
+    </clipPath>
+  </defs>
+  <g id="svg">
+    <path d="M0 0L28 0L28 28L0 28L0 0Z" id="Background" fill="none" stroke="none" />
+    <g id="Icon" transform="translate(5 5)">
+      <path d="M16.7256 18L18 16.7256L10.2744 9L18 1.27441L16.7256 0L9 7.72559L1.27441 0L0 1.27441L7.72559 9L0 16.7256L1.27441 18L9 10.2744L16.7256 18L16.7256 18Z" id="" fill="#8E8E93" stroke="none" />
+      <g id="Group">
+        <path d="M16.7256 18L18 16.7256L10.2744 9L18 1.27441L16.7256 0L9 7.72559L1.27441 0L0 1.27441L7.72559 9L0 16.7256L1.27441 18L9 10.2744L16.7256 18L16.7256 18Z" id="path_1" fill="none" stroke="none" />
+        <g clip-path="url(#mask_1)">
+          <g id="Color" transform="translate(-5 -5)">
+            <path d="M0 0L28 0L28 28L0 28L0 0L0 0Z" id="Color" fill="#000000" stroke="none" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

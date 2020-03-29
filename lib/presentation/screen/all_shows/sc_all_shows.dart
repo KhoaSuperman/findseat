@@ -14,48 +14,48 @@ class AllShowsScreen extends StatelessWidget {
         body: BlocProvider<AllShowsBloc>(
           create: (context) => AllShowsBloc(
               showRepository: RepositoryProvider.of<ShowRepository>(context))
-            ..add(
-              OpenScreen(),
+            ..add(OpenScreen()),
+          child: Container(
+            child: Column(
+              children: <Widget>[
+                WidgetAllShowsToolbar(),
+                Expanded(
+                  child: _buildContent(),
+                )
+              ],
             ),
-          child: BlocConsumer<AllShowsBloc, AllShowsState>(
-            listener: (context, state) {},
-            builder: (context, state) {
-              return Container(
-                child: Column(
-                  children: <Widget>[
-                    WidgetAllShowsToolbar(),
-                    Expanded(
-                      child: _buildContent(state),
-                    )
-                  ],
-                ),
-              );
-            },
           ),
         ),
       ),
     );
   }
 
-  Widget _buildContent(AllShowsState state) {
-    if (state is DisplayListShows) {
-      return WidgetShowGallery(meta: state.meta);
-    } else if (state is LoadingData) {
-      return Container(
-        child: Center(
-          child: CircularProgressIndicator(),
-        ),
-      );
-    } else if (state is NoData) {
-      return Container(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32),
-            child: Text(state.msg, style: FONT_CONST.REGULAR_GRAY4_14),
-          ),
-        ),
-      );
-    } else
-      return Container();
+  Widget _buildContent() {
+    return BlocBuilder<AllShowsBloc, AllShowsState>(
+      condition: (prev, current) {
+        return current is! UpdateToolbarState;
+      },
+      builder: (context, state) {
+        if (state is DisplayListShows) {
+          return WidgetShowGallery(meta: state.meta);
+        } else if (state is LoadingData) {
+          return Container(
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        } else if (state is NoData) {
+          return Container(
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32),
+                child: Text(state.msg, style: FONT_CONST.REGULAR_GRAY4_14),
+              ),
+            ),
+          );
+        } else
+          return Container();
+      },
+    );
   }
 }

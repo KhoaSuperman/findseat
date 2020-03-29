@@ -8,6 +8,10 @@ class AllShowsEvent extends Equatable {
 
 class OpenScreen extends AllShowsEvent {}
 
+class ClickIconSearch extends AllShowsEvent {}
+
+class ClickCloseSearch extends AllShowsEvent {}
+
 class SearchQueryChanged extends AllShowsEvent {
   final String keyword;
 
