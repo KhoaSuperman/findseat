@@ -10,4 +10,7 @@ abstract class RestClient {
 
   @GET("/home.json")
   Future<HomeResponse> getHomeData();
+
+  @GET("/all_shows_by_type.json")
+  Future<AllShowsByTypeResponse> getAllShowsByType();
 }

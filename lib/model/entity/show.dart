@@ -1,3 +1,6 @@
+import 'package:find_seat/model/entity/cast.dart';
+import 'package:find_seat/model/entity/offer.dart';
+import 'package:find_seat/model/entity/user_review.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:equatable/equatable.dart';
 
@@ -8,21 +11,43 @@ class Show extends Equatable {
   String id;
   String name;
   String thumb;
-  String banner;
+  String cover;
+  String trailer;
   int rate;
+  String votes;
+  List<String> tags;
+  int duration;
+  List<Offer> offers;
+  @JsonKey(name: "total_reviews")
+  int totalReviews;
+  @JsonKey(name: "latest_reviews")
+  UserReview latestReviews;
+  List<Cast> casts;
 
-  Show(this.id, this.name, this.thumb, this.banner, this.rate);
+  Show(
+      this.id,
+      this.name,
+      this.thumb,
+      this.cover,
+      this.trailer,
+      this.rate,
+      this.votes,
+      this.tags,
+      this.duration,
+      this.offers,
+      this.totalReviews,
+      this.latestReviews,
+      this.casts);
 
   factory Show.fromJson(Map<String, dynamic> json) => _$ShowFromJson(json);
 
   Map<String, dynamic> toJson() => _$ShowToJson(this);
 
   @override
-  List<Object> get props => [id, name, thumb, banner, rate];
+  List<Object> get props => [id];
 
   @override
   String toString() {
-    return 'Show{id: $id, name: $name, thumb: $thumb, banner: $banner, rate: $rate}';
+    return 'Show{id: $id, name: $name, thumb: $thumb, cover: $cover, trailer: $trailer, rate: $rate, votes: $votes, tags: $tags, duration: $duration, offers: $offers, totalReviews: $totalReviews, latestReviews: $latestReviews, casts: $casts}';
   }
-
 }

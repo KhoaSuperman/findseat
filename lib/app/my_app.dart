@@ -1,6 +1,5 @@
 import 'package:find_seat/app_config.dart';
-import 'package:find_seat/model/repo/home_repository.dart';
-import 'package:find_seat/model/repo/user_repository.dart';
+import 'package:find_seat/model/repo/repo.dart';
 import 'package:find_seat/presentation/screen/home/bloc/bloc.dart';
 import 'package:find_seat/presentation/screen/home/sc_home.dart';
 import 'package:find_seat/presentation/screen/login/barrel_login.dart';
@@ -60,11 +59,13 @@ class MyApp extends StatelessWidget {
 
     final UserRepository userRepository = UserRepository();
     final HomeRepository homeRepository = HomeRepository();
+    final ShowRepository showRepository = ShowRepository();
 
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<UserRepository>(create: (context) => userRepository),
         RepositoryProvider<HomeRepository>(create: (context) => homeRepository),
+        RepositoryProvider<ShowRepository>(create: (context) => showRepository),
       ],
       child: MultiBlocProvider(
         providers: [
