@@ -15,38 +15,34 @@ class WidgetHomeShowsCategory extends StatefulWidget {
 class _WidgetHomeShowsCategoryState extends State<WidgetHomeShowsCategory> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<HomeShowsCategoryBloc>(
-      create: (context) =>
-          HomeShowsCategoryBloc(homeBloc: BlocProvider.of<HomeBloc>(context)),
-      child: BlocBuilder<HomeShowsCategoryBloc, HomeShowsCategoryState>(
-        builder: (context, state) {
-          if (state is ShowsByCategoryLoaded) {
-            final list = state.list;
+    return BlocBuilder<HomeShowsCategoryBloc, HomeShowsCategoryState>(
+      builder: (context, state) {
+        if (state is ShowsByCategoryLoaded) {
+          final list = state.list;
 
-            return Container(
-              child: ListView.separated(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    final mapEntry = list[index];
-                    final category = mapEntry.key;
-                    final shows = mapEntry.value;
+          return Container(
+            child: ListView.separated(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  final mapEntry = list[index];
+                  final category = mapEntry.key;
+                  final shows = mapEntry.value;
 
-                    return WidgetHomeEvents(
-                      category: category,
-                      shows: shows,
-                    );
-                  },
-                  separatorBuilder: (context, index) {
-                    return WidgetSpacer(height: 20);
-                  },
-                  itemCount: list.length),
-            );
-          } else {
-            return Container();
-          }
-        },
-      ),
+                  return WidgetHomeEvents(
+                    category: category,
+                    shows: shows,
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return WidgetSpacer(height: 20);
+                },
+                itemCount: list.length),
+          );
+        } else {
+          return Container();
+        }
+      },
     );
   }
 }
