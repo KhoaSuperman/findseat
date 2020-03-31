@@ -37,22 +37,30 @@ class AllShowsScreen extends StatelessWidget {
       },
       builder: (context, state) {
         if (state is DisplayListShows) {
-          return WidgetShowGallery(meta: state.meta);
-        } else if (state is LoadingData) {
-          return Container(
-            child: Center(
-              child: CircularProgressIndicator(),
-            ),
-          );
-        } else if (state is NoData) {
-          return Container(
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 32),
-                child: Text(state.msg, style: FONT_CONST.REGULAR_GRAY4_14),
+          if (state.loading) {
+            return Container(
+              child: Center(
+                child: CircularProgressIndicator(),
               ),
-            ),
-          );
+            );
+          }
+
+          if (state.msg != null) {
+            return Container(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32),
+                  child: Text(state.msg, style: FONT_CONST.REGULAR_GRAY4_14),
+                ),
+              ),
+            );
+          }
+
+          if (state.meta != null) {
+            return WidgetShowGallery(meta: state.meta);
+          }
+
+          return Container();
         } else
           return Container();
       },

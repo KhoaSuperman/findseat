@@ -9,15 +9,29 @@ class AllShowsState extends Equatable {
 
 class DisplayListShows extends AllShowsState {
   Meta meta;
+  bool loading;
+  String msg;
 
-  DisplayListShows({this.meta});
+  DisplayListShows({this.meta, this.loading, this.msg});
+
+  factory DisplayListShows.loading() {
+    return DisplayListShows(msg: null, meta: null, loading: true);
+  }
+
+  factory DisplayListShows.data(Meta meta) {
+    return DisplayListShows(msg: null, meta: meta, loading: false);
+  }
+
+  factory DisplayListShows.error(String msg) {
+    return DisplayListShows(msg: msg, meta: null, loading: false);
+  }
 
   @override
-  List<Object> get props => [meta];
+  List<Object> get props => [meta, loading, msg];
 
   @override
   String toString() {
-    return 'DisplayListShows{meta: $meta}';
+    return 'DisplayListShows{meta: $meta, loading: $loading, msg: $msg}';
   }
 }
 
@@ -32,21 +46,5 @@ class UpdateToolbarState extends AllShowsState {
   @override
   String toString() {
     return 'UpdateSearchIconState{showSearchIcon: $showSearchField}';
-  }
-}
-
-class LoadingData extends AllShowsState {}
-
-class NoData extends AllShowsState {
-  final String msg;
-
-  NoData({this.msg});
-
-  @override
-  List<Object> get props => [msg];
-
-  @override
-  String toString() {
-    return 'NoData{msg: $msg}';
   }
 }

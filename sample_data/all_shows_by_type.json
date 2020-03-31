@@ -54,63 +54,24 @@
       ]
     },
     {
-      "id": "Hitman Agent Jun",
-      "name": "Hitman Agent Jun (Part 2)",
-      "thumb": "http://superman-academy.com/api/findseat/images/HO00001582.jfif",
-      "cover": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F92299927%2F232031617809%2F1%2Foriginal.20200213-014422?w=1000&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=10fe374692955e99497fc542889e88fe",
-      "trailer": "https://www.youtube.com/watch?v=5kei6EdxGpU",
-      "rate": 81,
-      "votes": "1.8k votes",
-      "tags": [
-        "Action",
-        "Drama"
-      ],
-      "duration": 3000,
-      "offers": [
-        {
-          "id": 1,
-          "type": "red",
-          "title": "Wait! Grab FREE RED reward",
-          "content": "Book your seats and tap on the reward box to claim it"
-        },
-        {
-          "id": 2,
-          "type": "green",
-          "title": "Wait! Grab FREE GREEN reward",
-          "content": "Book your seats and tap on the reward box to claim it"
-        }
-      ],
-      "total_reviews": 1403,
-      "latest_reviews": {
-        "author": "Mokka mohan",
-        "created": 15321321,
-        "content": "Lorem",
-        "avatar": "http://"
-      },
-      "casts": [
-        {
-          "name": "Kwon Sang-Woo",
-          "photo": "http://asianwiki.com/images/9/99/Kwon-Sang-Woo-The_Accidental_Detective.jpg"
-        },
-        {
-          "name": "Jung Joon-Ho",
-          "photo": "http://asianwiki.com/images/a/a1/Jung_Jun-Ho-p2.jpg"
-        },
-        {
-          "name": "Hwang Woo Seul Hye",
-          "photo": "http://asianwiki.com/images/c/c4/Hwang_Woo_Seul_Hye-1979-p1.jpg"
-        },
-        {
-          "name": "Lee Yi-Kyung",
-          "photo": "http://asianwiki.com/images/2/2e/Lee_Yi-Kyung-1989-p01.jpg"
-        }
-      ]
+      "id": "Call Of The Wind",
+      "name": "Call Of The Wind",
+      "thumb": "http://superman-academy.com/api/findseat/images/HO00002012.jfif",
+      "banner": "http://",
+      "rate": 92
+    },
+    {
+      "id": "Bird of Prey",
+      "name": "Bird of Prey",
+      "thumb": "http://superman-academy.com/api/findseat/images/HO00001804.jfif",
+      "banner": "http://",
+      "rate": 61
     }
   ],
   "coming_soon": [
     {
-      "id": "Hitman Agent Jun_coming",
-      "name": "Hitman Agent Jun Coming",
+      "id": "Hitman Coming",
+      "name": "Hitman Coming",
       "thumb": "http://superman-academy.com/api/findseat/images/HO00001582.jfif",
       "cover": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F92299927%2F232031617809%2F1%2Foriginal.20200213-014422?w=1000&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=10fe374692955e99497fc542889e88fe",
       "trailer": "https://www.youtube.com/watch?v=5kei6EdxGpU",
@@ -160,11 +121,18 @@
           "photo": "http://asianwiki.com/images/2/2e/Lee_Yi-Kyung-1989-p01.jpg"
         }
       ]
+    },
+    {
+      "id": "Little Women",
+      "name": "Little Women",
+      "thumb": "http://superman-academy.com/api/findseat/images/HO00001988.jfif",
+      "banner": "http://",
+      "rate": 74
     }
   ],
   "exclusive": [
     {
-      "id": "Hitman Agent Jun_exclusive",
+      "id": "Hitman Agent Jun exclusive",
       "name": "Hitman Agent Jun Exclusive",
       "thumb": "http://superman-academy.com/api/findseat/images/HO00001582.jfif",
       "cover": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F92299927%2F232031617809%2F1%2Foriginal.20200213-014422?w=1000&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=10fe374692955e99497fc542889e88fe",
