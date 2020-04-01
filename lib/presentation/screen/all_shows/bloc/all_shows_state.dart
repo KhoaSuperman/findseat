@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:find_seat/model/entity/entity_enum.dart';
 import 'package:find_seat/presentation/screen/all_shows/bloc/all_shows_bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -46,5 +47,20 @@ class UpdateToolbarState extends AllShowsState {
   @override
   String toString() {
     return 'UpdateSearchIconState{showSearchIcon: $showSearchField}';
+  }
+}
+
+class OpenSortOption extends AllShowsState {
+  final bool isOpen;
+  final SHOW_SORT_BY showSortBy;
+
+  OpenSortOption({this.isOpen, this.showSortBy});
+
+  @override
+  List<Object> get props => [isOpen, showSortBy, DateTime.now().millisecond];
+
+  @override
+  String toString() {
+    return 'OpenSortOption{isOpen: $isOpen, showSortBy: $showSortBy}';
   }
 }

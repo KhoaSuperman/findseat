@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:find_seat/model/entity/sort_show.dart';
 import 'package:meta/meta.dart';
 
 class AllShowsEvent extends Equatable {
@@ -23,5 +24,24 @@ class SearchQueryChanged extends AllShowsEvent {
   @override
   String toString() {
     return 'SearchQueryChanged{keyword: $keyword}';
+  }
+}
+
+class ClickIconSort extends AllShowsEvent {
+  @override
+  List<Object> get props => [DateTime.now().millisecond];
+}
+
+class SortByChanged extends AllShowsEvent {
+  SHOW_SORT_BY showSortBy;
+
+  SortByChanged(this.showSortBy);
+
+  @override
+  List<Object> get props => [showSortBy];
+
+  @override
+  String toString() {
+    return 'SortByChanged{showSortBy: $showSortBy}';
   }
 }

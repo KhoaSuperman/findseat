@@ -89,10 +89,15 @@ class _WidgetAllShowsToolbarState extends State<WidgetAllShowsToolbar> {
           ),
         ),
         WidgetSpacer(width: 12),
-        MySvgImage(
-          path: "assets/ic_more.svg",
-          width: 20,
-          height: 20,
+        InkWell(
+          onTap: () {
+            BlocProvider.of<AllShowsBloc>(_blocContext).add(ClickIconSort());
+          },
+          child: MySvgImage(
+            path: "assets/ic_more.svg",
+            width: 20,
+            height: 20,
+          ),
         ),
         WidgetSpacer(width: 12)
       ],
