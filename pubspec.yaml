@@ -30,6 +30,9 @@ dependencies:
   #format date time and other formats
   intl: ^0.16.1
 
+  #youtube player
+  youtube_player_flutter: ^6.1.0+4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

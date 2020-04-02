@@ -18,7 +18,7 @@ class ShowInfoScreen extends StatelessWidget {
           children: [
             ListView(
               children: <Widget>[
-                WidgetShowTrailer(),
+                WidgetVideoPlayer(),
                 WidgetShowDesc(),
                 WidgetSpacer(height: 14),
                 WidgetOffers(),
