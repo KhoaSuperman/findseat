@@ -5,3 +5,5 @@ export 'seat_type.dart';
 export 'seat_row.dart';
 export 'seat_slot.dart';
 export 'show.dart';
+export 'offer.dart';
+export 'cast.dart';

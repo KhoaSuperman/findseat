@@ -73,22 +73,22 @@
         {
           "id": 1,
           "type": "red",
-          "title": "Wait! Grab FREE RED reward",
+          "title": "Covid-19! Grab FREE RED reward",
           "content": "Book your seats and tap on the reward box to claim it"
         },
         {
           "id": 2,
           "type": "green",
-          "title": "Wait! Grab FREE GREEN reward",
-          "content": "Book your seats and tap on the reward box to claim it"
+          "title": "Wait! Grab FREE GREEN reward nCovid-SAR2",
+          "content": "50% discount maximum VND 30,000 x2 GrabBike, GrabCar service for for New Users .Expires on 30/06/2020"
         }
       ],
       "total_reviews": 1403,
       "latest_reviews": {
-        "author": "Mokka mohan",
-        "created": 15321321,
-        "content": "Lorem",
-        "avatar": "http://"
+        "author": "John Wich",
+        "created": 1585986181,
+        "content": "With all the updates after the last few months the app has improved a lot. Keeps me up to date.",
+        "avatar": "https://superman-academy.com/api/findseat/images/sample_avatar2.jpg"
       },
       "casts": [
         {

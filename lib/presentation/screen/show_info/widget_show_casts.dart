@@ -1,22 +1,22 @@
+import 'package:find_seat/model/entity/entity.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
+import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class WidgetShowCasts extends StatelessWidget {
-  List<ItemCast> items = [
-    ItemCast('Chadwick', 'images/casts/81202d0dea55189fa442a1ab932a81a7.png'),
-    ItemCast(
-        'Letitia Wright', 'images/casts/646262125800725e14d8c4ff4b2a2181.png'),
-    ItemCast('B. Jordan', 'images/casts/a053e9fb0c813cd15b34a2edff71ae9d.png'),
-    ItemCast(
-        'Lupita Nyong', 'images/casts/289bf4c714c627dc42b17199024a152d.png'),
-  ];
+  Show show;
+
+  WidgetShowCasts({@required this.show});
+
+  List<ItemCast> items = [];
 
   @override
   Widget build(BuildContext context) {
+    items = show.casts.map((cast) => ItemCast.fromCast(cast)).toList();
+
     return Container(
-      height: 204,
       color: COLOR_CONST.WHITE,
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
       child: Column(
@@ -34,11 +34,7 @@ class WidgetShowCasts extends StatelessWidget {
           ),
           WidgetSpacer(height: 14),
           Container(
-            height: 130,
-            child: ListView.separated(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              physics: BouncingScrollPhysics(),
+            child: WrapContentHozListView(
               separatorBuilder: (context, index) {
                 return WidgetSpacer(width: 14);
               },
@@ -46,7 +42,7 @@ class WidgetShowCasts extends StatelessWidget {
                 var item = items[index];
                 return _WidgetItemCast(item);
               },
-              itemCount: items.length,
+              list: items,
             ),
           ),
         ],
@@ -64,17 +60,18 @@ class _WidgetItemCast extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 85,
-      height: 130,
+//      height: 130,
       child: Column(
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
             clipBehavior: Clip.antiAlias,
-            child: Image.asset(
-              item.photo,
-              fit: BoxFit.cover,
-              width: 85,
-              height: 107,
+            child: AspectRatio(
+              aspectRatio: 85 / 117,
+              child: Image.network(
+                item.photo,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           WidgetSpacer(height: 5),
@@ -95,4 +92,9 @@ class ItemCast {
   String photo;
 
   ItemCast(this.name, this.photo);
+
+  ItemCast.fromCast(Cast cast) {
+    this.name = cast.name;
+    this.photo = cast.photo;
+  }
 }
