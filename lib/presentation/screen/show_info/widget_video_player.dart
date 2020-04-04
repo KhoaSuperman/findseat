@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class WidgetVideoPlayer extends StatefulWidget {
+  String videoUrl;
+
+  WidgetVideoPlayer({@required this.videoUrl});
+
   @override
   _WidgetVideoPlayerState createState() => _WidgetVideoPlayerState();
 }
 
 class _WidgetVideoPlayerState extends State<WidgetVideoPlayer> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   YoutubePlayerController _controller;
-  TextEditingController _idController;
-  TextEditingController _seekToController;
 
   bool _isPlayerReady = false;
 
@@ -19,7 +20,7 @@ class _WidgetVideoPlayerState extends State<WidgetVideoPlayer> {
   void initState() {
     super.initState();
     _controller = YoutubePlayerController(
-      initialVideoId: "xjDjIWPwcPU",
+      initialVideoId: YoutubePlayer.convertUrlToId(widget.videoUrl),
       flags: YoutubePlayerFlags(
         mute: false,
         autoPlay: false,
@@ -31,8 +32,6 @@ class _WidgetVideoPlayerState extends State<WidgetVideoPlayer> {
         enableCaption: true,
       ),
     )..addListener(listener);
-    _idController = TextEditingController();
-    _seekToController = TextEditingController();
   }
 
   void listener() {
@@ -51,8 +50,6 @@ class _WidgetVideoPlayerState extends State<WidgetVideoPlayer> {
   @override
   void dispose() {
     _controller.dispose();
-    _idController.dispose();
-    _seekToController.dispose();
     super.dispose();
   }
 

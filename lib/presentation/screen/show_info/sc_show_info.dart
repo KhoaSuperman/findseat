@@ -1,3 +1,4 @@
+import 'package:find_seat/model/entity/entity.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
 import 'package:find_seat/presentation/router.dart';
@@ -6,6 +7,10 @@ import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
 class ShowInfoScreen extends StatelessWidget {
+  Show show;
+
+  ShowInfoScreen({@required this.show});
+
   BuildContext _context;
 
   @override
@@ -18,8 +23,8 @@ class ShowInfoScreen extends StatelessWidget {
           children: [
             ListView(
               children: <Widget>[
-                WidgetVideoPlayer(),
-                WidgetShowDesc(),
+                WidgetVideoPlayer(videoUrl: show.trailer),
+                WidgetShowDesc(show: show),
                 WidgetSpacer(height: 14),
                 WidgetOffers(),
                 WidgetSpacer(height: 14),

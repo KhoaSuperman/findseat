@@ -1,10 +1,18 @@
+import 'package:find_seat/model/entity/entity.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
+import 'package:find_seat/utils/my_formatter.dart';
+
 
 class WidgetShowDesc extends StatelessWidget {
+  Show show;
+
+  WidgetShowDesc({@required this.show});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,17 +42,25 @@ class WidgetShowDesc extends StatelessWidget {
   }
 
   _buildShowName_Date() {
+    final name = show.name;
+    final textDate = DateFormat("MMM dd, yyyy")
+        .format(DateTime.fromMillisecondsSinceEpoch(show.releaseDate * 1000));
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('Black Panther - The King', style: FONT_CONST.MEDIUM_BLACK2_16),
+        Text(name, style: FONT_CONST.MEDIUM_BLACK2_16),
         WidgetSpacer(height: 6),
-        Text('UA | Oct 15, 2019', style: FONT_CONST.REGULAR_GRAY4_12)
+        Text(textDate, style: FONT_CONST.REGULAR_GRAY4_12)
       ],
     );
   }
 
   _buildLike_Votes() {
+
+    final textRating = "${show.rate}%";
+    final textVotes = show.votes;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
@@ -58,26 +74,29 @@ class WidgetShowDesc extends StatelessWidget {
                 color: COLOR_CONST.DEFAULT,
               ),
             ),
-            Text('98%', style: FONT_CONST.MEDIUM_BLACK2_16)
+            Text(textRating, style: FONT_CONST.MEDIUM_BLACK2_16)
           ],
         ),
         WidgetSpacer(height: 6),
-        Text('1.8k votes', style: FONT_CONST.REGULAR_DEFAULT_10)
+        Text(textVotes, style: FONT_CONST.REGULAR_DEFAULT_10)
       ],
     );
   }
 
   _buildTagList() {
+    final List<Widget> itemTamis = [];
+    itemTamis.add(Text('Tami', style: FONT_CONST.REGULAR_DEFAULT_12));
+    itemTamis.add(WidgetSpacer(width: 10));
+
+    show.tami.forEach((tami){
+      itemTamis.add(_buildTag(tami));
+      itemTamis.add(WidgetSpacer(width: 6));
+    });
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Text('Tami', style: FONT_CONST.REGULAR_DEFAULT_12),
-        WidgetSpacer(width: 10),
-        _buildTag('3D'),
-        WidgetSpacer(width: 6),
-        _buildTag('2D'),
-      ],
+      children: itemTamis,
     );
   }
 
@@ -93,6 +112,10 @@ class WidgetShowDesc extends StatelessWidget {
   }
 
   _buildExtraInfo() {
+    //'2h 59m'
+    final textDuration = Duration(seconds: show.duration).formatHHmm();
+    final textTag = show.tags.join(", ").toString();
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -104,7 +127,7 @@ class WidgetShowDesc extends StatelessWidget {
           path: 'assets/ic_clock_line.svg',
         ),
         WidgetSpacer(width: 6),
-        Text('2h 59m', style: FONT_CONST.REGULAR_GRAY1_10),
+        Text(textDuration, style: FONT_CONST.REGULAR_GRAY1_10),
         WidgetSpacer(width: 9),
         MySvgImage(
           width: 10,
@@ -113,7 +136,7 @@ class WidgetShowDesc extends StatelessWidget {
           color: COLOR_CONST.GRAY1,
         ),
         WidgetSpacer(width: 6),
-        Text('Action, Drama', style: FONT_CONST.REGULAR_GRAY1_10),
+        Text(textTag, style: FONT_CONST.REGULAR_GRAY1_10),
       ],
     );
   }

@@ -3,19 +3,19 @@
   "banners": [
     {
       "id": 1,
-      "image": "http://superman-academy.com/api/findseat/images/banner_1.jpg"
+      "image": "https://superman-academy.com/api/findseat/images/banner_1.jpg"
     },
     {
       "id": 2,
-      "image": "http://superman-academy.com/api/findseat/images/banner_2.jpg"
+      "image": "https://superman-academy.com/api/findseat/images/banner_2.jpg"
     },
     {
       "id": 3,
-      "image": "http://superman-academy.com/api/findseat/images/banner_3.png"
+      "image": "https://superman-academy.com/api/findseat/images/banner_3.png"
     },
     {
       "id": 4,
-      "image": "http://superman-academy.com/api/findseat/images/banner_4.jpg"
+      "image": "https://superman-academy.com/api/findseat/images/banner_4.jpg"
     }
   ],
   "categories": [
@@ -54,28 +54,79 @@
     {
       "id": "Hitman Agent Jun",
       "name": "Hitman Agent Jun",
-      "thumb": "http://superman-academy.com/api/findseat/images/HO00001582.jfif",
-      "banner": "http://",
-      "rate": 100
+      "thumb": "https://superman-academy.com/api/findseat/images/HO00001582.jfif",
+      "trailer": "https://www.youtube.com/watch?v=5kei6EdxGpU",
+      "release_date": 1585841291,
+      "rate": 94,
+      "votes": "1.8k votes",
+      "tami": [
+        "3D",
+        "2D"
+      ],
+      "tags": [
+        "Action",
+        "Drama",
+        "Comedy"
+      ],
+      "duration": 5640,
+      "offers": [
+        {
+          "id": 1,
+          "type": "red",
+          "title": "Wait! Grab FREE RED reward",
+          "content": "Book your seats and tap on the reward box to claim it"
+        },
+        {
+          "id": 2,
+          "type": "green",
+          "title": "Wait! Grab FREE GREEN reward",
+          "content": "Book your seats and tap on the reward box to claim it"
+        }
+      ],
+      "total_reviews": 1403,
+      "latest_reviews": {
+        "author": "Mokka mohan",
+        "created": 15321321,
+        "content": "Lorem",
+        "avatar": "http://"
+      },
+      "casts": [
+        {
+          "name": "Kwon Sang-Woo",
+          "photo": "http://asianwiki.com/images/9/99/Kwon-Sang-Woo-The_Accidental_Detective.jpg"
+        },
+        {
+          "name": "Jung Joon-Ho",
+          "photo": "http://asianwiki.com/images/a/a1/Jung_Jun-Ho-p2.jpg"
+        },
+        {
+          "name": "Hwang Woo Seul Hye",
+          "photo": "http://asianwiki.com/images/c/c4/Hwang_Woo_Seul_Hye-1979-p1.jpg"
+        },
+        {
+          "name": "Lee Yi-Kyung",
+          "photo": "http://asianwiki.com/images/2/2e/Lee_Yi-Kyung-1989-p01.jpg"
+        }
+      ]
     },
     {
       "id": "Call Of The Wind",
       "name": "Call Of The Wind",
-      "thumb": "http://superman-academy.com/api/findseat/images/HO00002012.jfif",
+      "thumb": "https://superman-academy.com/api/findseat/images/HO00002012.jfif",
       "banner": "http://",
       "rate": 92
     },
     {
       "id": "Bird of Prey",
       "name": "Bird of Prey",
-      "thumb": "http://superman-academy.com/api/findseat/images/HO00001804.jfif",
+      "thumb": "https://superman-academy.com/api/findseat/images/HO00001804.jfif",
       "banner": "http://",
       "rate": 61
     },
     {
       "id": "Little Women",
       "name": "Little Women",
-      "thumb": "http://superman-academy.com/api/findseat/images/HO00001988.jfif",
+      "thumb": "https://superman-academy.com/api/findseat/images/HO00001988.jfif",
       "banner": "http://",
       "rate": 74
     }
@@ -119,17 +170,24 @@
         {
           "id": "Hitman Agent Jun",
           "name": "Hitman Agent Jun",
-          "thumb": "http://superman-academy.com/api/findseat/images/HO00001582.jfif",
+          "thumb": "https://superman-academy.com/api/findseat/images/HO00001582.jfif",
           "banner": "http://",
-          "tags": ["Action", "Drama"],
+          "trailer": "https://www.youtube.com/watch?v=5kei6EdxGpU",
+          "tags": [
+            "Action",
+            "Drama"
+          ],
           "rate": 100
         },
         {
           "id": "Call Of The Wind",
           "name": "Call Of The Wind",
-          "thumb": "http://superman-academy.com/api/findseat/images/HO00002012.jfif",
+          "thumb": "https://superman-academy.com/api/findseat/images/HO00002012.jfif",
           "banner": "http://",
-          "tags": ["Action", "Drama"],
+          "tags": [
+            "Action",
+            "Drama"
+          ],
           "rate": 92
         }
       ]
@@ -140,17 +198,23 @@
         {
           "id": "Bird of Prey",
           "name": "Bird of Prey",
-          "thumb": "http://superman-academy.com/api/findseat/images/HO00001804.jfif",
+          "thumb": "https://superman-academy.com/api/findseat/images/HO00001804.jfif",
           "banner": "http://",
-          "tags": ["Action", "Drama"],
+          "tags": [
+            "Action",
+            "Drama"
+          ],
           "rate": 61
         },
         {
           "id": "Little Women",
           "name": "Little Women",
-          "thumb": "http://superman-academy.com/api/findseat/images/HO00001988.jfif",
+          "thumb": "https://superman-academy.com/api/findseat/images/HO00001988.jfif",
           "banner": "http://",
-          "tags": ["Action", "Drama"],
+          "tags": [
+            "Action",
+            "Drama"
+          ],
           "rate": 74
         }
       ]
