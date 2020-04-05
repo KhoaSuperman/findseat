@@ -60,8 +60,7 @@ dev_dependencies:
 
   # Unit test
   test:
-  mockito:
-  bloc_test: ^3.0.1
+  bloc_test: ^4.0.0
 
 
 # For information on the generic Dart part of this file, see the

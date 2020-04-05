@@ -20,12 +20,11 @@ void main() {
 
     blocTest<BookTimeSlotBloc, BookTimeSlotEvent, BookTimeSlotState>(
       'emits OpenScreen event',
-      build: () => bloc,
+      build: () async => bloc,
       act: (BookTimeSlotBloc bloc) async {
         bloc.add(OpenScreen());
       },
       expect: <BookTimeSlotState>[
-        DisplayListBookTimeSlot.loading(),
         UpdateToolbarState(showSearchField: false),
         DisplayListBookTimeSlot.loading(),
         DisplayListBookTimeSlot.data(mockData),
@@ -34,12 +33,11 @@ void main() {
 
     blocTest<BookTimeSlotBloc, BookTimeSlotEvent, BookTimeSlotState>(
       'emits ClickIconSearch event, should UpdateToolbarState.showSearchField to true ',
-      build: () => bloc,
+      build: () async => bloc,
       act: (BookTimeSlotBloc bloc) async {
         bloc.add(ClickIconSearch());
       },
       expect: <BookTimeSlotState>[
-        DisplayListBookTimeSlot.loading(),
         UpdateToolbarState(showSearchField: true),
       ],
     );
