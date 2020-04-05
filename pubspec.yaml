@@ -59,7 +59,9 @@ dev_dependencies:
   json_serializable: any
 
   # Unit test
-  test: 1.9.4
+  test:
+  mockito:
+  bloc_test: ^3.0.1
 
 
 # For information on the generic Dart part of this file, see the

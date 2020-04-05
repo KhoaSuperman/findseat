@@ -60,12 +60,14 @@ class MyApp extends StatelessWidget {
     final UserRepository userRepository = UserRepository();
     final HomeRepository homeRepository = HomeRepository();
     final ShowRepository showRepository = ShowRepository();
+    final BookTimeSlotRepository bookTimeSlotRepository = RemoteBookTimeSlotRepository();
 
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<UserRepository>(create: (context) => userRepository),
         RepositoryProvider<HomeRepository>(create: (context) => homeRepository),
         RepositoryProvider<ShowRepository>(create: (context) => showRepository),
+        RepositoryProvider<BookTimeSlotRepository>(create: (context) => bookTimeSlotRepository),
       ],
       child: MultiBlocProvider(
         providers: [

@@ -1,8 +1,12 @@
+import 'package:find_seat/model/repo/repo.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
 import 'package:find_seat/presentation/screen/cine_date_picker/barrel_cine_date_picker.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'bloc/bloc.dart';
 
 class BookTimeSlotScreen extends StatelessWidget {
   List<ItemCineTimeSlot> items = [
@@ -57,19 +61,24 @@ class BookTimeSlotScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          child: Column(
-            children: <Widget>[
-              WidgetToolbar.defaultActions(title: 'Black Panther'),
-              Expanded(
-                child: Stack(
-                  children: <Widget>[
-                    _buildListCineTimeSlot(),
-                    _buildBtnToday(),
-                  ],
-                ),
-              )
-            ],
+        body: BlocProvider<BookTimeSlotBloc>(
+          create: (context) => BookTimeSlotBloc(
+              bookTimeSlotRepository:
+                  RepositoryProvider.of<BookTimeSlotRepository>(context))..add(OpenScreen()),
+          child: Container(
+            child: Column(
+              children: <Widget>[
+                WidgetToolbar.defaultActions(title: 'Black Panther'),
+                Expanded(
+                  child: Stack(
+                    children: <Widget>[
+                      _buildListCineTimeSlot(),
+                      _buildBtnToday(),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -77,22 +86,41 @@ class BookTimeSlotScreen extends StatelessWidget {
   }
 
   _buildListCineTimeSlot() {
-    return ListView.separated(
-      itemBuilder: (context, index) {
-        if (index < items.length) {
-          var item = items[index];
-          return WidgetCineTimeSlot(item);
-        } else {
-          return WidgetSpacer(height: 55);
-        }
+    return BlocBuilder<BookTimeSlotBloc, BookTimeSlotState>(
+      builder: (context, state) {
+        if (state is DisplayListBookTimeSlot) {
+          if (state.list != null) {
+            return ListView.separated(
+              itemBuilder: (context, index) {
+                if (index < items.length) {
+                  var item = items[index];
+                  return WidgetCineTimeSlot(item);
+                } else {
+                  return WidgetSpacer(height: 55);
+                }
+              },
+              separatorBuilder: (context, index) {
+                return WidgetSpacer(
+                  height: 14,
+                );
+              },
+              itemCount: items.length + 1,
+              physics: BouncingScrollPhysics(),
+            );
+          }
+
+          if (state.loading) {
+            return WidgetLoading();
+          }
+
+          if (state.msg != null) {
+            return WidgetScreenMessage(msg: state.msg);
+          }
+
+          return WidgetUnknownState();
+        } else
+          return WidgetUnknownState();
       },
-      separatorBuilder: (context, index) {
-        return WidgetSpacer(
-          height: 14,
-        );
-      },
-      itemCount: items.length + 1,
-      physics: BouncingScrollPhysics(),
     );
   }
 

@@ -7,3 +7,5 @@ export 'seat_slot.dart';
 export 'show.dart';
 export 'offer.dart';
 export 'cast.dart';
+export 'time_slot.dart';
+export 'book_time_slot.dart';

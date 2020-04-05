@@ -13,4 +13,7 @@ abstract class RestClient {
 
   @GET("/all_shows_by_type.json")
   Future<AllShowsByTypeResponse> getAllShowsByType();
+
+  @GET("/booking_time_slot_by_cine.json")
+  Future<List<BookingTimeSlotByCineResponse>> getBookingTimeSlotByCine();
 }
