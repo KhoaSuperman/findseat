@@ -27,6 +27,9 @@ dependencies:
   json_annotation: any
   carousel_slider: ^1.4.1
 
+  #object builder
+  freezed: ^0.10.6
+
   #format date time and other formats
   intl: ^0.16.1
 

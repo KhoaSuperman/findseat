@@ -1,3 +1,5 @@
+import 'package:find_seat/model/api/response/api_response.dart';
+import 'package:find_seat/model/entity/book_time_slot.dart';
 import 'package:find_seat/model/repo/repo.dart';
 import 'package:find_seat/presentation/screen/booking/book_time_slot/bloc/bloc.dart';
 import 'package:test/test.dart';
@@ -5,41 +7,71 @@ import 'package:bloc_test/bloc_test.dart';
 
 void main() {
   group('BookTimeSlotBloc', () {
-    BookTimeSlotBloc bloc;
     final bookTimeSlotRepository = MockBookTimeSlotRepository();
-    final mockData = BookTimeSlotBloc.toBookTimeSlots(
-        MockBookTimeSlotRepository.getMockData());
+
+    final List<BookingTimeSlotByCineResponse> mockRawData =
+        MockBookTimeSlotRepository.getMockData();
+
+    final List<BookTimeSlot> mockData =
+        BookTimeSlotBloc.toBookTimeSlots(mockRawData);
 
     setUp(() {
-      bloc = BookTimeSlotBloc(bookTimeSlotRepository: bookTimeSlotRepository);
+//      bloc = BookTimeSlotBloc(bookTimeSlotRepository: bookTimeSlotRepository);
     });
 
-    test('initial state', () {
-      expect(bloc.initialState, DisplayListBookTimeSlot.loading());
-    });
+//    test('initial state', () {
+//      expect(bloc.initialState, BookTimeSlotState(isLoading: true));
+//    });
 
     blocTest<BookTimeSlotBloc, BookTimeSlotEvent, BookTimeSlotState>(
       'emits OpenScreen event',
-      build: () async => bloc,
+      build: () async =>
+          BookTimeSlotBloc(bookTimeSlotRepository: bookTimeSlotRepository),
       act: (BookTimeSlotBloc bloc) async {
         bloc.add(OpenScreen());
       },
       expect: <BookTimeSlotState>[
-        UpdateToolbarState(showSearchField: false),
-        DisplayListBookTimeSlot.loading(),
-        DisplayListBookTimeSlot.data(mockData),
+        BookTimeSlotState(
+          list: mockData,
+          isLoading: false,
+        ),
       ],
     );
 
     blocTest<BookTimeSlotBloc, BookTimeSlotEvent, BookTimeSlotState>(
-      'emits ClickIconSearch event, should UpdateToolbarState.showSearchField to true ',
-      build: () async => bloc,
+      'emits ClickIconSearch event, showSearchField to true ',
+      build: () async =>
+          BookTimeSlotBloc(bookTimeSlotRepository: bookTimeSlotRepository),
       act: (BookTimeSlotBloc bloc) async {
         bloc.add(ClickIconSearch());
       },
       expect: <BookTimeSlotState>[
-        UpdateToolbarState(showSearchField: true),
+        BookTimeSlotState(
+          showSearchField: true,
+        )
       ],
     );
+//
+    final expectedFilterList = BookTimeSlotBloc.toBookTimeSlots(mockRawData
+        .where(BookTimeSlotBloc.getFakeServerFilter("Karpagam"))
+        .toList());
+    blocTest<BookTimeSlotBloc, BookTimeSlotEvent, BookTimeSlotState>(
+      'emits SearchQueryChanged event, should UpdateToolbarState.showSearchField to false, return filtered list',
+      build: () async =>
+          BookTimeSlotBloc(bookTimeSlotRepository: bookTimeSlotRepository),
+      act: (BookTimeSlotBloc bloc) async {
+        bloc.add(SearchQueryChanged(keyword: "Karpagam"));
+      },
+      expect: <BookTimeSlotState>[
+        //only 1 state. because first state is duplicate with initialState
+        BookTimeSlotState(
+          list: expectedFilterList,
+          isLoading: false,
+          showSearchField: false,
+        )
+      ],
+    );
+
+    //
   });
 }

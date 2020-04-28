@@ -15,7 +15,7 @@ class BookTimeSlotBloc extends Bloc<BookTimeSlotEvent, BookTimeSlotState> {
   BookTimeSlotBloc({@required this.bookTimeSlotRepository});
 
   @override
-  BookTimeSlotState get initialState => DisplayListBookTimeSlot.loading();
+  BookTimeSlotState get initialState => BookTimeSlotState(isLoading: true);
 
   @override
   Stream<BookTimeSlotState> mapEventToState(
@@ -24,9 +24,8 @@ class BookTimeSlotBloc extends Bloc<BookTimeSlotEvent, BookTimeSlotState> {
     if (event is OpenScreen) {
       yield* _mapOpenScreenToState();
     } else if (event is ClickIconSearch) {
-      yield UpdateToolbarState(showSearchField: true);
+      yield* _mapClickIconSearchToState();
     } else if (event is ClickCloseSearch) {
-      yield UpdateToolbarState(showSearchField: false);
       yield* _mapSearchQueryChangedToState("");
     } else if (event is SearchQueryChanged) {
       yield* _mapSearchQueryChangedToState(event.keyword);
@@ -34,36 +33,49 @@ class BookTimeSlotBloc extends Bloc<BookTimeSlotEvent, BookTimeSlotState> {
   }
 
   Stream<BookTimeSlotState> _mapOpenScreenToState() async* {
-    yield UpdateToolbarState(showSearchField: false);
-    yield DisplayListBookTimeSlot.loading();
-
     try {
       final responses = await bookTimeSlotRepository.getAllShowsByType(showId);
 
-      yield DisplayListBookTimeSlot.data(toBookTimeSlots(responses));
+      yield state.copyWith(
+        isLoading: false,
+        list: toBookTimeSlots(responses),
+      );
     } catch (e) {
-      yield DisplayListBookTimeSlot.error(e.toString());
+      yield state.copyWith(msg: e.toString());
     }
+  }
+
+  Stream<BookTimeSlotState> _mapClickIconSearchToState() async* {
+    //isLoading = false because in testing, initialState isLoading = true
+    yield state.copyWith(isLoading: false, showSearchField: true);
   }
 
   Stream<BookTimeSlotState> _mapSearchQueryChangedToState(
       String keyword) async* {
-    yield DisplayListBookTimeSlot.loading();
+    yield state.copyWith(isLoading: true);
 
     try {
       final responses = await bookTimeSlotRepository.getAllShowsByType(showId);
 
-      //this should be execute at server side
-      bool query(BookingTimeSlotByCineResponse response) =>
-          keyword.isEmpty ||
-          response.cine.name.toLowerCase().contains(keyword.toLowerCase());
-
+      final query = getFakeServerFilter(keyword);
       final result = responses.where(query).toList();
 
-      yield DisplayListBookTimeSlot.data(toBookTimeSlots(result));
+      yield state.copyWith(
+        isLoading: false,
+        list: toBookTimeSlots(result),
+      );
     } catch (e) {
-      yield DisplayListBookTimeSlot.error(e.toString());
+      yield state.copyWith(msg: e.toString());
     }
+  }
+
+  //this should be execute at server side
+  static bool Function(BookingTimeSlotByCineResponse response)
+      getFakeServerFilter(String keyword) {
+    bool query(BookingTimeSlotByCineResponse response) =>
+        keyword.isEmpty ||
+        response.cine.name.toLowerCase().contains(keyword.toLowerCase());
+    return query;
   }
 
   static List<BookTimeSlot> toBookTimeSlots(
