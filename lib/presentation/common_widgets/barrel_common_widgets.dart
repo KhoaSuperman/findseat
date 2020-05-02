@@ -6,3 +6,4 @@ export 'widget_toolbar.dart';
 export 'widget_loading.dart';
 export 'widget_screen_message.dart';
 export 'widget_unknown_state.dart';
+export 'widget_search_sort_toolbar.dart';

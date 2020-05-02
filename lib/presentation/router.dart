@@ -38,7 +38,9 @@ class Router {
         var show = settings.arguments as Show;
         return MaterialPageRoute(builder: (_) => ShowInfoScreen(show: show));
       case BOOK_TIME_SLOT:
-        return MaterialPageRoute(builder: (_) => BookTimeSlotScreen());
+        var show = settings.arguments as Show;
+        return MaterialPageRoute(
+            builder: (_) => BookTimeSlotScreen(show: show));
       case BOOK_SEAT_TYPE:
         return MaterialPageRoute(builder: (_) => BookSeatTypeScreen());
       case BOOK_SEAT_SLOT:

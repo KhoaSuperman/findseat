@@ -164,5 +164,9 @@ class ItemTimeSlot {
   bool active;
   bool selected;
 
-  ItemTimeSlot(this.time, this.hour, this.active);
+  ItemTimeSlot({
+    this.time,
+    this.hour,
+    this.active,
+  });
 }

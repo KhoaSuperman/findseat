@@ -1,3 +1,4 @@
+import 'package:find_seat/model/entity/entity.dart';
 import 'package:find_seat/model/repo/repo.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
@@ -9,49 +10,53 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/bloc.dart';
 
 class BookTimeSlotScreen extends StatelessWidget {
-  List<ItemCineTimeSlot> items = [
-    ItemCineTimeSlot(
-      'Arasan Cinemas A/C 2K Dolby',
-      'Coimbatore',
-      '2.4 miles away',
-      [
-        ItemTimeSlot('10:00 AM', 10, true),
-        ItemTimeSlot('1:30 PM', 13, true),
-        ItemTimeSlot('6:30 PM', 6, true),
-        ItemTimeSlot('9:30 PM', 21, true),
-        ItemTimeSlot('12:30 AM', 0, true),
-      ],
-    ),
-    ItemCineTimeSlot(
-      'INOX - Prozone mall',
-      'Coimbatore',
-      '3.2 miles away',
-      [
-        ItemTimeSlot('10:00 AM', 10, true),
-        ItemTimeSlot('1:30 PM', 13, true),
-        ItemTimeSlot('6:30 PM', 6, false),
-      ],
-    ),
-    ItemCineTimeSlot(
-      'Karpagam theatres - 4K Dolby Atoms',
-      'Coimbatore',
-      '4 miles away',
-      [
-        ItemTimeSlot('10:00 AM', 10, true),
-        ItemTimeSlot('1:30 PM', 13, true),
-      ],
-    ),
-    ItemCineTimeSlot(
-      'KG theatres - 4K',
-      'Coimbatore',
-      '4.4 miles away',
-      [
-        ItemTimeSlot('10:00 AM', 10, true),
-        ItemTimeSlot('1:30 PM', 13, true),
-        ItemTimeSlot('6:30 PM', 6, true),
-      ],
-    )
-  ];
+//  List<ItemCineTimeSlot> items = [
+//    ItemCineTimeSlot(
+//      'Arasan Cinemas A/C 2K Dolby',
+//      'Coimbatore',
+//      '2.4 miles away',
+//      [
+//        ItemTimeSlot('10:00 AM', 10, true),
+//        ItemTimeSlot('1:30 PM', 13, true),
+//        ItemTimeSlot('6:30 PM', 6, true),
+//        ItemTimeSlot('9:30 PM', 21, true),
+//        ItemTimeSlot('12:30 AM', 0, true),
+//      ],
+//    ),
+//    ItemCineTimeSlot(
+//      'INOX - Prozone mall',
+//      'Coimbatore',
+//      '3.2 miles away',
+//      [
+//        ItemTimeSlot('10:00 AM', 10, true),
+//        ItemTimeSlot('1:30 PM', 13, true),
+//        ItemTimeSlot('6:30 PM', 6, false),
+//      ],
+//    ),
+//    ItemCineTimeSlot(
+//      'Karpagam theatres - 4K Dolby Atoms',
+//      'Coimbatore',
+//      '4 miles away',
+//      [
+//        ItemTimeSlot('10:00 AM', 10, true),
+//        ItemTimeSlot('1:30 PM', 13, true),
+//      ],
+//    ),
+//    ItemCineTimeSlot(
+//      'KG theatres - 4K',
+//      'Coimbatore',
+//      '4.4 miles away',
+//      [
+//        ItemTimeSlot('10:00 AM', 10, true),
+//        ItemTimeSlot('1:30 PM', 13, true),
+//        ItemTimeSlot('6:30 PM', 6, true),
+//      ],
+//    )
+//  ];
+
+  Show show;
+
+  BookTimeSlotScreen({this.show});
 
   BuildContext _context;
 
@@ -69,7 +74,7 @@ class BookTimeSlotScreen extends StatelessWidget {
           child: Container(
             child: Column(
               children: <Widget>[
-                WidgetToolbar.defaultActions(title: 'Black Panther'),
+                WidgetSearchSortToolbar(title: show.name),
                 Expanded(
                   child: Stack(
                     children: <Widget>[
@@ -92,8 +97,26 @@ class BookTimeSlotScreen extends StatelessWidget {
         if (state.list != null) {
           return ListView.separated(
             itemBuilder: (context, index) {
-              if (index < items.length) {
-                var item = items[index];
+              if (index < state.list.length) {
+                BookTimeSlot bookTimeSlot = state.list[index];
+
+                List<ItemTimeSlot> timeSlots = bookTimeSlot.timeSlots
+                    .map(
+                      (timeSlot) => ItemTimeSlot(
+                        time: timeSlot.time,
+                        hour: int.parse(timeSlot.time.split(":").first),
+                        active: timeSlot.active,
+                      ),
+                    )
+                    .toList();
+
+                ItemCineTimeSlot item = ItemCineTimeSlot(
+                  cineName: bookTimeSlot.cine.name,
+                  textLocation: bookTimeSlot.cine.address,
+                  textDistance: bookTimeSlot.cine.distance.toString(),
+                  timeSlots: timeSlots,
+                );
+
                 return WidgetCineTimeSlot(item);
               } else {
                 return WidgetSpacer(height: 55);
@@ -104,7 +127,7 @@ class BookTimeSlotScreen extends StatelessWidget {
                 height: 14,
               );
             },
-            itemCount: items.length + 1,
+            itemCount: state.list.length + 1,
             physics: BouncingScrollPhysics(),
           );
         }
@@ -185,6 +208,10 @@ class ItemCineTimeSlot {
   String textDistance;
   List<ItemTimeSlot> timeSlots;
 
-  ItemCineTimeSlot(
-      this.cineName, this.textLocation, this.textDistance, this.timeSlots);
+  ItemCineTimeSlot({
+    this.cineName,
+    this.textLocation,
+    this.textDistance,
+    this.timeSlots,
+  });
 }

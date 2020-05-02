@@ -71,6 +71,6 @@ class ShowInfoScreen extends StatelessWidget {
   }
 
   void openBookCineTimeSlot() {
-    Navigator.pushNamed(_context, Router.BOOK_TIME_SLOT);
+    Navigator.pushNamed(_context, Router.BOOK_TIME_SLOT, arguments: show);
   }
 }

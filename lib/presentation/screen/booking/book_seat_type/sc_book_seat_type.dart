@@ -16,11 +16,15 @@ class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
   @override
   void initState() {
     _itemCineTimeSlot = ItemCineTimeSlot(
-        'Arasan Cinemas A/C 2K Dolby', 'Friday, Nov 14, 2019', '', [
-      ItemTimeSlot('10:00 AM', 10, true),
-      ItemTimeSlot('1:30 PM', 13, true),
-      ItemTimeSlot('6:30 PM', 6, true),
-    ]);
+      cineName: 'Arasan Cinemas A/C 2K Dolby',
+      textLocation: 'Friday, Nov 14, 2019',
+      textDistance: '',
+      timeSlots: [
+        ItemTimeSlot(time: '10:00 AM', hour: 10, active: true),
+        ItemTimeSlot(time: '1:30 PM', hour: 13, active: true),
+        ItemTimeSlot(time: '6:30 PM', hour: 6, active: true),
+      ],
+    );
 
     super.initState();
   }
