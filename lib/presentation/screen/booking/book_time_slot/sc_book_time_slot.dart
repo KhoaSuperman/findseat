@@ -64,7 +64,8 @@ class BookTimeSlotScreen extends StatelessWidget {
         body: BlocProvider<BookTimeSlotBloc>(
           create: (context) => BookTimeSlotBloc(
               bookTimeSlotRepository:
-                  RepositoryProvider.of<BookTimeSlotRepository>(context))..add(OpenScreen()),
+                  RepositoryProvider.of<BookTimeSlotRepository>(context))
+            ..add(OpenScreen()),
           child: Container(
             child: Column(
               children: <Widget>[
@@ -88,38 +89,35 @@ class BookTimeSlotScreen extends StatelessWidget {
   _buildListCineTimeSlot() {
     return BlocBuilder<BookTimeSlotBloc, BookTimeSlotState>(
       builder: (context, state) {
-        if (state is DisplayListBookTimeSlot) {
-          if (state.list != null) {
-            return ListView.separated(
-              itemBuilder: (context, index) {
-                if (index < items.length) {
-                  var item = items[index];
-                  return WidgetCineTimeSlot(item);
-                } else {
-                  return WidgetSpacer(height: 55);
-                }
-              },
-              separatorBuilder: (context, index) {
-                return WidgetSpacer(
-                  height: 14,
-                );
-              },
-              itemCount: items.length + 1,
-              physics: BouncingScrollPhysics(),
-            );
-          }
+        if (state.list != null) {
+          return ListView.separated(
+            itemBuilder: (context, index) {
+              if (index < items.length) {
+                var item = items[index];
+                return WidgetCineTimeSlot(item);
+              } else {
+                return WidgetSpacer(height: 55);
+              }
+            },
+            separatorBuilder: (context, index) {
+              return WidgetSpacer(
+                height: 14,
+              );
+            },
+            itemCount: items.length + 1,
+            physics: BouncingScrollPhysics(),
+          );
+        }
 
-          if (state.loading) {
-            return WidgetLoading();
-          }
+        if (state.isLoading) {
+          return WidgetLoading();
+        }
 
-          if (state.msg != null) {
-            return WidgetScreenMessage(msg: state.msg);
-          }
+        if (state.msg != null) {
+          return WidgetScreenMessage(msg: state.msg);
+        }
 
-          return WidgetUnknownState();
-        } else
-          return WidgetUnknownState();
+        return WidgetUnknownState();
       },
     );
   }

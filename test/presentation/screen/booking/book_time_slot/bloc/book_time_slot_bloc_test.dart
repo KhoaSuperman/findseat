@@ -9,68 +9,74 @@ void main() {
   group('BookTimeSlotBloc', () {
     final bookTimeSlotRepository = MockBookTimeSlotRepository();
 
-    final List<BookingTimeSlotByCineResponse> mockRawData =
+    final List<BookingTimeSlotByCineResponse> mockResponse =
         MockBookTimeSlotRepository.getMockData();
 
-    final List<BookTimeSlot> mockData =
-        BookTimeSlotBloc.toBookTimeSlots(mockRawData);
+    final List<BookTimeSlot> mockListBookTimeSlots =
+        BookTimeSlotBloc.toBookTimeSlots(mockResponse);
 
-    setUp(() {
-//      bloc = BookTimeSlotBloc(bookTimeSlotRepository: bookTimeSlotRepository);
+    test('emits OpenScreen then SearchQueryChange', () async {
+      final bloc =
+          BookTimeSlotBloc(bookTimeSlotRepository: bookTimeSlotRepository);
+      //1. Open screen
+      bloc.add(OpenScreen());
+
+      //2. Click open icon search
+      bloc.add(ClickIconSearch());
+
+      //3. Try to search
+      final keyword = "Karpagam";
+      bloc.add(SearchQueryChanged(keyword: keyword));
+
+      //4. Close search
+      bloc.add(ClickCloseSearch());
+
+      await emitsExactly(
+        bloc,
+        [
+          BookTimeSlotState(isLoading: false, list: mockListBookTimeSlots),
+          BookTimeSlotState(
+            isLoading: false,
+            list: mockListBookTimeSlots,
+            showSearchField: true,
+          ),
+          //
+          BookTimeSlotState(
+            isLoading: true,
+            list: mockListBookTimeSlots,
+            showSearchField: true,
+          ),
+          BookTimeSlotState(
+            isLoading: false,
+            list: BookTimeSlotBloc.toBookTimeSlots(
+              mockResponse.where(BookTimeSlotBloc.filterFake(keyword)).toList(),
+            ),
+            showSearchField: true,
+          ),
+          //
+          BookTimeSlotState(
+            isLoading: false,
+            list: BookTimeSlotBloc.toBookTimeSlots(
+              mockResponse.where(BookTimeSlotBloc.filterFake(keyword)).toList(),
+            ),
+            showSearchField: false,
+          ),
+          BookTimeSlotState(
+            isLoading: true,
+            list: BookTimeSlotBloc.toBookTimeSlots(
+              mockResponse.where(BookTimeSlotBloc.filterFake(keyword)).toList(),
+            ),
+            showSearchField: false,
+          ),
+          BookTimeSlotState(
+            isLoading: false,
+            list: mockListBookTimeSlots,
+            showSearchField: false,
+          ),
+        ],
+      );
+      //
     });
-
-//    test('initial state', () {
-//      expect(bloc.initialState, BookTimeSlotState(isLoading: true));
-//    });
-
-    blocTest<BookTimeSlotBloc, BookTimeSlotEvent, BookTimeSlotState>(
-      'emits OpenScreen event',
-      build: () async =>
-          BookTimeSlotBloc(bookTimeSlotRepository: bookTimeSlotRepository),
-      act: (BookTimeSlotBloc bloc) async {
-        bloc.add(OpenScreen());
-      },
-      expect: <BookTimeSlotState>[
-        BookTimeSlotState(
-          list: mockData,
-          isLoading: false,
-        ),
-      ],
-    );
-
-    blocTest<BookTimeSlotBloc, BookTimeSlotEvent, BookTimeSlotState>(
-      'emits ClickIconSearch event, showSearchField to true ',
-      build: () async =>
-          BookTimeSlotBloc(bookTimeSlotRepository: bookTimeSlotRepository),
-      act: (BookTimeSlotBloc bloc) async {
-        bloc.add(ClickIconSearch());
-      },
-      expect: <BookTimeSlotState>[
-        BookTimeSlotState(
-          showSearchField: true,
-        )
-      ],
-    );
-//
-    final expectedFilterList = BookTimeSlotBloc.toBookTimeSlots(mockRawData
-        .where(BookTimeSlotBloc.getFakeServerFilter("Karpagam"))
-        .toList());
-    blocTest<BookTimeSlotBloc, BookTimeSlotEvent, BookTimeSlotState>(
-      'emits SearchQueryChanged event, should UpdateToolbarState.showSearchField to false, return filtered list',
-      build: () async =>
-          BookTimeSlotBloc(bookTimeSlotRepository: bookTimeSlotRepository),
-      act: (BookTimeSlotBloc bloc) async {
-        bloc.add(SearchQueryChanged(keyword: "Karpagam"));
-      },
-      expect: <BookTimeSlotState>[
-        //only 1 state. because first state is duplicate with initialState
-        BookTimeSlotState(
-          list: expectedFilterList,
-          isLoading: false,
-          showSearchField: false,
-        )
-      ],
-    );
 
     //
   });

@@ -26,7 +26,7 @@ class BookTimeSlotBloc extends Bloc<BookTimeSlotEvent, BookTimeSlotState> {
     } else if (event is ClickIconSearch) {
       yield* _mapClickIconSearchToState();
     } else if (event is ClickCloseSearch) {
-      yield* _mapSearchQueryChangedToState("");
+      yield* _mapClickCloseSearchToState();
     } else if (event is SearchQueryChanged) {
       yield* _mapSearchQueryChangedToState(event.keyword);
     }
@@ -50,6 +50,11 @@ class BookTimeSlotBloc extends Bloc<BookTimeSlotEvent, BookTimeSlotState> {
     yield state.copyWith(isLoading: false, showSearchField: true);
   }
 
+  Stream<BookTimeSlotState> _mapClickCloseSearchToState() async* {
+    yield state.copyWith(showSearchField: false);
+    yield* _mapSearchQueryChangedToState("");
+  }
+
   Stream<BookTimeSlotState> _mapSearchQueryChangedToState(
       String keyword) async* {
     yield state.copyWith(isLoading: true);
@@ -57,7 +62,7 @@ class BookTimeSlotBloc extends Bloc<BookTimeSlotEvent, BookTimeSlotState> {
     try {
       final responses = await bookTimeSlotRepository.getAllShowsByType(showId);
 
-      final query = getFakeServerFilter(keyword);
+      final query = filterFake(keyword);
       final result = responses.where(query).toList();
 
       yield state.copyWith(
@@ -70,8 +75,8 @@ class BookTimeSlotBloc extends Bloc<BookTimeSlotEvent, BookTimeSlotState> {
   }
 
   //this should be execute at server side
-  static bool Function(BookingTimeSlotByCineResponse response)
-      getFakeServerFilter(String keyword) {
+  static bool Function(BookingTimeSlotByCineResponse response) filterFake(
+      String keyword) {
     bool query(BookingTimeSlotByCineResponse response) =>
         keyword.isEmpty ||
         response.cine.name.toLowerCase().contains(keyword.toLowerCase());
