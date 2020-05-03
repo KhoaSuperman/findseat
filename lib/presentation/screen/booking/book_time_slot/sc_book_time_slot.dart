@@ -10,50 +10,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/bloc.dart';
 
 class BookTimeSlotScreen extends StatelessWidget {
-//  List<ItemCineTimeSlot> items = [
-//    ItemCineTimeSlot(
-//      'Arasan Cinemas A/C 2K Dolby',
-//      'Coimbatore',
-//      '2.4 miles away',
-//      [
-//        ItemTimeSlot('10:00 AM', 10, true),
-//        ItemTimeSlot('1:30 PM', 13, true),
-//        ItemTimeSlot('6:30 PM', 6, true),
-//        ItemTimeSlot('9:30 PM', 21, true),
-//        ItemTimeSlot('12:30 AM', 0, true),
-//      ],
-//    ),
-//    ItemCineTimeSlot(
-//      'INOX - Prozone mall',
-//      'Coimbatore',
-//      '3.2 miles away',
-//      [
-//        ItemTimeSlot('10:00 AM', 10, true),
-//        ItemTimeSlot('1:30 PM', 13, true),
-//        ItemTimeSlot('6:30 PM', 6, false),
-//      ],
-//    ),
-//    ItemCineTimeSlot(
-//      'Karpagam theatres - 4K Dolby Atoms',
-//      'Coimbatore',
-//      '4 miles away',
-//      [
-//        ItemTimeSlot('10:00 AM', 10, true),
-//        ItemTimeSlot('1:30 PM', 13, true),
-//      ],
-//    ),
-//    ItemCineTimeSlot(
-//      'KG theatres - 4K',
-//      'Coimbatore',
-//      '4.4 miles away',
-//      [
-//        ItemTimeSlot('10:00 AM', 10, true),
-//        ItemTimeSlot('1:30 PM', 13, true),
-//        ItemTimeSlot('6:30 PM', 6, true),
-//      ],
-//    )
-//  ];
-
   Show show;
 
   BookTimeSlotScreen({this.show});
@@ -101,17 +57,12 @@ class BookTimeSlotScreen extends StatelessWidget {
                 BookTimeSlot bookTimeSlot = state.list[index];
 
                 List<ItemTimeSlot> timeSlots = bookTimeSlot.timeSlots
-                    .map(
-                      (timeSlot) => ItemTimeSlot(
-                        time: timeSlot.time,
-                        hour: int.parse(timeSlot.time.split(":").first),
-                        active: timeSlot.active,
-                      ),
-                    )
+                    .map((timeSlot) =>
+                        ItemTimeSlot.fromTimeSlot(timeSlot: timeSlot))
                     .toList();
 
                 ItemCineTimeSlot item = ItemCineTimeSlot(
-                  cineName: bookTimeSlot.cine.name,
+                  cine: bookTimeSlot.cine,
                   textLocation: bookTimeSlot.cine.address,
                   textDistance: bookTimeSlot.cine.distance.toString(),
                   timeSlots: timeSlots,
@@ -204,14 +155,15 @@ class BookTimeSlotScreen extends StatelessWidget {
 
 class ItemCineTimeSlot {
   String cineName;
+  Cine cine;
   String textLocation;
   String textDistance;
   List<ItemTimeSlot> timeSlots;
 
   ItemCineTimeSlot({
-    this.cineName,
+    this.cine,
     this.textLocation,
     this.textDistance,
     this.timeSlots,
-  });
+  }) : this.cineName = cine.name;
 }

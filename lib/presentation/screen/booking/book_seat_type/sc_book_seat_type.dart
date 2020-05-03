@@ -1,3 +1,4 @@
+import 'package:find_seat/model/entity/entity.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
@@ -5,25 +6,43 @@ import 'package:find_seat/presentation/screen/booking/book_seat_type/barrel_book
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
+class ScreenArguments {
+  Cine cine;
+  TimeSlot selectedTimeSlot;
+  List<TimeSlot> timeSlots;
+
+  ScreenArguments({
+    @required this.cine,
+    @required this.selectedTimeSlot,
+    @required this.timeSlots,
+  });
+}
+
 class BookSeatTypeScreen extends StatefulWidget {
+  ScreenArguments args;
+
+  BookSeatTypeScreen(this.args);
+
   @override
   _BookSeatTypeScreenState createState() => _BookSeatTypeScreenState();
 }
 
 class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
+  ScreenArguments args;
+
   ItemCineTimeSlot _itemCineTimeSlot;
 
   @override
   void initState() {
+    args = widget.args;
+
     _itemCineTimeSlot = ItemCineTimeSlot(
-      cineName: 'Arasan Cinemas A/C 2K Dolby',
-      textLocation: 'Friday, Nov 14, 2019',
+      cine: args.cine,
+      textLocation: args.cine.address,
       textDistance: '',
-      timeSlots: [
-        ItemTimeSlot(time: '10:00 AM', hour: 10, active: true),
-        ItemTimeSlot(time: '1:30 PM', hour: 13, active: true),
-        ItemTimeSlot(time: '6:30 PM', hour: 6, active: true),
-      ],
+      timeSlots: args.timeSlots
+          .map((timeSlot) => ItemTimeSlot.fromTimeSlot(timeSlot: timeSlot))
+          .toList(),
     );
 
     super.initState();
@@ -44,7 +63,7 @@ class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
                     WidgetToolbar(title: 'Black Panther', actions: Container()),
                     WidgetCineTimeSlot.selected(
                       item: _itemCineTimeSlot,
-                      selectedIndex: 0,
+                      selectedIndex: args.timeSlots.indexOf(args.selectedTimeSlot),
                       showCineName: true,
                       showCineDot: false,
                     ),

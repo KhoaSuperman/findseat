@@ -18,7 +18,7 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
   @override
   void initState() {
     _itemCineTimeSlot = ItemCineTimeSlot(
-      cineName: 'Arasan Cinemas A/C 2K Dolby',
+      cine: Cine.SAMPLE_DATA[0],
       textLocation: 'Friday, Nov 14, 2019',
       textDistance: '',
       timeSlots: [

@@ -13,6 +13,8 @@ class TimeSlot extends Equatable {
 
   TimeSlot({this.id, this.time, this.active});
 
+  int get hour => int.parse(time.split(":").first);
+
   factory TimeSlot.fromJson(Map<String, dynamic> json) =>
       _$TimeSlotFromJson(json);
 
@@ -25,6 +27,4 @@ class TimeSlot extends Equatable {
   String toString() {
     return 'TimeSlot{id: $id, time: $time, active: $active}';
   }
-
-
 }

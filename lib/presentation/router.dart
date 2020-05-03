@@ -42,7 +42,10 @@ class Router {
         return MaterialPageRoute(
             builder: (_) => BookTimeSlotScreen(show: show));
       case BOOK_SEAT_TYPE:
-        return MaterialPageRoute(builder: (_) => BookSeatTypeScreen());
+        return MaterialPageRoute(
+          builder: (_) =>
+              BookSeatTypeScreen(settings.arguments as ScreenArguments),
+        );
       case BOOK_SEAT_SLOT:
         return MaterialPageRoute(builder: (_) => BookSeatSlotScreen());
       case LIST_ALL_CINE:

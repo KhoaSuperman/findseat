@@ -1,7 +1,9 @@
+import 'package:find_seat/model/entity/entity.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
 import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
+import 'package:find_seat/presentation/screen/booking/book_seat_type/barrel_book_seat_type.dart';
 import 'package:find_seat/presentation/screen/cine_location/barrel_cine_location.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
@@ -80,12 +82,28 @@ class WidgetCineTimeSlot extends StatelessWidget {
             children: <Widget>[
               for (final timeSlot in item.timeSlots)
                 _WidgetTimeSlot(
-                    timeSlot,
-                    item.timeSlots.indexOf(timeSlot) == selectedIndex,
-                    selectedIndex != -1)
+                  timeSlot,
+                  item.timeSlots.indexOf(timeSlot) == selectedIndex,
+                  selectedIndex != -1,
+                  (selectedTimeSlot) {
+                    _openBookSeatTypeScreen(selectedTimeSlot);
+                  },
+                )
             ],
           )
         ],
+      ),
+    );
+  }
+
+  _openBookSeatTypeScreen(TimeSlot selectedTimeSlot) {
+    Navigator.pushNamed(
+      _context,
+      Router.BOOK_SEAT_TYPE,
+      arguments: ScreenArguments(
+        selectedTimeSlot: selectedTimeSlot,
+        timeSlots: item.timeSlots.map((item) => item.timeSlot).toList(),
+        cine: item.cine,
       ),
     );
   }
@@ -107,7 +125,14 @@ class _WidgetTimeSlot extends StatelessWidget {
   bool isSelected;
   bool isSmallMode;
 
-  _WidgetTimeSlot(this.item, this.isSelected, this.isSmallMode);
+  Function(TimeSlot) itemClick;
+
+  _WidgetTimeSlot(
+    this.item,
+    this.isSelected,
+    this.isSmallMode,
+    this.itemClick,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -140,7 +165,7 @@ class _WidgetTimeSlot extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (!isSmallMode) {
-          Navigator.pushNamed(context, Router.BOOK_SEAT_TYPE);
+          itemClick(item.timeSlot);
         }
       },
       child: Container(
@@ -171,9 +196,16 @@ class ItemTimeSlot {
   bool active;
   bool selected;
 
+  TimeSlot timeSlot;
+
   ItemTimeSlot({
     this.time,
     this.hour,
     this.active,
   });
+
+  ItemTimeSlot.fromTimeSlot({this.timeSlot})
+      : this.time = timeSlot.time,
+        this.hour = timeSlot.hour,
+        this.active = timeSlot.active;
 }
