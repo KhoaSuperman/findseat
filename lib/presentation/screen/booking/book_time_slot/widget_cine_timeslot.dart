@@ -63,9 +63,16 @@ class WidgetCineTimeSlot extends StatelessWidget {
                     )
                   : Container(),
               WidgetSpacer(width: showCineDot ? 7 : 0),
-              Text(item.textLocation, style: FONT_CONST.REGULAR_GRAY1_12),
+              Expanded(
+                child: Text(
+                  item.textLocation,
+                  style: FONT_CONST.REGULAR_GRAY1_12,
+                  maxLines: 2,
+                ),
+              ),
               WidgetSpacer(width: 11),
-              Text(item.textDistance, style: FONT_CONST.REGULAR_BLACK2_10),
+              Text("${item.textDistance} miles away",
+                  style: FONT_CONST.REGULAR_BLACK2_10),
             ],
           ),
           WidgetSpacer(height: 16),
