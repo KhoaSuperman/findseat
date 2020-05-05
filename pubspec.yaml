@@ -36,6 +36,9 @@ dependencies:
   #youtube player
   youtube_player_flutter: ^6.1.0+4
 
+  # local storage
+  shared_preferences: ^0.5.6+3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

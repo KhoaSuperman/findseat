@@ -1,80 +1,80 @@
 import 'package:find_seat/model/entity/entity.dart';
+import 'package:find_seat/model/repo/repo.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
 import 'package:find_seat/presentation/screen/booking/book_seat_type/barrel_book_seat_type.dart';
+import 'package:find_seat/presentation/screen/booking/book_seat_type/bloc/bloc.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
-
-class ScreenArguments {
-  Cine cine;
-  TimeSlot selectedTimeSlot;
-  List<TimeSlot> timeSlots;
-
-  ScreenArguments({
-    @required this.cine,
-    @required this.selectedTimeSlot,
-    @required this.timeSlots,
-  });
-}
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BookSeatTypeScreen extends StatefulWidget {
-  ScreenArguments args;
-
-  BookSeatTypeScreen(this.args);
-
   @override
   _BookSeatTypeScreenState createState() => _BookSeatTypeScreenState();
 }
 
 class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
-  ScreenArguments args;
-
   ItemCineTimeSlot _itemCineTimeSlot;
-
-  @override
-  void initState() {
-    args = widget.args;
-
-    _itemCineTimeSlot = ItemCineTimeSlot(
-      cine: args.cine,
-      textLocation: args.cine.address,
-      textDistance: '',
-      timeSlots: args.timeSlots
-          .map((timeSlot) => ItemTimeSlot.fromTimeSlot(timeSlot: timeSlot))
-          .toList(),
-    );
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: Container(
-          child: Stack(
-            fit: StackFit.expand,
-            children: <Widget>[
-              SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    WidgetToolbar(title: 'Black Panther', actions: Container()),
-                    WidgetCineTimeSlot.selected(
-                      item: _itemCineTimeSlot,
-                      selectedIndex: args.timeSlots.indexOf(args.selectedTimeSlot),
-                      showCineName: true,
-                      showCineDot: false,
-                    ),
-                    WidgetSpacer(height: 14),
-                    WidgetHowManySeats(),
-                  ],
-                ),
-              ),
-              _buildBtnSelectSeat(),
-            ],
+      child: BlocProvider<BookSeatTypeBloc>(
+        create: (context) => BookSeatTypeBloc(
+          sessionRepository: RepositoryProvider.of<SessionRepository>(context),
+        )..add(
+            OpenScreen(),
           ),
+        child: BlocConsumer<BookSeatTypeBloc, BookSeatTypeState>(
+          listener: (context, state) {},
+          builder: (context, state) {
+            if (state is LoadedData) {
+              Cine cine = Cine.SAMPLE_DATA[0];
+              int selectedIndex = state.others.indexOf(state.selectedTimeSlot);
+              String showName = state.show.name;
+
+              _itemCineTimeSlot = ItemCineTimeSlot(
+                cine: cine,
+                textLocation: cine.address,
+                textDistance: '',
+                timeSlots: state.others
+                    .map((timeSlot) =>
+                        ItemTimeSlot.fromTimeSlot(timeSlot: timeSlot))
+                    .toList(),
+              );
+
+              return Scaffold(
+                body: Container(
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: <Widget>[
+                      SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            WidgetToolbar(
+                                title: showName, actions: Container()),
+                            WidgetCineTimeSlot.selected(
+                              item: _itemCineTimeSlot,
+                              selectedIndex: selectedIndex,
+                              showCineName: true,
+                              showCineDot: false,
+                            ),
+                            WidgetSpacer(height: 14),
+                            WidgetHowManySeats(),
+                          ],
+                        ),
+                      ),
+                      _buildBtnSelectSeat(),
+                    ],
+                  ),
+                ),
+              );
+            }
+
+            return Container();
+          },
         ),
       ),
     );

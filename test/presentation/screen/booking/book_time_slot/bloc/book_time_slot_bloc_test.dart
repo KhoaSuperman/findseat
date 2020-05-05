@@ -31,6 +31,12 @@ void main() {
       //4. Close search
       bloc.add(ClickCloseSearch());
 
+      //5. Open BookSeatType screen
+      bloc.add(SelectTimeSlot());
+
+      //6. BookSeatType screen is open
+      bloc.add(OpenedBookSeatTypeScreen());
+
       await emitsExactly(
         bloc,
         [
@@ -73,8 +79,23 @@ void main() {
             list: mockListBookTimeSlots,
             showSearchField: false,
           ),
+          //
+          BookTimeSlotState(
+            isLoading: false,
+            list: mockListBookTimeSlots,
+            showSearchField: false,
+            navigatorEvent: new TakeOutValue()..value = true,
+          ),
+          //
+          BookTimeSlotState(
+            isLoading: false,
+            list: mockListBookTimeSlots,
+            showSearchField: false,
+            navigatorEvent: new TakeOutValue()..value = false,
+          ),
         ],
       );
+
       //
     });
 

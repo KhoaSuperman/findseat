@@ -8,11 +8,15 @@ import './bloc.dart';
 
 class BookTimeSlotBloc extends Bloc<BookTimeSlotEvent, BookTimeSlotState> {
   BookTimeSlotRepository bookTimeSlotRepository;
+  SessionRepository sessionRepo;
 
   //must be param of constructor
   String showId;
 
-  BookTimeSlotBloc({@required this.bookTimeSlotRepository});
+  BookTimeSlotBloc({
+    @required this.bookTimeSlotRepository,
+    @required this.sessionRepo,
+  });
 
   @override
   BookTimeSlotState get initialState => BookTimeSlotState(isLoading: true);
@@ -29,7 +33,28 @@ class BookTimeSlotBloc extends Bloc<BookTimeSlotEvent, BookTimeSlotState> {
       yield* _mapClickCloseSearchToState();
     } else if (event is SearchQueryChanged) {
       yield* _mapSearchQueryChangedToState(event.keyword);
+    } else if (event is SelectTimeSlot) {
+      yield* _mapSelectTimeSlotToState(event.selectedTimeSlot, event.others);
+    } else if (event is OpenedBookSeatTypeScreen) {
+      yield* _mapOpenedBookSeatTypeScreenToState();
     }
+  }
+
+  Stream<BookTimeSlotState> _mapSelectTimeSlotToState(
+      TimeSlot selectedTimeSlot, List<TimeSlot> others) async* {
+    //cache
+    await sessionRepo.cacheSelectedTimeSlot(selectedTimeSlot);
+    await sessionRepo.cacheOtherTimeSlots(others);
+
+    yield state.copyWith(
+      navigatorEvent: new TakeOutValue()..value = true,
+    );
+  }
+
+  Stream<BookTimeSlotState> _mapOpenedBookSeatTypeScreenToState() async* {
+    yield state.copyWith(
+      navigatorEvent: new TakeOutValue()..value = false,
+    );
   }
 
   Stream<BookTimeSlotState> _mapOpenScreenToState() async* {

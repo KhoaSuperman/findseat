@@ -1,6 +1,7 @@
 import 'package:find_seat/model/entity/entity.dart';
 import 'package:find_seat/model/repo/repo.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
+import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
 import 'package:find_seat/presentation/screen/cine_date_picker/barrel_cine_date_picker.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
@@ -18,15 +19,14 @@ class BookTimeSlotScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _context = context;
-
     return SafeArea(
       child: Scaffold(
         body: BlocProvider<BookTimeSlotBloc>(
           create: (context) => BookTimeSlotBloc(
-              bookTimeSlotRepository:
-                  RepositoryProvider.of<BookTimeSlotRepository>(context))
-            ..add(OpenScreen()),
+            bookTimeSlotRepository:
+                RepositoryProvider.of<BookTimeSlotRepository>(context),
+            sessionRepo: RepositoryProvider.of<SessionRepository>(context),
+          )..add(OpenScreen()),
           child: Container(
             child: Column(
               children: <Widget>[
@@ -48,8 +48,15 @@ class BookTimeSlotScreen extends StatelessWidget {
   }
 
   _buildListCineTimeSlot() {
-    return BlocBuilder<BookTimeSlotBloc, BookTimeSlotState>(
+    return BlocConsumer<BookTimeSlotBloc, BookTimeSlotState>(
+      listener: (context, state) {
+        if (state.navigatorEvent.value) {
+          _openBookSeatTypeScreen();
+        }
+      },
       builder: (context, state) {
+        _context = context;
+
         if (state.list != null) {
           return ListView.separated(
             itemBuilder: (context, index) {
@@ -140,6 +147,11 @@ class BookTimeSlotScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _openBookSeatTypeScreen() {
+    BlocProvider.of<BookTimeSlotBloc>(_context).add(OpenedBookSeatTypeScreen());
+    Navigator.pushNamed(_context, Router.BOOK_SEAT_TYPE);
   }
 
   void openCineDatePicker() {

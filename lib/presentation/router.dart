@@ -43,8 +43,7 @@ class Router {
             builder: (_) => BookTimeSlotScreen(show: show));
       case BOOK_SEAT_TYPE:
         return MaterialPageRoute(
-          builder: (_) =>
-              BookSeatTypeScreen(settings.arguments as ScreenArguments),
+          builder: (_) => BookSeatTypeScreen(),
         );
       case BOOK_SEAT_SLOT:
         return MaterialPageRoute(builder: (_) => BookSeatSlotScreen());

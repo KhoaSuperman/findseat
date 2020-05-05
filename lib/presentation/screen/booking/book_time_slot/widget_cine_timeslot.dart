@@ -1,12 +1,12 @@
 import 'package:find_seat/model/entity/entity.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
-import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
-import 'package:find_seat/presentation/screen/booking/book_seat_type/barrel_book_seat_type.dart';
+import 'package:find_seat/presentation/screen/booking/book_time_slot/bloc/bloc.dart';
 import 'package:find_seat/presentation/screen/cine_location/barrel_cine_location.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WidgetCineTimeSlot extends StatelessWidget {
   ItemCineTimeSlot item;
@@ -86,24 +86,18 @@ class WidgetCineTimeSlot extends StatelessWidget {
                   item.timeSlots.indexOf(timeSlot) == selectedIndex,
                   selectedIndex != -1,
                   (selectedTimeSlot) {
-                    _openBookSeatTypeScreen(selectedTimeSlot);
+                    BlocProvider.of<BookTimeSlotBloc>(_context).add(
+                      SelectTimeSlot(
+                          selectedTimeSlot: selectedTimeSlot,
+                          others: item.timeSlots
+                              .map((item) => item.timeSlot)
+                              .toList()),
+                    );
                   },
                 )
             ],
           )
         ],
-      ),
-    );
-  }
-
-  _openBookSeatTypeScreen(TimeSlot selectedTimeSlot) {
-    Navigator.pushNamed(
-      _context,
-      Router.BOOK_SEAT_TYPE,
-      arguments: ScreenArguments(
-        selectedTimeSlot: selectedTimeSlot,
-        timeSlots: item.timeSlots.map((item) => item.timeSlot).toList(),
-        cine: item.cine,
       ),
     );
   }

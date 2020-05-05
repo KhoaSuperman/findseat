@@ -1,4 +1,5 @@
 import 'package:find_seat/app_config.dart';
+import 'package:find_seat/model/local/pref.dart';
 import 'package:find_seat/model/repo/repo.dart';
 import 'package:find_seat/presentation/screen/home/bloc/bloc.dart';
 import 'package:find_seat/presentation/screen/home/sc_home.dart';
@@ -60,14 +61,20 @@ class MyApp extends StatelessWidget {
     final UserRepository userRepository = UserRepository();
     final HomeRepository homeRepository = HomeRepository();
     final ShowRepository showRepository = ShowRepository();
-    final BookTimeSlotRepository bookTimeSlotRepository = RemoteBookTimeSlotRepository();
+    final BookTimeSlotRepository bookTimeSlotRepository =
+        RemoteBookTimeSlotRepository();
+    final SessionRepository sessionRepository =
+        SessionRepository(pref: LocalPref());
 
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<UserRepository>(create: (context) => userRepository),
         RepositoryProvider<HomeRepository>(create: (context) => homeRepository),
         RepositoryProvider<ShowRepository>(create: (context) => showRepository),
-        RepositoryProvider<BookTimeSlotRepository>(create: (context) => bookTimeSlotRepository),
+        RepositoryProvider<BookTimeSlotRepository>(
+            create: (context) => bookTimeSlotRepository),
+        RepositoryProvider<SessionRepository>(
+            create: (context) => sessionRepository),
       ],
       child: MultiBlocProvider(
         providers: [

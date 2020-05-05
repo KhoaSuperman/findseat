@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
+import 'package:find_seat/model/entity/entity.dart';
 import 'package:find_seat/presentation/screen/booking/book_time_slot/bloc/sort_booking_time_slot.dart';
+import 'package:meta/meta.dart';
 
 abstract class BookTimeSlotEvent extends Equatable {
   const BookTimeSlotEvent();
@@ -53,4 +55,22 @@ class SortByChanged extends BookTimeSlotEvent {
   String toString() {
     return 'SortByChanged{sortBy: $sortBy}';
   }
+}
+
+class SelectTimeSlot extends BookTimeSlotEvent {
+  TimeSlot selectedTimeSlot;
+  List<TimeSlot> others;
+
+  SelectTimeSlot({
+    @required this.selectedTimeSlot,
+    @required this.others,
+  });
+
+  @override
+  List<Object> get props => [selectedTimeSlot, others];
+}
+
+class OpenedBookSeatTypeScreen extends BookTimeSlotEvent {
+  @override
+  List<Object> get props => [];
 }
