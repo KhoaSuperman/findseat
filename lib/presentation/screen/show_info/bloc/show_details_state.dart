@@ -10,6 +10,12 @@ class InitialShowDetailsState extends ShowDetailsState {
 }
 
 class OpenBookTimeSlotScreen extends ShowDetailsState {
+  bool open = false;
+
+  OpenBookTimeSlotScreen({
+    this.open,
+  });
+
   @override
   List<Object> get props => [];
 }

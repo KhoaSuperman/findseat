@@ -22,7 +22,10 @@ class ShowDetailsBloc extends Bloc<ShowDetailsEvent, ShowDetailsState> {
       yield InitialShowDetailsState();
     } else if (event is ClickBtnBook) {
       await sessionRepository.cacheShow(event.show);
-      yield OpenBookTimeSlotScreen();
+      yield OpenBookTimeSlotScreen(open: true);
+    } else if (event is OpenedBookTimeSlotScreen) {
+      yield OpenBookTimeSlotScreen(open: false);
+      yield InitialShowDetailsState();
     }
   }
 }

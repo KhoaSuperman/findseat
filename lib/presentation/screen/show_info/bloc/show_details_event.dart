@@ -18,3 +18,8 @@ class ClickBtnBook extends ShowDetailsEvent {
   @override
   List<Object> get props => [show];
 }
+
+class OpenedBookTimeSlotScreen extends ShowDetailsEvent {
+  @override
+  List<Object> get props => [];
+}
