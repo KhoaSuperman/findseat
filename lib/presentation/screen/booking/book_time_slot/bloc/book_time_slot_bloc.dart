@@ -34,17 +34,17 @@ class BookTimeSlotBloc extends Bloc<BookTimeSlotEvent, BookTimeSlotState> {
     } else if (event is SearchQueryChanged) {
       yield* _mapSearchQueryChangedToState(event.keyword);
     } else if (event is SelectTimeSlot) {
-      yield* _mapSelectTimeSlotToState(event.selectedTimeSlot, event.others);
+      yield* _mapSelectTimeSlotToState(event.selectedTimeSlot, event.bookTimeSlot);
     } else if (event is OpenedBookSeatTypeScreen) {
       yield* _mapOpenedBookSeatTypeScreenToState();
     }
   }
 
   Stream<BookTimeSlotState> _mapSelectTimeSlotToState(
-      TimeSlot selectedTimeSlot, List<TimeSlot> others) async* {
+      TimeSlot selectedTimeSlot, BookTimeSlot bookTimeSlot) async* {
     //cache
     await sessionRepo.cacheSelectedTimeSlot(selectedTimeSlot);
-    await sessionRepo.cacheOtherTimeSlots(others);
+    await sessionRepo.cacheBookTimeSlot(bookTimeSlot);
 
     yield state.copyWith(isOpenBookSeatTypeScreen: true);
   }

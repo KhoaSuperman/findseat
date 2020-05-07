@@ -30,19 +30,13 @@ class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
           listener: (context, state) {},
           builder: (context, state) {
             if (state is LoadedData) {
-              Cine cine = Cine.SAMPLE_DATA[0];
-              int selectedIndex = state.others.indexOf(state.selectedTimeSlot);
+              BookTimeSlot bookTimeSlot = state.bookTimeSlot;
+              int selectedIndex =
+                  bookTimeSlot.timeSlots.indexOf(state.selectedTimeSlot);
               String showName = state.show.name;
 
-              _itemCineTimeSlot = ItemCineTimeSlot(
-                cine: cine,
-                textLocation: cine.address,
-                textDistance: '',
-                timeSlots: state.others
-                    .map((timeSlot) =>
-                        ItemTimeSlot.fromTimeSlot(timeSlot: timeSlot))
-                    .toList(),
-              );
+              _itemCineTimeSlot =
+                  ItemCineTimeSlot.fromBookTimeSlot(bookTimeSlot: bookTimeSlot);
 
               return Scaffold(
                 body: Container(

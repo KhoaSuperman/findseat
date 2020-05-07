@@ -13,14 +13,14 @@ class InitialBookSeatTypeState extends BookSeatTypeState {
 class LoadedData extends BookSeatTypeState {
   Show show;
   TimeSlot selectedTimeSlot;
-  List<TimeSlot> others;
+  BookTimeSlot bookTimeSlot;
 
   LoadedData({
     this.show,
     this.selectedTimeSlot,
-    this.others,
+    this.bookTimeSlot,
   });
 
   @override
-  List<Object> get props => [show, selectedTimeSlot, others];
+  List<Object> get props => [show, selectedTimeSlot, bookTimeSlot];
 }

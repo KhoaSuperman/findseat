@@ -63,17 +63,8 @@ class BookTimeSlotScreen extends StatelessWidget {
               if (index < state.list.length) {
                 BookTimeSlot bookTimeSlot = state.list[index];
 
-                List<ItemTimeSlot> timeSlots = bookTimeSlot.timeSlots
-                    .map((timeSlot) =>
-                        ItemTimeSlot.fromTimeSlot(timeSlot: timeSlot))
-                    .toList();
-
-                ItemCineTimeSlot item = ItemCineTimeSlot(
-                  cine: bookTimeSlot.cine,
-                  textLocation: bookTimeSlot.cine.address,
-                  textDistance: bookTimeSlot.cine.distance.toString(),
-                  timeSlots: timeSlots,
-                );
+                ItemCineTimeSlot item = ItemCineTimeSlot.fromBookTimeSlot(
+                    bookTimeSlot: bookTimeSlot);
 
                 return WidgetCineTimeSlot(item);
               } else {
@@ -166,6 +157,8 @@ class BookTimeSlotScreen extends StatelessWidget {
 }
 
 class ItemCineTimeSlot {
+  BookTimeSlot bookTimeSlot;
+
   String cineName;
   Cine cine;
   String textLocation;
@@ -178,4 +171,15 @@ class ItemCineTimeSlot {
     this.textDistance,
     this.timeSlots,
   }) : this.cineName = cine.name;
+
+  ItemCineTimeSlot.fromBookTimeSlot({this.bookTimeSlot}) {
+    this.cine = bookTimeSlot.cine;
+    this.timeSlots = bookTimeSlot.timeSlots
+        .map((timeSlot) => ItemTimeSlot.fromTimeSlot(timeSlot: timeSlot))
+        .toList();
+
+    this.cineName = bookTimeSlot.cine.name;
+    this.textLocation = bookTimeSlot.cine.address;
+    this.textDistance = bookTimeSlot.cine.distance.toString();
+  }
 }

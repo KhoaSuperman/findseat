@@ -59,15 +59,15 @@ class SortByChanged extends BookTimeSlotEvent {
 
 class SelectTimeSlot extends BookTimeSlotEvent {
   TimeSlot selectedTimeSlot;
-  List<TimeSlot> others;
+  BookTimeSlot bookTimeSlot;
 
   SelectTimeSlot({
     @required this.selectedTimeSlot,
-    @required this.others,
+    @required this.bookTimeSlot,
   });
 
   @override
-  List<Object> get props => [selectedTimeSlot, others];
+  List<Object> get props => [selectedTimeSlot, bookTimeSlot];
 }
 
 class OpenedBookSeatTypeScreen extends BookTimeSlotEvent {

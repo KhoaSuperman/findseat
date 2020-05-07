@@ -88,10 +88,9 @@ class WidgetCineTimeSlot extends StatelessWidget {
                   (selectedTimeSlot) {
                     BlocProvider.of<BookTimeSlotBloc>(_context).add(
                       SelectTimeSlot(
-                          selectedTimeSlot: selectedTimeSlot,
-                          others: item.timeSlots
-                              .map((item) => item.timeSlot)
-                              .toList()),
+                        selectedTimeSlot: selectedTimeSlot,
+                        bookTimeSlot: item.bookTimeSlot,
+                      ),
                     );
                   },
                 )

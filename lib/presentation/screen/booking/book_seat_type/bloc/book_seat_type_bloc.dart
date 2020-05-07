@@ -19,12 +19,12 @@ class BookSeatTypeBloc extends Bloc<BookSeatTypeEvent, BookSeatTypeState> {
     if (event is OpenScreen) {
       Show show = await sessionRepository.getShow();
       TimeSlot selectedTimeSlot = await sessionRepository.getSelectedTimeSlot();
-      List<TimeSlot> others = await sessionRepository.getOtherTimeSlots();
+      BookTimeSlot bookTimeSlot = await sessionRepository.getBookTimeSlot();
 
       yield LoadedData(
         show: show,
         selectedTimeSlot: selectedTimeSlot,
-        others: others,
+        bookTimeSlot: bookTimeSlot,
       );
     }
   }

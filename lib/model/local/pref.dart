@@ -37,6 +37,7 @@ abstract class Pref {
 
 class DATA_CONST {
   static const String CACHE_SHOW = "CACHE_SHOW";
+  static const String CACHE_CINE = "CACHE_CINE";
   static const String CACHE_BOOK_TIME_SLOT = "CACHE_BOOK_TIME_SLOT";
   static const String CACHE_SELECTED_TIME_SLOT = "CACHE_SELECTED_TIME_SLOT";
   static const String CACHE_OTHER_TIME_SLOT = "CACHE_OTHER_TIME_SLOT";
