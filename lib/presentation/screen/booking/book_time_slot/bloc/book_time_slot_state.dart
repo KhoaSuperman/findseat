@@ -12,28 +12,6 @@ abstract class BookTimeSlotState with _$BookTimeSlotState {
     List<BookTimeSlot> list,
     String msg,
     @Default(false) bool showSearchField,
-    TakeOutValue<bool> navigatorEvent,
+    @Default(false) bool isOpenBookSeatTypeScreen,
   }) = _BookTimeSlotState;
-}
-
-class TakeOutValue<T> extends Equatable {
-  T _value;
-
-  T get value {
-    final oldValue = _value;
-//    _value = null;
-    return oldValue;
-  }
-
-  set value(T value) {
-    _value = value;
-  }
-
-  @override
-  List<Object> get props => [_value];
-
-  @override
-  String toString() {
-    return 'TakeOutValue{_value: $_value}';
-  }
 }

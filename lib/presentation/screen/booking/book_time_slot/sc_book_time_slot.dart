@@ -50,7 +50,7 @@ class BookTimeSlotScreen extends StatelessWidget {
   _buildListCineTimeSlot() {
     return BlocConsumer<BookTimeSlotBloc, BookTimeSlotState>(
       listener: (context, state) {
-        if (state.navigatorEvent.value) {
+        if (state.isOpenBookSeatTypeScreen) {
           _openBookSeatTypeScreen();
         }
       },

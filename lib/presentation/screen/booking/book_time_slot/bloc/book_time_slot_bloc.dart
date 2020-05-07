@@ -46,15 +46,11 @@ class BookTimeSlotBloc extends Bloc<BookTimeSlotEvent, BookTimeSlotState> {
     await sessionRepo.cacheSelectedTimeSlot(selectedTimeSlot);
     await sessionRepo.cacheOtherTimeSlots(others);
 
-    yield state.copyWith(
-      navigatorEvent: new TakeOutValue()..value = true,
-    );
+    yield state.copyWith(isOpenBookSeatTypeScreen: true);
   }
 
   Stream<BookTimeSlotState> _mapOpenedBookSeatTypeScreenToState() async* {
-    yield state.copyWith(
-      navigatorEvent: new TakeOutValue()..value = false,
-    );
+    yield state.copyWith(isOpenBookSeatTypeScreen: false);
   }
 
   Stream<BookTimeSlotState> _mapOpenScreenToState() async* {
