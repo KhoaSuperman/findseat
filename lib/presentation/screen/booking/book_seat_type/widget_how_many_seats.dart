@@ -33,11 +33,7 @@ class _WidgetHowManySeatsState extends State<WidgetHowManySeats> {
 
 /// WidgetSeatTypePicker
 class WidgetSeatTypePicker extends StatefulWidget {
-  List<SeatType> seatTypes = [
-    SeatType('King', 120.0, SEAT_TYPE.KING),
-    SeatType('Queen', 100.0, SEAT_TYPE.QUEEN),
-    SeatType('Jack', 80.0, SEAT_TYPE.JACK),
-  ];
+  List<SeatType> seatTypes = SeatType.SAMPLE_DATA;
 
   @override
   _WidgetSeatTypePickerState createState() => _WidgetSeatTypePickerState();

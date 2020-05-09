@@ -8,6 +8,9 @@ import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
 class BookSeatSlotScreen extends StatefulWidget {
+  int seatCount;
+  SeatType seatType;
+
   @override
   _BookSeatSlotScreenState createState() => _BookSeatSlotScreenState();
 }

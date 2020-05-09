@@ -10,7 +10,10 @@ class BookSeatTypeBloc extends Bloc<BookSeatTypeEvent, BookSeatTypeState> {
   BookSeatTypeBloc({this.sessionRepository});
 
   @override
-  BookSeatTypeState get initialState => InitialBookSeatTypeState();
+  BookSeatTypeState get initialState => BookSeatTypeState(
+        seatCount: 2,
+        selectedSeatType: SEAT_TYPE.JACK,
+      );
 
   @override
   Stream<BookSeatTypeState> mapEventToState(
@@ -21,7 +24,7 @@ class BookSeatTypeBloc extends Bloc<BookSeatTypeEvent, BookSeatTypeState> {
       TimeSlot selectedTimeSlot = await sessionRepository.getSelectedTimeSlot();
       BookTimeSlot bookTimeSlot = await sessionRepository.getBookTimeSlot();
 
-      yield LoadedData(
+      yield state.copyWith(
         show: show,
         selectedTimeSlot: selectedTimeSlot,
         bookTimeSlot: bookTimeSlot,

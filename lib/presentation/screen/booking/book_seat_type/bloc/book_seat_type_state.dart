@@ -1,26 +1,17 @@
-import 'package:equatable/equatable.dart';
 import 'package:find_seat/model/entity/entity.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-abstract class BookSeatTypeState extends Equatable {
-  const BookSeatTypeState();
-}
+part 'book_seat_type_state.freezed.dart';
 
-class InitialBookSeatTypeState extends BookSeatTypeState {
-  @override
-  List<Object> get props => [];
-}
-
-class LoadedData extends BookSeatTypeState {
-  Show show;
-  TimeSlot selectedTimeSlot;
-  BookTimeSlot bookTimeSlot;
-
-  LoadedData({
-    this.show,
-    this.selectedTimeSlot,
-    this.bookTimeSlot,
-  });
-
-  @override
-  List<Object> get props => [show, selectedTimeSlot, bookTimeSlot];
+@freezed
+abstract class BookSeatTypeState with _$BookSeatTypeState {
+  const factory BookSeatTypeState({
+    Show show,
+    TimeSlot selectedTimeSlot,
+    BookTimeSlot bookTimeSlot,
+    //
+    @Default(2) int seatCount,
+    @Default(SEAT_TYPE.JACK) SEAT_TYPE selectedSeatType,
+  }) = _BookSeatTypeState;
 }

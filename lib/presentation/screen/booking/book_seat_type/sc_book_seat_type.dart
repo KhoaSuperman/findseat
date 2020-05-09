@@ -29,7 +29,7 @@ class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
         child: BlocConsumer<BookSeatTypeBloc, BookSeatTypeState>(
           listener: (context, state) {},
           builder: (context, state) {
-            if (state is LoadedData) {
+            if (state.show != null && state.bookTimeSlot != null) {
               BookTimeSlot bookTimeSlot = state.bookTimeSlot;
               int selectedIndex =
                   bookTimeSlot.timeSlots.indexOf(state.selectedTimeSlot);
@@ -67,7 +67,7 @@ class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
               );
             }
 
-            return Container();
+            return WidgetEmpty();
           },
         ),
       ),
