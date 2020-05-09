@@ -27,7 +27,6 @@ class _WidgetVideoPlayerState extends State<WidgetVideoPlayer> {
         disableDragSeek: false,
         loop: false,
         isLive: false,
-        forceHideAnnotation: true,
         forceHD: false,
         enableCaption: true,
       ),
