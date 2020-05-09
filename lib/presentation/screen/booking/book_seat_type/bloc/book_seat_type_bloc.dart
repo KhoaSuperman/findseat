@@ -29,6 +29,14 @@ class BookSeatTypeBloc extends Bloc<BookSeatTypeEvent, BookSeatTypeState> {
         selectedTimeSlot: selectedTimeSlot,
         bookTimeSlot: bookTimeSlot,
       );
+    } else if (event is ClickHowManySeat) {
+      yield state.copyWith(seatCount: event.seatCount);
+    } else if (event is ClickSelectSeatType) {
+      yield state.copyWith(selectedSeatType: event.selectedSeatType);
+    } else if (event is ClickSelectSeats) {
+      yield state.copyWith(isOpenBookSeatSlotScreen: true);
+    } else if (event is OpenedBookSeatSlotScreen) {
+      yield state.copyWith(isOpenBookSeatSlotScreen: false);
     }
   }
 }

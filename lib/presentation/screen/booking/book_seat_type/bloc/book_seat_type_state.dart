@@ -13,5 +13,6 @@ abstract class BookSeatTypeState with _$BookSeatTypeState {
     //
     @Default(2) int seatCount,
     @Default(SEAT_TYPE.JACK) SEAT_TYPE selectedSeatType,
+    @Default(false) bool isOpenBookSeatSlotScreen,
   }) = _BookSeatTypeState;
 }

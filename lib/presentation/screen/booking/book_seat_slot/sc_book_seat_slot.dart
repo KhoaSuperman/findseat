@@ -7,9 +7,25 @@ import 'package:find_seat/presentation/screen/payment_method_picker/barrel_payme
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
-class BookSeatSlotScreen extends StatefulWidget {
+class ScreenArguments {
   int seatCount;
-  SeatType seatType;
+  SEAT_TYPE seatType;
+
+  ScreenArguments({
+    this.seatCount,
+    this.seatType,
+  });
+
+  @override
+  String toString() {
+    return 'ScreenArguments{seatCount: $seatCount, seatType: $seatType}';
+  }
+}
+
+class BookSeatSlotScreen extends StatefulWidget {
+  ScreenArguments args;
+
+  BookSeatSlotScreen({this.args});
 
   @override
   _BookSeatSlotScreenState createState() => _BookSeatSlotScreenState();
@@ -20,6 +36,8 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
 
   @override
   void initState() {
+    print(widget.args);
+
     _itemCineTimeSlot = ItemCineTimeSlot(
       cine: Cine.SAMPLE_DATA[0],
       textLocation: 'Friday, Nov 14, 2019',

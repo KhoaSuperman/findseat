@@ -46,7 +46,9 @@ class Router {
           builder: (_) => BookSeatTypeScreen(),
         );
       case BOOK_SEAT_SLOT:
-        return MaterialPageRoute(builder: (_) => BookSeatSlotScreen());
+        final args = settings.arguments as ScreenArguments;
+        return MaterialPageRoute(
+            builder: (_) => BookSeatSlotScreen(args: args));
       case LIST_ALL_CINE:
         return MaterialPageRoute(builder: (_) => ListAllCineScreen());
       case REGISTER:

@@ -3,6 +3,7 @@ import 'package:find_seat/model/repo/repo.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
+import 'package:find_seat/presentation/screen/booking/book_seat_slot/barrel_book_seat_slot.dart';
 import 'package:find_seat/presentation/screen/booking/book_seat_type/barrel_book_seat_type.dart';
 import 'package:find_seat/presentation/screen/booking/book_seat_type/bloc/bloc.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
@@ -15,6 +16,8 @@ class BookSeatTypeScreen extends StatefulWidget {
 }
 
 class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
+  BuildContext _blocContext;
+
   ItemCineTimeSlot _itemCineTimeSlot;
 
   @override
@@ -27,8 +30,14 @@ class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
             OpenScreen(),
           ),
         child: BlocConsumer<BookSeatTypeBloc, BookSeatTypeState>(
-          listener: (context, state) {},
+          listener: (context, state) {
+            if (state.isOpenBookSeatSlotScreen) {
+              _openBookSeatSlotScreen(state);
+            }
+          },
           builder: (context, state) {
+            _blocContext = context;
+
             if (state.show != null && state.bookTimeSlot != null) {
               BookTimeSlot bookTimeSlot = state.bookTimeSlot;
               int selectedIndex =
@@ -90,10 +99,19 @@ class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
             ],
           ),
           onPressed: () {
-            Navigator.pushNamed(context, Router.BOOK_SEAT_SLOT);
+            BlocProvider.of<BookSeatTypeBloc>(_blocContext).add(ClickSelectSeats());
           },
         ),
       ),
     );
+  }
+
+  _openBookSeatSlotScreen(BookSeatTypeState state) {
+    Navigator.pushNamed(context, Router.BOOK_SEAT_SLOT,
+        arguments: ScreenArguments(
+          seatCount: state.seatCount,
+          seatType: state.selectedSeatType,
+        ));
+    BlocProvider.of<BookSeatTypeBloc>(_blocContext).add(OpenedBookSeatSlotScreen());
   }
 }

@@ -10,15 +10,34 @@ class OpenScreen extends BookSeatTypeEvent {
   List<Object> get props => [];
 }
 
-class ClickSelectSeat extends BookSeatTypeEvent {
+class ClickHowManySeat extends BookSeatTypeEvent {
   int seatCount;
-  SeatType seatType;
 
-  ClickSelectSeat({
+  ClickHowManySeat({
     this.seatCount,
-    this.seatType,
   });
 
   @override
-  List<Object> get props => [seatCount, seatType];
+  List<Object> get props => [seatCount];
+}
+
+class ClickSelectSeatType extends BookSeatTypeEvent {
+  SEAT_TYPE selectedSeatType;
+
+  ClickSelectSeatType({
+    this.selectedSeatType,
+  });
+
+  @override
+  List<Object> get props => [selectedSeatType];
+}
+
+class ClickSelectSeats extends BookSeatTypeEvent {
+  @override
+  List<Object> get props => [];
+}
+
+class OpenedBookSeatSlotScreen extends BookSeatTypeEvent {
+  @override
+  List<Object> get props => [];
 }
