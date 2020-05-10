@@ -1,4 +1,5 @@
 import 'package:find_seat/model/entity/entity.dart';
+import 'package:find_seat/presentation/screen/booking/book_seat_slot/viewmodel/viewmodel.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
@@ -12,7 +13,7 @@ abstract class BookSeatSlotState with _$BookSeatSlotState {
     BookTimeSlot bookTimeSlot,
     //
     @Default(false) bool isLoading,
-    List<SeatType> seatSlotByTypes,
+    List<ItemGridSeatSlotVM> itemGridSeatSlotVMs,
     String msg,
   }) = _BookSeatSlotState;
 }

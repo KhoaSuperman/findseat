@@ -61,7 +61,7 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
             builder: (context, state) {
               if (state.show != null &&
                   state.bookTimeSlot != null &&
-                  state.seatSlotByTypes.isNotEmpty) {
+                  state.itemGridSeatSlotVMs.isNotEmpty) {
                 BookTimeSlot bookTimeSlot = state.bookTimeSlot;
                 int selectedIndex =
                     bookTimeSlot.timeSlots.indexOf(state.selectedTimeSlot);
@@ -121,13 +121,10 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
   Widget _buildListItemGridSeatSlot(BookSeatSlotState state) {
     List<Widget> widgets = [];
 
-    state.seatSlotByTypes.forEach(
-      (seatSlotType) {
+    state.itemGridSeatSlotVMs.forEach(
+      (itemGridSeatSlotVM) {
         widgets.add(
-          WidgetItemGridSeatSlot(
-            seatTypeName: '\$ ${seatSlotType.price} ${seatSlotType.type.toText().toUpperCase()}',
-            seatRows: seatSlotType.seatRows,
-          ),
+          WidgetItemGridSeatSlot(itemGridSeatSlotVM: itemGridSeatSlotVM),
         );
         widgets.add(
           WidgetSpacer(height: 14),

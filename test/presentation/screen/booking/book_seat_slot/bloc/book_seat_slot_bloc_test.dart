@@ -25,7 +25,8 @@ void main() {
         [
           BookSeatSlotState(
             isLoading: false,
-            seatSlotByTypes: mockSeatSlotByTypes,
+            itemGridSeatSlotVMs:
+                bloc.toItemGridSeatSlotVMs(mockSeatSlotByTypes),
           ),
         ],
       );

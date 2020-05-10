@@ -34,9 +34,9 @@ class SeatType extends Equatable {
   }
 
   static final List<SeatType> SAMPLE_DATA = [
-    SeatType('King', 120.0, SEAT_TYPE.KING),
-    SeatType('Queen', 100.0, SEAT_TYPE.QUEEN),
-    SeatType('Jack', 80.0, SEAT_TYPE.JACK),
+    SeatType('King', 120.0, SEAT_TYPE.KING, SeatRow.SAMPLE_KING),
+    SeatType('Queen', 100.0, SEAT_TYPE.QUEEN, SeatRow.SAMPLE_QUEEN),
+    SeatType('Jack', 80.0, SEAT_TYPE.JACK, SeatRow.SAMPLE_JACK),
   ];
 }
 
