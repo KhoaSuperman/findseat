@@ -3,7 +3,6 @@
   "data": [
     {
       "seat_type": "jack",
-      "price": "80.0",
       "seat_rows": [
         {
           "id": "A",
@@ -39,7 +38,6 @@
     },
     {
       "seat_type": "queen",
-      "price": "100.0",
       "seat_rows": [
         {
           "id": "F",
@@ -63,7 +61,6 @@
     },
     {
       "seat_type": "king",
-      "price": "120.0",
       "seat_rows": [
         {
           "id": "I",

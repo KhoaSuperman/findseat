@@ -1,11 +1,15 @@
 import 'package:find_seat/model/barrel_model.dart';
+import 'package:find_seat/model/entity/entity.dart';
+import 'package:find_seat/model/repo/repo.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/common_widgets/widget_toolbar.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
 import 'package:find_seat/presentation/screen/booking/book_seat_slot/barrel_book_seat_slot.dart';
+import 'package:find_seat/presentation/screen/booking/book_seat_slot/bloc/bloc.dart';
 import 'package:find_seat/presentation/screen/payment_method_picker/barrel_payment_method_picker.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ScreenArguments {
   int seatCount;
@@ -37,66 +41,77 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
   @override
   void initState() {
     print(widget.args);
-
-    _itemCineTimeSlot = ItemCineTimeSlot(
-      cine: Cine.SAMPLE_DATA[0],
-      textLocation: 'Friday, Nov 14, 2019',
-      textDistance: '',
-      timeSlots: [
-        ItemTimeSlot(time: '10:00 AM', hour: 10, active: true),
-        ItemTimeSlot(time: '1:30 PM', hour: 13, active: true),
-        ItemTimeSlot(time: '6:30 PM', hour: 6, active: true),
-      ],
-    );
-
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: Container(
-          child: Stack(fit: StackFit.expand, children: <Widget>[
-            SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  WidgetToolbar(
-                    title: 'Black Panther',
-                    actions: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 2, horizontal: 20),
-                      child: Text('2 seats', style: FONT_CONST.MEDIUM_WHITE_12),
+      child: BlocProvider<BookSeatSlotBloc>(
+        create: (context) => BookSeatSlotBloc(
+          sessionRepository: RepositoryProvider.of<SessionRepository>(context),
+        )..add(OpenScreen()),
+        child: BlocConsumer<BookSeatSlotBloc, BookSeatSlotState>(
+          listener: (context, state) {},
+          builder: (context, state) {
+            if (state.show != null && state.bookTimeSlot != null) {
+              BookTimeSlot bookTimeSlot = state.bookTimeSlot;
+              int selectedIndex =
+                  bookTimeSlot.timeSlots.indexOf(state.selectedTimeSlot);
+              String showName = state.show.name;
+
+              _itemCineTimeSlot =
+                  ItemCineTimeSlot.fromBookTimeSlot(bookTimeSlot: bookTimeSlot);
+
+              return Scaffold(
+                body: Container(
+                  child: Stack(fit: StackFit.expand, children: <Widget>[
+                    SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          WidgetToolbar(
+                            title: showName,
+                            actions: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 2, horizontal: 20),
+                              child: Text('2 seats',
+                                  style: FONT_CONST.MEDIUM_WHITE_12),
+                            ),
+                          ),
+                          WidgetCineTimeSlot.selected(
+                            item: _itemCineTimeSlot,
+                            selectedIndex: selectedIndex,
+                            showCineName: false,
+                            showCineDot: false,
+                          ),
+                          WidgetCineScreen(),
+                          WidgetItemGridSeatSlot(
+                            seatTypeName: '\$ 80.0 JACK',
+                            seatRows: seatRowsJack,
+                          ),
+                          WidgetSpacer(height: 14),
+                          WidgetItemGridSeatSlot(
+                            seatTypeName: '\$ 100.0 QUEEN',
+                            seatRows: seatRowsQueen,
+                          ),
+                          WidgetSpacer(height: 14),
+                          WidgetItemGridSeatSlot(
+                            seatTypeName: '\$ 120.0 KING',
+                            seatRows: seatRowsKing,
+                          ),
+                          WidgetSpacer(height: 64),
+                        ],
+                      ),
                     ),
-                  ),
-                  WidgetCineTimeSlot.selected(
-                    item: _itemCineTimeSlot,
-                    selectedIndex: 0,
-                    showCineName: false,
-                    showCineDot: false,
-                  ),
-                  WidgetCineScreen(),
-                  WidgetItemGridSeatSlot(
-                    seatTypeName: '\$ 80.0 JACK',
-                    seatRows: seatRowsJack,
-                  ),
-                  WidgetSpacer(height: 14),
-                  WidgetItemGridSeatSlot(
-                    seatTypeName: '\$ 100.0 QUEEN',
-                    seatRows: seatRowsQueen,
-                  ),
-                  WidgetSpacer(height: 14),
-                  WidgetItemGridSeatSlot(
-                    seatTypeName: '\$ 120.0 KING',
-                    seatRows: seatRowsKing,
-                  ),
-                  WidgetSpacer(height: 64),
-                ],
-              ),
-            ),
-            _buildBtnPay(),
-          ]),
+                    _buildBtnPay(),
+                  ]),
+                ),
+              );
+            }
+
+            return WidgetEmpty();
+          },
         ),
       ),
     );
