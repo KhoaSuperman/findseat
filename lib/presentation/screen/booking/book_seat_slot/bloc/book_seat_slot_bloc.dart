@@ -14,6 +14,7 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
   SeatSlotRepository seatSlotRepository;
 
   HashMap<String, bool> selectedSeats = HashMap();
+  List<SeatType> seatSlotByTypes;
 
   BookSeatSlotBloc({
     this.sessionRepository,
@@ -29,6 +30,8 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
   ) async* {
     if (event is OpenScreen) {
       yield* _mapOpenScreenToState();
+    } else if (event is ClickSelectSeatSlot) {
+      yield* _mapClickSelectSeatSlotToState(event.itemSeatSlotVM);
     }
   }
 
@@ -38,8 +41,7 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
       TimeSlot selectedTimeSlot = await sessionRepository.getSelectedTimeSlot();
       BookTimeSlot bookTimeSlot = await sessionRepository.getBookTimeSlot();
       //
-      List<SeatType> seatSlotByTypes =
-          await seatSlotRepository.getListSeatSlotBySeatTypes();
+      seatSlotByTypes = await seatSlotRepository.getListSeatSlotBySeatTypes();
 
       yield state.copyWith(
         isLoading: false,
@@ -55,6 +57,19 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
         msg: e.toString(),
       );
     }
+  }
+
+  Stream<BookSeatSlotState> _mapClickSelectSeatSlotToState(
+      ItemSeatSlotVM item) async* {
+    if (!selectedSeats.containsKey(item.seatId)) {
+      selectedSeats[item.seatId] = true;
+    } else {
+      selectedSeats[item.seatId] = !selectedSeats[item.seatId];
+    }
+
+    yield state.copyWith(
+      itemGridSeatSlotVMs: toItemGridSeatSlotVMs(seatSlotByTypes),
+    );
   }
 
   @visibleForTesting

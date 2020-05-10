@@ -1,8 +1,9 @@
-
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
+import 'package:find_seat/presentation/screen/booking/book_seat_slot/bloc/bloc.dart';
 import 'package:find_seat/presentation/screen/booking/book_seat_slot/viewmodel/viewmodel.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WidgetItemGridSeatSlot extends StatefulWidget {
   ItemGridSeatSlotVM itemGridSeatSlotVM;
@@ -18,13 +19,13 @@ class _WidgetItemGridSeatSlotState extends State<WidgetItemGridSeatSlot> {
 
   @override
   void initState() {
-    itemGridSeatSlotVM = widget.itemGridSeatSlotVM;
-
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    itemGridSeatSlotVM = widget.itemGridSeatSlotVM;
+
     return Container(
       color: COLOR_CONST.WHITE,
       padding: EdgeInsets.all(20),
@@ -79,22 +80,22 @@ class _WidgetItemGridSeatSlotState extends State<WidgetItemGridSeatSlot> {
 
       //ITEM SEAT SLOT
       List<Widget> widgetSeatSlots = itemSeatRowVM.seatSlotVMs.map(
-        (itemSeatSlowVM) {
+        (itemSeatSlotVM) {
           var itemBgColor = COLOR_CONST.SEAT_SLOT_BG;
           var itemBorderColor = COLOR_CONST.SEAT_SLOT_BORDER;
 
-          if (itemSeatSlowVM.isBooked) {
+          if (itemSeatSlotVM.isBooked) {
             itemBgColor = COLOR_CONST.SEAT_SLOT_BG_BOOKED;
           }
 
-          if (itemSeatSlowVM.isSelected) {
+          if (itemSeatSlotVM.isSelected) {
             itemBgColor = COLOR_CONST.GREEN;
             itemBorderColor = COLOR_CONST.TRANS;
           }
 
           var itemAvailable = GestureDetector(
             onTap: () {
-              _handleSelectSeat(itemSeatRowVM);
+              _handleSelectSeat(itemSeatSlotVM);
             },
             child: Container(
               decoration: BoxDecoration(
@@ -111,7 +112,7 @@ class _WidgetItemGridSeatSlotState extends State<WidgetItemGridSeatSlot> {
 
           var itemEmpty = Container();
 
-          return itemSeatSlowVM.isOff ? itemEmpty : itemAvailable;
+          return itemSeatSlotVM.isOff ? itemEmpty : itemAvailable;
         },
       ).toList();
 
@@ -121,7 +122,8 @@ class _WidgetItemGridSeatSlotState extends State<WidgetItemGridSeatSlot> {
     return widgets;
   }
 
-  _handleSelectSeat(ItemSeatRowVM itemSeatRowVM) {
-
+  _handleSelectSeat(ItemSeatSlotVM itemSeatSlotVM) {
+    BlocProvider.of<BookSeatSlotBloc>(context)
+        .add(ClickSelectSeatSlot(itemSeatSlotVM: itemSeatSlotVM));
   }
 }

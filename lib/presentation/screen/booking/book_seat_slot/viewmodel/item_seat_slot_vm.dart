@@ -15,7 +15,7 @@ class ItemSeatSlotVM extends Equatable {
   });
 
   @override
-  List<Object> get props => [seatId];
+  List<Object> get props => [seatId, isSelected];
 
   @override
   String toString() {
