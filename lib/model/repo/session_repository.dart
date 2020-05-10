@@ -25,16 +25,25 @@ class SessionRepository {
 
   Future<BookTimeSlot> getBookTimeSlot() async {
     String jsonData = await pref.getString(DATA_CONST.CACHE_BOOK_TIME_SLOT);
+    if (jsonData == null) {
+      return Future.value(null);
+    }
     return BookTimeSlot.fromJson(json.decode(jsonData));
   }
 
   Future<Show> getShow() async {
     String jsonData = await pref.getString(DATA_CONST.CACHE_SHOW);
+    if (jsonData == null) {
+      return Future.value(null);
+    }
     return Show.fromJson(json.decode(jsonData));
   }
 
   Future<TimeSlot> getSelectedTimeSlot() async {
     String jsonData = await pref.getString(DATA_CONST.CACHE_SELECTED_TIME_SLOT);
+    if (jsonData == null) {
+      return Future.value(null);
+    }
     return TimeSlot.fromJson(json.decode(jsonData));
   }
 }

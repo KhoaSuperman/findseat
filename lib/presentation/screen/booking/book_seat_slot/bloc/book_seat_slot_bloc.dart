@@ -6,16 +6,15 @@ import './bloc.dart';
 
 class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
   SessionRepository sessionRepository;
+  SeatSlotRepository seatSlotRepository;
 
-  BookSeatSlotBloc({this.sessionRepository});
+  BookSeatSlotBloc({
+    this.sessionRepository,
+    this.seatSlotRepository,
+  });
 
   @override
-  BookSeatSlotState get initialState => BookSeatSlotState();
-
-  //    show
-//    cine
-//    keep in mind, seat type is static data, price is fixed
-//    parse json API
+  BookSeatSlotState get initialState => BookSeatSlotState(isLoading: true);
 
   @override
   Stream<BookSeatSlotState> mapEventToState(
@@ -27,14 +26,27 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
   }
 
   Stream<BookSeatSlotState> _mapOpenScreenToState() async* {
-    Show show = await sessionRepository.getShow();
-    TimeSlot selectedTimeSlot = await sessionRepository.getSelectedTimeSlot();
-    BookTimeSlot bookTimeSlot = await sessionRepository.getBookTimeSlot();
+    try {
+      Show show = await sessionRepository.getShow();
+      TimeSlot selectedTimeSlot = await sessionRepository.getSelectedTimeSlot();
+      BookTimeSlot bookTimeSlot = await sessionRepository.getBookTimeSlot();
+      //
+      List<SeatType> seatSlotByTypes =
+          await seatSlotRepository.getListSeatSlotBySeatTypes();
 
-    yield state.copyWith(
-      show: show,
-      selectedTimeSlot: selectedTimeSlot,
-      bookTimeSlot: bookTimeSlot,
-    );
+      yield state.copyWith(
+        isLoading: false,
+        show: show,
+        selectedTimeSlot: selectedTimeSlot,
+        bookTimeSlot: bookTimeSlot,
+        seatSlotByTypes: seatSlotByTypes,
+      );
+    } catch (e, s) {
+      print(s);
+      yield state.copyWith(
+        isLoading: false,
+        msg: e.toString(),
+      );
+    }
   }
 }

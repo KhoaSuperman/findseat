@@ -10,5 +10,9 @@ abstract class BookSeatSlotState with _$BookSeatSlotState {
     Show show,
     TimeSlot selectedTimeSlot,
     BookTimeSlot bookTimeSlot,
+    //
+    @Default(false) bool isLoading,
+    List<SeatType> seatSlotByTypes,
+    String msg,
   }) = _BookSeatSlotState;
 }

@@ -1,4 +1,5 @@
 import 'package:find_seat/model/api/response/api_response.dart';
+import 'package:find_seat/model/entity/entity.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 
@@ -16,4 +17,7 @@ abstract class RestClient {
 
   @GET("/booking_time_slot_by_cine.json")
   Future<List<BookingTimeSlotByCineResponse>> getBookingTimeSlotByCine();
+
+  @GET("/book_seat_slot_by_time_slot.json")
+  Future<List<SeatType>> getListSeatSlotBySeatType();
 }
