@@ -17,8 +17,9 @@ class RemoteSeatSlotRepository extends SeatSlotRepository {
   final dio = DioProvider.instance();
 
   @override
-  Future<List<SeatType>> getListSeatSlotBySeatTypes() {
+  Future<List<SeatType>> getListSeatSlotBySeatTypes() async {
     final client = RestClient(dio);
-    return client.getListSeatSlotBySeatType();
+    final response = await client.getListSeatSlotBySeatType();
+    return response.data;
   }
 }

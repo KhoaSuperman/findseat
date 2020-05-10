@@ -65,6 +65,7 @@ class MyApp extends StatelessWidget {
         RemoteBookTimeSlotRepository();
     final SessionRepository sessionRepository =
         SessionRepository(pref: LocalPref());
+    final SeatSlotRepository seatSlotRepository = RemoteSeatSlotRepository();
 
     return MultiRepositoryProvider(
       providers: [
@@ -75,6 +76,8 @@ class MyApp extends StatelessWidget {
             create: (context) => bookTimeSlotRepository),
         RepositoryProvider<SessionRepository>(
             create: (context) => sessionRepository),
+        RepositoryProvider<SeatSlotRepository>(
+            create: (context) => seatSlotRepository),
       ],
       child: MultiBlocProvider(
         providers: [

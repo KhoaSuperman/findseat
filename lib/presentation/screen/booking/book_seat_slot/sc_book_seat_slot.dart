@@ -8,6 +8,7 @@ import 'package:find_seat/presentation/screen/booking/book_seat_slot/barrel_book
 import 'package:find_seat/presentation/screen/booking/book_seat_slot/bloc/bloc.dart';
 import 'package:find_seat/presentation/screen/payment_method_picker/barrel_payment_method_picker.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -47,24 +48,29 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocProvider<BookSeatSlotBloc>(
-        create: (context) => BookSeatSlotBloc(
-          sessionRepository: RepositoryProvider.of<SessionRepository>(context),
-        )..add(OpenScreen()),
-        child: BlocConsumer<BookSeatSlotBloc, BookSeatSlotState>(
-          listener: (context, state) {},
-          builder: (context, state) {
-            if (state.show != null && state.bookTimeSlot != null) {
-              BookTimeSlot bookTimeSlot = state.bookTimeSlot;
-              int selectedIndex =
-                  bookTimeSlot.timeSlots.indexOf(state.selectedTimeSlot);
-              String showName = state.show.name;
+      child: Scaffold(
+        body: BlocProvider<BookSeatSlotBloc>(
+          create: (context) => BookSeatSlotBloc(
+            sessionRepository:
+                RepositoryProvider.of<SessionRepository>(context),
+            seatSlotRepository:
+                RepositoryProvider.of<SeatSlotRepository>(context),
+          )..add(OpenScreen()),
+          child: BlocConsumer<BookSeatSlotBloc, BookSeatSlotState>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              if (state.show != null &&
+                  state.bookTimeSlot != null &&
+                  state.seatSlotByTypes.isNotEmpty) {
+                BookTimeSlot bookTimeSlot = state.bookTimeSlot;
+                int selectedIndex =
+                    bookTimeSlot.timeSlots.indexOf(state.selectedTimeSlot);
+                String showName = state.show.name;
 
-              _itemCineTimeSlot =
-                  ItemCineTimeSlot.fromBookTimeSlot(bookTimeSlot: bookTimeSlot);
+                _itemCineTimeSlot = ItemCineTimeSlot.fromBookTimeSlot(
+                    bookTimeSlot: bookTimeSlot);
 
-              return Scaffold(
-                body: Container(
+                return Container(
                   child: Stack(fit: StackFit.expand, children: <Widget>[
                     SingleChildScrollView(
                       child: Column(
@@ -86,34 +92,52 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
                             showCineDot: false,
                           ),
                           WidgetCineScreen(),
-                          WidgetItemGridSeatSlot(
-                            seatTypeName: '\$ 80.0 JACK',
-                            seatRows: seatRowsJack,
-                          ),
-                          WidgetSpacer(height: 14),
-                          WidgetItemGridSeatSlot(
-                            seatTypeName: '\$ 100.0 QUEEN',
-                            seatRows: seatRowsQueen,
-                          ),
-                          WidgetSpacer(height: 14),
-                          WidgetItemGridSeatSlot(
-                            seatTypeName: '\$ 120.0 KING',
-                            seatRows: seatRowsKing,
-                          ),
+                          _buildListItemGridSeatSlot(state),
                           WidgetSpacer(height: 64),
                         ],
                       ),
                     ),
                     _buildBtnPay(),
                   ]),
-                ),
-              );
-            }
+                );
+              }
 
-            return WidgetEmpty();
-          },
+              if (state.isLoading) {
+                return WidgetLoading();
+              }
+
+              if (state.msg != null) {
+                return WidgetScreenMessage(msg: state.msg);
+              }
+
+              return WidgetEmpty();
+            },
+          ),
         ),
       ),
+    );
+  }
+
+  Widget _buildListItemGridSeatSlot(BookSeatSlotState state) {
+    List<Widget> widgets = [];
+
+    state.seatSlotByTypes.forEach(
+      (seatSlotType) {
+        widgets.add(
+          WidgetItemGridSeatSlot(
+            seatTypeName: '\$ ${seatSlotType.price} ${seatSlotType.type.toText().toUpperCase()}',
+            seatRows: seatSlotType.seatRows,
+          ),
+        );
+        widgets.add(
+          WidgetSpacer(height: 14),
+        );
+      },
+    );
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: widgets,
     );
   }
 
@@ -150,73 +174,4 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
       },
     );
   }
-
-  List<SeatRow> seatRowsKing = [
-    SeatRow(
-      rowId: 'I',
-      count: 11,
-      offs: [4, 5],
-      booked: [],
-    ),
-    SeatRow(
-      rowId: 'J',
-      count: 11,
-      offs: [],
-      booked: [],
-    ),
-  ];
-
-  List<SeatRow> seatRowsQueen = [
-    SeatRow(
-      rowId: 'F',
-      count: 11,
-      offs: [4, 5],
-      booked: [1, 2, 3],
-    ),
-    SeatRow(
-      rowId: 'G',
-      count: 11,
-      offs: [4, 5],
-      booked: [6, 7, 8],
-    ),
-    SeatRow(
-      rowId: 'H',
-      count: 11,
-      offs: [],
-      booked: [0, 1, 4, 5, 9, 10],
-    ),
-  ];
-
-  List<SeatRow> seatRowsJack = [
-    SeatRow(
-      rowId: 'A',
-      count: 11,
-      offs: [4, 5],
-      booked: [0, 1, 2, 3],
-    ),
-    SeatRow(
-      rowId: 'B',
-      count: 11,
-      offs: [4, 5],
-      booked: [1, 2, 6, 7],
-    ),
-    SeatRow(
-      rowId: 'C',
-      count: 11,
-      offs: [4, 5],
-      booked: [9, 10],
-    ),
-    SeatRow(
-      rowId: 'D',
-      count: 11,
-      offs: [4, 5],
-      booked: [9, 10],
-    ),
-    SeatRow(
-      rowId: 'E',
-      count: 11,
-      offs: [],
-      booked: [2, 3, 4, 5, 6, 7],
-    )
-  ];
 }
