@@ -40,6 +40,7 @@ class SeatType extends Equatable {
   ];
 }
 
+//rename to SEAT_SLOT_TYPE
 enum SEAT_TYPE {
   @JsonValue("king")
   KING,

@@ -15,5 +15,8 @@ abstract class BookSeatSlotState with _$BookSeatSlotState {
     @Default(false) bool isLoading,
     List<ItemGridSeatSlotVM> itemGridSeatSlotVMs,
     String msg,
+    //
+    @Default(false) bool isSelectWrongSeatType,
+    @Default(false) bool isReachedLimitSeatSlot,
   }) = _BookSeatSlotState;
 }

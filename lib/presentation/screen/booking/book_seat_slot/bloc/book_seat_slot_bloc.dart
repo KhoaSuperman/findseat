@@ -12,6 +12,8 @@ import './bloc.dart';
 class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
   SessionRepository sessionRepository;
   SeatSlotRepository seatSlotRepository;
+  int seatCount;
+  SEAT_TYPE selectedSeatType;
 
   HashMap<String, bool> selectedSeats = HashMap();
   List<SeatType> seatSlotByTypes;
@@ -19,6 +21,8 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
   BookSeatSlotBloc({
     this.sessionRepository,
     this.seatSlotRepository,
+    this.seatCount,
+    this.selectedSeatType,
   });
 
   @override
@@ -61,15 +65,42 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
 
   Stream<BookSeatSlotState> _mapClickSelectSeatSlotToState(
       ItemSeatSlotVM item) async* {
-    if (!selectedSeats.containsKey(item.seatId)) {
-      selectedSeats[item.seatId] = true;
+    if (item.seatType == selectedSeatType) {
+      if (!selectedSeats.containsKey(item.seatId)) {
+        if (!isReachedLimitSlot()) {
+          selectedSeats[item.seatId] = true;
+          yield state.copyWith(
+            itemGridSeatSlotVMs: toItemGridSeatSlotVMs(seatSlotByTypes),
+          );
+        } else {
+          yield state.copyWith(isReachedLimitSeatSlot: true);
+        }
+      } else {
+        bool isSelected = !selectedSeats[item.seatId];
+        if ((isSelected && !isReachedLimitSlot()) || !isSelected) {
+          selectedSeats[item.seatId] = isSelected;
+          yield state.copyWith(
+            itemGridSeatSlotVMs: toItemGridSeatSlotVMs(seatSlotByTypes),
+          );
+        } else {
+          yield state.copyWith(isReachedLimitSeatSlot: true);
+        }
+      }
     } else {
-      selectedSeats[item.seatId] = !selectedSeats[item.seatId];
+      yield state.copyWith(isSelectWrongSeatType: true);
     }
+  }
 
-    yield state.copyWith(
-      itemGridSeatSlotVMs: toItemGridSeatSlotVMs(seatSlotByTypes),
-    );
+  bool isReachedLimitSlot() {
+    return getSelectedSeatSlotId().length == seatCount;
+  }
+
+  List<String> getSelectedSeatSlotId() {
+    return selectedSeats.keys.where(
+      (key) {
+        return selectedSeats[key];
+      },
+    ).toList();
   }
 
   @visibleForTesting
@@ -84,25 +115,28 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
         return ItemGridSeatSlotVM(
           seatTypeName: seatTypeName,
           maxColumn: maxColumn,
-          seatRowVMs: _toItemSeatRowVMs(seatSlotType.seatRows),
+          seatRowVMs:
+              _toItemSeatRowVMs(seatSlotType.seatRows, seatSlotType.type),
         );
       },
     ).toList();
   }
 
-  List<ItemSeatRowVM> _toItemSeatRowVMs(List<SeatRow> seatRows) {
+  List<ItemSeatRowVM> _toItemSeatRowVMs(
+      List<SeatRow> seatRows, SEAT_TYPE seatType) {
     return seatRows.map(
       (seatRow) {
         final itemRowName = '${seatRow.rowId}';
         return ItemSeatRowVM(
           itemRowName: itemRowName,
-          seatSlotVMs: _toItemSeatSlotVMs(seatRow, seatRow.count),
+          seatSlotVMs: _toItemSeatSlotVMs(seatRow, seatRow.count, seatType),
         );
       },
     ).toList();
   }
 
-  List<ItemSeatSlotVM> _toItemSeatSlotVMs(SeatRow seatRow, int count) {
+  List<ItemSeatSlotVM> _toItemSeatSlotVMs(
+      SeatRow seatRow, int count, SEAT_TYPE seatType) {
     return Iterable<int>.generate(count).map(
       (i) {
         final seatId = "${seatRow.rowId}$i";
@@ -117,6 +151,7 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
           isBooked: isBooked,
           isOff: isOff,
           isSelected: isSelected,
+          seatType: seatType,
         );
       },
     ).toList();

@@ -55,6 +55,8 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
                 RepositoryProvider.of<SessionRepository>(context),
             seatSlotRepository:
                 RepositoryProvider.of<SeatSlotRepository>(context),
+            selectedSeatType: widget.args.seatType,
+            seatCount: widget.args.seatCount,
           )..add(OpenScreen()),
           child: BlocConsumer<BookSeatSlotBloc, BookSeatSlotState>(
             listener: (context, state) {},
