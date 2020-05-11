@@ -19,11 +19,18 @@ void main() {
       final mockItemGridSeatSlotVMs =
           bloc.toItemGridSeatSlotVMs(SeatType.SAMPLE_DATA);
 
+      final mockItemAfterSelected =
+          bloc.toItemGridSeatSlotVMs(SeatType.SAMPLE_DATA);
+      //mark G2 is selected
+      mockItemAfterSelected[1].seatRowVMs[1].seatSlotVMs[2].isSelected = true;
+
       //1. OpenScreen
       bloc.add(OpenScreen());
+
+      //2. select seat slot id G2
       bloc.add(ClickSelectSeatSlot(
         itemSeatSlotVM: ItemSeatSlotVM(
-          seatId: "G1",
+          seatId: "G2",
           isSelected: false,
           isOff: false,
           isBooked: false,
@@ -36,6 +43,10 @@ void main() {
           BookSeatSlotState(
             isLoading: false,
             itemGridSeatSlotVMs: mockItemGridSeatSlotVMs,
+          ),
+          BookSeatSlotState(
+            isLoading: false,
+            itemGridSeatSlotVMs: mockItemAfterSelected,
           ),
         ],
       );
