@@ -36,6 +36,10 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
       yield* _mapOpenScreenToState();
     } else if (event is ClickSelectSeatSlot) {
       yield* _mapClickSelectSeatSlotToState(event.itemSeatSlotVM);
+    } else if (event is DismissMessageReachedLimitSeatSlot) {
+      yield state.copyWith(isReachedLimitSeatSlot: false);
+    } else if (event is DismissMessageWrongSeatType) {
+      yield state.copyWith(isSelectWrongSeatType: false);
     }
   }
 

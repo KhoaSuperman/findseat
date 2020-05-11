@@ -21,3 +21,13 @@ class ClickSelectSeatSlot extends BookSeatSlotEvent {
   @override
   List<Object> get props => [itemSeatSlotVM];
 }
+
+class DismissMessageWrongSeatType extends BookSeatSlotEvent {
+  @override
+  List<Object> get props => [];
+}
+
+class DismissMessageReachedLimitSeatSlot extends BookSeatSlotEvent {
+  @override
+  List<Object> get props => [];
+}

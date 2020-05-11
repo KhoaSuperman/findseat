@@ -59,7 +59,9 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
             seatCount: widget.args.seatCount,
           )..add(OpenScreen()),
           child: BlocConsumer<BookSeatSlotBloc, BookSeatSlotState>(
-            listener: (context, state) {},
+            listener: (context, state) {
+              _handleBlocListener(context, state);
+            },
             builder: (context, state) {
               if (state.show != null &&
                   state.bookTimeSlot != null &&
@@ -172,5 +174,21 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
         return PaymentMethodPickerScreen();
       },
     );
+  }
+
+  void _handleBlocListener(BuildContext context, BookSeatSlotState state) {
+    if (state.isReachedLimitSeatSlot) {
+      MySnackBar.failure(context,
+          msg: "You reached ${widget.args.seatCount} seats");
+      BlocProvider.of<BookSeatSlotBloc>(context)
+          .add(DismissMessageReachedLimitSeatSlot());
+    }
+
+    if (state.isSelectWrongSeatType) {
+      MySnackBar.failure(context,
+          msg: "Please select seat ${widget.args.seatType.toText()}");
+      BlocProvider.of<BookSeatSlotBloc>(context)
+          .add(DismissMessageWrongSeatType());
+    }
   }
 }
