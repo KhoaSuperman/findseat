@@ -53,6 +53,8 @@ void main() {
           BookSeatSlotState(
             isLoading: false,
             itemGridSeatSlotVMs: mockItemAfterSelected,
+            selectedSeatCount: 1,
+            totalPrice: 100,
           ),
         ],
       );
@@ -153,11 +155,15 @@ void main() {
           BookSeatSlotState(
             isLoading: false,
             itemGridSeatSlotVMs: mockItemAfterSelected,
+            selectedSeatCount: 1,
+            totalPrice: 100,
           ),
           BookSeatSlotState(
             isLoading: false,
             itemGridSeatSlotVMs: mockItemAfterSelected,
             isReachedLimitSeatSlot: true,
+            selectedSeatCount: 1,
+            totalPrice: 100,
           ),
         ],
       );

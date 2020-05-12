@@ -18,5 +18,8 @@ abstract class BookSeatSlotState with _$BookSeatSlotState {
     //
     @Default(false) bool isSelectWrongSeatType,
     @Default(false) bool isReachedLimitSeatSlot,
+    //
+    @Default(0) int selectedSeatCount,
+    @Default(0) double totalPrice,
   }) = _BookSeatSlotState;
 }

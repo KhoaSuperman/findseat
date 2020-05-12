@@ -12,7 +12,7 @@ class BookSeatTypeBloc extends Bloc<BookSeatTypeEvent, BookSeatTypeState> {
   @override
   BookSeatTypeState get initialState => BookSeatTypeState(
         seatCount: 2,
-        selectedSeatType: SEAT_TYPE.JACK,
+        selectedSeatType: SEAT_TYPE.KING,
       );
 
   @override

@@ -85,7 +85,7 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
                             actions: Padding(
                               padding: const EdgeInsets.symmetric(
                                   vertical: 2, horizontal: 20),
-                              child: Text('2 seats',
+                              child: Text('${state.selectedSeatCount} seats',
                                   style: FONT_CONST.MEDIUM_WHITE_12),
                             ),
                           ),
@@ -101,7 +101,7 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
                         ],
                       ),
                     ),
-                    _buildBtnPay(),
+                    _buildBtnPay(state),
                   ]),
                 );
               }
@@ -142,7 +142,7 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
     );
   }
 
-  _buildBtnPay() {
+  _buildBtnPay(BookSeatSlotState state) {
     return Positioned(
       left: 0,
       right: 0,
@@ -154,7 +154,9 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Pay \$ 200.0', style: FONT_CONST.MEDIUM_WHITE_16),
+              Text(
+                  'Pay${state.totalPrice > 0 ? " \$ ${state.totalPrice}" : ""}',
+                  style: FONT_CONST.MEDIUM_WHITE_16),
             ],
           ),
           onPressed: () {
