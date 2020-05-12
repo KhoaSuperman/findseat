@@ -32,28 +32,36 @@ class _WidgetHomeBannerState extends State<WidgetHomeBanner> {
   Widget _buildCarouselSlider(HomeBannerLoaded state) {
     return Stack(
       children: <Widget>[
-        CarouselSlider(
+//        CarouselSlider(
+//          aspectRatio: aspectRatioBanner,
+//          viewportFraction: 1.0,
+//          enableInfiniteScroll: true,
+//          autoPlay: true,
+//          autoPlayInterval: Duration(seconds: 3),
+//          autoPlayAnimationDuration: Duration(milliseconds: 800),
+//          autoPlayCurve: Curves.fastLinearToSlowEaseIn,
+//          pauseAutoPlayOnTouch: Duration(seconds: 10),
+//          scrollDirection: Axis.horizontal,
+//          onPageChanged: (index) {
+//            setState(() {
+//              currentIndex = index;
+//            });
+//          },
+//          items: state.banners.map((banner) {
+//            return FadeInImage.assetNetwork(
+//              image: banner.url,
+//              placeholder: 'assets/loading.gif',
+//              fit: BoxFit.contain,
+//            );
+//          }).toList(),
+//        ),
+        AspectRatio(
           aspectRatio: aspectRatioBanner,
-          viewportFraction: 1.0,
-          enableInfiniteScroll: true,
-          autoPlay: true,
-          autoPlayInterval: Duration(seconds: 3),
-          autoPlayAnimationDuration: Duration(milliseconds: 800),
-          autoPlayCurve: Curves.fastLinearToSlowEaseIn,
-          pauseAutoPlayOnTouch: Duration(seconds: 10),
-          scrollDirection: Axis.horizontal,
-          onPageChanged: (index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
-          items: state.banners.map((banner) {
-            return FadeInImage.assetNetwork(
-              image: banner.url,
-              placeholder: 'assets/loading.gif',
-              fit: BoxFit.contain,
-            );
-          }).toList(),
+          child: FadeInImage.assetNetwork(
+            image: state.banners[0].url,
+            placeholder: 'assets/loading.gif',
+            fit: BoxFit.contain,
+          ),
         ),
         _buildIndicators(state),
       ],
