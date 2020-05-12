@@ -52,22 +52,30 @@ class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
                   child: Stack(
                     fit: StackFit.expand,
                     children: <Widget>[
-                      SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            WidgetToolbar(
-                                title: showName, actions: Container()),
-                            WidgetCineTimeSlot.selected(
-                              item: _itemCineTimeSlot,
-                              selectedIndex: selectedIndex,
-                              showCineName: true,
-                              showCineDot: false,
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: <Widget>[
+                          WidgetToolbar(
+                              title: showName, actions: Container()),
+                          Expanded(
+                            child: SingleChildScrollView(
+                              physics: BouncingScrollPhysics(),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  WidgetCineTimeSlot.selected(
+                                    item: _itemCineTimeSlot,
+                                    selectedIndex: selectedIndex,
+                                    showCineName: true,
+                                    showCineDot: false,
+                                  ),
+                                  WidgetSpacer(height: 14),
+                                  WidgetHowManySeats(),
+                                ],
+                              ),
                             ),
-                            WidgetSpacer(height: 14),
-                            WidgetHowManySeats(),
-                          ],
-                        ),
+                          )
+                        ],
                       ),
                       _buildBtnSelectSeat(),
                     ],

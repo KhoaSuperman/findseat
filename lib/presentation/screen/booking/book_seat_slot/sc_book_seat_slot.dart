@@ -76,30 +76,38 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
 
                 return Container(
                   child: Stack(fit: StackFit.expand, children: <Widget>[
-                    SingleChildScrollView(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          WidgetToolbar(
-                            title: showName,
-                            actions: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 2, horizontal: 20),
-                              child: Text('${state.selectedSeatCount} seats',
-                                  style: FONT_CONST.MEDIUM_WHITE_12),
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        WidgetToolbar(
+                          title: showName,
+                          actions: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 2, horizontal: 20),
+                            child: Text('${state.selectedSeatCount} seats',
+                                style: FONT_CONST.MEDIUM_WHITE_12),
+                          ),
+                        ),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            physics: BouncingScrollPhysics(),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                WidgetCineTimeSlot.selected(
+                                  item: _itemCineTimeSlot,
+                                  selectedIndex: selectedIndex,
+                                  showCineName: false,
+                                  showCineDot: false,
+                                ),
+                                WidgetCineScreen(),
+                                _buildListItemGridSeatSlot(state),
+                                WidgetSpacer(height: 64),
+                              ],
                             ),
                           ),
-                          WidgetCineTimeSlot.selected(
-                            item: _itemCineTimeSlot,
-                            selectedIndex: selectedIndex,
-                            showCineName: false,
-                            showCineDot: false,
-                          ),
-                          WidgetCineScreen(),
-                          _buildListItemGridSeatSlot(state),
-                          WidgetSpacer(height: 64),
-                        ],
-                      ),
+                        )
+                      ],
                     ),
                     _buildBtnPay(state),
                   ]),

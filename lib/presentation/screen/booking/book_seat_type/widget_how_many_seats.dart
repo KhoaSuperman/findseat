@@ -26,7 +26,7 @@ class _WidgetHowManySeatsState extends State<WidgetHowManySeats> {
           WidgetSpacer(height: 30),
           WidgetNumberSeatPicker(),
           WidgetSeatTypePicker(),
-          WidgetSpacer(height: 94),
+          WidgetSpacer(height: 54),
         ],
       ),
     );
