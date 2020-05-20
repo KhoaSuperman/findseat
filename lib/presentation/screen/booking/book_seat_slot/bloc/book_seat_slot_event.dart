@@ -31,3 +31,13 @@ class DismissMessageReachedLimitSeatSlot extends BookSeatSlotEvent {
   @override
   List<Object> get props => [];
 }
+
+class ClickButtonPay extends BookSeatSlotEvent {
+  @override
+  List<Object> get props => [DateTime.now().millisecond];
+}
+
+class OpenedPaymentMethodScreen extends BookSeatSlotEvent {
+  @override
+  List<Object> get props => [];
+}

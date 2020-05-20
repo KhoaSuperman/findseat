@@ -6,6 +6,7 @@ import 'package:test/test.dart';
 import 'package:bloc_test/bloc_test.dart';
 
 void main() {
+  //TODO: need check again. test failed
   group('BookTimeSlotBloc', () {
     final bookTimeSlotRepository = MockBookTimeSlotRepository();
 
@@ -84,14 +85,14 @@ void main() {
             isLoading: false,
             list: mockListBookTimeSlots,
             showSearchField: false,
-            navigatorEvent: new TakeOutValue()..value = true,
+            isOpenBookSeatTypeScreen: true,
           ),
           //
           BookTimeSlotState(
             isLoading: false,
             list: mockListBookTimeSlots,
             showSearchField: false,
-            navigatorEvent: new TakeOutValue()..value = false,
+            isOpenBookSeatTypeScreen: false,
           ),
         ],
       );

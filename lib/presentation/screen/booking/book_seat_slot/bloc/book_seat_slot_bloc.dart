@@ -40,6 +40,10 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
       yield state.copyWith(isReachedLimitSeatSlot: false);
     } else if (event is DismissMessageWrongSeatType) {
       yield state.copyWith(isSelectWrongSeatType: false);
+    } else if (event is ClickButtonPay) {
+      yield state.copyWith(isOpenPaymentMethod: true);
+    } else if (event is OpenedPaymentMethodScreen) {
+      yield state.copyWith(isOpenPaymentMethod: false);
     }
   }
 
@@ -75,7 +79,7 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
           selectedSeats[item.seatId] = true;
           yield state.copyWith(
             itemGridSeatSlotVMs: toItemGridSeatSlotVMs(seatSlotByTypes),
-            selectedSeatCount: getSelectedSeatSlotId().length,
+            selectedSeatIds: getSelectedSeatSlotId(),
             totalPrice: calculateTotalPrice(),
           );
         } else {
@@ -87,7 +91,7 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
           selectedSeats[item.seatId] = isSelected;
           yield state.copyWith(
             itemGridSeatSlotVMs: toItemGridSeatSlotVMs(seatSlotByTypes),
-            selectedSeatCount: getSelectedSeatSlotId().length,
+            selectedSeatIds: getSelectedSeatSlotId(),
             totalPrice: calculateTotalPrice(),
           );
         } else {

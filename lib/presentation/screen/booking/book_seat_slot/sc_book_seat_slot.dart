@@ -39,6 +39,10 @@ class BookSeatSlotScreen extends StatefulWidget {
 class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
   ItemCineTimeSlot _itemCineTimeSlot;
 
+  BuildContext _blocContext;
+
+  get bloc => BlocProvider.of<BookSeatSlotBloc>(_blocContext);
+
   @override
   void initState() {
     print(widget.args);
@@ -63,6 +67,8 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
               _handleBlocListener(context, state);
             },
             builder: (context, state) {
+              _blocContext = context;
+
               if (state.show != null &&
                   state.bookTimeSlot != null &&
                   state.itemGridSeatSlotVMs.isNotEmpty) {
@@ -74,6 +80,10 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
                 _itemCineTimeSlot = ItemCineTimeSlot.fromBookTimeSlot(
                     bookTimeSlot: bookTimeSlot);
 
+                String textSeat = state.selectedSeatIds != null
+                    ? '${state.selectedSeatIds.length} seats'
+                    : '0 seat';
+
                 return Container(
                   child: Stack(fit: StackFit.expand, children: <Widget>[
                     Column(
@@ -84,7 +94,7 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
                           actions: Padding(
                             padding: const EdgeInsets.symmetric(
                                 vertical: 2, horizontal: 20),
-                            child: Text('${state.selectedSeatCount} seats',
+                            child: Text(textSeat,
                                 style: FONT_CONST.MEDIUM_WHITE_12),
                           ),
                         ),
@@ -168,21 +178,10 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
             ],
           ),
           onPressed: () {
-            _openPaymentMethod();
+            bloc.add(ClickButtonPay());
           },
         ),
       ),
-    );
-  }
-
-  _openPaymentMethod() {
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.transparent,
-      isScrollControlled: true,
-      builder: (context) {
-        return PaymentMethodPickerScreen();
-      },
     );
   }
 
@@ -190,15 +189,32 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
     if (state.isReachedLimitSeatSlot) {
       MySnackBar.failure(context,
           msg: "You reached ${widget.args.seatCount} seats");
-      BlocProvider.of<BookSeatSlotBloc>(context)
-          .add(DismissMessageReachedLimitSeatSlot());
+      bloc.add(DismissMessageReachedLimitSeatSlot());
     }
 
     if (state.isSelectWrongSeatType) {
       MySnackBar.failure(context,
           msg: "Please select seat ${widget.args.seatType.toText()}");
-      BlocProvider.of<BookSeatSlotBloc>(context)
-          .add(DismissMessageWrongSeatType());
+      bloc.add(DismissMessageWrongSeatType());
+    }
+
+    if (state.isOpenPaymentMethod) {
+      bloc.add(OpenedPaymentMethodScreen());
+
+      showModalBottomSheet(
+        context: context,
+        backgroundColor: Colors.transparent,
+        isScrollControlled: true,
+        builder: (context) {
+          return PaymentMethodPickerScreen(
+            state.selectedSeatIds,
+            state.totalPrice,
+            state.show,
+            state.selectedTimeSlot,
+            state.bookTimeSlot,
+          );
+        },
+      );
     }
   }
 }
