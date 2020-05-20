@@ -1,5 +1,7 @@
 import 'package:find_seat/model/api/response/api_response.dart';
 import 'package:find_seat/model/entity/book_time_slot.dart';
+import 'package:find_seat/model/entity/entity.dart';
+import 'package:find_seat/model/local/pref.dart';
 import 'package:find_seat/model/repo/repo.dart';
 import 'package:find_seat/presentation/screen/booking/book_time_slot/bloc/bloc.dart';
 import 'package:test/test.dart';
@@ -18,7 +20,7 @@ void main() {
 
     test('emits OpenScreen then SearchQueryChange', () async {
       final bloc =
-          BookTimeSlotBloc(bookTimeSlotRepository: bookTimeSlotRepository);
+          BookTimeSlotBloc(bookTimeSlotRepository: bookTimeSlotRepository, sessionRepo: SessionRepository(pref: MemoryPref()));
       //1. Open screen
       bloc.add(OpenScreen());
 
@@ -33,7 +35,7 @@ void main() {
       bloc.add(ClickCloseSearch());
 
       //5. Open BookSeatType screen
-      bloc.add(SelectTimeSlot());
+      bloc.add(SelectTimeSlot(bookTimeSlot: BookTimeSlot(), selectedTimeSlot: TimeSlot()));
 
       //6. BookSeatType screen is open
       bloc.add(OpenedBookSeatTypeScreen());
@@ -42,6 +44,7 @@ void main() {
         bloc,
         [
           BookTimeSlotState(isLoading: false, list: mockListBookTimeSlots),
+          //
           BookTimeSlotState(
             isLoading: false,
             list: mockListBookTimeSlots,
