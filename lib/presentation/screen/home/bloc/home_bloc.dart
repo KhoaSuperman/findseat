@@ -15,6 +15,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   Stream<HomeState> mapEventToState(HomeEvent event) async* {
     if (event is LoadHome) {
       yield* _mapLoadHomeToState();
+    } else if (event is RefreshHome) {
+      yield HomeLoading();
+      yield* _mapLoadHomeToState();
     }
   }
 

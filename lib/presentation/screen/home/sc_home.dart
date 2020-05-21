@@ -63,19 +63,24 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildContent(HomeState state) {
     if (state is HomeLoaded) {
       return Expanded(
-        child: ListView(
-          shrinkWrap: true,
-          children: <Widget>[
-            WidgetHomeBanner(),
-            WidgetSpacer(height: 30),
-            WidgetHomeCategories(),
-            WidgetSpacer(height: 30),
-            WidgetRecommendedSeats(),
-            WidgetSpacer(height: 30),
-            WidgetNearbyCine(),
-            WidgetSpacer(height: 30),
-            WidgetHomeShowsCategory(),
-          ],
+        child: RefreshIndicator(
+          onRefresh: () async{
+            BlocProvider.of<HomeBloc>(context).add(RefreshHome());
+          },
+          child: ListView(
+            shrinkWrap: true,
+            children: <Widget>[
+              WidgetHomeBanner(),
+              WidgetSpacer(height: 30),
+              WidgetHomeCategories(),
+              WidgetSpacer(height: 30),
+              WidgetRecommendedSeats(),
+              WidgetSpacer(height: 30),
+              WidgetNearbyCine(),
+              WidgetSpacer(height: 30),
+              WidgetHomeShowsCategory(),
+            ],
+          ),
         ),
       );
     } else if (state is HomeLoading) {

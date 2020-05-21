@@ -48,7 +48,22 @@ class Show extends Equatable {
   Map<String, dynamic> toJson() => _$ShowToJson(this);
 
   @override
-  List<Object> get props => [id];
+  List<Object> get props => [
+        id,
+        name,
+        thumb,
+        cover,
+        trailer,
+        releaseDate,
+        rate,
+        votes,
+        tags,
+        duration,
+        offers,
+        totalReviews,
+        latestReviews,
+        casts
+      ];
 
   @override
   String toString() {
