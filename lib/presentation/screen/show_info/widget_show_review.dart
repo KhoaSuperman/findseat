@@ -18,10 +18,10 @@ class WidgetShowReview extends StatelessWidget {
     String textDate = show.latestReviews.created.MMM_dd_yyyy();
 
     return Container(
-      height: 124,
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 18),
       decoration: BoxDecoration(color: COLOR_CONST.WHITE),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Row(
             children: <Widget>[

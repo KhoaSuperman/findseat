@@ -79,6 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
               WidgetNearbyCine(),
               WidgetSpacer(height: 30),
               WidgetHomeShowsCategory(),
+              WidgetSpacer(height: 30),
             ],
           ),
         ),
