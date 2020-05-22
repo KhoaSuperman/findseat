@@ -41,7 +41,7 @@ class _WidgetItemShow extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        openShowDetails();
+        openShowDetails(item.show);
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,8 +78,8 @@ class _WidgetItemShow extends StatelessWidget {
     );
   }
 
-  void openShowDetails() {
-    Navigator.pushNamed(_context, Router.SHOW_INFO);
+  void openShowDetails(Show show) {
+    Navigator.pushNamed(_context, Router.SHOW_INFO, arguments: show);
   }
 }
 
