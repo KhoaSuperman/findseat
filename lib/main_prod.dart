@@ -12,7 +12,7 @@ void main() {
       appName: "FindSeat",
       flavorName: "prod",
       initialRoute: Router.SPLASH,
-      child: MyApp(),
+      child: MyApp.runWidget(),
     ),
   );
 }
