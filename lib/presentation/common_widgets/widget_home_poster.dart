@@ -95,7 +95,7 @@ class _WidgetItemPoster extends StatelessWidget {
           children: <Widget>[
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.network(
+              child: ShimmerImage(
                 item.photo,
                 width: 93,
                 height: 124,

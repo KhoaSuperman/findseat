@@ -48,23 +48,11 @@ class _WidgetHomeBannerState extends State<WidgetHomeBanner> {
             });
           },
           items: state.banners.map((banner) {
-            return Stack(
-              children: <Widget>[
-                AspectRatio(
-                  aspectRatio: aspectRatioBanner,
-                  child: Center(
-                    child: Container(
-                      width: 48,
-                      height: 3,
-                      child: LinearProgressIndicator(),
-                    ),
-                  ),
-                ),
-                Image.network(
-                  banner.url,
-                  fit: BoxFit.contain,
-                )
-              ],
+            return ShimmerImage(
+              banner.url,
+              fit: BoxFit.contain,
+              aspectRatio: aspectRatioBanner,
+              iconHolderSize: 56,
             );
           }).toList(),
         ),

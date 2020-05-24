@@ -77,40 +77,42 @@ class _WidgetItemRecommendedSeat extends StatelessWidget {
       onTap: () {
         openShowDetails();
       },
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image.network(
-              item.photo,
-              width: 93,
-              height: 124,
-              fit: BoxFit.cover,
+      child: Container(
+        width: 93,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: ShimmerImage(
+                item.photo,
+                width: 93,
+                height: 124,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          WidgetSpacer(height: 4),
-          Container(
-            width: 93,
-            child: Text(
+            WidgetSpacer(height: 4),
+            Text(
               item.title,
               style: FONT_CONST.REGULAR_BLACK2_12,
               maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
-          ),
-          WidgetSpacer(height: 2),
-          Row(
-            children: <Widget>[
-              Icon(
-                Icons.favorite,
-                color: COLOR_CONST.DEFAULT,
-                size: 14,
-              ),
-              WidgetSpacer(width: 6),
-              Text('${item.likePercent}%', style: FONT_CONST.REGULAR_GRAY6_10)
-            ],
-          ),
-        ],
+            WidgetSpacer(height: 2),
+            Row(
+              children: <Widget>[
+                Icon(
+                  Icons.favorite,
+                  color: COLOR_CONST.DEFAULT,
+                  size: 14,
+                ),
+                WidgetSpacer(width: 6),
+                Text('${item.likePercent}%', style: FONT_CONST.REGULAR_GRAY6_10)
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
