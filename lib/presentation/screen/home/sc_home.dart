@@ -69,6 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           child: ListView(
             shrinkWrap: true,
+            physics: BouncingScrollPhysics(),
             children: <Widget>[
               WidgetHomeBanner(),
               WidgetSpacer(height: 30),

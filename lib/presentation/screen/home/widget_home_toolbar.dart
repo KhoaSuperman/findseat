@@ -54,7 +54,7 @@ class _WidgetHomeToolbarState extends State<WidgetHomeToolbar> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text('Book seats', style: FONT_CONST.SEMIBOLD_WHITE_16),
+          Text('Khoa Hoang', style: FONT_CONST.SEMIBOLD_WHITE_16),
           GestureDetector(
             onTap: () {
               _clickSignOut();
@@ -62,7 +62,7 @@ class _WidgetHomeToolbarState extends State<WidgetHomeToolbar> {
             child: Opacity(
               child: Row(
                 children: <Widget>[
-                  Text('Coimbatore', style: FONT_CONST.REGULAR_WHITE_12),
+                  Text('Vietnam', style: FONT_CONST.REGULAR_WHITE_12),
                   Icon(Icons.keyboard_arrow_down, color: COLOR_CONST.WHITE)
                 ],
               ),
@@ -87,7 +87,7 @@ class _WidgetHomeToolbarState extends State<WidgetHomeToolbar> {
             color: Colors.white,
             width: 2.0,
           ),
-          image: DecorationImage(image: AssetImage("images/sample_avatar.png")),
+          image: DecorationImage(image: AssetImage("images/sample_avatar.jpg")),
         ),
       ),
     );
