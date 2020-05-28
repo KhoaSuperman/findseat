@@ -10,6 +10,7 @@ void main() {
   runApp(
     AppConfig(
       appName: "FindSeat",
+      debugTag: false,
       flavorName: "prod",
       initialRoute: Router.SPLASH,
       child: MyApp.runWidget(),

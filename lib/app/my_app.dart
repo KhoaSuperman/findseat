@@ -17,9 +17,10 @@ import 'simple_bloc_delegate.dart';
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var initialRoute = AppConfig.of(context).initialRoute;
+    final config = AppConfig.of(context);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: config.debugTag,
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: COLOR_CONST.DEFAULT,

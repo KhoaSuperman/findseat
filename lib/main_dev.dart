@@ -10,6 +10,7 @@ void main() {
   runApp(
     AppConfig(
       appName: "FindSeat Dev",
+      debugTag: true,
       flavorName: "dev",
       initialRoute: Router.BOOK_SEAT_SLOT,
       child: MyApp.runWidget(),
