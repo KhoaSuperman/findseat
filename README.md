@@ -8,9 +8,7 @@ That why I build this project by myself and now share it to the community, I hop
 
 The first version of project (v1.0) is just about UI + simple logic. In this version v2.0, I applied BloC pattern by using Flutter Bloc to project and also have unit tests for it. I also built simple Mock API for the app, it just static json file uploaded to a my private hosting. I hope I have time to do cache local data by SQLite but I have not, so hope next version will be soon available.
 
-## Video Demo
-[![Video Demo](https://img.youtube.com/vi/cxUiyI4h2Ug/hqdefault.jpg
-)](https://youtu.be/cxUiyI4h2Ug)
+[Check Video Demo](https://youtu.be/cxUiyI4h2Ug)
 
 ## II. Showcase
 #### 2.1. Home
