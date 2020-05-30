@@ -1,6 +1,6 @@
 # A Completed Functional Flutter App - FindSeat (BLoC + Json API + Unit Test + Firebase Auth)
 
-![Banner](http://superman-academy.com/api/findseat/github_screenshots/YoutubeBanner_v2_small.png)
+![Banner](https://superman-academy.com/api/findseat/github_screenshots/YoutubeBanner_v2_small.png)
 
 ## I. Introduction
 I’m Android Developer and I’m working in a software company in Vietnam. I have experience in both kind project: outsourcing project and product project. I decided to study Flutter, because I believe it’s promised in future. As experienced developer, I care about clean architecture, testing, performance and maintainability that why I keep searching for an example of completed application. Unfortunately, community now full of project such as speedcode, UI challenges, … it’s just small pieces of real world application. In fact, most of the project doesn’t have fancy UI like that.
@@ -16,55 +16,55 @@ The first version of project (v1.0) is just about UI + simple logic. In this ver
 #### 2.1. Home
 In Home screen, it just simply load then show data to UI. What you can try
 ###### 2.1.1. Screen: Home 1
-![Home_1](http://superman-academy.com/api/findseat/github_screenshots/Home_1.png)
+![Home_1](https://superman-academy.com/api/findseat/github_screenshots/Home_1.png)
 - (0) is about me :D
 - (1) is carousel slider for displaying banners, it’s automatically animate each 1 second. You can swipe left or right to see next/previous item
 - (2) is list seat categories. If you click on a category, app will open All shows screen. It’s horizontal list so you can swipe to reach more item
 - (3) is recommended seats. Click on item app will open Show details screen
 ###### 2.1.2. Screen: Home 2
-![Home_2](http://superman-academy.com/api/findseat/github_screenshots/Home_2.png)
+![Home_2](https://superman-academy.com/api/findseat/github_screenshots/Home_2.png)
 - (4) is nearby theatres. There’s nothing special to try here, it’s just simple map with highlighted cine’s locations
 - (5) (6) is list shows by each category. Same with recommended seats, you can click on item to open Show details screen
 #### 2.2. All Shows
 ###### 2.2.1. Screen: All Shows 1
-![AllShows_1](http://superman-academy.com/api/findseat/github_screenshots/AllShows_1.png)
+![AllShows_1](https://superman-academy.com/api/findseat/github_screenshots/AllShows_1.png)
 - (1) click to open search field. Basically support search by name
 - (2) click to open sort option. Basically support sort by rating and name
 - (3) there’re 3 tabs: Now showing, Coming soon and Exclusive. You can swipe left/right to view content of each tab
 - (4) Display list show in gridview
 ###### 2.2.2. Screen: All Shows 2
-![AllShows_2](http://superman-academy.com/api/findseat/github_screenshots/AllShows_2.png)
+![AllShows_2](https://superman-academy.com/api/findseat/github_screenshots/AllShows_2.png)
 - Sort options dialog
 ###### 2.2.3. Screen: All Shows 3
-![AllShows_3](http://superman-academy.com/api/findseat/github_screenshots/AllShows_3.png)
+![AllShows_3](https://superman-academy.com/api/findseat/github_screenshots/AllShows_3.png)
 - App will perform search after stop typing for 400 milliseconds, technically it’s debounce technique.
 Try to click on item, app will open Show details screen
 #### 2.3. Show info
 ###### 2.3.1. Screen: Show Info 1
-![ShowInfo_1](http://superman-academy.com/api/findseat/github_screenshots/ShowInfo_1.png)
+![ShowInfo_1](https://superman-academy.com/api/findseat/github_screenshots/ShowInfo_1.png)
 - (1) is trailer of show from Youtube link
 - (2) show’s description
 - (3) is offer section. This is not static content, it can be changed in mock API
 ###### 2.3.2. Screen: Show Info 2
-![ShowInfo_2](http://superman-academy.com/api/findseat/github_screenshots/ShowInfo_2.png)
+![ShowInfo_2](https://superman-academy.com/api/findseat/github_screenshots/ShowInfo_2.png)
 - (4) is user’s review section. Basically write review function is not available yet
 - (5) is casts section. It’s horizontal listview, you can swipe to reach more content.
 - (6) Click Book seats then app will open Book Time Slot screen
 #### 2.4. Book Time Slot
 ###### 2.4.1. Screen: Book Time Slot 1
-![BookTimeSlot_1](http://superman-academy.com/api/findseat/github_screenshots/BookTimeSlot_1.png)
+![BookTimeSlot_1](https://superman-academy.com/api/findseat/github_screenshots/BookTimeSlot_1.png)
 - (1) Click to open search field. Basically support search by Cine’s name
 - (2) List cine with time slots. Gray item is time slot that is not available.
 ###### 2.4.2. Screen: Book Time Slot 2
-![BookTimeSlot_2](http://superman-academy.com/api/findseat/github_screenshots/BookTimeSlot_2.png)
+![BookTimeSlot_2](https://superman-academy.com/api/findseat/github_screenshots/BookTimeSlot_2.png)
 - App will perform search after stop typing for 400 milliseconds, technically it’s debounce technique.
 Click on item time slot, app will open Book Seat Type screen.
 #### 2.5. Book Seat Type
-![BookSeatType](http://superman-academy.com/api/findseat/github_screenshots/BookSeatType_1.png)
+![BookSeatType](https://superman-academy.com/api/findseat/github_screenshots/BookSeatType_1.png)
 - (1) choose number of seats
 - (2) choose seat type
 #### 2.6. Book Seat Slot
-![BookSeatSlot](http://superman-academy.com/api/findseat/github_screenshots/BookSeatSlot_1.png)
+![BookSeatSlot](https://superman-academy.com/api/findseat/github_screenshots/BookSeatSlot_1.png)
 - (1) is count of number booked seats
 - (2) Booked seats. You can click to select then click again to deselect seat.
 - Validate: For example in screen Book Seat Type you chosen 3 seats, type is Jack that mean
@@ -72,28 +72,28 @@ Click on item time slot, app will open Book Seat Type screen.
   - You cannot book more than 3 seats
 #### 2.7. Make payment
 ###### 2.7.1. Screen: Make payment 1
-![MakePayment_1](http://superman-academy.com/api/findseat/github_screenshots/MakePayment_1.png)
+![MakePayment_1](https://superman-academy.com/api/findseat/github_screenshots/MakePayment_1.png)
 - App integrated with Stripe SDK, currently for testing when you click on any method Debit/UDI/Net banking, app only show option pay by input card to the form.
 
 ###### 2.7.2. Screen: Make payment 2
-![MakePayment_2](http://superman-academy.com/api/findseat/github_screenshots/MakePayment_2.png)
+![MakePayment_2](https://superman-academy.com/api/findseat/github_screenshots/MakePayment_2.png)
 - For testing, please use following information:
   - Card number: 4242 4242 4242 4242
   - Expiration date: 04/24
   - CVC: 424 or 242
 ###### 2.7.3. Screen: Make payment 3
-![MakePayment_3](http://superman-academy.com/api/findseat/github_screenshots/MakePayment_3.png)
+![MakePayment_3](https://superman-academy.com/api/findseat/github_screenshots/MakePayment_3.png)
 - After Stripe verified the payment information, app will show your booking information.
 #### 2.8. Login
-![Login](http://superman-academy.com/api/findseat/github_screenshots/Login_1.png)
+![Login](https://superman-academy.com/api/findseat/github_screenshots/Login_1.png)
 - Basically app provide login by user’s email and password. Login by Google and Facebook will be available soon.
 - Test account: khoaha+dev2@mailinator.com / 123456
 #### 2.9. Register
-![Register](http://superman-academy.com/api/findseat/github_screenshots/Register_1.png)
+![Register](https://superman-academy.com/api/findseat/github_screenshots/Register_1.png)
 - I did validation in this form using Bloc pattern, you can look at this to study how to do form validation in Bloc.
 
 ## III. Mock API
-http://superman-academy.com/api/findseat
+https://superman-academy.com/api/findseat
 
 API | Usage
 ------------ | -------------
