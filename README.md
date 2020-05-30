@@ -1,6 +1,6 @@
 # A Completed Functional Flutter App - FindSeat (BLoC + Json API + Unit Test + Firebase Auth)
 
-![Banner](https://raw.githubusercontent.com/KhoaSuperman/findseat/apply_bloc/sample_data/github_screenshots/YoutubeBanner_v2_small.png)
+![Banner](https://raw.githubusercontent.com/KhoaSuperman/findseat/apply_bloc/sample_data/github_screenshots/YoutubeBanner_v2_medium.png)
 
 ## I. Introduction
 I’m Android Developer and I’m working in a software company in Vietnam. I have experience in both kind project: outsourcing project and product project. I decided to study Flutter, because I believe it’s promised in future. As experienced developer, I care about clean architecture, testing, performance and maintainability that why I keep searching for an example of completed application. Unfortunately, community now full of project such as speedcode, UI challenges, … it’s just small pieces of real world application. In fact, most of the project doesn’t have fancy UI like that.
