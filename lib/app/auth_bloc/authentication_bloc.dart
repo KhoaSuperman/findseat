@@ -29,6 +29,10 @@ class AuthenticationBloc
   Stream<AuthenticationState> _mapAppStartedToState() async* {
     try {
       final isSignedIn = await _userRepository.isSignedIn();
+
+      //for display splash screen
+      await Future.delayed(Duration(seconds: 2));
+
       if (isSignedIn) {
         final name = await _userRepository.getUser();
         yield Authenticated(name);
