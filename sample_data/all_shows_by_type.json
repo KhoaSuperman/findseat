@@ -1,0 +1,746 @@
+{
+  "now_showing": [
+    {
+      "id": "No Time to Die",
+      "name": "No Time to Die",
+      "thumb": "https://superman-academy.com/api/findseat/images/No Time to Die.jpg",
+      "trailer": "https://www.youtube.com/watch?v=fXw6o3n3BVw",
+      "release_date": 1592672400,
+      "rate": 86,
+      "votes": "12.8k votes",
+      "tami": [
+        "3D",
+        "2D"
+      ],
+      "tags": [
+        "Action",
+        "Adventure",
+        "Thriller"
+      ],
+      "duration": 8520,
+      "offers": [
+        {
+          "id": 1,
+          "type": "red",
+          "title": "Covid-19! Grab FREE RED reward",
+          "content": "Book your seats and tap on the reward box to claim it"
+        },
+        {
+          "id": 2,
+          "type": "green",
+          "title": "Wait! Grab FREE GREEN reward nCovid-SAR2",
+          "content": "50% discount maximum VND 30,000 x2 GrabBike, GrabCar service for for New Users .Expires on 30/06/2020"
+        }
+      ],
+      "total_reviews": 82266,
+      "latest_reviews": {
+        "author": "ChiSox3514",
+        "created": 1592872400,
+        "content": "As a lifelong James Bond enthusiast who has been extremely disappointed with the franchise's latest efforts (with the exception of Casino Royale), I was extremely pleased with this film. It strayed away from the storyline of the previous two films and I couldn't have been happier after the mediocrity of Quantum of Solace. This film has all the constituents from the Bond films that have preceded it. Big explosions, ridiculous stunts that not a single person in the history of humanity can survive, and let's not forget to mention the beautiful women that would make both genders stop and stare. So what does Skyfall have that the other Bond films don't? For the first time, we get a glimpse into our mysterious hero's dark past. Where he came from and what made him the person he is today.",
+        "avatar": "https://m.media-amazon.com/images/M/MV5BMTliMmU1MjEtOTVjYy00OGE3LTlhZTUtMDQ1MmRkMmI5MDBlXkEyXkFqcGdeQXVyODc4NTA3MzE@._V1_SY100_SX100_.jpg"
+      },
+      "casts": [
+        {
+          "name": "Ana de Armas",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMjA3NjYzMzE1MV5BMl5BanBnXkFtZTgwNTA4NDY4OTE@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Rami Malek",
+          "photo": "https://m.media-amazon.com/images/M/MV5BODA3OTM4ODU0MV5BMl5BanBnXkFtZTgwNjQ5Njg3NjM@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Daniel Craig",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMjEzMjk4NDU4MF5BMl5BanBnXkFtZTcwMDMyNjQzMg@@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Ralph Fiennes",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMzc5MjE1NDgyN15BMl5BanBnXkFtZTcwNzg2ODgwNA@@._V1_UY317_CR14,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Jack Reynor",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMjExOTU1NTM0MF5BMl5BanBnXkFtZTcwNDQ2ODE2OQ@@._V1_UY317_CR39,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Léa Seydoux",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMjM3MTczNzY1MF5BMl5BanBnXkFtZTgwNjgwODgzNDE@._V1_UY317_CR6,0,214,317_AL_.jpg"
+        }
+      ]
+    },
+    {
+      "id": "BLOODSHOT",
+      "name": "BLOODSHOT",
+      "thumb": "https://superman-academy.com/api/findseat/images/HO00002044.jpg",
+      "trailer": "https://www.youtube.com/watch?v=vOUVVDWdXbo",
+      "release_date": 1590030000,
+      "rate": 87,
+      "votes": "2.3k votes",
+      "tami": [
+        "2D"
+      ],
+      "tags": [
+        "Action",
+        "Drama",
+        "Sci-Fi"
+      ],
+      "duration": 5240,
+      "offers": [
+        {
+          "id": 1,
+          "type": "red",
+          "title": "Covid-19! Grab FREE RED reward",
+          "content": "Book your seats and tap on the reward box to claim it"
+        },
+        {
+          "id": 2,
+          "type": "green",
+          "title": "Wait! Grab FREE GREEN reward nCovid-SAR2",
+          "content": "50% discount maximum VND 30,000 x2 GrabBike, GrabCar service for for New Users .Expires on 30/06/2020"
+        }
+      ],
+      "total_reviews": 8403,
+      "latest_reviews": {
+        "author": "Eliza González Was A Joy",
+        "created": 1590040000,
+        "content": "I didn't like it, but I wouldn't say I hated it. It is a very silly film that is seemingly aware (At least I hope it is) of how silly it is. It's pretty tame violence and blood wise, it's pretty much all in the trailers which is disappointing.",
+        "avatar": "https://superman-academy.com/api/findseat/images/sample_avatar2.jpg"
+      },
+      "casts": [
+        {
+          "name": "Vin Diesel",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMjExNzA4MDYxN15BMl5BanBnXkFtZTcwOTI1MDAxOQ@@._V1_UY317_CR7,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Eiza González",
+          "photo": "https://m.media-amazon.com/images/M/MV5BYjI0MjU0YjgtNzRkZC00ZGNlLWEyMzMtOGM2MDEzZDFlYmRjXkEyXkFqcGdeQXVyNjA1OTA1Njk@._V1_UY317_CR20,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Sam Heughan",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTUwNzAyMzA2MF5BMl5BanBnXkFtZTgwNzA0MjQ1ODE@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Toby Kebbell",
+          "photo": "https://m.media-amazon.com/images/M/MV5BM2EyODM5NDctMWU3Zi00NDc2LWFhYzQtNmQ2ZDJiZTczMDgwXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_UY317_CR19,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Talulah Riley",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMjE0MzUwNTUxM15BMl5BanBnXkFtZTcwNzU1OTY5Ng@@._V1_UY317_CR10,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Lamorne Morris",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNmJhMWJkNTgtODIzMC00ZmIzLTliMjUtZGZmMmM1MTU5OTZhXkEyXkFqcGdeQXVyMjY5MDMxMzQ@._V1_UY317_CR51,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Guy Pearce",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTgyNzc2NzY3Nl5BMl5BanBnXkFtZTgwNTMzMzAwMjE@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Jóhannes Haukur Jóhannesson",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMDExOTNkNDAtZDExYi00MzI1LWJiMzQtZjljZTQwNjUxNGI1XkEyXkFqcGdeQXVyMTcxMTg3NDE@._V1_UY317_CR12,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Alex Hernandez",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNWQzYzcxYmUtMzQxZC00ZmQ3LTgxZTYtNDlmZjNhZDA2N2Y1XkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_UY317_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Siddharth Dhananjay",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNTAzMDhiMDctZGY1MC00OTBhLWIxYTMtZWZlMGM3OGI1ZjMyXkEyXkFqcGdeQXVyMzgyODc0MTQ@._V1_UY317_CR7,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Tamer Burjaq",
+          "photo": "https://m.media-amazon.com/images/M/MV5BOTIyZmE4YzgtMmJlOC00NDFkLTg2M2UtZGVkNWEyNjllYjM0XkEyXkFqcGdeQXVyNjUxMjc1OTM@._V1_UY317_CR115,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Clyde Berning",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTNjMzU0MTctNGE1My00NmI0LTk5YmUtMTZmZTczY2JkMDc5XkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        }
+      ]
+    },
+    {
+      "id": "Captain America: Civil War",
+      "name": "Captain America: Civil War",
+      "thumb": "https://superman-academy.com/api/findseat/images/Captain America Civil War.jpg",
+      "trailer": "https://www.youtube.com/watch?v=1L3c17AmCZw",
+      "release_date": 1573837200,
+      "rate": 83,
+      "votes": "367.35k votes",
+      "tami": [
+        "3D-MAX",
+        "2D"
+      ],
+      "tags": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "duration": 7420,
+      "offers": [
+        {
+          "id": 1,
+          "type": "red",
+          "title": "Covid-19! Grab FREE RED reward",
+          "content": "Book your seats and tap on the reward box to claim it"
+        },
+        {
+          "id": 2,
+          "type": "green",
+          "title": "Wait! Grab FREE GREEN reward nCovid-SAR2",
+          "content": "50% discount maximum VND 30,000 x2 GrabBike, GrabCar service for for New Users .Expires on 30/06/2020"
+        }
+      ],
+      "total_reviews": 226176,
+      "latest_reviews": {
+        "author": "thependragonscribe",
+        "created": 1573867200,
+        "content": "The Marvel universe gets tenser with the most-awaited \"Civil War\". For what fans clamor to be a storyline that the MCU is building towards, here comes a showdown of Marvel's biggest properties.\n\n\"Captain America 3\" starts off where \"Avengers: Age of Ultron\" ended, when the New Avengers, led by Steve Rogers/Captain America (Chris Evans), are cornered by international concern in response to continuous collateral damage. As a result, a governing act is proposed to the Avengers, fracturing the team to two sides, one led by Rogers and another led by Tony Stark/Iron Man (Robert Downey Jr.). But when a new threat is on the horizon, the team has to face the repercussions of their brawls.",
+        "avatar": "https://m.media-amazon.com/images/M/MV5BMTY1Mjk2MjUyNl5BMl5BanBnXkFtZTgwODY1NzY5MTE@._V1_SY100_SX100_.jpg"
+      },
+      "casts": [
+        {
+          "name": "Chris Evans",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTU2NTg1OTQzMF5BMl5BanBnXkFtZTcwNjIyMjkyMg@@._V1_UY317_CR6,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Robert Downey Jr.",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNzg1MTUyNDYxOF5BMl5BanBnXkFtZTgwNTQ4MTE2MjE@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Scarlett Johansson",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTM3OTUwMDYwNl5BMl5BanBnXkFtZTcwNTUyNzc3Nw@@._V1_UY317_CR23,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Sebastian Stan",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNTk2OGU4NzktODhhOC00Nzc2LWIyNzYtOWViMjljZGFiNTMxXkEyXkFqcGdeQXVyMTE1NTQwOTk@._V1_UY317_CR15,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Anthony Mackie",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTk3NTM1MjE2M15BMl5BanBnXkFtZTcwNzc5OTI2Mg@@._V1_UY317_CR17,0,214,317_AL_.jpg"
+        }
+      ]
+    },
+    {
+      "id": "Pacific Rim: Uprising",
+      "name": "Pacific Rim: Uprising",
+      "thumb": "https://superman-academy.com/api/findseat/images/Pacific Rim Uprising.jpg",
+      "trailer": "https://www.youtube.com/watch?v=8BAhwgjMvnM",
+      "release_date": 1526180400,
+      "rate": 99,
+      "votes": "23.2k votes",
+      "tami": [
+        "3D",
+        "2D"
+      ],
+      "tags": [
+        "Action",
+        "Adventure",
+        "Sci-Fi "
+      ],
+      "duration": 6720,
+      "offers": [
+        {
+          "id": 1,
+          "type": "red",
+          "title": "Covid-19! Grab FREE RED reward",
+          "content": "Book your seats and tap on the reward box to claim it"
+        },
+        {
+          "id": 2,
+          "type": "green",
+          "title": "Wait! Grab FREE GREEN reward nCovid-SAR2",
+          "content": "50% discount maximum VND 30,000 x2 GrabBike, GrabCar service for for New Users .Expires on 30/06/2020"
+        }
+      ],
+      "total_reviews": 23901,
+      "latest_reviews": {
+        "author": "Peterp-450-298716 ",
+        "created": 1585986181,
+        "content": "What amazed me the most was the fact that I couldn't remember much of \"Pacific Rim\", even though I thought it was an original-looking film years ago. No worries. Little by little everything is explained again in such a way that I partially knew it again. And even though \"Pacific Rim\" wasn't high-quality cinema and simply a very expensive monster film with superb looking computer-generated images, the film impressed me at the time. \"Pacific Rim\" was brainless amusement with a high entertainment value. This sequel is simply a duplicate with other main characters in identical Jaegers. But it's so irritating and annoying mostly. I was hoping this time the Kaiju's took control and destroyed planet earth. That way we don't need to be afraid of a possible sequel in the future.",
+        "avatar": "https://m.media-amazon.com/images/M/MV5BMjE2NDI1NzgzN15BMl5BanBnXkFtZTgwNDc0NzUzNjE@._V1_SY100_SX100_.jpg"
+      },
+      "casts": [
+        {
+          "name": "John Boyega",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMDg4NWZjNmEtZWVmNC00MzdhLTlhOTEtZmViYjdmMzhjMTAyXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_UY317_CR20,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Scott Eastwood",
+          "photo": "https://m.media-amazon.com/images/M/MV5BODQ4ODU5NjIxMF5BMl5BanBnXkFtZTgwNzIzNTIzNzM@._V1_UY317_CR12,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Cailee Spaeny",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTU1NzA0MjEwNV5BMl5BanBnXkFtZTgwNTE5ODczNjM@._V1_UY317_CR15,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Charlie Day",
+          "photo": "https://m.media-amazon.com/images/M/MV5BYjI2YWE1ODUtNTFjNy00MDgyLWJmNzgtNjBiZWE1NDY1YzFhXkEyXkFqcGdeQXVyODgwOTcwMDY@._V1_UY317_CR11,0,214,317_AL_.jpg"
+        }
+      ]
+    },
+    {
+      "id": "Justice League",
+      "name": "Justice League",
+      "thumb": "https://superman-academy.com/api/findseat/images/Justice League.jpg",
+      "trailer": "https://www.youtube.com/watch?v=3cxixDgHUYw",
+      "release_date": 1526180400,
+      "rate": 72,
+      "votes": "3.1k votes",
+      "tami": [
+        "2D"
+      ],
+      "tags": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "duration": 6120,
+      "offers": [
+        {
+          "id": 1,
+          "type": "red",
+          "title": "Covid-19! Grab FREE RED reward",
+          "content": "Book your seats and tap on the reward box to claim it"
+        },
+        {
+          "id": 2,
+          "type": "green",
+          "title": "Wait! Grab FREE GREEN reward nCovid-SAR2",
+          "content": "50% discount maximum VND 30,000 x2 GrabBike, GrabCar service for for New Users .Expires on 30/06/2020"
+        }
+      ],
+      "total_reviews": 7241,
+      "latest_reviews": {
+        "author": "TheMovieDiorama",
+        "created": 1526181400,
+        "content": "Here we are. The Justice League. DC's greatest superheroes come together to save the world...and what is the first scene you ask? Henry Cavill's CGI'd shaved face. Ohhh dear...yup...we're in for quite a ride",
+        "avatar": "https://m.media-amazon.com/images/M/MV5BOWYwYmY2ZmItZWIxMi00ZThlLWEwNDAtYmUwMzJjMjA3YmYwXkEyXkFqcGdeQXVyNjc5MDI3Mjk@._V1_SY100_SX100_.jpg"
+      },
+      "casts": [
+        {
+          "name": "Ben Affleck",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTI4MzIxMTk0Nl5BMl5BanBnXkFtZTcwOTU5NjA0Mg@@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Henry Cavill",
+          "photo": "https://m.media-amazon.com/images/M/MV5BODI0MTYzNTIxNl5BMl5BanBnXkFtZTcwNjg2Nzc0NA@@._V1_UY317_CR26,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Amy Adams",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTg2NTk2MTgxMV5BMl5BanBnXkFtZTgwNjcxMjAzMTI@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Gal Gadot",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMjUzZTJmZDItODRjYS00ZGRhLTg2NWQtOGE0YjJhNWVlMjNjXkEyXkFqcGdeQXVyMTg4NDI0NDM@._V1_UY317_CR51,0,214,317_AL_.jpg"
+        }
+      ]
+    },
+    {
+      "id": "Kong: Skull Island",
+      "name": "Kong: Skull Island",
+      "thumb": "https://superman-academy.com/api/findseat/images/Kong Skull Island.jpg",
+      "trailer": "https://www.youtube.com/watch?v=wgixOGSoBMo",
+      "release_date": 1502557200,
+      "rate": 92,
+      "votes": "128.3k votes",
+      "tami": [
+        "3D-MAX",
+        "2D"
+      ],
+      "tags": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "duration": 8890,
+      "offers": [
+        {
+          "id": 1,
+          "type": "red",
+          "title": "Covid-19! Grab FREE RED reward",
+          "content": "Book your seats and tap on the reward box to claim it"
+        },
+        {
+          "id": 2,
+          "type": "green",
+          "title": "Wait! Grab FREE GREEN reward nCovid-SAR2",
+          "content": "50% discount maximum VND 30,000 x2 GrabBike, GrabCar service for for New Users .Expires on 30/06/2020"
+        }
+      ],
+      "total_reviews": 129315,
+      "latest_reviews": {
+        "author": "andrew-marks59",
+        "created": 1502587200,
+        "content": "Some people go to the movies to be wowed by the superb acting, heart wrenching and well written story, and overall solid production... THIS has good effects? The acting in this film isn't bad, but it definitely won't win any awards for it.\n\nThe story has characters Bill Randa (John Goodman) and Houston Brooks (Corey Hawkins) piggybacking on an expedition to an uncharted island to test their \"hollow earth\" theory. Tom Hiddleston plays a tracker, Brie Larson plays a photographer, and John C. Reilly plays a surprisingly funny WW2 vet marooned on Skull Island.",
+        "avatar": "https://m.media-amazon.com/images/M/MV5BNzc5Njc1ODczMV5BMl5BanBnXkFtZTgwMjYwNTk5MDI@._V1_SY100_SX100_.jpg"
+      },
+      "casts": [
+        {
+          "name": "Tom Hiddleston",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNWYwODAyZjAtOTQ1My00MDY2LTg0NDQtZGFiMDRiYzY4ZmM2XkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_UY317_CR9,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Samuel L. Jackson",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTQ1NTQwMTYxNl5BMl5BanBnXkFtZTYwMjA1MzY1._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Brie Larson",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMjExODkxODU3NF5BMl5BanBnXkFtZTgwNTM0MTk3NjE@._V1_UY317_CR7,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "John C. Reilly",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTc4MDEzMDkzOF5BMl5BanBnXkFtZTYwNzQzNzcy._V1_UY317_CR34,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "John Goodman",
+          "photo": "https://m.media-amazon.com/images/M/MV5BOTk1MzAzMDUxMF5BMl5BanBnXkFtZTgwODgyMTQxNjM@._V1_UY317_CR12,0,214,317_AL_.jpg"
+        }
+      ]
+    }
+  ],
+  "coming_soon": [
+    {
+      "id": "Dawn of the Planet of the Apes",
+      "name": "Dawn of the Planet of the Apes",
+      "thumb": "https://superman-academy.com/api/findseat/images/Dawn of the Planet of the Apes.jpg",
+      "trailer": "https://www.youtube.com/watch?v=DpSaTrW4leg",
+      "release_date": 1395507600,
+      "rate": 89,
+      "votes": "77.9k votes",
+      "tami": [
+        "3D",
+        "2D"
+      ],
+      "tags": [
+        "Action",
+        "Adventure",
+        "Drama "
+      ],
+      "duration": 7290,
+      "offers": [
+        {
+          "id": 1,
+          "type": "red",
+          "title": "Covid-19! Grab FREE RED reward",
+          "content": "Book your seats and tap on the reward box to claim it"
+        },
+        {
+          "id": 2,
+          "type": "green",
+          "title": "Wait! Grab FREE GREEN reward nCovid-SAR2",
+          "content": "50% discount maximum VND 30,000 x2 GrabBike, GrabCar service for for New Users .Expires on 30/06/2020"
+        }
+      ],
+      "total_reviews": 86176,
+      "latest_reviews": {
+        "author": "bob the moo",
+        "created": 1395577600,
+        "content": "I had enjoyed the first film in what I guess is the modern version of the PotA franchise, so I was quite looking forward to this second film. The plot jumps quite some time ahead, to find mankind surviving in small bands following the outbreak of a virus around a decade ago. Meanwhile Caesar has established a community deep in the woods, founded off the survivors of the battle on the Golden Gate bridge. When a group of men ventures into the woods looking for an old dam in the hope of getting power to their community, it tests trust and loyalty within both camps.",
+        "avatar": "https://m.media-amazon.com/images/M/MV5BMjA1OTYzMjQ0OF5BMl5BanBnXkFtZTgwODUzMTgwNjE@._V1_SY100_SX100_.jpg"
+      },
+      "casts": [
+        {
+          "name": "Andy Serkis",
+          "photo": "https://m.media-amazon.com/images/M/MV5BYTgwYmM0ZjgtMWRmZC00YTc1LWIwYWEtYTFjMTZiMDNjNWRkXkEyXkFqcGdeQXVyNjcwMjczMzE@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Jason Clarke",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNzU5ODU0MzY1MV5BMl5BanBnXkFtZTcwMTY2MDE4OA@@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Gary Oldman",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTc3NTM4MzQ5MV5BMl5BanBnXkFtZTcwOTE4MDczNw@@._V1_UY317_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Keri Russell",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTA4MDM4MzUzNzZeQTJeQWpwZ15BbWU3MDM0NjY4NDM@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Toby Kebbell",
+          "photo": "https://m.media-amazon.com/images/M/MV5BM2EyODM5NDctMWU3Zi00NDc2LWFhYzQtNmQ2ZDJiZTczMDgwXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_UY317_CR19,0,214,317_AL_.jpg"
+        }
+      ]
+    },
+    {
+      "id": "Avengers: Infinity War",
+      "name": "Avengers: Infinity War",
+      "thumb": "https://superman-academy.com/api/findseat/images/Avengers Infinity War.jpg",
+      "trailer": "https://www.youtube.com/watch?v=6ZfuNTqbHE8",
+      "release_date": 1526180400,
+      "rate": 97,
+      "votes": "83.5k votes",
+      "tami": [
+        "2D"
+      ],
+      "tags": [
+        "Action",
+        "Adventure",
+        "Sci-Fi "
+      ],
+      "duration": 8720,
+      "offers": [
+        {
+          "id": 1,
+          "type": "red",
+          "title": "Covid-19! Grab FREE RED reward",
+          "content": "Book your seats and tap on the reward box to claim it"
+        },
+        {
+          "id": 2,
+          "type": "green",
+          "title": "Wait! Grab FREE GREEN reward nCovid-SAR2",
+          "content": "50% discount maximum VND 30,000 x2 GrabBike, GrabCar service for for New Users .Expires on 30/06/2020"
+        }
+      ],
+      "total_reviews": 832901,
+      "latest_reviews": {
+        "author": "Jesper2801",
+        "created": 1526280400,
+        "content": "I consider myself a big comic book marvel fan. My favorite films from the franchise so far, are Cap. American: Winter Soldier and Thor: Ragnarok. As this movie was directed by the same guys as Winter Soldier and Civil War, I went into this movie with sky-high expectations.\n\nI am gonna keep this brief: Avengers: Infinity War blew me away! If I should mention just one thing that really amazed me was the character of Thanos. He is so well developed and makes for a super interesting and complex villain. As an audience, we are actually capable of sympathizing with a guy, who wants to kill off half of the universe. It's not about power or dominance. It's about preserving life in a Universe with finite resources - a goal with leads him (and the avengers) into several interesting moral dilemmas.\n\nI agree with the other reviews here. This movie is such a beautiful calamity of 10 years of the best superhero entertainment there is. Thinking about it, I can't really grasp how the director pulled this off. So many well developed characters from different story lines are working together in a true cinematic symphony.\n\nI give this movie my highest recommendations. It's a must-see for anyone with just a remote interest in the franchise.",
+        "avatar": "https://m.media-amazon.com/images/M/MV5BMTliMmU1MjEtOTVjYy00OGE3LTlhZTUtMDQ1MmRkMmI5MDBlXkEyXkFqcGdeQXVyODc4NTA3MzE@._V1_SY100_SX100_.jpg"
+      },
+      "casts": [
+        {
+          "name": "Robert Downey Jr.",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNzg1MTUyNDYxOF5BMl5BanBnXkFtZTgwNTQ4MTE2MjE@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Chris Hemsworth",
+          "photo": "https://m.media-amazon.com/images/M/MV5BOTU2MTI0NTIyNV5BMl5BanBnXkFtZTcwMTA4Nzc3OA@@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Mark Ruffalo",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNDQyNzMzZTMtYjlkNS00YzFhLWFhMTctY2M4YmQ1NmRhODBkXkEyXkFqcGdeQXVyNjcyNzgyOTE@._V1_UY317_CR20,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Chris Evans",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTU2NTg1OTQzMF5BMl5BanBnXkFtZTcwNjIyMjkyMg@@._V1_UY317_CR6,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Scarlett Johansson",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTM3OTUwMDYwNl5BMl5BanBnXkFtZTcwNTUyNzc3Nw@@._V1_UY317_CR23,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Don Cheadle",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNDMxNDM3MzY5N15BMl5BanBnXkFtZTcwMjkzOTY4MQ@@._V1_UY317_CR17,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Benedict Cumberbatch",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMjE0MDkzMDQwOF5BMl5BanBnXkFtZTgwOTE1Mjg1MzE@._V1_UY317_CR2,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Tom Holland",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNTAzMzA3NjQwOF5BMl5BanBnXkFtZTgwMDUzODQ5MTI@._V1_UY317_CR23,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Chadwick Boseman",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTk2OTY5MzcwMV5BMl5BanBnXkFtZTgwODM4MDI5MjI@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Zoe Saldana",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTM2MjIwOTc0Nl5BMl5BanBnXkFtZTcwNzQ5ODM1Mw@@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Karen Gillan",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTQwMDQ0NDk1OV5BMl5BanBnXkFtZTcwNDcxOTExNg@@._V1_UY317_CR2,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Tom Hiddleston",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNWYwODAyZjAtOTQ1My00MDY2LTg0NDQtZGFiMDRiYzY4ZmM2XkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_UY317_CR9,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Paul Bettany",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNjUzMDIzNjkxMl5BMl5BanBnXkFtZTgwNjgyNzA0MjI@._V1_UY317_CR131,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Elizabeth Olsen",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMjEzMjA0ODk1OF5BMl5BanBnXkFtZTcwMTA4ODM3OQ@@._V1_UY317_CR6,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Anthony Mackie",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTk3NTM1MjE2M15BMl5BanBnXkFtZTcwNzc5OTI2Mg@@._V1_UY317_CR17,0,214,317_AL_.jpg"
+        }
+      ]
+    },
+    {
+      "id": "Hitman Agent Jun",
+      "name": "Hitman Agent Jun",
+      "thumb": "https://superman-academy.com/api/findseat/images/HO00001582.jfif",
+      "trailer": "https://www.youtube.com/watch?v=5kei6EdxGpU",
+      "release_date": 1585841291,
+      "rate": 94,
+      "votes": "1.8k votes",
+      "tami": [
+        "3D",
+        "2D"
+      ],
+      "tags": [
+        "Action",
+        "Drama",
+        "Comedy"
+      ],
+      "duration": 5640,
+      "offers": [
+        {
+          "id": 1,
+          "type": "red",
+          "title": "Covid-19! Grab FREE RED reward",
+          "content": "Book your seats and tap on the reward box to claim it"
+        },
+        {
+          "id": 2,
+          "type": "green",
+          "title": "Wait! Grab FREE GREEN reward nCovid-SAR2",
+          "content": "50% discount maximum VND 30,000 x2 GrabBike, GrabCar service for for New Users .Expires on 30/06/2020"
+        }
+      ],
+      "total_reviews": 1403,
+      "latest_reviews": {
+        "author": "John Wich",
+        "created": 1585986181,
+        "content": "With all the updates after the last few months the app has improved a lot. Keeps me up to date.",
+        "avatar": "https://superman-academy.com/api/findseat/images/sample_avatar2.jpg"
+      },
+      "casts": [
+        {
+          "name": "Kwon Sang-Woo",
+          "photo": "http://asianwiki.com/images/9/99/Kwon-Sang-Woo-The_Accidental_Detective.jpg"
+        },
+        {
+          "name": "Jung Joon-Ho",
+          "photo": "http://asianwiki.com/images/a/a1/Jung_Jun-Ho-p2.jpg"
+        },
+        {
+          "name": "Hwang Woo Seul Hye",
+          "photo": "http://asianwiki.com/images/c/c4/Hwang_Woo_Seul_Hye-1979-p1.jpg"
+        },
+        {
+          "name": "Lee Yi-Kyung",
+          "photo": "http://asianwiki.com/images/2/2e/Lee_Yi-Kyung-1989-p01.jpg"
+        }
+      ]
+    }
+  ],
+  "exclusive": [
+    {
+      "id": "Thor: Ragnarok",
+      "name": "Thor: Ragnarok",
+      "thumb": "https://superman-academy.com/api/findseat/images/Thor Ragnarok.jpg",
+      "trailer": "https://www.youtube.com/watch?v=ue80QwXMRHg",
+      "release_date": 1573837200,
+      "rate": 98,
+      "votes": "128.5k votes",
+      "tami": [
+        "3D-MAX",
+        "2D"
+      ],
+      "tags": [
+        "Action",
+        "Adventure",
+        "Comedy"
+      ],
+      "duration": 7260,
+      "offers": [
+        {
+          "id": 1,
+          "type": "red",
+          "title": "Covid-19! Grab FREE RED reward",
+          "content": "Book your seats and tap on the reward box to claim it"
+        },
+        {
+          "id": 2,
+          "type": "green",
+          "title": "Wait! Grab FREE GREEN reward nCovid-SAR2",
+          "content": "50% discount maximum VND 30,000 x2 GrabBike, GrabCar service for for New Users .Expires on 30/06/2020"
+        }
+      ],
+      "total_reviews": 481978,
+      "latest_reviews": {
+        "author": "vdmakwana",
+        "created": 1526280400,
+        "content": "I'm not a hater of comic book-based movies, and it is difficult, considering 2/5 of the movies that appear in movie theaters are based on comic book, if you want to see a movie with action and effects, in the end you always end up with one or another of this type of movie. Blame Hollywood and the mentality of wanting to get the milk from the cow in greater quantity in the shortest possible time.",
+        "avatar": "https://m.media-amazon.com/images/M/MV5BNzFlNGUwY2QtYTZlNy00NjQwLWEyMTEtNGRhYmU5NDU0ZTIxXkEyXkFqcGdeQXVyNzY5MTU0Mzc@._V1_SY100_SX100_.jpg"
+      },
+      "casts": [
+        {
+          "name": "Chris Hemsworth",
+          "photo": "https://m.media-amazon.com/images/M/MV5BOTU2MTI0NTIyNV5BMl5BanBnXkFtZTcwMTA4Nzc3OA@@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Tom Hiddleston",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNWYwODAyZjAtOTQ1My00MDY2LTg0NDQtZGFiMDRiYzY4ZmM2XkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_UY317_CR9,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Cate Blanchett",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTc1MDI0MDg1NV5BMl5BanBnXkFtZTgwMDM3OTAzMTE@._V1_UY317_CR3,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Idris Elba",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNzEzMTI2NjEyNF5BMl5BanBnXkFtZTcwNTA0OTE4OA@@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Jeff Goldblum",
+          "photo": "https://m.media-amazon.com/images/M/MV5BY2ViNDIwNmUtZGQ5Ni00MDYxLWI5YTktNWU1NGRlYWQ1ZDg0XkEyXkFqcGdeQXVyOTAyMDgxODQ@._V1_UY317_CR20,0,214,317_AL_.jpg"
+        }
+      ]
+    },
+    {
+      "id": "Spider-Man: Far from Home",
+      "name": "Spider-Man: Far from Home",
+      "thumb": "https://superman-academy.com/api/findseat/images/Spider-Man Far from Home.jpg",
+      "trailer": "https://www.youtube.com/watch?v=Nt9L1jCKGnE",
+      "release_date": 1573837200,
+      "rate": 86,
+      "votes": "24.3k votes",
+      "tami": [
+        "2D"
+      ],
+      "tags": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "duration": 5180,
+      "offers": [
+        {
+          "id": 1,
+          "type": "red",
+          "title": "Covid-19! Grab FREE RED reward",
+          "content": "Book your seats and tap on the reward box to claim it"
+        },
+        {
+          "id": 2,
+          "type": "green",
+          "title": "Wait! Grab FREE GREEN reward nCovid-SAR2",
+          "content": "50% discount maximum VND 30,000 x2 GrabBike, GrabCar service for for New Users .Expires on 30/06/2020"
+        }
+      ],
+      "total_reviews": 13249,
+      "latest_reviews": {
+        "author": "urseibogdan",
+        "created": 1526181400,
+        "content": "Tom Holland plays great! An action movie with funny moments that keeps you in suspense!",
+        "avatar": "https://m.media-amazon.com/images/M/MV5BMTQ4Mzg3ODAwMV5BMl5BanBnXkFtZTgwNDM0MTA3MDI@._V1_SY100_SX100_.jpg"
+      },
+      "casts": [
+        {
+          "name": "Tom Holland",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNTAzMzA3NjQwOF5BMl5BanBnXkFtZTgwMDUzODQ5MTI@._V1_UY317_CR23,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Samuel L. Jackson",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTQ1NTQwMTYxNl5BMl5BanBnXkFtZTYwMjA1MzY1._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Jake Gyllenhaal",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNjA0MTU2NDY3MF5BMl5BanBnXkFtZTgwNDU4ODkzMzE@._V1_UX214_CR0,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Marisa Tomei",
+          "photo": "https://m.media-amazon.com/images/M/MV5BMTUwMjA3OTc3N15BMl5BanBnXkFtZTcwNTA1MzY1Mw@@._V1_UY317_CR12,0,214,317_AL_.jpg"
+        },
+        {
+          "name": "Jon Favreau",
+          "photo": "https://m.media-amazon.com/images/M/MV5BNjcwNzg4MjktNDNlMC00M2U1LWJmMjgtZTVkMmI4MDI2MTVmXkEyXkFqcGdeQXVyMjI4MDI0NTM@._V1_UY317_CR12,0,214,317_AL_.jpg"
+        }
+      ]
+    }
+  ]
+}

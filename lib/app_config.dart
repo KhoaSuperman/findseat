@@ -4,6 +4,7 @@ import 'package:meta/meta.dart';
 class AppConfig extends InheritedWidget {
   AppConfig({
     @required this.appName,
+    @required this.debugTag,
     @required this.flavorName,
     @required this.initialRoute,
     @required Widget child,
@@ -12,6 +13,7 @@ class AppConfig extends InheritedWidget {
   final String appName;
   final String flavorName;
   final String initialRoute;
+  final bool debugTag;
 
   static AppConfig of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType();

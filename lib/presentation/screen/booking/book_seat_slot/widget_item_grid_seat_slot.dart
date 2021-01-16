@@ -1,35 +1,31 @@
-import 'dart:collection';
-
-import 'package:find_seat/model/barrel_model.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
+import 'package:find_seat/presentation/screen/booking/book_seat_slot/bloc/bloc.dart';
+import 'package:find_seat/presentation/screen/booking/book_seat_slot/viewmodel/viewmodel.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WidgetItemGridSeatSlot extends StatefulWidget {
-  String seatTypeName;
+  ItemGridSeatSlotVM itemGridSeatSlotVM;
 
-  List<SeatRow> seatRows = [];
-
-  WidgetItemGridSeatSlot(
-      {@required this.seatTypeName, @required this.seatRows});
+  WidgetItemGridSeatSlot({@required this.itemGridSeatSlotVM});
 
   @override
   _WidgetItemGridSeatSlotState createState() => _WidgetItemGridSeatSlotState();
 }
 
 class _WidgetItemGridSeatSlotState extends State<WidgetItemGridSeatSlot> {
-  int maxColumn;
-  HashMap<String, bool> selectedSeats = HashMap();
+  ItemGridSeatSlotVM itemGridSeatSlotVM;
 
   @override
   void initState() {
-    maxColumn = widget.seatRows[0].count + 1;
-
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    itemGridSeatSlotVM = widget.itemGridSeatSlotVM;
+
     return Container(
       color: COLOR_CONST.WHITE,
       padding: EdgeInsets.all(20),
@@ -37,7 +33,8 @@ class _WidgetItemGridSeatSlotState extends State<WidgetItemGridSeatSlot> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(widget.seatTypeName, style: FONT_CONST.REGULAR_GRAY4_12),
+          Text(itemGridSeatSlotVM.seatTypeName,
+              style: FONT_CONST.REGULAR_GRAY4_12),
           WidgetSpacer(height: 14),
           _buildSlotGrid(),
         ],
@@ -54,7 +51,7 @@ class _WidgetItemGridSeatSlotState extends State<WidgetItemGridSeatSlot> {
       child: GridView.count(
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
-        crossAxisCount: maxColumn,
+        crossAxisCount: itemGridSeatSlotVM.maxColumn,
         scrollDirection: Axis.vertical,
         childAspectRatio: 1,
         crossAxisSpacing: 7,
@@ -67,13 +64,13 @@ class _WidgetItemGridSeatSlotState extends State<WidgetItemGridSeatSlot> {
   List<Widget> _generatedGrid() {
     List<Widget> widgets = [];
 
-    widget.seatRows.forEach((seatRow) {
+    itemGridSeatSlotVM.seatRowVMs.forEach((itemSeatRowVM) {
       //ITEM ROW NAME
       var itemRowName = Container(
         child: Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            '${seatRow.rowId}',
+            itemSeatRowVM.itemRowName,
             style: FONT_CONST.REGULAR_GRAY4_40_12,
           ),
         ),
@@ -81,62 +78,52 @@ class _WidgetItemGridSeatSlotState extends State<WidgetItemGridSeatSlot> {
 
       widgets.add(itemRowName);
 
-      //ITEM SEAT
-      for (int i = 0; i < seatRow.count; i++) {
-        var seatId = "${seatRow.rowId}$i";
+      //ITEM SEAT SLOT
+      List<Widget> widgetSeatSlots = itemSeatRowVM.seatSlotVMs.map(
+        (itemSeatSlotVM) {
+          var itemBgColor = COLOR_CONST.SEAT_SLOT_BG;
+          var itemBorderColor = COLOR_CONST.SEAT_SLOT_BORDER;
 
-        var isOff = seatRow.offs.contains(i);
-        var isBooked = seatRow.booked.contains(i);
-        var isSelected =
-            selectedSeats.containsKey(seatId) && selectedSeats[seatId];
+          if (itemSeatSlotVM.isBooked) {
+            itemBgColor = COLOR_CONST.SEAT_SLOT_BG_BOOKED;
+          }
 
-        var itemBgColor = COLOR_CONST.SEAT_SLOT_BG;
-        var itemBorderColor = COLOR_CONST.SEAT_SLOT_BORDER;
+          if (itemSeatSlotVM.isSelected) {
+            itemBgColor = COLOR_CONST.GREEN;
+            itemBorderColor = COLOR_CONST.TRANS;
+          }
 
-        if (isBooked) {
-          itemBgColor = COLOR_CONST.SEAT_SLOT_BG_BOOKED;
-        }
-
-        if (isSelected) {
-          itemBgColor = COLOR_CONST.GREEN;
-          itemBorderColor = COLOR_CONST.TRANS;
-        }
-
-        var itemAvailable = GestureDetector(
-          onTap: () {
-            if (!isBooked) {
-              _handleSelectSeat(seatRow, seatId);
-            }
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              color: itemBgColor,
-              borderRadius: BorderRadius.circular(4),
-              border: Border.all(
-                color: itemBorderColor,
-                width: 1,
+          var itemAvailable = GestureDetector(
+            onTap: () {
+              _handleSelectSeat(itemSeatSlotVM);
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                color: itemBgColor,
+                borderRadius: BorderRadius.circular(4),
+                border: Border.all(
+                  color: itemBorderColor,
+                  width: 1,
+                ),
               ),
-            ),
 //            child: Center(child: Text('${seatRow.rowId}${i + 1}')),
-          ),
-        );
+            ),
+          );
 
-        var itemEmpty = Container();
+          var itemEmpty = Container();
 
-        widgets.add(isOff ? itemEmpty : itemAvailable);
-      }
+          return itemSeatSlotVM.isOff ? itemEmpty : itemAvailable;
+        },
+      ).toList();
+
+      widgets.addAll(widgetSeatSlots);
     });
 
     return widgets;
   }
 
-  void _handleSelectSeat(SeatRow seatRow, String seatId) {
-    setState(() {
-      if (!selectedSeats.containsKey(seatId)) {
-        selectedSeats[seatId] = true;
-      } else {
-        selectedSeats[seatId] = !selectedSeats[seatId];
-      }
-    });
+  _handleSelectSeat(ItemSeatSlotVM itemSeatSlotVM) {
+    BlocProvider.of<BookSeatSlotBloc>(context)
+        .add(ClickSelectSeatSlot(itemSeatSlotVM: itemSeatSlotVM));
   }
 }

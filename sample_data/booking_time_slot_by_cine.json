@@ -1,0 +1,185 @@
+[
+  {
+    "id": "cine_timeslot_1",
+    "cine": {
+      "id": "BHD Star Cineplex",
+      "name": "BHD Star Cineplex",
+      "address": "8th floor, Vincom shopping mall, 02 Pham Ngoc Thach st, Dong Da District, HaNoi",
+      "distance": 23.4,
+      "photo": "https://",
+      "lat": 21.0064286,
+      "lng": 105.8319952,
+      "rating": 84
+    },
+    "tami": [
+      "3D",
+      "2D"
+    ],
+    "time_slots": [
+      {
+        "id": "cine_timeslot_1_slot1",
+        "time": "10:00 AM",
+        "active": true
+      },
+      {
+        "id": "cine_timeslot_1_slot2",
+        "time": "1:30 PM",
+        "active": true
+      },
+      {
+        "id": "cine_timeslot_1_slot3",
+        "time": "6:30 PM",
+        "active": true
+      },
+      {
+        "id": "cine_timeslot_1_slot4",
+        "time": "9:30 PM",
+        "active": true
+      },
+      {
+        "id": "cine_timeslot_1_slot5",
+        "time": "12:30 AM",
+        "active": true
+      }
+    ]
+  },
+  {
+    "id": "cine_timeslot_2",
+    "cine": {
+      "id": "CGV Vincom Center Ba Trieu",
+      "name": "CGV Vincom Center Ba Trieu",
+      "address": "Level 6 VinCom Center Ha Noi, 191 Ba Trieu Street Hai Ba Trung District, Hanoi",
+      "distance": 15.4,
+      "photo": "https://",
+      "lat": 21.0110831,
+      "lng": 105.8495107,
+      "rating": 94
+    },
+    "tami": [
+      "3D"
+    ],
+    "time_slots": [
+      {
+        "id": "cine_timeslot_2_slot1",
+        "time": "10:00 AM",
+        "active": true
+      },
+      {
+        "id": "cine_timeslot_2_slot2",
+        "time": "1:30 PM",
+        "active": true
+      },
+      {
+        "id": "cine_timeslot_3_slot3",
+        "time": "6:30 PM",
+        "active": false
+      }
+    ]
+  },
+  {
+    "id": "cine_timeslot_3",
+    "cine": {
+      "id": "CGV Vincom Nguyen Chi Thanh",
+      "name": "CGV Vincom Nguyen Chi Thanh",
+      "address": "Level 6, Vincom Center Nguyen Chi Thanh, 54A Nguyen Chi Thanh, Lang Thuong Ward, Dong Da District, Hanoi",
+      "distance": 2.12,
+      "photo": "https://",
+      "lat": 21.0232842,
+      "lng": 105.8092125,
+      "rating": 72
+    },
+    "tami": [
+      "3D"
+    ],
+    "time_slots": [
+      {
+        "id": "cine_timeslot_2_slot1",
+        "time": "10:00 AM",
+        "active": true
+      },
+      {
+        "id": "cine_timeslot_2_slot2",
+        "time": "1:30 PM",
+        "active": true
+      },
+      {
+        "id": "cine_timeslot_3_slot3",
+        "time": "6:30 PM",
+        "active": false
+      }
+    ]
+  },
+  {
+    "id": "cine_timeslot_4",
+    "cine": {
+      "id": "CGV Vinhomes Riverside Long Bien",
+      "name": "CGV Vinhomes Riverside Long Bien",
+      "address": "5th Floor, Vincom Plaza Long Bien, Vinhomes Riverside, Phuc Loi Ward, Long Bien District, Ha Noi",
+      "distance": 4.22,
+      "photo": "https://",
+      "lat": 21.0509866,
+      "lng": 105.9163423,
+      "rating": 79
+    },
+    "tami": [
+      "3D-MAX",
+      "2D"
+    ],
+    "time_slots": [
+      {
+        "id": "cine_timeslot_4_slot1",
+        "time": "11:15 AM",
+        "active": true
+      },
+      {
+        "id": "cine_timeslot_4_slot2",
+        "time": "07:25 PM",
+        "active": true
+      },
+      {
+        "id": "cine_timeslot_4_slot3",
+        "time": "08:45 PM",
+        "active": true
+      },
+      {
+        "id": "cine_timeslot_4_slot4",
+        "time": "10:20 PM",
+        "active": false
+      }
+    ]
+  },
+  {
+    "id": "cine_timeslot_5",
+    "cine": {
+      "id": "CGV Vincom Metropolis Lieu Giai",
+      "name": "CGV Vincom Metropolis Lieu Giai",
+      "address": "29 Lieu Giai st, Ngọc Khanh, Ba Dinh District, Ha Noi 100000",
+      "distance": 3.45,
+      "photo": "https://",
+      "lat": 21.0320675,
+      "lng": 105.8146896,
+      "rating": 81
+    },
+    "tami": [
+      "3D-MAX",
+      "2D"
+    ],
+    "time_slots": [
+      {
+        "id": "cine_timeslot_5_slot1",
+        "time": "08:15 AM",
+        "active": true
+      },
+      {
+        "id": "cine_timeslot_5_slot2",
+        "time": "02:45 PM",
+        "active": true
+      },
+      {
+        "id": "cine_timeslot_5_slot3",
+        "time": "07:10 PM",
+        "active": true
+      }
+    ]
+  }
+]

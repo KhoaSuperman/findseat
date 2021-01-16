@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:find_seat/model/entity/entity.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
@@ -7,6 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 
 class WidgetOffers extends StatelessWidget {
+  Show show;
+
+  WidgetOffers({this.show});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,23 +25,41 @@ class WidgetOffers extends StatelessWidget {
           WidgetSpacer(height: 14),
           Container(
             height: 81,
-            child: ListView(
+            child: ListView.separated(
+              itemBuilder: (context, index) {
+                Offer offer = show.offers[index];
+
+                String iconPath = '';
+                Color textColor;
+                Color iconBgColor;
+                switch (offer.type) {
+                  case OFFER_TYPE.GREEN:
+                    iconPath = 'assets/ic_gift.svg';
+                    textColor = COLOR_CONST.RED2;
+                    iconBgColor = COLOR_CONST.GIFT_BG1;
+                    break;
+                  case OFFER_TYPE.RED:
+                    iconPath = 'assets/ic_gift_green.svg';
+                    textColor = COLOR_CONST.GREEN2;
+                    iconBgColor = COLOR_CONST.GIFT_BG2;
+                    break;
+                }
+
+                return _WidgetGrabReward(
+                  iconPath: iconPath,
+                  textColor: textColor,
+                  iconBgColor: iconBgColor,
+                  title: offer.title,
+                  content: offer.content,
+                );
+              },
+              separatorBuilder: (context, index) {
+                return WidgetSpacer(width: 20);
+              },
               shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
               physics: BouncingScrollPhysics(),
-              children: <Widget>[
-                _WidgetGrabReward(
-                  iconPath: 'assets/ic_gift.svg',
-                  textColor: COLOR_CONST.RED2,
-                  iconBgColor: COLOR_CONST.GIFT_BG1,
-                ),
-                WidgetSpacer(width: 20),
-                _WidgetGrabReward(
-                  iconPath: 'assets/ic_gift_green.svg',
-                  textColor: COLOR_CONST.GREEN2,
-                  iconBgColor: COLOR_CONST.GIFT_BG2,
-                ),
-              ],
+              scrollDirection: Axis.horizontal,
+              itemCount: show.offers.length,
             ),
           )
         ],
@@ -49,8 +72,15 @@ class _WidgetGrabReward extends StatelessWidget {
   String iconPath;
   Color iconBgColor;
   Color textColor;
+  String title;
+  String content;
 
-  _WidgetGrabReward({this.iconPath, this.iconBgColor, this.textColor});
+  _WidgetGrabReward(
+      {this.iconPath,
+      this.iconBgColor,
+      this.textColor,
+      this.title,
+      this.content});
 
   @override
   Widget build(BuildContext context) {
@@ -89,12 +119,12 @@ class _WidgetGrabReward extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Wait ! Grab FREE reward',
+                  Text(title,
                       maxLines: 1,
                       style: FONT_CONST.OSWALD_REGULAR_RED2_12
                           .copyWith(color: textColor)),
                   Text(
-                    'Book your seats and tap on the reward box to claim it.',
+                    content,
                     style: FONT_CONST.REGULAR_GRAY4_10,
                     maxLines: 2,
                   ),

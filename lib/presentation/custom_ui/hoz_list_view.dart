@@ -35,6 +35,7 @@ class _WrapContentHozListViewState extends State<WrapContentHozListView> {
       physics: BouncingScrollPhysics(),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: _generateItemWidgets(),
       ),
     );

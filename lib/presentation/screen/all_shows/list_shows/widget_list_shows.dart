@@ -1,4 +1,6 @@
+import 'package:find_seat/model/entity/entity.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
+import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
 import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
@@ -40,20 +42,27 @@ class _WidgetItemShow extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        openShowDetails();
+        openShowDetails(item.show);
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image.asset(
-              item.photo,
-              fit: BoxFit.contain,
+          Flexible(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: ShimmerImage(
+                item.photo,
+                aspectRatio: 150 / 200,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           WidgetSpacer(height: 6),
-          Text(item.title, style: FONT_CONST.REGULAR_BLACK2_14),
+          Text(item.title,
+              style: FONT_CONST.REGULAR_BLACK2_14,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis),
           WidgetSpacer(height: 2),
           Row(
             children: <Widget>[
@@ -71,15 +80,24 @@ class _WidgetItemShow extends StatelessWidget {
     );
   }
 
-  void openShowDetails() {
-    Navigator.pushNamed(_context, Router.SHOW_INFO);
+  void openShowDetails(Show show) {
+    Navigator.pushNamed(_context, AppRouter.SHOW_INFO, arguments: show);
   }
 }
 
 class ItemShowVM {
+  Show show;
+
   String photo;
   String title;
   int likePercent;
 
   ItemShowVM(this.photo, this.title, this.likePercent);
+
+  ItemShowVM.fromShow(Show show) {
+    this.show = show;
+    photo = show.thumb;
+    title = show.name;
+    likePercent = show.rate;
+  }
 }

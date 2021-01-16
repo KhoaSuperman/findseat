@@ -1,0 +1,4 @@
+enum BOOKING_TIME_SLOT_SORT_BY {
+  DISTANCE,
+  NAME,
+}

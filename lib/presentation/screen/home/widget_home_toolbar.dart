@@ -1,9 +1,17 @@
+import 'package:find_seat/app/auth_bloc/bloc.dart';
 import 'package:find_seat/presentation/common_widgets/widget_spacer.dart';
 import 'package:find_seat/presentation/custom_ui/svg_image.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
-class WidgetHomeToolbar extends StatelessWidget {
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class WidgetHomeToolbar extends StatefulWidget {
+  @override
+  _WidgetHomeToolbarState createState() => _WidgetHomeToolbarState();
+}
+
+class _WidgetHomeToolbarState extends State<WidgetHomeToolbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,15 +54,20 @@ class WidgetHomeToolbar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text('Book seats', style: FONT_CONST.SEMIBOLD_WHITE_16),
-          Opacity(
-            child: Row(
-              children: <Widget>[
-                Text('Coimbatore', style: FONT_CONST.REGULAR_WHITE_12),
-                Icon(Icons.keyboard_arrow_down, color: COLOR_CONST.WHITE)
-              ],
+          Text('Khoa Hoang', style: FONT_CONST.SEMIBOLD_WHITE_16),
+          GestureDetector(
+            onTap: () {
+              _clickSignOut();
+            },
+            child: Opacity(
+              child: Row(
+                children: <Widget>[
+                  Text('Vietnam', style: FONT_CONST.REGULAR_WHITE_12),
+                  Icon(Icons.keyboard_arrow_down, color: COLOR_CONST.WHITE)
+                ],
+              ),
+              opacity: 0.5,
             ),
-            opacity: 0.5,
           )
         ],
       ),
@@ -74,9 +87,13 @@ class WidgetHomeToolbar extends StatelessWidget {
             color: Colors.white,
             width: 2.0,
           ),
-          image: DecorationImage(image: AssetImage("images/sample_avatar.png")),
+          image: DecorationImage(image: AssetImage("images/sample_avatar.jpg")),
         ),
       ),
     );
+  }
+
+  _clickSignOut() {
+    BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
   }
 }
