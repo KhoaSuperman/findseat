@@ -34,7 +34,10 @@ class WidgetToolbar extends StatelessWidget {
           Expanded(
             child: Text(title, style: FONT_CONST.MEDIUM_WHITE_16),
           ),
-          actions,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 20),
+            child: actions,
+          ),
         ],
       ),
     );

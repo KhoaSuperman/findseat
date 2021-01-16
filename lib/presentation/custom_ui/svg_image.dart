@@ -15,6 +15,12 @@ class MySvgImage extends StatelessWidget {
       this.color = Colors.white,
       this.applyColorFilter = true});
 
+  MySvgImage.toolbarIcon(this.path) {
+    this.width = 20;
+    this.height = 20;
+    this.applyColorFilter = true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return applyColorFilter

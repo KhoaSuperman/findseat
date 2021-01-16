@@ -91,12 +91,8 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
                       children: <Widget>[
                         WidgetToolbar(
                           title: showName,
-                          actions: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 2, horizontal: 20),
-                            child: Text(textSeat,
-                                style: FONT_CONST.MEDIUM_WHITE_12),
-                          ),
+                          actions:
+                              Text(textSeat, style: FONT_CONST.MEDIUM_WHITE_12),
                         ),
                         Expanded(
                           child: SingleChildScrollView(

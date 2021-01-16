@@ -1,6 +1,7 @@
 import 'package:find_seat/app/auth_bloc/bloc.dart';
 import 'package:find_seat/presentation/common_widgets/widget_spacer.dart';
 import 'package:find_seat/presentation/custom_ui/svg_image.dart';
+import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 
@@ -28,23 +29,22 @@ class _WidgetHomeToolbarState extends State<WidgetHomeToolbar> {
   }
 
   _buildActions() {
-    return Row(
-      children: <Widget>[
-        MySvgImage(
-          path: "assets/ic_search.svg",
-          width: 20,
-          height: 20,
-        ),
-        WidgetSpacer(
-          width: 12,
-        ),
-        MySvgImage(
-          path: "assets/ic_noti.svg",
-          width: 20,
-          height: 20,
-        ),
-        WidgetSpacer(width: 12),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(right: 16),
+      child: Row(
+        children: <Widget>[
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushNamed(AppRouter.LIST_MY_TICKET);
+            },
+            child: MySvgImage(
+              path: "assets/ic_ticket.svg",
+              width: 20,
+              height: 20,
+            ),
+          ),
+        ],
+      ),
     );
   }
 

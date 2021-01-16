@@ -4,6 +4,7 @@ import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
 import 'package:find_seat/presentation/screen/booking/book_seat_slot/barrel_book_seat_slot.dart';
 import 'package:find_seat/presentation/screen/booking/book_seat_type/barrel_book_seat_type.dart';
 import 'package:find_seat/presentation/screen/list_all_cine/barrel_list_all_cine.dart';
+import 'package:find_seat/presentation/screen/list_my_ticket/sc_list_my_ticket.dart';
 import 'package:find_seat/presentation/screen/login/sc_login.dart';
 import 'package:find_seat/presentation/screen/register/barrel_register.dart';
 import 'package:find_seat/presentation/screen/show_info/barrel_show_info.dart';
@@ -23,6 +24,7 @@ class AppRouter {
   static const String BOOK_SEAT_SLOT = '/book_seat_slot';
   static const String LIST_ALL_CINE = '/list_all_cine';
   static const String REGISTER = '/register';
+  static const String LIST_MY_TICKET = '/list_my_ticket';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -53,6 +55,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => ListAllCineScreen());
       case REGISTER:
         return MaterialPageRoute(builder: (_) => RegisterScreen());
+      case LIST_MY_TICKET:
+        return MaterialPageRoute(builder: (_) => ListMyTicketScreen());
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(
