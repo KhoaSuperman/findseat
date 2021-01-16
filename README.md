@@ -176,7 +176,9 @@ Plugin | Usage
 
 Before run project, execute commands:
 - `flutter clean`
+- `flutter pub get`
 - `flutter pub run build_runner build` or `flutter pub run build_runner build --delete-conflicting-outputs`
+- `flutter run` (if needed)
 
 ## Support
 - If you wanna get updates in next version, please give me a ⭐ to the repo 👍
