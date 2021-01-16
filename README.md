@@ -130,6 +130,54 @@ Plugin | Usage
 ##### Author: [Dinu Dinesh](https://www.uplabs.com/getdineshonline)
 ##### Design link: [Movie & events ticket booking app](https://www.uplabs.com/posts/movie-events-ticket-booking-app)
 
+## Development Environment
+`flutter doctor -v`
+```
+[√] Flutter (Channel stable, 1.22.3, on Microsoft Windows [Version 10.0.18363.1316], locale en-US)
+    • Flutter version 1.22.3 at C:\src\flutter
+    • Framework revision 8874f21e79 (3 months ago), 2020-10-29 14:14:35 -0700
+    • Engine revision a1440ca392
+    • Dart version 2.10.3
+
+
+[√] Android toolchain - develop for Android devices (Android SDK version 29.0.2)
+    • Android SDK at C:\Users\ASUS\AppData\Local\Android\sdk
+    • Platform android-29, build-tools 29.0.2
+    • Java binary at: C:\Program Files\Android\AS33\jre\bin\java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_212-release-1586-b04)
+    • All Android licenses accepted.
+
+[√] Android Studio (version 3.1)
+    • Android Studio at C:\Program Files\Android\AS31
+    • Flutter plugin version 29.0.1
+    • Dart plugin version 173.4700
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-1024-b02)
+
+[√] Android Studio (version 3.5)
+    • Android Studio at C:\Program Files\Android\android-studio
+    • Flutter plugin version 42.1.1
+    • Dart plugin version 191.8593
+    • Java version OpenJDK Runtime Environment (build 1.8.0_202-release-1483-b03)
+
+[√] Android Studio (version 3.6) - currently use
+    • Android Studio at C:\Program Files\Android\AS33
+    • Flutter plugin version 49.0.1
+    • Dart plugin version 192.8052
+    • Java version OpenJDK Runtime Environment (build 1.8.0_212-release-1586-b04)
+
+[!] VS Code (version 1.52.1)
+    • VS Code at C:\Users\ASUS\AppData\Local\Programs\Microsoft VS Code
+    X Flutter extension not installed; install from
+      https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter
+
+[√] Connected device (1 available)
+    • Android SDK built for x86 (mobile) • emulator-5554 • android-x86 • Android 8.1.0 (API 27) (emulator)
+```
+
+Before run project, execute commands:
+- `flutter clean`
+- `flutter pub run build_runner build` or `flutter pub run build_runner build --delete-conflicting-outputs`
+
 ## Support
 - If you wanna get updates in next version, please give me a ⭐ to the repo 👍
 - If you love my work and want to support, [buy me a coffee here](https://www.paypal.me/khoahoang1012/1). Thank you so much 👍
