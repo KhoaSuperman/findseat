@@ -116,7 +116,7 @@ class _WidgetItemPoster extends StatelessWidget {
   }
 
   void openShowDetails({Show show}) {
-    Navigator.pushNamed(_context, Router.SHOW_INFO, arguments: show);
+    Navigator.pushNamed(_context, AppRouter.SHOW_INFO, arguments: show);
   }
 }
 

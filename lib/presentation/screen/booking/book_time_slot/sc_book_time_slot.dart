@@ -142,7 +142,7 @@ class BookTimeSlotScreen extends StatelessWidget {
 
   _openBookSeatTypeScreen() {
     BlocProvider.of<BookTimeSlotBloc>(_context).add(OpenedBookSeatTypeScreen());
-    Navigator.pushNamed(_context, Router.BOOK_SEAT_TYPE);
+    Navigator.pushNamed(_context, AppRouter.BOOK_SEAT_TYPE);
   }
 
   void openCineDatePicker() {

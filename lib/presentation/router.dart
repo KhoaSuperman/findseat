@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'screen/home/sc_home.dart';
 import 'screen/splash/sc_splash.dart';
 
-class Router {
+class AppRouter {
   static const String HOME = '/home';
   static const String SPLASH = '/splash';
   static const String LOGIN = '/login';

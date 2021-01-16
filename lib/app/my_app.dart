@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         hoverColor: COLOR_CONST.GREEN,
         fontFamily: 'Poppins',
       ),
-      onGenerateRoute: Router.generateRoute,
+      onGenerateRoute: AppRouter.generateRoute,
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
           if (state is Uninitialized) {

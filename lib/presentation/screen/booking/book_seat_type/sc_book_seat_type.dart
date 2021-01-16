@@ -115,7 +115,7 @@ class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
   }
 
   _openBookSeatSlotScreen(BookSeatTypeState state) {
-    Navigator.pushNamed(context, Router.BOOK_SEAT_SLOT,
+    Navigator.pushNamed(context, AppRouter.BOOK_SEAT_SLOT,
         arguments: ScreenArguments(
           seatCount: state.seatCount,
           seatType: state.selectedSeatType,

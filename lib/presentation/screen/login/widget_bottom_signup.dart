@@ -20,7 +20,7 @@ class WidgetBottomSignUp extends StatelessWidget {
           Flexible(
             child: GestureDetector(
               onTap: () {
-                Navigator.of(context).pushNamed(Router.REGISTER);
+                Navigator.of(context).pushNamed(AppRouter.REGISTER);
               },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4),

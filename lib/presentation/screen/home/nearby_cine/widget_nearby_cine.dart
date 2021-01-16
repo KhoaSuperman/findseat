@@ -67,7 +67,7 @@ class _WidgetNearbyCineState extends State<WidgetNearbyCine> {
   }
 
   _openAllCine() {
-    Navigator.pushNamed(context, Router.LIST_ALL_CINE);
+    Navigator.pushNamed(context, AppRouter.LIST_ALL_CINE);
   }
 
   Completer<GoogleMapController> _controller = Completer();

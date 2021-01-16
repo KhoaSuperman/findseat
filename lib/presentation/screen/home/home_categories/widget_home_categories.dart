@@ -110,7 +110,7 @@ class _WidgetItemCategory extends StatelessWidget {
   }
 
   void openAllShows() {
-    Navigator.pushNamed(_context, Router.ALL_SHOWS);
+    Navigator.pushNamed(_context, AppRouter.ALL_SHOWS);
   }
 }
 

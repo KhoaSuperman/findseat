@@ -118,7 +118,7 @@ class _WidgetItemRecommendedSeat extends StatelessWidget {
   }
 
   void openShowDetails() {
-    Navigator.pushNamed(_context, Router.SHOW_INFO, arguments: item.show);
+    Navigator.pushNamed(_context, AppRouter.SHOW_INFO, arguments: item.show);
   }
 }
 
