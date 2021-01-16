@@ -14,7 +14,7 @@ description: A new Flutter application.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -23,19 +23,52 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  retrofit: any
+  json_annotation: any
+  carousel_slider: ^1.4.1
+
+  #object builder
+  freezed: ^0.10.6
+
+  #format date time and other formats
+  intl: ^0.16.1
+
+  #youtube player
+  youtube_player_flutter: ^6.1.0+4
+
+  # local storage
+  shared_preferences: ^0.5.6+3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_bloc: ^1.0.0
+  # Data
   equatable: ^0.6.0
   meta: ^1.1.6
   sprintf: "^4.0.0"
   uuid: "2.0.1"
-  flutter_svg: ^0.14.2
+  # UI
+  flutter_svg: ^0.18.1
   google_maps_flutter: ^0.5.21+15
   dotted_border: ^1.0.4
+  shimmer: ^1.1.1
+
+  # Payment
   stripe_payment: ^1.0.6
+  # Auth
+  firebase_core: ^0.4.0+8
+  google_sign_in: ^4.0.0
+  firebase_auth: ^0.15.0+1
+  # Bloc
+  flutter_bloc: ^3.1.0
+  dio: 3.0.9
+  retrofit_generator: any
+  build_runner: any
+  json_serializable: any
+
+  # Unit test
+  test:
+  bloc_test: ^4.0.0
 
 
 # For information on the generic Dart part of this file, see the

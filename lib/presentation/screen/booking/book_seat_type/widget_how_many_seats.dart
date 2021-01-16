@@ -1,7 +1,9 @@
 import 'package:find_seat/model/barrel_model.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
+import 'package:find_seat/presentation/screen/booking/book_seat_type/bloc/bloc.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WidgetHowManySeats extends StatefulWidget {
   @override
@@ -24,7 +26,7 @@ class _WidgetHowManySeatsState extends State<WidgetHowManySeats> {
           WidgetSpacer(height: 30),
           WidgetNumberSeatPicker(),
           WidgetSeatTypePicker(),
-          WidgetSpacer(height: 94),
+          WidgetSpacer(height: 54),
         ],
       ),
     );
@@ -33,11 +35,7 @@ class _WidgetHowManySeatsState extends State<WidgetHowManySeats> {
 
 /// WidgetSeatTypePicker
 class WidgetSeatTypePicker extends StatefulWidget {
-  List<SeatType> seatTypes = [
-    SeatType('King', 120.0, SEAT_TYPE.KING),
-    SeatType('Queen', 100.0, SEAT_TYPE.QUEEN),
-    SeatType('Jack', 80.0, SEAT_TYPE.JACK),
-  ];
+  List<SeatType> seatTypes = SeatType.SAMPLE_DATA;
 
   @override
   _WidgetSeatTypePickerState createState() => _WidgetSeatTypePickerState();
@@ -85,9 +83,7 @@ class _WidgetSeatTypePickerState extends State<WidgetSeatTypePicker> {
 
     return GestureDetector(
       onTap: () {
-        setState(() {
-          _selectedIndex = index;
-        });
+        _clickSelectSeatType(index);
       },
       child: Container(
         decoration: BoxDecoration(
@@ -110,6 +106,16 @@ class _WidgetSeatTypePickerState extends State<WidgetSeatTypePicker> {
         ),
       ),
     );
+  }
+
+  _clickSelectSeatType(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    BlocProvider.of<BookSeatTypeBloc>(context).add(ClickSelectSeatType(
+      selectedSeatType: widget.seatTypes[index].type,
+    ));
   }
 }
 
@@ -139,9 +145,7 @@ class _WidgetNumberSeatPickerState extends State<WidgetNumberSeatPicker> {
 
           return GestureDetector(
             onTap: () {
-              setState(() {
-                _selectedIndex = index;
-              });
+              _clickSelectSeat(index);
             },
             child: Container(
               width: 32,
@@ -162,5 +166,14 @@ class _WidgetNumberSeatPickerState extends State<WidgetNumberSeatPicker> {
         itemCount: seats.length,
       ),
     );
+  }
+
+  _clickSelectSeat(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    BlocProvider.of<BookSeatTypeBloc>(context)
+        .add(ClickHowManySeat(seatCount: index + 1));
   }
 }

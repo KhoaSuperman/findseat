@@ -1,4 +1,6 @@
+import 'package:find_seat/model/entity/entity.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
+import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
 import 'package:find_seat/presentation/custom_ui/svg_image.dart';
 import 'package:find_seat/presentation/router.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
@@ -27,6 +29,7 @@ class WidgetHomePosters extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
             children: <Widget>[
@@ -56,21 +59,16 @@ class WidgetHomePosters extends StatelessWidget {
   }
 
   _buildListPoster() {
-    return Container(
-      height: 186,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          var item = items[index];
+    return WrapContentHozListView(
+      itemBuilder: (context, index) {
+        var item = items[index];
 
-          return _WidgetItemPoster(item);
-        },
-        separatorBuilder: (context, index) {
-          return WidgetSpacer(width: 14);
-        },
-        physics: BouncingScrollPhysics(),
-        itemCount: items.length,
-      ),
+        return _WidgetItemPoster(item);
+      },
+      separatorBuilder: (context, index) {
+        return WidgetSpacer(width: 14);
+      },
+      list: items,
     );
   }
 }
@@ -87,20 +85,21 @@ class _WidgetItemPoster extends StatelessWidget {
     _context = context;
     return GestureDetector(
       onTap: () {
-        openShowDetails();
+        openShowDetails(show: item.show);
       },
       child: Container(
         width: 93,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
+              child: ShimmerImage(
                 item.photo,
                 width: 93,
                 height: 124,
-                fit: BoxFit.contain,
+                fit: BoxFit.cover,
               ),
             ),
             WidgetSpacer(height: 4),
@@ -116,8 +115,8 @@ class _WidgetItemPoster extends StatelessWidget {
     );
   }
 
-  void openShowDetails() {
-    Navigator.pushNamed(_context, Router.SHOW_INFO);
+  void openShowDetails({Show show}) {
+    Navigator.pushNamed(_context, AppRouter.SHOW_INFO, arguments: show);
   }
 }
 
@@ -125,6 +124,14 @@ class ItemPosterVM {
   String title;
   String subTitle;
   String photo;
+  Show show;
 
   ItemPosterVM(this.photo, this.title, this.subTitle);
+
+  ItemPosterVM.fromShow(Show show) {
+    this.show = show;
+    title = show.name;
+    subTitle = show.tags.join(" - ");
+    photo = show.thumb;
+  }
 }

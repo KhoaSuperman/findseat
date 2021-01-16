@@ -1,3 +1,6 @@
+import 'package:find_seat/model/entity/book_time_slot.dart';
+import 'package:find_seat/model/entity/show.dart';
+import 'package:find_seat/model/entity/time_slot.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
@@ -5,6 +8,20 @@ import 'package:flutter/material.dart';
 import 'package:stripe_payment/stripe_payment.dart';
 
 class PaymentMethodPickerScreen extends StatefulWidget {
+  List<String> selectedSeatIds;
+  double totalPrice;
+  Show show;
+  TimeSlot selectedTimeSlot;
+  BookTimeSlot bookTimeSlot;
+
+  PaymentMethodPickerScreen(
+    this.selectedSeatIds,
+    this.totalPrice,
+    this.show,
+    this.selectedTimeSlot,
+    this.bookTimeSlot,
+  );
+
   @override
   _PaymentMethodPickerScreenState createState() =>
       _PaymentMethodPickerScreenState();
@@ -86,57 +103,23 @@ class _PaymentMethodPickerScreenState extends State<PaymentMethodPickerScreen> {
     _cardForm();
   }
 
-  void _webPayment() {
-    var onError = (error) {
-      print('Error. ${error.toString()}');
-    };
-
-    StripePayment.createSourceWithParams(SourceParams(
-      type: 'ideal',
-      amount: 1099,
-      currency: 'eur',
-      returnURL: 'example://stripe-redirect',
-    )).then((source) {
-      print('Received ${source.sourceId}');
-    }).catchError(onError);
-  }
-
   void _cardForm() {
     var onError = (error) {
       print('Error. ${error.toString()}');
     };
 
-    StripePayment.paymentRequestWithCardForm(CardFormPaymentRequest())
-        .then((paymentMethod) {
-      _showDlgPaymentSuccess(
-          'Payment successfully: Received type=${paymentMethod.type}, id=${paymentMethod.billingDetails.toJson()}');
-    }).catchError(onError);
-  }
-
-  void _nativePayment() {
-    var onError = (error) {
-      print('Error. ${error.toString()}');
-    };
-
-    StripePayment.paymentRequestWithNativePay(
-      androidPayOptions: AndroidPayPaymentRequest(
-        total_price: "1.20",
-        currency_code: "EUR",
+    StripePayment.paymentRequestWithCardForm(
+      CardFormPaymentRequest(
+        prefilledInformation: PrefilledInformation(),
       ),
-      applePayOptions: ApplePayPaymentOptions(
-        countryCode: 'DE',
-        currencyCode: 'EUR',
-        items: [
-          ApplePayItem(
-            label: 'Test',
-            amount: '13',
-          )
-        ],
-      ),
-    ).then((token) {
-      setState(() {
-        print('Token: ${token.toJson()}');
-      });
+    ).then((paymentMethod) {
+      String ticketInfo = "${widget.show.name}\n"
+          "Items: ${widget.selectedSeatIds.length}\n"
+          "Seat: ${widget.selectedSeatIds.join(", ")}\n"
+          "Time: ${widget.selectedTimeSlot.time}\n"
+          "Cinema: ${widget.bookTimeSlot.cine.name}";
+
+      _showDlgPaymentSuccess(ticketInfo);
     }).catchError(onError);
   }
 
@@ -145,7 +128,7 @@ class _PaymentMethodPickerScreenState extends State<PaymentMethodPickerScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Stripe SDK'),
+          title: Text('Payment success by Stripe'),
           content: Text(msg),
           actions: <Widget>[
             FlatButton(

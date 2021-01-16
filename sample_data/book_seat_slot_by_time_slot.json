@@ -1,0 +1,83 @@
+
+{
+  "data": [
+    {
+      "seat_type": "jack",
+      "price": "80.0",
+      "seat_rows": [
+        {
+          "id": "A",
+          "count": 11,
+          "offs": [4, 5],
+          "booked": [0, 1, 2, 3]
+        },
+        {
+          "id": "B",
+          "count": 11,
+          "offs": [4, 5],
+          "booked": [1, 2, 6, 7]
+        },
+        {
+          "id": "C",
+          "count": 11,
+          "offs": [4, 5],
+          "booked": [9, 10]
+        },
+        {
+          "id": "D",
+          "count": 11,
+          "offs": [4, 5],
+          "booked": [9, 10]
+        },
+        {
+          "id": "E",
+          "count": 11,
+          "offs": [],
+          "booked": [2, 3, 4, 5, 6, 7]
+        }
+      ]
+    },
+    {
+      "seat_type": "queen",
+      "price": "100.0",
+      "seat_rows": [
+        {
+          "id": "F",
+          "count": 11,
+          "offs": [4, 5],
+          "booked": [1, 2, 3]
+        },
+        {
+          "id": "G",
+          "count": 11,
+          "offs": [4, 5],
+          "booked": [6, 7, 8]
+        },
+        {
+          "id": "H",
+          "count": 11,
+          "offs": [],
+          "booked": [0, 1, 4, 5, 9, 10]
+        }
+      ]
+    },
+    {
+      "seat_type": "king",
+      "price": "120.0",
+      "seat_rows": [
+        {
+          "id": "I",
+          "count": 11,
+          "offs": [4, 5],
+          "booked": []
+        },
+        {
+          "id": "J",
+          "count": 11,
+          "offs": [],
+          "booked": []
+        }
+      ]
+    }
+  ]
+}
