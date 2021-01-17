@@ -4,6 +4,7 @@ import 'package:find_seat/utils/my_const/COLOR_CONST.dart';
 import 'package:find_seat/utils/my_const/FONT_CONST.dart';
 import 'package:flutter/material.dart';
 import 'package:find_seat/utils/my_formatter.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 class WidgetItemListMyTicker extends StatelessWidget {
   final double itemHeight = 148;
@@ -16,9 +17,21 @@ class WidgetItemListMyTicker extends StatelessWidget {
   Widget build(BuildContext context) {
     String banner = ticket.showBanner;
     String showName = ticket.showName;
+    String timeSlot = ticket.showTimeSlot;
     String bookTime = (ticket.bookTime ~/ 1000).MMM_dd_yyyy();
     String cineName = ticket.cineName;
-    String seat = ticket.seat.split(";").join(", ");
+
+    //
+    List<String> seatSlots = ticket.seat.split(";");
+    String strSeatSlot = seatSlots[0];
+    seatSlots.skip(1).forEach((element) {
+      int index = seatSlots.indexOf(element);
+      if (index % 2 == 0) {
+        strSeatSlot = "$strSeatSlot\n$element";
+      } else {
+        strSeatSlot = "$strSeatSlot, $element";
+      }
+    });
 
     return Container(
       color: COLOR_CONST.WHITE,
@@ -27,7 +40,9 @@ class WidgetItemListMyTicker extends StatelessWidget {
         children: [
           Image.network(
             banner,
+            width: 108,
             height: itemHeight,
+            fit: BoxFit.cover,
           ),
           WidgetSpacer(width: 16),
           Expanded(
@@ -37,31 +52,38 @@ class WidgetItemListMyTicker extends StatelessWidget {
               children: [
                 Text(
                   showName,
-                  style: FONT_CONST.MEDIUM_BLACK2_16.copyWith(fontSize: 18),
+                  style: FONT_CONST.MEDIUM_BLACK2_16.copyWith(fontSize: 16),
                 ),
-                WidgetSpacer(height: 4),
+                WidgetSpacer(height: 2),
                 Text(
-                  bookTime,
-                  style: FONT_CONST.SEMIBOLD.copyWith(fontSize: 12),
+                  timeSlot,
+                  style: FONT_CONST.MEDIUM.copyWith(fontSize: 14),
                 ),
                 WidgetSpacer(height: 2),
                 Text(
                   cineName,
                   style: FONT_CONST.MEDIUM
-                      .copyWith(color: COLOR_CONST.GRAY6, fontSize: 12),
+                      .copyWith(color: COLOR_CONST.GRAY6, fontSize: 10),
                 ),
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 6, right: 16),
+            padding: const EdgeInsets.symmetric(vertical: 36, horizontal: 4),
+            child: Container(
+              width: 2,
+              color: COLOR_CONST.ITEM_BG,
+            ),
+          ),
+          Container(
+            width: 76,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Seat:", style: FONT_CONST.REGULAR_BLACK2_12),
+                Text("Seat", style: FONT_CONST.REGULAR_BLACK2_12),
                 WidgetSpacer(height: 4),
                 Text(
-                  seat,
+                  strSeatSlot,
                   style: FONT_CONST.OSWALD_REGULAR.copyWith(
                     color: COLOR_CONST.DEFAULT,
                     fontSize: 18,

@@ -65,8 +65,8 @@ class ListMyTicketScreen extends StatelessWidget {
           ),
           WidgetSpacer(height: 16),
           Container(
-            width: 32,
-            height: 4,
+            width: 28,
+            height: 3,
             decoration: BoxDecoration(
               color: COLOR_CONST.DEFAULT,
               borderRadius: BorderRadius.circular(8),
@@ -91,6 +91,7 @@ class ListMyTicketScreen extends StatelessWidget {
       final listTicket = state.data;
       return ListView.separated(
           shrinkWrap: true,
+          physics: BouncingScrollPhysics(),
           itemBuilder: (context, index) {
             Ticket ticket = listTicket[index];
             return WidgetItemListMyTicker(ticket);
