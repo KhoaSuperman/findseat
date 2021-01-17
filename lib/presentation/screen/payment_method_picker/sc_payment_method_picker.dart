@@ -1,11 +1,17 @@
 import 'package:find_seat/model/entity/book_time_slot.dart';
 import 'package:find_seat/model/entity/show.dart';
 import 'package:find_seat/model/entity/time_slot.dart';
+import 'package:find_seat/model/repo/repo.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 import 'package:stripe_payment/stripe_payment.dart';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../router.dart';
+import 'bloc/bloc.dart';
 
 class PaymentMethodPickerScreen extends StatefulWidget {
   List<String> selectedSeatIds;
@@ -28,6 +34,8 @@ class PaymentMethodPickerScreen extends StatefulWidget {
 }
 
 class _PaymentMethodPickerScreenState extends State<PaymentMethodPickerScreen> {
+  BuildContext blocContext;
+
   @override
   void initState() {
     super.initState();
@@ -40,6 +48,23 @@ class _PaymentMethodPickerScreenState extends State<PaymentMethodPickerScreen> {
 
   @override
   Widget build(BuildContext context) {
+    return BlocProvider<PaymentMethodPickerBloc>(
+      create: (context) => PaymentMethodPickerBloc(
+        RepositoryProvider.of<TicketRepo>(context),
+      )..add(OpenScreenPaymentMethodPickerEvent()),
+      child: BlocConsumer<PaymentMethodPickerBloc, PaymentMethodPickerState>(
+        listener: (context, state) {
+          //
+        },
+        builder: (context, state) {
+          blocContext = context;
+          return _buildContent();
+        },
+      ),
+    );
+  }
+
+  Widget _buildContent() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
       color: COLOR_CONST.WHITE,
@@ -113,6 +138,14 @@ class _PaymentMethodPickerScreenState extends State<PaymentMethodPickerScreen> {
         prefilledInformation: PrefilledInformation(),
       ),
     ).then((paymentMethod) {
+      //for saving ticket to local db
+      blocContext.bloc<PaymentMethodPickerBloc>().add(OnPaymentSuccessEvent(
+            widget.show.name,
+            widget.selectedSeatIds,
+            widget.selectedTimeSlot,
+            widget.bookTimeSlot.cine.name,
+          ));
+
       String ticketInfo = "${widget.show.name}\n"
           "Items: ${widget.selectedSeatIds.length}\n"
           "Seat: ${widget.selectedSeatIds.join(", ")}\n"
@@ -134,7 +167,8 @@ class _PaymentMethodPickerScreenState extends State<PaymentMethodPickerScreen> {
             FlatButton(
               child: Text('OK'),
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(context)
+                    .popUntil(ModalRoute.withName(AppRouter.HOME));
               },
             ),
           ],

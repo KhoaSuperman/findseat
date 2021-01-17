@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:find_seat/model/db/db.dart';
-import 'package:find_seat/model/entity/my_ticket.dart';
+import 'package:find_seat/model/entity/ticket.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DbHelper {
@@ -9,7 +9,7 @@ class DbHelper {
 
   static _onCreate(Database db, int version) async {
     await db.execute(
-        'CREATE TABLE "${MyTicketDAO.TABLE_NAME}" ( "${MyTicketDAO.COL_ID}" INTEGER PRIMARY KEY AUTOINCREMENT, "${MyTicketDAO.COL_SHOW_NAME}" TEXT, "${MyTicketDAO.COL_BOOK_TIME}" INTEGER, "${MyTicketDAO.COL_CINE_NAME}" TEXT, "${MyTicketDAO.COL_SEAT}" TEXT );');
+        'CREATE TABLE "${TicketDAO.TABLE_NAME}" ( "${TicketDAO.COL_ID}" INTEGER PRIMARY KEY AUTOINCREMENT, "${TicketDAO.COL_SHOW_NAME}" TEXT, "${TicketDAO.COL_SHOW_TIME_SLOT}" TEXT, "${TicketDAO.COL_BOOK_TIME}" INTEGER, "${TicketDAO.COL_CINE_NAME}" TEXT, "${TicketDAO.COL_SEAT}" TEXT );');
 
     log('_onCreate. version $version');
   }
@@ -24,15 +24,16 @@ class DbHelper {
       onCreate: _onCreate,
     );
 
-//    await MyTicketDAO.insert(MyTicket(
-//      0,
+//    await TicketDAO.insert(Ticket(
+//      null,
 //      'King Kong',
+//      '10:40',
 //      DateTime.now().millisecondsSinceEpoch,
 //      'BHD Star Cineplex',
 //      'G4;G9;G12',
 //    ));
 
-    var result = await MyTicketDAO.getAll();
+    var result = await TicketDAO.getAll();
     log(result.toString());
   }
 

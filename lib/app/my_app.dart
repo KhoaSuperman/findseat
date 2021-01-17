@@ -69,6 +69,7 @@ class MyApp extends StatelessWidget {
     final SessionRepository sessionRepository =
         SessionRepository(pref: LocalPref());
     final SeatSlotRepository seatSlotRepository = RemoteSeatSlotRepository();
+    final TicketRepo ticketRepo = TicketRepo();
 
     return MultiRepositoryProvider(
       providers: [
@@ -81,6 +82,7 @@ class MyApp extends StatelessWidget {
             create: (context) => sessionRepository),
         RepositoryProvider<SeatSlotRepository>(
             create: (context) => seatSlotRepository),
+        RepositoryProvider<TicketRepo>(create: (context) => ticketRepo),
       ],
       child: MultiBlocProvider(
         providers: [

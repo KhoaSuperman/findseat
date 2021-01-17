@@ -6,7 +6,7 @@ import 'package:find_seat/presentation/common_widgets/widget_toolbar.dart';
 import 'package:find_seat/presentation/screen/booking/barrel_booking.dart';
 import 'package:find_seat/presentation/screen/booking/book_seat_slot/barrel_book_seat_slot.dart';
 import 'package:find_seat/presentation/screen/booking/book_seat_slot/bloc/bloc.dart';
-import 'package:find_seat/presentation/screen/payment_method_picker/barrel_payment_method_picker.dart';
+import 'package:find_seat/presentation/screen/payment_method_picker/sc_payment_method_picker.dart';
 import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

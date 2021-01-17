@@ -1,14 +1,17 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:equatable/equatable.dart';
 
-part 'my_ticket.g.dart';
+part 'ticket.g.dart';
 
 @JsonSerializable()
-class MyTicket extends Equatable {
+class Ticket extends Equatable {
   int id;
 
   @JsonKey(name: "show_name")
   String showName;
+
+  @JsonKey(name: "show_time_slot")
+  String showTimeSlot;
 
   @JsonKey(name: "book_time")
   int bookTime;
@@ -18,24 +21,24 @@ class MyTicket extends Equatable {
 
   String seat;
 
-  MyTicket(
+  Ticket(
     this.id,
     this.showName,
+    this.showTimeSlot,
     this.bookTime,
     this.cineName,
     this.seat,
   );
 
-  factory MyTicket.fromJson(Map<String, dynamic> json) =>
-      _$MyTicketFromJson(json);
+  factory Ticket.fromJson(Map<String, dynamic> json) => _$TicketFromJson(json);
 
-  Map<String, dynamic> toJson() => _$MyTicketToJson(this);
+  Map<String, dynamic> toJson() => _$TicketToJson(this);
 
   @override
   List<Object> get props => [id];
 
   @override
   String toString() {
-    return 'MyTicket{id: $id, showName: $showName, seat: $seat}';
+    return 'Ticket{id: $id, showName: $showName, seat: $seat}';
   }
 }
