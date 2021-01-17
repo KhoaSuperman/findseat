@@ -9,7 +9,7 @@ class DbHelper {
 
   static _onCreate(Database db, int version) async {
     await db.execute(
-        'CREATE TABLE "${TicketDAO.TABLE_NAME}" ( "${TicketDAO.COL_ID}" INTEGER PRIMARY KEY AUTOINCREMENT, "${TicketDAO.COL_SHOW_NAME}" TEXT, "${TicketDAO.COL_SHOW_TIME_SLOT}" TEXT, "${TicketDAO.COL_BOOK_TIME}" INTEGER, "${TicketDAO.COL_CINE_NAME}" TEXT, "${TicketDAO.COL_SEAT}" TEXT );');
+        'CREATE TABLE "${TicketDAO.TABLE_NAME}" ( "${TicketDAO.COL_ID}" INTEGER PRIMARY KEY AUTOINCREMENT, "${TicketDAO.COL_SHOW_NAME}" TEXT,"${TicketDAO.COL_SHOW_BANNER}" TEXT, "${TicketDAO.COL_SHOW_TIME_SLOT}" TEXT, "${TicketDAO.COL_BOOK_TIME}" INTEGER, "${TicketDAO.COL_CINE_NAME}" TEXT, "${TicketDAO.COL_SEAT}" TEXT );');
 
     log('_onCreate. version $version');
   }

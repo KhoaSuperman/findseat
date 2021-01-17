@@ -10,12 +10,13 @@ class OpenScreenPaymentMethodPickerEvent extends PaymentMethodPickerEvent {
 
 class OnPaymentSuccessEvent extends PaymentMethodPickerEvent {
   String showName;
+  String showBanner;
   List<String> seatIds;
   TimeSlot timeSlot;
   String cineName;
 
-  OnPaymentSuccessEvent(
-      this.showName, this.seatIds, this.timeSlot, this.cineName);
+  OnPaymentSuccessEvent(this.showName, this.showBanner, this.seatIds,
+      this.timeSlot, this.cineName);
 
   @override
   List<Object> get props => [showName, seatIds, timeSlot, cineName];

@@ -6,6 +6,7 @@ class TicketDAO {
 
   static final COL_ID = "id";
   static final COL_SHOW_NAME = "show_name";
+  static final COL_SHOW_BANNER = "show_banner";
   static final COL_SHOW_TIME_SLOT = "show_time_slot";
   static final COL_BOOK_TIME = "book_time";
   static final COL_CINE_NAME = "cine_name";

@@ -141,6 +141,7 @@ class _PaymentMethodPickerScreenState extends State<PaymentMethodPickerScreen> {
       //for saving ticket to local db
       blocContext.bloc<PaymentMethodPickerBloc>().add(OnPaymentSuccessEvent(
             widget.show.name,
+            widget.show.thumb,
             widget.selectedSeatIds,
             widget.selectedTimeSlot,
             widget.bookTimeSlot.cine.name,

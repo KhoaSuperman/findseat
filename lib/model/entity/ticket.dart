@@ -10,6 +10,9 @@ class Ticket extends Equatable {
   @JsonKey(name: "show_name")
   String showName;
 
+  @JsonKey(name: "show_banner")
+  String showBanner;
+
   @JsonKey(name: "show_time_slot")
   String showTimeSlot;
 
@@ -24,6 +27,7 @@ class Ticket extends Equatable {
   Ticket(
     this.id,
     this.showName,
+    this.showBanner,
     this.showTimeSlot,
     this.bookTime,
     this.cineName,

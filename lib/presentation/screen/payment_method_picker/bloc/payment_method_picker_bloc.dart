@@ -23,6 +23,7 @@ class PaymentMethodPickerBloc
       final ticket = Ticket(
         null,
         event.showName,
+        event.showBanner,
         event.timeSlot.time,
         DateTime.now().millisecondsSinceEpoch,
         event.cineName,
