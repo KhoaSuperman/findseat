@@ -1,9 +1,13 @@
+import 'package:find_seat/model/entity/ticket.dart';
+import 'package:find_seat/model/repo/repo.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/presentation/custom_ui/custom_ui.dart';
 import 'package:find_seat/utils/my_const/COLOR_CONST.dart';
 import 'package:find_seat/utils/my_const/FONT_CONST.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'bloc/bloc.dart';
 import 'widget_item_list_my_ticker.dart';
 
 class ListMyTicketScreen extends StatelessWidget {
@@ -11,17 +15,27 @@ class ListMyTicketScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            WidgetToolbar(
-              title: 'My Tickets',
-              actions: MySvgImage.toolbarIcon("assets/ic_more.svg"),
-            ),
-            _buildHeader(),
-            Expanded(
-              child: _buildList(),
-            )
-          ],
+        body: BlocProvider<ListMyTicketBloc>(
+          create: (context) => ListMyTicketBloc(
+            RepositoryProvider.of<TicketRepo>(context),
+          )..add(OpenScreenListMyTicketEvent()),
+          child: BlocConsumer<ListMyTicketBloc, ListMyTicketState>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              return Column(
+                children: [
+                  WidgetToolbar(
+                    title: 'My Tickets',
+                    actions: MySvgImage.toolbarIcon("assets/ic_more.svg"),
+                  ),
+                  _buildHeader(),
+                  Expanded(
+                    child: _buildList(state),
+                  )
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
@@ -64,15 +78,27 @@ class ListMyTicketScreen extends StatelessWidget {
     );
   }
 
-  _buildList() {
-    return ListView.separated(
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          return WidgetItemListMyTicker();
-        },
-        separatorBuilder: (context, index) {
-          return WidgetSpacer(height: 16);
-        },
-        itemCount: 20);
+  _buildList(ListMyTicketState state) {
+    if (state.isLoading) {
+      return WidgetLoading();
+    }
+
+    if (state.msg != null) {
+      return WidgetScreenMessage(msg: state.msg);
+    }
+
+    if (state.data.isNotEmpty) {
+      final listTicket = state.data;
+      return ListView.separated(
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            Ticket ticket = listTicket[index];
+            return WidgetItemListMyTicker(ticket);
+          },
+          separatorBuilder: (context, index) {
+            return WidgetSpacer(height: 16);
+          },
+          itemCount: listTicket.length);
+    }
   }
 }

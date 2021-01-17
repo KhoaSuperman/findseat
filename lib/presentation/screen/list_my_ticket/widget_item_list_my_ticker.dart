@@ -1,20 +1,32 @@
+import 'package:find_seat/model/entity/ticket.dart';
 import 'package:find_seat/presentation/common_widgets/barrel_common_widgets.dart';
 import 'package:find_seat/utils/my_const/COLOR_CONST.dart';
 import 'package:find_seat/utils/my_const/FONT_CONST.dart';
 import 'package:flutter/material.dart';
+import 'package:find_seat/utils/my_formatter.dart';
 
 class WidgetItemListMyTicker extends StatelessWidget {
   final double itemHeight = 148;
 
+  Ticket ticket;
+
+  WidgetItemListMyTicker(this.ticket);
+
   @override
   Widget build(BuildContext context) {
+    String banner = ticket.showBanner;
+    String showName = ticket.showName;
+    String bookTime = (ticket.bookTime ~/ 1000).MMM_dd_yyyy();
+    String cineName = ticket.cineName;
+    String seat = ticket.seat.split(";").join(", ");
+
     return Container(
       color: COLOR_CONST.WHITE,
       height: itemHeight,
       child: Row(
         children: [
           Image.network(
-            "https://superman-academy.com/api/findseat/images/No Time to Die.jpg",
+            banner,
             height: itemHeight,
           ),
           WidgetSpacer(width: 16),
@@ -24,17 +36,17 @@ class WidgetItemListMyTicker extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'No Time to Die',
+                  showName,
                   style: FONT_CONST.MEDIUM_BLACK2_16.copyWith(fontSize: 18),
                 ),
                 WidgetSpacer(height: 4),
                 Text(
-                  '16:33 - 16 Jan 2020',
+                  bookTime,
                   style: FONT_CONST.SEMIBOLD.copyWith(fontSize: 12),
                 ),
                 WidgetSpacer(height: 2),
                 Text(
-                  'BHD Star Cineplex',
+                  cineName,
                   style: FONT_CONST.MEDIUM
                       .copyWith(color: COLOR_CONST.GRAY6, fontSize: 12),
                 ),
@@ -49,7 +61,7 @@ class WidgetItemListMyTicker extends StatelessWidget {
                 Text("Seat:", style: FONT_CONST.REGULAR_BLACK2_12),
                 WidgetSpacer(height: 4),
                 Text(
-                  "G2, G3",
+                  seat,
                   style: FONT_CONST.OSWALD_REGULAR.copyWith(
                     color: COLOR_CONST.DEFAULT,
                     fontSize: 18,

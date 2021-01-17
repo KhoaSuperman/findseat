@@ -17,7 +17,8 @@ class TicketDAO {
   }
 
   static Future<List<Ticket>> getAll() async {
-    var listMap = await DbHelper.db.query(TABLE_NAME);
+    var listMap =
+        await DbHelper.db.query(TABLE_NAME, orderBy: '$COL_BOOK_TIME DESC');
     return listMap.map((jsonRaw) => Ticket.fromJson(jsonRaw)).toList();
   }
 }
