@@ -1,4 +1,5 @@
 import 'package:find_seat/app_config.dart';
+import 'package:find_seat/model/db/db.dart';
 import 'package:find_seat/model/local/pref.dart';
 import 'package:find_seat/model/repo/repo.dart';
 import 'package:find_seat/presentation/screen/home/bloc/bloc.dart';
@@ -57,6 +58,7 @@ class MyApp extends StatelessWidget {
 
   static Widget runWidget() {
     WidgetsFlutterBinding.ensureInitialized();
+
     BlocSupervisor.delegate = SimpleBlocDelegate();
 
     final UserRepository userRepository = UserRepository();

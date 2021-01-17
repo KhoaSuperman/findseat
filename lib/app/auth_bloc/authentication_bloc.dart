@@ -1,5 +1,6 @@
 import 'package:find_seat/app/auth_bloc/bloc.dart';
 import 'package:bloc/bloc.dart';
+import 'package:find_seat/model/db/db.dart';
 import 'package:find_seat/model/repo/user_repository.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +30,9 @@ class AuthenticationBloc
   Stream<AuthenticationState> _mapAppStartedToState() async* {
     try {
       final isSignedIn = await _userRepository.isSignedIn();
+
+      //db
+      await DbHelper.init();
 
       //for display splash screen
       await Future.delayed(Duration(seconds: 2));
