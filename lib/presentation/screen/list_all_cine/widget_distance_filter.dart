@@ -33,7 +33,7 @@ class _WidgetDistanceFilterState extends State<WidgetDistanceFilter> {
             setState(() {
               selectedIndex = index;
 
-              ListAllCineScreenProvider.of(context).onFilterChanged(filter);
+              ListAllCineScreenProvider.of(context)?.onFilterChanged(filter);
             });
           },
           child: Container(

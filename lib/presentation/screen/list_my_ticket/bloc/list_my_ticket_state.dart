@@ -9,6 +9,6 @@ abstract class ListMyTicketState with _$ListMyTicketState {
   const factory ListMyTicketState({
     @Default(true) bool isLoading,
     @Default([]) List<Ticket> data,
-    String msg,
+    String? msg,
   }) = _ListMyTicketState;
 }

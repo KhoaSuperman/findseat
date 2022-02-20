@@ -7,9 +7,9 @@ class WidgetToolbar extends StatelessWidget {
   String title;
   Widget actions;
 
-  WidgetToolbar({this.title, this.actions});
+  WidgetToolbar({required this.title, required this.actions});
 
-  WidgetToolbar.defaultActions({this.title}) : actions = _buildActions();
+  WidgetToolbar.defaultActions({required this.title}) : actions = _buildActions();
 
   @override
   Widget build(BuildContext context) {

@@ -15,7 +15,7 @@ class ClickSelectSeatSlot extends BookSeatSlotEvent {
   ItemSeatSlotVM itemSeatSlotVM;
 
   ClickSelectSeatSlot({
-    @required this.itemSeatSlotVM,
+    required this.itemSeatSlotVM,
   });
 
   @override

@@ -10,20 +10,20 @@ import 'package:flutter/cupertino.dart';
 import './bloc.dart';
 
 class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
-  SessionRepository sessionRepository;
-  SeatSlotRepository seatSlotRepository;
-  int seatCount;
-  SEAT_TYPE selectedSeatType;
+  late SessionRepository sessionRepository;
+  late SeatSlotRepository seatSlotRepository;
+  late int seatCount;
+  late SEAT_TYPE selectedSeatType;
 
   HashMap<String, bool> selectedSeats = HashMap();
-  List<SeatType> seatSlotByTypes;
+  List<SeatType> seatSlotByTypes = [];
 
   BookSeatSlotBloc({
-    this.sessionRepository,
-    this.seatSlotRepository,
-    this.seatCount,
-    this.selectedSeatType,
-  });
+    required this.sessionRepository,
+    required this.seatSlotRepository,
+    required this.seatCount,
+    required this.selectedSeatType,
+  }) : super(BookSeatSlotState());
 
   @override
   BookSeatSlotState get initialState => BookSeatSlotState(isLoading: true);
@@ -86,7 +86,7 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
           yield state.copyWith(isReachedLimitSeatSlot: true);
         }
       } else {
-        bool isSelected = !selectedSeats[item.seatId];
+        bool isSelected = !selectedSeats[item.seatId]!;
         if ((isSelected && !isReachedLimitSlot()) || !isSelected) {
           selectedSeats[item.seatId] = isSelected;
           yield state.copyWith(
@@ -110,7 +110,7 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
   List<String> getSelectedSeatSlotId() {
     return selectedSeats.keys.where(
       (key) {
-        return selectedSeats[key];
+        return selectedSeats[key]!;
       },
     ).toList();
   }
@@ -163,7 +163,7 @@ class BookSeatSlotBloc extends Bloc<BookSeatSlotEvent, BookSeatSlotState> {
         final isOff = seatRow.offs.contains(i);
         final isBooked = seatRow.booked.contains(i);
         final isSelected =
-            selectedSeats.containsKey(seatId) && selectedSeats[seatId];
+            selectedSeats.containsKey(seatId) && selectedSeats[seatId]!;
 
         return ItemSeatSlotVM(
           seatId: seatId,

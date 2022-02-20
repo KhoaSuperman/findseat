@@ -15,9 +15,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ShowInfoScreen extends StatelessWidget {
   Show show;
 
-  ShowInfoScreen({@required this.show});
+  ShowInfoScreen({required this.show});
 
-  BuildContext _context;
+  late BuildContext _context;
 
   @override
   Widget build(BuildContext context) {

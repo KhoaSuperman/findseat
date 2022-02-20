@@ -12,7 +12,7 @@ class OpenScreen extends DemoBlocEvent {
 class SearchQueryChanged extends DemoBlocEvent {
   String keyword;
 
-  SearchQueryChanged({this.keyword});
+  SearchQueryChanged({required this.keyword});
 
   @override
   List<Object> get props => [keyword];

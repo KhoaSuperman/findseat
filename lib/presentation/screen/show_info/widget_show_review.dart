@@ -7,7 +7,7 @@ import 'package:find_seat/utils/my_formatter.dart';
 class WidgetShowReview extends StatelessWidget {
   Show show;
 
-  WidgetShowReview({this.show});
+  WidgetShowReview({required this.show});
 
   @override
   Widget build(BuildContext context) {

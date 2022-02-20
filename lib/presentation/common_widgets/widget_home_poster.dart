@@ -22,7 +22,7 @@ class WidgetHomePosters extends StatelessWidget {
   String iconPath;
 
   WidgetHomePosters(
-      {@required this.items, @required this.label, @required this.iconPath});
+      {required this.items, required this.label, required this.iconPath});
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,7 @@ class _WidgetItemPoster extends StatelessWidget {
 
   _WidgetItemPoster(this.item);
 
-  BuildContext _context;
+  late BuildContext _context;
 
   @override
   Widget build(BuildContext context) {
@@ -115,16 +115,16 @@ class _WidgetItemPoster extends StatelessWidget {
     );
   }
 
-  void openShowDetails({Show show}) {
+  void openShowDetails({required Show show}) {
     Navigator.pushNamed(_context, AppRouter.SHOW_INFO, arguments: show);
   }
 }
 
 class ItemPosterVM {
-  String title;
-  String subTitle;
-  String photo;
-  Show show;
+  late String title;
+  late String subTitle;
+  late String photo;
+  late Show show;
 
   ItemPosterVM(this.photo, this.title, this.subTitle);
 

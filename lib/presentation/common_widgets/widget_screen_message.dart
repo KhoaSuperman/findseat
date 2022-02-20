@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class WidgetScreenMessage extends StatelessWidget {
   String msg;
 
-  WidgetScreenMessage({@required this.msg});
+  WidgetScreenMessage({required this.msg});
 
   @override
   Widget build(BuildContext context) {

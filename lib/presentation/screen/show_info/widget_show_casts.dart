@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 class WidgetShowCasts extends StatelessWidget {
   Show show;
 
-  WidgetShowCasts({@required this.show});
+  WidgetShowCasts({required this.show});
 
   List<ItemCast> items = [];
 
@@ -88,8 +88,8 @@ class _WidgetItemCast extends StatelessWidget {
 }
 
 class ItemCast {
-  String name;
-  String photo;
+  late String name;
+  late String photo;
 
   ItemCast(this.name, this.photo);
 

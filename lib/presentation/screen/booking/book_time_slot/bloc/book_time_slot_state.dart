@@ -9,8 +9,8 @@ part 'book_time_slot_state.freezed.dart';
 abstract class BookTimeSlotState with _$BookTimeSlotState {
   const factory BookTimeSlotState({
     @Default(false) bool isLoading,
-    List<BookTimeSlot> list,
-    String msg,
+    @Default([]) List<BookTimeSlot> list,
+    String? msg,
     @Default(false) bool showSearchField,
     @Default(false) bool isOpenBookSeatTypeScreen,
   }) = _BookTimeSlotState;

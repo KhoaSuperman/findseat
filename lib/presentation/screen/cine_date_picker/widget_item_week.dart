@@ -51,7 +51,7 @@ class _WidgetItemWeekState extends State<WidgetItemWeek> {
   }
 
   _buildItemDate(int index) {
-    var selectedDate = CineDatePickerScreenProvider.of(context).selectedDate;
+    var selectedDate = CineDatePickerScreenProvider.of(context)!.selectedDate;
     DateTime date = widget.itemWeek.dates[index];
 
     bool isToday = date.day == 14;
@@ -63,7 +63,7 @@ class _WidgetItemWeekState extends State<WidgetItemWeek> {
 
     return GestureDetector(
       onTap: () {
-        CineDatePickerScreenProvider.of(context).onDateSelected(date);
+        CineDatePickerScreenProvider.of(context)!.onDateSelected(date);
       },
       child: Container(
         width: 32,

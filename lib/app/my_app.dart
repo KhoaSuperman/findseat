@@ -13,12 +13,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../presentation/router.dart';
 import 'auth_bloc/bloc.dart';
-import 'simple_bloc_delegate.dart';
+import 'simple_bloc_observer.dart';
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final config = AppConfig.of(context);
+    final config = AppConfig.of(context)!;
 
     return MaterialApp(
       debugShowCheckedModeBanner: config.debugTag,
@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
   static Widget runWidget() {
     WidgetsFlutterBinding.ensureInitialized();
 
-    BlocSupervisor.delegate = SimpleBlocDelegate();
+    Bloc.observer = SimpleBlocObserver();
 
     final UserRepository userRepository = UserRepository();
     final HomeRepository homeRepository = HomeRepository();

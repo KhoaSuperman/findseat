@@ -8,10 +8,10 @@ import 'package:find_seat/presentation/screen/home/home_categories/bloc/bloc.dar
 
 class HomeCategoryBloc extends Bloc<HomeCategoriesEvent, HomeCategoriesState> {
   HomeBloc homeBloc;
-  StreamSubscription subscription;
+  late StreamSubscription subscription;
 
-  HomeCategoryBloc({@required this.homeBloc}) {
-    subscription = homeBloc.listen(
+  HomeCategoryBloc({required this.homeBloc}) : super(HomeCategoriesNotLoaded()) {
+    subscription = homeBloc.stream.listen(
       (state) {
         if (state is HomeLoaded) {
           add(DisplayHomeCategories(state.response.categories));
@@ -19,9 +19,6 @@ class HomeCategoryBloc extends Bloc<HomeCategoriesEvent, HomeCategoriesState> {
       },
     );
   }
-
-  @override
-  HomeCategoriesState get initialState => HomeCategoriesNotLoaded();
 
   @override
   Stream<HomeCategoriesState> mapEventToState(

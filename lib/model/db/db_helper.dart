@@ -5,7 +5,7 @@ import 'package:find_seat/model/entity/ticket.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DbHelper {
-  static Database _db;
+  static late Database _db;
 
   static _onCreate(Database db, int version) async {
     await db.execute(
@@ -15,7 +15,7 @@ class DbHelper {
   }
 
   static Future init() async {
-    Sqflite.devSetDebugModeOn(true);
+    Sqflite.setDebugModeOn(true);
 
     _db = await openDatabase(
       'findseat.db',

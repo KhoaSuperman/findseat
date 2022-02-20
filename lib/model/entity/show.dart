@@ -8,40 +8,31 @@ part 'show.g.dart';
 
 @JsonSerializable()
 class Show extends Equatable {
-  String id;
-  String name;
-  String thumb;
-  String cover;
-  String trailer;
-  @JsonKey(name: "release_date")
-  int releaseDate;
-  int rate;
-  String votes;
-  List<String> tami;
-  List<String> tags;
-  int duration;
-  List<Offer> offers;
-  @JsonKey(name: "total_reviews")
-  int totalReviews;
-  @JsonKey(name: "latest_reviews")
-  UserReview latestReviews;
-  List<Cast> casts;
+  late String id;
+  late String name;
+  late String thumb;
+  late String cover;
+  late String trailer;
 
-  Show(
-      this.id,
-      this.name,
-      this.thumb,
-      this.cover,
-      this.trailer,
-      this.releaseDate,
-      this.rate,
-      this.votes,
-      this.tags,
-      this.duration,
-      this.offers,
-      this.totalReviews,
-      this.latestReviews,
-      this.casts);
+  @JsonKey(name: "release_date")
+  late int releaseDate;
+
+  late int rate;
+  late String votes;
+  late List<String> tami;
+  late List<String> tags;
+  late int duration;
+  late List<Offer> offers;
+
+  @JsonKey(name: "total_reviews")
+  late int totalReviews;
+
+  @JsonKey(name: "latest_reviews")
+  late UserReview latestReviews;
+
+  late List<Cast> casts;
+
+  Show();
 
   factory Show.fromJson(Map<String, dynamic> json) => _$ShowFromJson(json);
 

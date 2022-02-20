@@ -12,7 +12,7 @@ class HomeBannerEvent extends Equatable {
 class DisplayHomeBanner extends HomeBannerEvent {
   final List<Banner> banners;
 
-  DisplayHomeBanner({@required this.banners});
+  DisplayHomeBanner({required this.banners});
 
   @override
   List<Object> get props => [banners];

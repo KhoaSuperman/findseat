@@ -10,7 +10,7 @@ class LocalPref extends Pref {
   @override
   Future<String> getString(String key) async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getString(key);
+    return Future.value(prefs.getString(key));
   }
 }
 
@@ -19,7 +19,7 @@ class MemoryPref extends Pref {
 
   @override
   Future<String> getString(String key) {
-    return Future.value(memoryMap[key]);
+    return Future.value(memoryMap[key] as String?);
   }
 
   @override

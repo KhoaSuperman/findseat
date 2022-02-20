@@ -15,8 +15,8 @@ class WidgetLoginForm extends StatefulWidget {
 }
 
 class _WidgetLoginFormState extends State<WidgetLoginForm> {
-  AuthenticationBloc _authenticationBloc;
-  LoginBloc _loginBloc;
+  late AuthenticationBloc _authenticationBloc;
+  late LoginBloc _loginBloc;
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -203,7 +203,7 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
           onChanged: (value) {
             _loginBloc.add(LoginPasswordChanged(password: value));
           },
-          autovalidate: true,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: (_) {
             return !_loginBloc.state.isPasswordValid
                 ? 'Invalid Password'
@@ -237,7 +237,7 @@ class _WidgetLoginFormState extends State<WidgetLoginForm> {
           onChanged: (value) {
             _loginBloc.add(LoginEmailChanged(email: value));
           },
-          autovalidate: true,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: (_) {
             return !_loginBloc.state.isEmailValid ? 'Invalid Email' : null;
           },

@@ -7,7 +7,8 @@ import './bloc.dart';
 class BookSeatTypeBloc extends Bloc<BookSeatTypeEvent, BookSeatTypeState> {
   SessionRepository sessionRepository;
 
-  BookSeatTypeBloc({this.sessionRepository});
+  BookSeatTypeBloc({required this.sessionRepository})
+      : super(BookSeatTypeState());
 
   @override
   BookSeatTypeState get initialState => BookSeatTypeState(

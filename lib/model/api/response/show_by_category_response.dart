@@ -10,7 +10,10 @@ class ShowByCategoryResponse {
 
   List<Show> shows;
 
-  ShowByCategoryResponse({this.categoryId, this.shows});
+  ShowByCategoryResponse({
+    required this.categoryId,
+    required this.shows,
+  });
 
   factory ShowByCategoryResponse.fromJson(Map<String, dynamic> json) =>
       _$ShowByCategoryResponseFromJson(json);

@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class WrapContentHozListView<T> extends StatefulWidget {
   List<T> list;
   IndexedWidgetBuilder itemBuilder;
-  IndexedWidgetBuilder separatorBuilder;
+  IndexedWidgetBuilder? separatorBuilder;
 
   WrapContentHozListView({
-    @required this.list,
-    @required this.itemBuilder,
+    required this.list,
+    required this.itemBuilder,
     this.separatorBuilder,
   });
 
@@ -21,7 +21,7 @@ class _WrapContentHozListViewState extends State<WrapContentHozListView> {
     for (int i = 0; i < widget.list.length; i++) {
       items.add(widget.itemBuilder(context, i));
       if (widget.separatorBuilder != null) {
-        items.add(widget.separatorBuilder(context, i));
+        items.add(widget.separatorBuilder!(context, i));
       }
     }
 

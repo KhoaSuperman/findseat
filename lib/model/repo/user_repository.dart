@@ -5,7 +5,7 @@ class UserRepository {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
 
-  UserRepository({FirebaseAuth firebaseAuth, GoogleSignIn googleSignIn})
+  UserRepository({FirebaseAuth? firebaseAuth, GoogleSignIn? googleSignIn})
       : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance,
         _googleSignIn = googleSignIn ?? GoogleSignIn();
 
@@ -26,7 +26,7 @@ class UserRepository {
   }
 
   Future<void> signUp(
-      {String email, String password, String displayName}) async {
+      {required String email, required String password, required String displayName}) async {
     await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: password);
     var currentUser = await _firebaseAuth.currentUser();
@@ -37,7 +37,7 @@ class UserRepository {
     await currentUser.updateProfile(userInfo);
   }
 
-  Future<void> signOut() async {
+  Future signOut() async {
     return Future.wait([
       _firebaseAuth.signOut(),
       _googleSignIn.signOut(),

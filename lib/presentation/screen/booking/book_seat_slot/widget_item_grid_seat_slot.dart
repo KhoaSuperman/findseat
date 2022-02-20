@@ -8,14 +8,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class WidgetItemGridSeatSlot extends StatefulWidget {
   ItemGridSeatSlotVM itemGridSeatSlotVM;
 
-  WidgetItemGridSeatSlot({@required this.itemGridSeatSlotVM});
+  WidgetItemGridSeatSlot({required this.itemGridSeatSlotVM});
 
   @override
   _WidgetItemGridSeatSlotState createState() => _WidgetItemGridSeatSlotState();
 }
 
 class _WidgetItemGridSeatSlotState extends State<WidgetItemGridSeatSlot> {
-  ItemGridSeatSlotVM itemGridSeatSlotVM;
+  late ItemGridSeatSlotVM itemGridSeatSlotVM;
 
   @override
   void initState() {

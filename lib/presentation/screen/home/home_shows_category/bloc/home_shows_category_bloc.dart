@@ -10,10 +10,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class HomeShowsCategoryBloc
     extends Bloc<HomeShowsCategoryEvent, HomeShowsCategoryState> {
   HomeBloc homeBloc;
-  StreamSubscription subscription;
+  late StreamSubscription subscription;
 
-  HomeShowsCategoryBloc({this.homeBloc}) {
-    subscription = homeBloc.listen((state) {
+  HomeShowsCategoryBloc({required this.homeBloc}) : super(ShowsByCategoryNotLoaded()) {
+    subscription = homeBloc.stream.listen((state) {
       if (state is HomeLoaded) {
         add(DisplayShowsByCategory(state.response));
       }

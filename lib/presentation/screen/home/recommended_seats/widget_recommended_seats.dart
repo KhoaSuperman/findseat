@@ -67,7 +67,7 @@ class _WidgetItemRecommendedSeat extends StatelessWidget {
 
   _WidgetItemRecommendedSeat(this.item);
 
-  BuildContext _context;
+  late BuildContext _context;
 
   @override
   Widget build(BuildContext context) {
@@ -123,9 +123,9 @@ class _WidgetItemRecommendedSeat extends StatelessWidget {
 }
 
 class _ItemRecommendedSeatVM {
-  String photo;
-  String title;
-  int likePercent;
+  late String photo;
+  late String title;
+  late int likePercent;
   Show show;
 
   _ItemRecommendedSeatVM.fromShow(this.show) {

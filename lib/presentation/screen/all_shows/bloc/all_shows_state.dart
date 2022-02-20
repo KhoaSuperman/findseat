@@ -9,11 +9,11 @@ class AllShowsState extends Equatable {
 }
 
 class DisplayListShows extends AllShowsState {
-  Meta meta;
+  Meta? meta;
   bool loading;
-  String msg;
+  String? msg;
 
-  DisplayListShows({this.meta, this.loading, this.msg});
+  DisplayListShows({required this.meta, required this.loading, required this.msg});
 
   factory DisplayListShows.loading() {
     return DisplayListShows(msg: null, meta: null, loading: true);
@@ -27,8 +27,8 @@ class DisplayListShows extends AllShowsState {
     return DisplayListShows(msg: msg, meta: null, loading: false);
   }
 
-  @override
-  List<Object> get props => [meta, loading, msg];
+//  @override
+//  List<Object> get props => [meta, loading, msg];
 
   @override
   String toString() {
@@ -39,7 +39,7 @@ class DisplayListShows extends AllShowsState {
 class UpdateToolbarState extends AllShowsState {
   final bool showSearchField;
 
-  UpdateToolbarState({this.showSearchField});
+  UpdateToolbarState({required this.showSearchField});
 
   @override
   List<Object> get props => [showSearchField];
@@ -54,7 +54,7 @@ class OpenSortOption extends AllShowsState {
   final bool isOpen;
   final SHOW_SORT_BY showSortBy;
 
-  OpenSortOption({this.isOpen, this.showSortBy});
+  OpenSortOption({required this.isOpen, required this.showSortBy});
 
   @override
   List<Object> get props => [isOpen, showSortBy, DateTime.now().millisecond];

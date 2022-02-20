@@ -10,8 +10,8 @@ class WidgetHomeEvents extends StatelessWidget {
   List<Show> shows;
 
   WidgetHomeEvents({
-    this.category,
-    this.shows,
+    required this.category,
+    required this.shows,
   });
 
   @override

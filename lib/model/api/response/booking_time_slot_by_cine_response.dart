@@ -12,8 +12,12 @@ class BookingTimeSlotByCineResponse {
   @JsonKey(name: "time_slots")
   List<TimeSlot> timeSlots;
 
-  BookingTimeSlotByCineResponse(
-      {this.id, this.cine, this.tami, this.timeSlots});
+  BookingTimeSlotByCineResponse({
+    required this.id,
+    required this.cine,
+    required this.tami,
+    required this.timeSlots,
+  });
 
   factory BookingTimeSlotByCineResponse.fromJson(Map<String, dynamic> json) =>
       _$BookingTimeSlotByCineResponseFromJson(json);

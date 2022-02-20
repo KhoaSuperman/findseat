@@ -10,10 +10,7 @@ class PaymentMethodPickerBloc
     extends Bloc<PaymentMethodPickerEvent, PaymentMethodPickerState> {
   TicketRepo ticketRepo;
 
-  PaymentMethodPickerBloc(this.ticketRepo) : super();
-
-  @override
-  PaymentMethodPickerState get initialState => PaymentMethodPickerState();
+  PaymentMethodPickerBloc(this.ticketRepo) : super(PaymentMethodPickerState());
 
   @override
   Stream<PaymentMethodPickerState> mapEventToState(
@@ -21,7 +18,7 @@ class PaymentMethodPickerBloc
   ) async* {
     if (event is OnPaymentSuccessEvent) {
       final ticket = Ticket(
-        null,
+        0,
         event.showName,
         event.showBanner,
         event.timeSlot.time,

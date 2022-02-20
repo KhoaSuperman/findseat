@@ -138,7 +138,7 @@ class WidgetItemFacility extends StatelessWidget {
       case 'park':
         return 'assets/ic_park.svg';
       default:
-        return null;
+        throw Exception('Not support $name');
     }
   }
 }

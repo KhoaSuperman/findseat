@@ -13,15 +13,16 @@ class Cine {
   double lat;
   double lng;
 
-  Cine(
-      {this.id,
-      this.name,
-      this.address,
-      this.rating,
-      this.distance,
-      this.photo,
-      this.lat,
-      this.lng});
+  Cine({
+    required this.id,
+    required this.name,
+    required this.address,
+    required this.rating,
+    required this.distance,
+    required this.photo,
+    required this.lat,
+    required this.lng,
+  });
 
   factory Cine.fromJson(Map<String, dynamic> json) => _$CineFromJson(json);
 

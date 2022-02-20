@@ -16,7 +16,7 @@ class ClickCloseSearch extends AllShowsEvent {}
 class SearchQueryChanged extends AllShowsEvent {
   final String keyword;
 
-  SearchQueryChanged({this.keyword});
+  SearchQueryChanged({required this.keyword});
 
   @override
   List<Object> get props => [keyword];

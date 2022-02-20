@@ -4,7 +4,7 @@ class DistanceFilter {
   int from;
   int to;
 
-  DistanceFilter({@required this.from, @required this.to});
+  DistanceFilter({required this.from, required this.to});
 
   static List<DistanceFilter> SAMPLE_DATA = [
     DistanceFilter(from: 2, to: 5),

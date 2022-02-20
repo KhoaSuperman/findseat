@@ -11,7 +11,7 @@ import 'package:find_seat/utils/my_formatter.dart';
 class WidgetShowDesc extends StatelessWidget {
   Show show;
 
-  WidgetShowDesc({@required this.show});
+  WidgetShowDesc({required this.show});
 
   @override
   Widget build(BuildContext context) {

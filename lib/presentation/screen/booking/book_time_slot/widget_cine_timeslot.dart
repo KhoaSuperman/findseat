@@ -17,13 +17,13 @@ class WidgetCineTimeSlot extends StatelessWidget {
   WidgetCineTimeSlot(this.item);
 
   WidgetCineTimeSlot.selected({
-    @required this.item,
-    @required this.selectedIndex,
-    @required this.showCineName,
-    @required this.showCineDot,
+    required this.item,
+    required this.selectedIndex,
+    required this.showCineName,
+    required this.showCineDot,
   });
 
-  BuildContext _context;
+  late BuildContext _context;
 
   @override
   Widget build(BuildContext context) {
@@ -186,18 +186,18 @@ class _WidgetTimeSlot extends StatelessWidget {
 class ItemTimeSlot {
   String time;
   int hour;
-  bool active;
-  bool selected;
+  bool active = false;
+  bool selected = false;
 
-  TimeSlot timeSlot;
+  late TimeSlot timeSlot;
 
   ItemTimeSlot({
-    this.time,
-    this.hour,
-    this.active,
+    required this.time,
+    required this.hour,
+    required this.active,
   });
 
-  ItemTimeSlot.fromTimeSlot({this.timeSlot})
+  ItemTimeSlot.fromTimeSlot({required this.timeSlot})
       : this.time = timeSlot.time,
         this.hour = timeSlot.hour,
         this.active = timeSlot.active;

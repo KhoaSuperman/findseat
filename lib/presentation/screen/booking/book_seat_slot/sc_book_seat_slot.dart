@@ -17,8 +17,8 @@ class ScreenArguments {
   SEAT_TYPE seatType;
 
   ScreenArguments({
-    this.seatCount,
-    this.seatType,
+    required this.seatCount,
+    required this.seatType,
   });
 
   @override
@@ -30,16 +30,16 @@ class ScreenArguments {
 class BookSeatSlotScreen extends StatefulWidget {
   ScreenArguments args;
 
-  BookSeatSlotScreen({this.args});
+  BookSeatSlotScreen({required this.args});
 
   @override
   _BookSeatSlotScreenState createState() => _BookSeatSlotScreenState();
 }
 
 class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
-  ItemCineTimeSlot _itemCineTimeSlot;
+  late ItemCineTimeSlot _itemCineTimeSlot;
 
-  BuildContext _blocContext;
+  late BuildContext _blocContext;
 
   get bloc => BlocProvider.of<BookSeatSlotBloc>(_blocContext);
 
@@ -72,10 +72,10 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
               if (state.show != null &&
                   state.bookTimeSlot != null &&
                   state.itemGridSeatSlotVMs.isNotEmpty) {
-                BookTimeSlot bookTimeSlot = state.bookTimeSlot;
+                BookTimeSlot bookTimeSlot = state.bookTimeSlot!;
                 int selectedIndex =
-                    bookTimeSlot.timeSlots.indexOf(state.selectedTimeSlot);
-                String showName = state.show.name;
+                    bookTimeSlot.timeSlots.indexOf(state.selectedTimeSlot!);
+                String showName = state.show!.name;
 
                 _itemCineTimeSlot = ItemCineTimeSlot.fromBookTimeSlot(
                     bookTimeSlot: bookTimeSlot);
@@ -125,7 +125,7 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
               }
 
               if (state.msg != null) {
-                return WidgetScreenMessage(msg: state.msg);
+                return WidgetScreenMessage(msg: state.msg!);
               }
 
               return WidgetEmpty();
@@ -205,9 +205,9 @@ class _BookSeatSlotScreenState extends State<BookSeatSlotScreen> {
           return PaymentMethodPickerScreen(
             state.selectedSeatIds,
             state.totalPrice,
-            state.show,
-            state.selectedTimeSlot,
-            state.bookTimeSlot,
+            state.show!,
+            state.selectedTimeSlot!,
+            state.bookTimeSlot!,
           );
         },
       );

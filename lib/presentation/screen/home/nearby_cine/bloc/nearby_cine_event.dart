@@ -10,7 +10,7 @@ class NearbyCineEvent extends Equatable {
 class DisplayNearbyCine extends NearbyCineEvent {
   final List<Cine> cines;
 
-  DisplayNearbyCine({@required this.cines});
+  DisplayNearbyCine({required this.cines});
 
   @override
   List<Object> get props => [cines];

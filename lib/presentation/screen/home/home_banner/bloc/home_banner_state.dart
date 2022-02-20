@@ -14,7 +14,7 @@ class HomeBannerNotLoaded extends HomeBannerState {}
 class HomeBannerLoaded extends HomeBannerState {
   final List<Banner> banners;
 
-  HomeBannerLoaded({@required this.banners});
+  HomeBannerLoaded({required this.banners});
 
   @override
   List<Object> get props => [banners];

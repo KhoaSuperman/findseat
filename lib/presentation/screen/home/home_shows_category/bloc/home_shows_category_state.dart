@@ -13,7 +13,7 @@ class ShowsByCategoryNotLoaded extends HomeShowsCategoryState {}
 class ShowsByCategoryLoaded extends HomeShowsCategoryState {
   final List<MapEntry<Categoryy, List<Show>>> list;
 
-  ShowsByCategoryLoaded({@required this.list});
+  ShowsByCategoryLoaded({required this.list});
 
   @override
   List<Object> get props => [list];

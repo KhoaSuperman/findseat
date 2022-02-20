@@ -14,10 +14,10 @@ class SeatRow extends Equatable {
   List<int> booked = [];
 
   SeatRow({
-    @required this.rowId,
-    @required this.count,
-    @required this.offs,
-    @required this.booked,
+    required this.rowId,
+    required this.count,
+    required this.offs,
+    required this.booked,
   });
 
   factory SeatRow.fromJson(Map<String, dynamic> json) =>

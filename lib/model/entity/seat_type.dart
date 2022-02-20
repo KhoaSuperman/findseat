@@ -18,7 +18,7 @@ class SeatType extends Equatable {
   @JsonKey(name: "seat_rows")
   List<SeatRow> seatRows;
 
-  SeatType(this.name, this.price, this.type, [this.seatRows]);
+  SeatType(this.name, this.price, this.type, this.seatRows);
 
   factory SeatType.fromJson(Map<String, dynamic> json) =>
       _$SeatTypeFromJson(json);

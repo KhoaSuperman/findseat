@@ -12,7 +12,7 @@ class WidgetAllShowsToolbar extends StatefulWidget {
 }
 
 class _WidgetAllShowsToolbarState extends State<WidgetAllShowsToolbar> {
-  BuildContext _blocContext;
+  late BuildContext _blocContext;
 
   TextEditingController _searchController = TextEditingController();
 

@@ -6,18 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  final UserRepository _userRepository;
+  final UserRepository userRepository;
 
-  LoginBloc({@required UserRepository userRepository})
-      : assert(userRepository != null),
-        _userRepository = userRepository;
+  LoginBloc({required this.userRepository}) : super(LoginState.empty());
 
   @override
   LoginState get initialState => LoginState.empty();
 
   @override
-  Stream<LoginState> transformEvents(
-      Stream<LoginEvent> events, Stream<LoginState> Function(LoginEvent) next) {
+  Stream<Transition<LoginEvent, LoginState>> transformEvents(
+      Stream<LoginEvent> events,
+      TransitionFunction<LoginEvent, LoginState> transitionFn) {
     final nonDebounceStream = events.where((event) {
       return (event is! LoginEmailChanged && event is! LoginPasswordChanged);
     });
@@ -26,8 +25,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       return (event is LoginEmailChanged || event is LoginPasswordChanged);
     }).debounceTime(Duration(milliseconds: 300));
 
-    return super
-        .transformEvents(nonDebounceStream.mergeWith([debounceStream]), next);
+    return super.transformEvents(
+        nonDebounceStream.mergeWith([debounceStream]), transitionFn);
   }
 
   @override
@@ -47,8 +46,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     try {
       yield LoginState.loading();
 
-      await _userRepository.signInWithCredentials(email, password);
-      bool isSignedIn = await _userRepository.isSignedIn();
+      await userRepository.signInWithCredentials(email, password);
+      bool isSignedIn = await userRepository.isSignedIn();
 
       if (isSignedIn) {
         yield LoginState.success();

@@ -12,7 +12,7 @@ class NearbyCineNotLoaded extends NearbyCineState {}
 class NearbyCineLoaded extends NearbyCineState {
   final List<Cine> cines;
 
-  NearbyCineLoaded({@required this.cines});
+  NearbyCineLoaded({required this.cines});
 
   @override
   List<Object> get props => [cines];
