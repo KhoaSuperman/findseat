@@ -33,20 +33,6 @@ class _WidgetHomeBannerState extends State<WidgetHomeBanner> {
     return Stack(
       children: <Widget>[
         CarouselSlider(
-          aspectRatio: aspectRatioBanner,
-          viewportFraction: 1.0,
-          enableInfiniteScroll: true,
-          autoPlay: true,
-          autoPlayInterval: Duration(seconds: 3),
-          autoPlayAnimationDuration: Duration(milliseconds: 800),
-          autoPlayCurve: Curves.fastLinearToSlowEaseIn,
-          pauseAutoPlayOnTouch: Duration(seconds: 10),
-          scrollDirection: Axis.horizontal,
-          onPageChanged: (index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
           items: state.banners.map((banner) {
             return ShimmerImage(
               banner.url,
@@ -55,6 +41,22 @@ class _WidgetHomeBannerState extends State<WidgetHomeBanner> {
               iconHolderSize: 56,
             );
           }).toList(),
+          options: CarouselOptions(
+            aspectRatio: aspectRatioBanner,
+            viewportFraction: 1.0,
+            enableInfiniteScroll: true,
+            autoPlay: true,
+            autoPlayInterval: Duration(seconds: 3),
+            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayCurve: Curves.fastLinearToSlowEaseIn,
+            pauseAutoPlayOnTouch: true,
+            scrollDirection: Axis.horizontal,
+            onPageChanged: (index, reason) {
+              setState(() {
+                currentIndex = index;
+              });
+            },
+          ),
         ),
         _buildIndicators(state),
       ],

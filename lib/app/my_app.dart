@@ -10,6 +10,7 @@ import 'package:find_seat/utils/my_const/my_const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import '../presentation/router.dart';
 import 'auth_bloc/bloc.dart';
@@ -61,42 +62,55 @@ class MyApp extends StatelessWidget {
 
     Bloc.observer = SimpleBlocObserver();
 
-    final UserRepository userRepository = UserRepository();
-    final HomeRepository homeRepository = HomeRepository();
-    final ShowRepository showRepository = ShowRepository();
-    final BookTimeSlotRepository bookTimeSlotRepository =
-        RemoteBookTimeSlotRepository();
-    final SessionRepository sessionRepository =
-        SessionRepository(pref: LocalPref());
-    final SeatSlotRepository seatSlotRepository = RemoteSeatSlotRepository();
-    final TicketRepo ticketRepo = TicketRepo();
+    return FutureBuilder(
+      future: Firebase.initializeApp(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final UserRepository userRepository = UserRepository();
+          final HomeRepository homeRepository = HomeRepository();
+          final ShowRepository showRepository = ShowRepository();
+          final BookTimeSlotRepository bookTimeSlotRepository =
+              RemoteBookTimeSlotRepository();
+          final SessionRepository sessionRepository =
+              SessionRepository(pref: LocalPref());
+          final SeatSlotRepository seatSlotRepository =
+              RemoteSeatSlotRepository();
+          final TicketRepo ticketRepo = TicketRepo();
 
-    return MultiRepositoryProvider(
-      providers: [
-        RepositoryProvider<UserRepository>(create: (context) => userRepository),
-        RepositoryProvider<HomeRepository>(create: (context) => homeRepository),
-        RepositoryProvider<ShowRepository>(create: (context) => showRepository),
-        RepositoryProvider<BookTimeSlotRepository>(
-            create: (context) => bookTimeSlotRepository),
-        RepositoryProvider<SessionRepository>(
-            create: (context) => sessionRepository),
-        RepositoryProvider<SeatSlotRepository>(
-            create: (context) => seatSlotRepository),
-        RepositoryProvider<TicketRepo>(create: (context) => ticketRepo),
-      ],
-      child: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) =>
-                AuthenticationBloc(userRepository: userRepository)
-                  ..add(AppStarted()),
-          ),
-          BlocProvider(
-            create: (context) => HomeBloc(homeRepository: homeRepository),
-          ),
-        ],
-        child: MyApp(),
-      ),
+          return MultiRepositoryProvider(
+            providers: [
+              RepositoryProvider<UserRepository>(
+                  create: (context) => userRepository),
+              RepositoryProvider<HomeRepository>(
+                  create: (context) => homeRepository),
+              RepositoryProvider<ShowRepository>(
+                  create: (context) => showRepository),
+              RepositoryProvider<BookTimeSlotRepository>(
+                  create: (context) => bookTimeSlotRepository),
+              RepositoryProvider<SessionRepository>(
+                  create: (context) => sessionRepository),
+              RepositoryProvider<SeatSlotRepository>(
+                  create: (context) => seatSlotRepository),
+              RepositoryProvider<TicketRepo>(create: (context) => ticketRepo),
+            ],
+            child: MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) =>
+                      AuthenticationBloc(userRepository: userRepository)
+                        ..add(AppStarted()),
+                ),
+                BlocProvider(
+                  create: (context) => HomeBloc(homeRepository: homeRepository),
+                ),
+              ],
+              child: MyApp(),
+            ),
+          );
+        }
+
+        return Container();
+      },
     );
   }
 }
