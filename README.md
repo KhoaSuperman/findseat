@@ -91,7 +91,7 @@ Click on item time slot, app will open Book Seat Type screen.
 - I did validation in this form using Bloc pattern, you can look at this to study how to do form validation in Bloc.
 
 ## III. Mock API
-https://superman-academy.com/api/findseat
+https://integer.sgp1.digitaloceanspaces.com/findseat
 
 API | Usage
 ------------ | -------------
@@ -133,22 +133,27 @@ Plugin | Usage
 ## Development Environment
 `flutter doctor -v`
 ```
-[√] Flutter (Channel stable, 1.22.3, on Microsoft Windows [Version 10.0.18363.1316], locale en-US)
-    • Flutter version 1.22.3 at C:\src\flutter
-    • Framework revision 8874f21e79 (3 months ago), 2020-10-29 14:14:35 -0700
-    • Engine revision a1440ca392
-    • Dart version 2.10.3
+[√] Flutter (Channel stable, 2.8.1, on Microsoft Windows [Version 10.0.19043.1586], locale en-US)
+    • Flutter version 2.8.1 at C:\src\flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 77d935af4d (3 months ago), 2021-12-16 08:37:33 -0800
+    • Engine revision 890a5fca2e
+    • Dart version 2.15.1
 
-
-[√] Android toolchain - develop for Android devices (Android SDK version 29.0.2)
+[!] Android toolchain - develop for Android devices (Android SDK version 30.0.3)
     • Android SDK at C:\Users\ASUS\AppData\Local\Android\sdk
-    • Platform android-29, build-tools 29.0.2
-    • Java binary at: C:\Program Files\Android\AS33\jre\bin\java
-    • Java version OpenJDK Runtime Environment (build 1.8.0_212-release-1586-b04)
-    • All Android licenses accepted.
+    X cmdline-tools component is missing
+      Run `path/to/sdkmanager --install "cmdline-tools;latest"`
+      See https://developer.android.com/studio/command-line for more details.
+    X Android license status unknown.
+      Run `flutter doctor --android-licenses` to accept the SDK licenses.
+      See https://flutter.dev/docs/get-started/install/windows#android-setup for more details.
+
+[√] Chrome - develop for the web
+    • Chrome at C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
 
 [√] Android Studio (version 3.1)
-    • Android Studio at C:\Program Files\Android\AS31
+    • Android Studio at C:\Program Files\Android\Android Studio
     • Flutter plugin version 29.0.1
     • Dart plugin version 173.4700
     • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-1024-b02)
@@ -159,19 +164,38 @@ Plugin | Usage
     • Dart plugin version 191.8593
     • Java version OpenJDK Runtime Environment (build 1.8.0_202-release-1483-b03)
 
-[√] Android Studio (version 3.6) - currently use
+[√] Android Studio (version 3.6)
     • Android Studio at C:\Program Files\Android\AS33
     • Flutter plugin version 49.0.1
     • Dart plugin version 192.8052
     • Java version OpenJDK Runtime Environment (build 1.8.0_212-release-1586-b04)
 
-[!] VS Code (version 1.52.1)
-    • VS Code at C:\Users\ASUS\AppData\Local\Programs\Microsoft VS Code
-    X Flutter extension not installed; install from
-      https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter
+[√] IntelliJ IDEA Community Edition (version 2020.3)
+    • IntelliJ at C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.3.1
+    • Flutter plugin can be installed from:
+       https://plugins.jetbrains.com/plugin/9212-flutter
+    • Dart plugin can be installed from:
+       https://plugins.jetbrains.com/plugin/6351-dart
 
-[√] Connected device (1 available)
-    • Android SDK built for x86 (mobile) • emulator-5554 • android-x86 • Android 8.1.0 (API 27) (emulator)
+[√] IntelliJ IDEA Ultimate Edition (version 2021.1)
+    • IntelliJ at C:\Program Files\JetBrains\IntelliJ IDEA 2021.1
+    • Flutter plugin can be installed from:
+       https://plugins.jetbrains.com/plugin/9212-flutter
+    • Dart plugin can be installed from:
+       https://plugins.jetbrains.com/plugin/6351-dart
+
+[√] VS Code (version 1.65.0)
+    • VS Code at C:\Users\ASUS\AppData\Local\Programs\Microsoft VS Code
+    • Flutter extension can be installed from:
+       https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter
+
+[√] Connected device (3 available)
+    • sdk gphone x86 (mobile) • emulator-5554 • android-x86    • Android 11 (API 30) (emulator)
+    • Chrome (web)            • chrome        • web-javascript • Google Chrome 99.0.4844.74
+    • Edge (web)              • edge          • web-javascript • Microsoft Edge 98.0.1108.62
+
+! Doctor found issues in 1 category.
+
 ```
 
 Before run project, execute commands:
