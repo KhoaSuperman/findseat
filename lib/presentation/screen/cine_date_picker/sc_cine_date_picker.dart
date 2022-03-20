@@ -13,23 +13,24 @@ class CineDatePickerScreenProvider extends InheritedWidget {
   DateTime selectedDate;
   Widget child;
 
-  CineDatePickerScreenProvider(
-      {@required this.onDateSelected,
-      @required this.selectedDate,
-      @required this.child});
+  CineDatePickerScreenProvider({
+    required this.onDateSelected,
+    required this.selectedDate,
+    required this.child,
+  }) : super(child: child);
 
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) {
     return true;
   }
 
-  static CineDatePickerScreenProvider of(BuildContext context) =>
-      context.inheritFromWidgetOfExactType(CineDatePickerScreenProvider);
+  static CineDatePickerScreenProvider? of(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<CineDatePickerScreenProvider>();
 }
 
 class _CineDatePickerScreenState extends State<CineDatePickerScreen>
     with SingleTickerProviderStateMixin {
-  DateTime selectedDate;
+  late DateTime selectedDate;
 
   @override
   void initState() {

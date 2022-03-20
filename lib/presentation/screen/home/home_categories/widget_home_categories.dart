@@ -78,7 +78,7 @@ class _WidgetItemCategory extends StatelessWidget {
 
   _WidgetItemCategory(this.item);
 
-  BuildContext _context;
+  late BuildContext _context;
 
   @override
   Widget build(BuildContext context) {
@@ -116,8 +116,8 @@ class _WidgetItemCategory extends StatelessWidget {
 
 class _ItemCategoryVM {
   Categoryy categoryy;
-  String image;
-  String title;
+  late String image;
+  late String title;
 
   _ItemCategoryVM.fromCategory(this.categoryy) {
     image = "assets/${this.categoryy.icon}";

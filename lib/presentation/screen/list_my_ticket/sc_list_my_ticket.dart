@@ -84,7 +84,7 @@ class ListMyTicketScreen extends StatelessWidget {
     }
 
     if (state.msg != null) {
-      return WidgetScreenMessage(msg: state.msg);
+      return WidgetScreenMessage(msg: state.msg!);
     }
 
     if (state.data.isNotEmpty) {

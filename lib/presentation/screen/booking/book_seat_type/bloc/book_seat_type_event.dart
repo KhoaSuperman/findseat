@@ -14,7 +14,7 @@ class ClickHowManySeat extends BookSeatTypeEvent {
   int seatCount;
 
   ClickHowManySeat({
-    this.seatCount,
+    required this.seatCount,
   });
 
   @override
@@ -25,7 +25,7 @@ class ClickSelectSeatType extends BookSeatTypeEvent {
   SEAT_TYPE selectedSeatType;
 
   ClickSelectSeatType({
-    this.selectedSeatType,
+    required this.selectedSeatType,
   });
 
   @override

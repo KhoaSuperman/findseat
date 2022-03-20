@@ -10,11 +10,11 @@ class ItemSeatSlotVM extends Equatable {
   SEAT_TYPE seatType;
 
   ItemSeatSlotVM({
-    @required this.seatId,
-    @required this.isOff,
-    @required this.isBooked,
-    @required this.isSelected,
-    @required this.seatType,
+    required this.seatId,
+    required this.isOff,
+    required this.isBooked,
+    required this.isSelected,
+    required this.seatType,
   });
 
   @override

@@ -64,14 +64,14 @@ class _AllShowsScreenState extends State<AllShowsScreen> {
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 32),
-                  child: Text(state.msg, style: FONT_CONST.REGULAR_GRAY4_14),
+                  child: Text(state.msg!, style: FONT_CONST.REGULAR_GRAY4_14),
                 ),
               ),
             );
           }
 
           if (state.meta != null) {
-            return WidgetShowGallery(meta: state.meta);
+            return WidgetShowGallery(meta: state.meta!);
           }
 
           return Container();

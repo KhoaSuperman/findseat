@@ -11,12 +11,12 @@ class BookTimeSlotBloc extends Bloc<BookTimeSlotEvent, BookTimeSlotState> {
   SessionRepository sessionRepo;
 
   //must be param of constructor
-  String showId;
+  late String showId;
 
   BookTimeSlotBloc({
-    @required this.bookTimeSlotRepository,
-    @required this.sessionRepo,
-  });
+    required this.bookTimeSlotRepository,
+    required this.sessionRepo,
+  }) : super(BookTimeSlotState());
 
   @override
   BookTimeSlotState get initialState => BookTimeSlotState(isLoading: true);

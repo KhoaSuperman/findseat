@@ -36,7 +36,7 @@ class _RegisterFormState extends State<RegisterForm> {
       TextEditingController();
   final TextEditingController _nameController = TextEditingController();
 
-  RegisterBloc _registerBloc;
+  late RegisterBloc _registerBloc;
 
   bool get isPopulated =>
       _emailController.text.isNotEmpty &&
@@ -116,7 +116,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     ),
                     keyboardType: TextInputType.emailAddress,
                     autocorrect: false,
-                    autovalidate: true,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (_) {
                       return !state.isEmailValid ? 'Invalid Email' : null;
                     },
@@ -129,7 +129,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     ),
                     keyboardType: TextInputType.text,
                     autocorrect: false,
-                    autovalidate: true,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (_) {
                       return !state.isNameValid ? 'Invalid Name' : null;
                     },
@@ -142,7 +142,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     ),
                     obscureText: true,
                     autocorrect: false,
-                    autovalidate: true,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (_) {
                       return !state.isPasswordValid ? 'Invalid Password' : null;
                     },
@@ -155,7 +155,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     ),
                     obscureText: true,
                     autocorrect: false,
-                    autovalidate: true,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (_) {
                       return !state.isConfirmPasswordValid
                           ? 'Password does not matched'

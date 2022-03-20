@@ -9,10 +9,10 @@ import 'package:find_seat/presentation/screen/home/recommended_seats/bloc/bloc.d
 class RecommendedSeatsBloc
     extends Bloc<RecommendedSeatsEvent, RecommendedSeatsState> {
   final HomeBloc homeBloc;
-  StreamSubscription subscription;
+  late StreamSubscription subscription;
 
-  RecommendedSeatsBloc({@required this.homeBloc}) {
-    subscription = homeBloc.listen((state) {
+  RecommendedSeatsBloc({required this.homeBloc}) : super(RecommendedSeatsNotLoaded()) {
+    subscription = homeBloc.stream.listen((state) {
       if (state is HomeLoaded) {
         add(DisplayRecommendedSeats(state.response.recommendedSeats));
       }

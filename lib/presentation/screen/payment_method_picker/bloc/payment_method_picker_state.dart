@@ -8,6 +8,6 @@ abstract class PaymentMethodPickerState with _$PaymentMethodPickerState {
   const factory PaymentMethodPickerState({
     @Default(true) bool isLoading,
     @Default(false) bool isComplete,
-    String msg,
+    String? msg,
   }) = _PaymentMethodPickerState;
 }

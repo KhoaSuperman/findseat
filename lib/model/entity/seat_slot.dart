@@ -5,6 +5,5 @@ class SeatSlot {
   String rowId;
   bool isBooked;
 
-  SeatSlot(
-      {@required this.slotId, @required this.rowId, @required this.isBooked});
+  SeatSlot({required this.slotId, required this.rowId, required this.isBooked});
 }

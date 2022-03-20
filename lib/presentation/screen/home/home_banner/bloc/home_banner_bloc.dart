@@ -8,10 +8,10 @@ import 'package:find_seat/presentation/screen/home/home_banner/bloc/bloc.dart';
 
 class HomeBannerBloc extends Bloc<HomeBannerEvent, HomeBannerState> {
   final HomeBloc homeBloc;
-  StreamSubscription subscription;
+  late StreamSubscription subscription;
 
-  HomeBannerBloc({@required this.homeBloc}) {
-    subscription = homeBloc.listen(
+  HomeBannerBloc({required this.homeBloc}) : super(HomeBannerNotLoaded()) {
+    subscription = homeBloc.stream.listen(
       (state) {
         if (state is HomeLoaded) {
           add(DisplayHomeBanner(banners: state.response.banners));

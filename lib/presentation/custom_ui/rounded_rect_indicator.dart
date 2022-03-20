@@ -4,14 +4,14 @@ class RoundedRectIndicator extends Decoration {
   final BoxPainter _painter;
 
   RoundedRectIndicator({
-    @required Color color,
-    @required double radius,
+    required Color color,
+    required double radius,
     double padding = 0.0,
     double weight = 3.0,
   }) : _painter = _RectPainter(color, radius, padding, weight);
 
   @override
-  BoxPainter createBoxPainter([onChanged]) {
+  BoxPainter createBoxPainter([VoidCallback? onChanged]) {
     return _painter;
   }
 }
@@ -30,8 +30,8 @@ class _RectPainter extends BoxPainter {
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration cfg) {
-    var width = cfg.size.width;
-    var height = cfg.size.height;
+    var width = cfg.size!.width;
+    var height = cfg.size!.height;
 
     var left = 0.0;
     var top = height - indicatorPaddingBottom;

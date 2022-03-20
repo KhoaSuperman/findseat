@@ -10,7 +10,7 @@ import 'package:dotted_border/dotted_border.dart';
 class WidgetOffers extends StatelessWidget {
   Show show;
 
-  WidgetOffers({this.show});
+  WidgetOffers({required this.show});
 
   @override
   Widget build(BuildContext context) {
@@ -75,12 +75,13 @@ class _WidgetGrabReward extends StatelessWidget {
   String title;
   String content;
 
-  _WidgetGrabReward(
-      {this.iconPath,
-      this.iconBgColor,
-      this.textColor,
-      this.title,
-      this.content});
+  _WidgetGrabReward({
+    required this.iconPath,
+    required this.iconBgColor,
+    required this.textColor,
+    required this.title,
+    required this.content,
+  });
 
   @override
   Widget build(BuildContext context) {

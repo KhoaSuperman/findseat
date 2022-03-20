@@ -4,18 +4,18 @@ import 'package:shimmer/shimmer.dart';
 class ShimmerImage extends StatelessWidget {
   String url;
   BoxFit fit;
-  double width;
-  double height;
-  double aspectRatio;
-  double iconHolderSize = 40;
+  double? width;
+  double? height;
+  double? aspectRatio;
+  double iconHolderSize;
 
   ShimmerImage(
     this.url, {
-    this.fit,
+    required this.fit,
     this.width,
     this.height,
     this.aspectRatio,
-    this.iconHolderSize,
+    this.iconHolderSize = 40,
   });
 
   @override
@@ -23,11 +23,11 @@ class ShimmerImage extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Shimmer.fromColors(
-          baseColor: Colors.grey[200],
-          highlightColor: Colors.grey[100],
+          baseColor: Colors.grey[200]!,
+          highlightColor: Colors.grey[100]!,
           child: this.aspectRatio != null
               ? AspectRatio(
-                  aspectRatio: aspectRatio,
+                  aspectRatio: aspectRatio!,
                   child: Container(
                     child: _buildIcon(),
                   ),
@@ -40,17 +40,17 @@ class ShimmerImage extends StatelessWidget {
         ),
         this.aspectRatio != null
             ? AspectRatio(
-                aspectRatio: aspectRatio,
+                aspectRatio: aspectRatio!,
                 child: Image.network(
                   url,
-                  fit: fit ?? BoxFit.contain,
+                  fit: fit,
                 ),
               )
             : Image.network(
                 url,
                 width: this.width,
                 height: this.height,
-                fit: fit ?? BoxFit.contain,
+                fit: fit,
               ),
       ],
     );

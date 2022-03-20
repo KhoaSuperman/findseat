@@ -30,11 +30,11 @@ class WidgetListShow extends StatelessWidget {
 }
 
 class _WidgetItemShow extends StatelessWidget {
-  ItemShowVM item;
+  late ItemShowVM item;
 
   _WidgetItemShow(this.item);
 
-  BuildContext _context;
+  late BuildContext _context;
 
   @override
   Widget build(BuildContext context) {
@@ -86,11 +86,11 @@ class _WidgetItemShow extends StatelessWidget {
 }
 
 class ItemShowVM {
-  Show show;
+  late Show show;
 
-  String photo;
-  String title;
-  int likePercent;
+  late String photo;
+  late String title;
+  late int likePercent;
 
   ItemShowVM(this.photo, this.title, this.likePercent);
 

@@ -12,9 +12,9 @@ class BookTimeSlot extends Equatable {
   List<String> tami;
 
   BookTimeSlot({
-    this.cine,
-    this.timeSlots,
-    this.tami,
+    required this.cine,
+    required this.timeSlots,
+    required this.tami,
   });
 
   factory BookTimeSlot.fromJson(Map<String, dynamic> json) =>

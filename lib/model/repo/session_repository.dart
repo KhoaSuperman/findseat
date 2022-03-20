@@ -7,7 +7,7 @@ import 'package:meta/meta.dart';
 class SessionRepository {
   Pref pref;
 
-  SessionRepository({@required this.pref});
+  SessionRepository({required this.pref});
 
   Future<bool> cacheBookTimeSlot(BookTimeSlot bookTimeSlot) {
     return pref.saveString(

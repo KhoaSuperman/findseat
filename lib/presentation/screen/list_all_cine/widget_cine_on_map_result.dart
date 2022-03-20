@@ -8,7 +8,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 class WidgetCineOnMapResult extends StatefulWidget {
   List<Cine> items = [];
 
-  WidgetCineOnMapResult({this.items});
+  WidgetCineOnMapResult({required this.items});
 
   @override
   _WidgetCineOnMapResultState createState() => _WidgetCineOnMapResultState();

@@ -9,7 +9,7 @@ class Banner extends Equatable {
   @JsonKey(name: 'image')
   String url;
 
-  Banner({this.id, this.url});
+  Banner({required this.id, required this.url});
 
   factory Banner.fromJson(Map<String, dynamic> json) => _$BannerFromJson(json);
 

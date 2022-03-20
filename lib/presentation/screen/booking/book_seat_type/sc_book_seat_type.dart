@@ -16,9 +16,9 @@ class BookSeatTypeScreen extends StatefulWidget {
 }
 
 class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
-  BuildContext _blocContext;
+  late BuildContext _blocContext;
 
-  ItemCineTimeSlot _itemCineTimeSlot;
+  late ItemCineTimeSlot _itemCineTimeSlot;
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +39,10 @@ class _BookSeatTypeScreenState extends State<BookSeatTypeScreen> {
             _blocContext = context;
 
             if (state.show != null && state.bookTimeSlot != null) {
-              BookTimeSlot bookTimeSlot = state.bookTimeSlot;
+              BookTimeSlot bookTimeSlot = state.bookTimeSlot!;
               int selectedIndex =
-                  bookTimeSlot.timeSlots.indexOf(state.selectedTimeSlot);
-              String showName = state.show.name;
+                  bookTimeSlot.timeSlots.indexOf(state.selectedTimeSlot!);
+              String showName = state.show!.name;
 
               _itemCineTimeSlot =
                   ItemCineTimeSlot.fromBookTimeSlot(bookTimeSlot: bookTimeSlot);

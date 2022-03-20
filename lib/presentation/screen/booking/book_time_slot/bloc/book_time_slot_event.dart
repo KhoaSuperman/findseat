@@ -27,7 +27,7 @@ class ClickCloseSearch extends BookTimeSlotEvent {
 class SearchQueryChanged extends BookTimeSlotEvent {
   String keyword;
 
-  SearchQueryChanged({this.keyword});
+  SearchQueryChanged({required this.keyword});
 
   @override
   List<Object> get props => [keyword];
@@ -46,7 +46,7 @@ class ClickIconSort extends BookTimeSlotEvent {
 class SortByChanged extends BookTimeSlotEvent {
   BOOKING_TIME_SLOT_SORT_BY sortBy;
 
-  SortByChanged({this.sortBy});
+  SortByChanged({required this.sortBy});
 
   @override
   List<Object> get props => [sortBy];
@@ -62,8 +62,8 @@ class SelectTimeSlot extends BookTimeSlotEvent {
   BookTimeSlot bookTimeSlot;
 
   SelectTimeSlot({
-    @required this.selectedTimeSlot,
-    @required this.bookTimeSlot,
+    required this.selectedTimeSlot,
+    required this.bookTimeSlot,
   });
 
   @override

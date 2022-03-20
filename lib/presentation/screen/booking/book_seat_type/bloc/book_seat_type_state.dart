@@ -7,9 +7,9 @@ part 'book_seat_type_state.freezed.dart';
 @freezed
 abstract class BookSeatTypeState with _$BookSeatTypeState {
   const factory BookSeatTypeState({
-    Show show,
-    TimeSlot selectedTimeSlot,
-    BookTimeSlot bookTimeSlot,
+    Show? show,
+    TimeSlot? selectedTimeSlot,
+    BookTimeSlot? bookTimeSlot,
     //
     @Default(2) int seatCount,
     @Default(SEAT_TYPE.KING) SEAT_TYPE selectedSeatType,

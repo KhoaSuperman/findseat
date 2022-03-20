@@ -9,7 +9,7 @@ import './bloc.dart';
 class ShowDetailsBloc extends Bloc<ShowDetailsEvent, ShowDetailsState> {
   SessionRepository sessionRepository;
 
-  ShowDetailsBloc({@required this.sessionRepository});
+  ShowDetailsBloc({required this.sessionRepository}) : super(InitialShowDetailsState());
 
   @override
   ShowDetailsState get initialState => InitialShowDetailsState();

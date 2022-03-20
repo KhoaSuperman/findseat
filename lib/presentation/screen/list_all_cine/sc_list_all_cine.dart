@@ -22,14 +22,14 @@ class ListAllCineScreenProvider extends InheritedWidget {
   ValueChanged<DistanceFilter> onFilterChanged;
 
   ListAllCineScreenProvider({
-    @required this.child,
-    @required this.onFilterChanged,
-  });
+    required this.child,
+    required this.onFilterChanged,
+  }) : super(child: child);
 
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) => true;
 
-  static ListAllCineScreenProvider of(BuildContext context) {
+  static ListAllCineScreenProvider? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType();
   }
 }

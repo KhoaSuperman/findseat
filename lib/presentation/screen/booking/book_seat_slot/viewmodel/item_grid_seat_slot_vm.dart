@@ -15,9 +15,9 @@ class ItemGridSeatSlotVM extends Equatable {
   List<ItemSeatRowVM> seatRowVMs;
 
   ItemGridSeatSlotVM({
-    @required this.maxColumn,
-    @required this.seatTypeName,
-    @required this.seatRowVMs,
+    required this.maxColumn,
+    required this.seatTypeName,
+    required this.seatRowVMs,
   });
 
   @override

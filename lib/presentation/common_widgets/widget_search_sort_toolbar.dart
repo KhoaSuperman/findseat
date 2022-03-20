@@ -11,7 +11,7 @@ class WidgetSearchSortToolbar extends StatefulWidget {
   String title;
 
   WidgetSearchSortToolbar({
-    this.title,
+    required this.title,
   });
 
   @override
@@ -19,7 +19,7 @@ class WidgetSearchSortToolbar extends StatefulWidget {
 }
 
 class _WidgetSearchSortToolbarState extends State<WidgetSearchSortToolbar> {
-  BuildContext _blocContext;
+  late BuildContext _blocContext;
 
   TextEditingController _searchController = TextEditingController();
 

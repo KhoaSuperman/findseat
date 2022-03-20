@@ -13,9 +13,9 @@ import 'bloc/bloc.dart';
 class BookTimeSlotScreen extends StatelessWidget {
   Show show;
 
-  BookTimeSlotScreen({this.show});
+  BookTimeSlotScreen({required this.show});
 
-  BuildContext _context;
+  late BuildContext _context;
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +86,7 @@ class BookTimeSlotScreen extends StatelessWidget {
         }
 
         if (state.msg != null) {
-          return WidgetScreenMessage(msg: state.msg);
+          return WidgetScreenMessage(msg: state.msg!);
         }
 
         return WidgetUnknownState();
@@ -157,22 +157,22 @@ class BookTimeSlotScreen extends StatelessWidget {
 }
 
 class ItemCineTimeSlot {
-  BookTimeSlot bookTimeSlot;
+  late BookTimeSlot bookTimeSlot;
 
-  String cineName;
-  Cine cine;
-  String textLocation;
-  String textDistance;
-  List<ItemTimeSlot> timeSlots;
+  late String cineName;
+  late Cine cine;
+  late String textLocation;
+  late String textDistance;
+  late List<ItemTimeSlot> timeSlots;
 
   ItemCineTimeSlot({
-    this.cine,
-    this.textLocation,
-    this.textDistance,
-    this.timeSlots,
+    required this.cine,
+    required this.textLocation,
+    required this.textDistance,
+    required this.timeSlots,
   }) : this.cineName = cine.name;
 
-  ItemCineTimeSlot.fromBookTimeSlot({this.bookTimeSlot}) {
+  ItemCineTimeSlot.fromBookTimeSlot({required this.bookTimeSlot}) {
     this.cine = bookTimeSlot.cine;
     this.timeSlots = bookTimeSlot.timeSlots
         .map((timeSlot) => ItemTimeSlot.fromTimeSlot(timeSlot: timeSlot))

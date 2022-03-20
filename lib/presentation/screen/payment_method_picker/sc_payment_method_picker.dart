@@ -34,7 +34,7 @@ class PaymentMethodPickerScreen extends StatefulWidget {
 }
 
 class _PaymentMethodPickerScreenState extends State<PaymentMethodPickerScreen> {
-  BuildContext blocContext;
+  late BuildContext blocContext;
 
   @override
   void initState() {
@@ -128,6 +128,9 @@ class _PaymentMethodPickerScreenState extends State<PaymentMethodPickerScreen> {
     _cardForm();
   }
 
+  PaymentMethodPickerBloc get bloc =>
+      BlocProvider.of<PaymentMethodPickerBloc>(blocContext);
+
   void _cardForm() {
     var onError = (error) {
       print('Error. ${error.toString()}');
@@ -139,13 +142,13 @@ class _PaymentMethodPickerScreenState extends State<PaymentMethodPickerScreen> {
       ),
     ).then((paymentMethod) {
       //for saving ticket to local db
-      blocContext.bloc<PaymentMethodPickerBloc>().add(OnPaymentSuccessEvent(
-            widget.show.name,
-            widget.show.thumb,
-            widget.selectedSeatIds,
-            widget.selectedTimeSlot,
-            widget.bookTimeSlot.cine.name,
-          ));
+      bloc.add(OnPaymentSuccessEvent(
+        widget.show.name,
+        widget.show.thumb,
+        widget.selectedSeatIds,
+        widget.selectedTimeSlot,
+        widget.bookTimeSlot.cine.name,
+      ));
 
       String ticketInfo = "${widget.show.name}\n"
           "Items: ${widget.selectedSeatIds.length}\n"

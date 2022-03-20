@@ -10,7 +10,7 @@ import 'barrel_all_shows.dart';
 class WidgetShowGallery extends StatefulWidget {
   Meta meta;
 
-  WidgetShowGallery({this.meta});
+  WidgetShowGallery({required this.meta});
 
   @override
   _WidgetShowGalleryState createState() => _WidgetShowGalleryState();
@@ -18,7 +18,7 @@ class WidgetShowGallery extends StatefulWidget {
 
 class _WidgetShowGalleryState extends State<WidgetShowGallery>
     with SingleTickerProviderStateMixin {
-  TabController _controller;
+  late TabController _controller;
   int currentTabIndex = 0;
 
   @override

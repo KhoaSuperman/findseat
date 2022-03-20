@@ -7,7 +7,7 @@ part 'demo_bloc_state.freezed.dart';
 abstract class DemoBlocState with _$DemoBlocState {
   const factory DemoBlocState({
     @Default(false) bool isLoading,
-    List<String> list,
-    String msg,
+    @Default([]) List<String> list,
+    String? msg,
   }) = _DemoBlocState;
 }

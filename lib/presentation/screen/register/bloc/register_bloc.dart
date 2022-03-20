@@ -7,18 +7,14 @@ import 'bloc.dart';
 import 'package:bloc/bloc.dart';
 
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
-  final UserRepository _userRepository;
+  final UserRepository userRepository;
 
-  RegisterBloc({@required UserRepository userRepository})
-      : assert(userRepository != null),
-        _userRepository = userRepository;
+  RegisterBloc({required this.userRepository}) : super(RegisterState.empty());
 
   @override
-  RegisterState get initialState => RegisterState.empty();
-
-  @override
-  Stream<RegisterState> transformEvents(Stream<RegisterEvent> events,
-      Stream<RegisterState> Function(RegisterEvent) next) {
+  Stream<Transition<RegisterEvent, RegisterState>> transformEvents(
+      Stream<RegisterEvent> events,
+      TransitionFunction<RegisterEvent, RegisterState> transitionFn) {
     final nonDebounceStream = events.where((event) {
       return (event is! EmailChanged &&
           event is! PasswordChanged &&
@@ -33,8 +29,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           event is NameChanged);
     }).debounceTime(Duration(milliseconds: 300));
 
-    return super
-        .transformEvents(nonDebounceStream.mergeWith([debounceStream]), next);
+    return super.transformEvents(
+        nonDebounceStream.mergeWith([debounceStream]), transitionFn);
   }
 
   @override
@@ -95,7 +91,6 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
   Stream<RegisterState> _mapFormSubmittedToState(String email, String password,
       String confirmPassword, String displayName) async* {
-
     //need refactor
     var isValidEmail = Validators.isValidEmail(email);
     var isValidName = displayName.isNotEmpty;
@@ -119,7 +114,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       yield RegisterState.loading();
 
       try {
-        await _userRepository.signUp(
+        await userRepository.signUp(
             email: email, password: password, displayName: displayName);
         yield RegisterState.success();
       } catch (_) {

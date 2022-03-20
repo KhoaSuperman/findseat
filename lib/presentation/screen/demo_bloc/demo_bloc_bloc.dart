@@ -7,8 +7,7 @@ class DemoBlocBloc extends Bloc<DemoBlocEvent, DemoBlocState> {
   static List<String> SAMPLE_DATA = ["Hello", "world", "this", "is", "demo"];
   static List<String> SAMPLE_FILTERED = ["world", "is"];
 
-  @override
-  DemoBlocState get initialState => DemoBlocState(isLoading: true);
+  DemoBlocBloc() : super(DemoBlocState());
 
   @override
   Stream<DemoBlocState> mapEventToState(

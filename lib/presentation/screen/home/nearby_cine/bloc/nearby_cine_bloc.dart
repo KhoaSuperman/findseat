@@ -9,10 +9,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NearbyCineBloc extends Bloc<NearbyCineEvent, NearbyCineState> {
   final HomeBloc homeBloc;
-  StreamSubscription subscription;
+  late StreamSubscription subscription;
 
-  NearbyCineBloc({@required this.homeBloc}) {
-    subscription = homeBloc.listen(
+  NearbyCineBloc({required this.homeBloc}) : super(NearbyCineNotLoaded()) {
+    subscription = homeBloc.stream.listen(
       (state) {
         if (state is HomeLoaded) {
           add(DisplayNearbyCine(cines: state.response.nearbyTheatres));

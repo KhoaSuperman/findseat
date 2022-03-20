@@ -17,7 +17,7 @@ class AllShowsBloc extends Bloc<AllShowsEvent, AllShowsState> {
 
   int sortByRating(Show a, Show b) => b.rate.compareTo(a.rate);
 
-  AllShowsBloc({this.showRepository});
+  AllShowsBloc({required this.showRepository}) : super(AllShowsState());
 
   @override
   AllShowsState get initialState => DisplayListShows.loading();
@@ -42,8 +42,9 @@ class AllShowsBloc extends Bloc<AllShowsEvent, AllShowsState> {
   }
 
   @override
-  Stream<AllShowsState> transformEvents(Stream<AllShowsEvent> events,
-      Function next) {
+  Stream<Transition<AllShowsEvent, AllShowsState>> transformEvents(
+      Stream<AllShowsEvent> events,
+      TransitionFunction<AllShowsEvent, AllShowsState> transitionFn) {
     final nonDebounceStream = events.where((event) {
       return (event is! SearchQueryChanged);
     });
@@ -52,8 +53,8 @@ class AllShowsBloc extends Bloc<AllShowsEvent, AllShowsState> {
       return (event is SearchQueryChanged);
     }).debounceTime(Duration(milliseconds: 400));
 
-    return super
-        .transformEvents(nonDebounceStream.mergeWith([debounceStream]), next);
+    return super.transformEvents(
+        nonDebounceStream.mergeWith([debounceStream]), transitionFn);
   }
 
   Stream<AllShowsState> _mapOpenScreenToState() async* {
@@ -77,7 +78,7 @@ class AllShowsBloc extends Bloc<AllShowsEvent, AllShowsState> {
       //this should be execute at server side
       bool query(Show show) =>
           keyword.isEmpty ||
-              show.name.toLowerCase().contains(keyword.toLowerCase());
+          show.name.toLowerCase().contains(keyword.toLowerCase());
 
       response.nowShowing = response.nowShowing.where(query).toList();
       response.comingSoon = response.comingSoon.where(query).toList();
@@ -131,5 +132,8 @@ class Meta {
   List<Show> comingSoon;
   List<Show> exclusive;
 
-  Meta({this.nowShowing, this.comingSoon, this.exclusive});
+  Meta(
+      {required this.nowShowing,
+      required this.comingSoon,
+      required this.exclusive});
 }

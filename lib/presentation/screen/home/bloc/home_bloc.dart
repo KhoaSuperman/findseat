@@ -6,7 +6,7 @@ import 'package:meta/meta.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final HomeRepository homeRepository;
 
-  HomeBloc({@required this.homeRepository});
+  HomeBloc({required this.homeRepository}) : super(HomeLoading());
 
   @override
   HomeState get initialState => HomeLoading();

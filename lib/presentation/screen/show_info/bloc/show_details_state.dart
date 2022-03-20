@@ -13,7 +13,7 @@ class OpenBookTimeSlotScreen extends ShowDetailsState {
   bool open = false;
 
   OpenBookTimeSlotScreen({
-    this.open,
+    required this.open,
   });
 
   @override

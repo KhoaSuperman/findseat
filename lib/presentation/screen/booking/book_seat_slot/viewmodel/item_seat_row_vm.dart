@@ -9,8 +9,8 @@ class ItemSeatRowVM extends Equatable {
   List<ItemSeatSlotVM> seatSlotVMs;
 
   ItemSeatRowVM({
-    @required this.itemRowName,
-    @required this.seatSlotVMs,
+    required this.itemRowName,
+    required this.seatSlotVMs,
   });
 
   @override

@@ -8,9 +8,8 @@ import 'bloc.dart';
 class ListMyTicketBloc extends Bloc<ListMyTicketEvent, ListMyTicketState> {
   TicketRepo ticketRepo;
 
-  ListMyTicketBloc(this.ticketRepo);
+  ListMyTicketBloc(this.ticketRepo) : super(ListMyTicketState());
 
-  @override
   ListMyTicketState get initialState => ListMyTicketState();
 
   @override
